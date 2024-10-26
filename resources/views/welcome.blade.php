@@ -1,176 +1,4281 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en" itemscope="" itemtype="http://schema.org/WebPage"
+    class=" sizes customelements history pointerevents postmessage webgl websockets cssanimations csscolumns csscolumns-width csscolumns-span csscolumns-fill csscolumns-gap csscolumns-rule csscolumns-rulecolor csscolumns-rulestyle csscolumns-rulewidth csscolumns-breakbefore csscolumns-breakafter csscolumns-breakinside flexbox picture srcset webworkers">
 
-        <title>Laravel</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> ChangaLab - Home</title>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <meta name="title" content="ChangaLab - Home">
+    <meta name="description"
+        content="ChangaLab can be explained as a network of buyers and sellers, who transfer currency between each other or for their own. It is the means by which individuals, and companies convert one currency into another. This Currency Exchange Platform is the most advanced script in Codecanyon. The Currency Exchange Platform is endlessly appealing, feature-loaded, customized, and possesses the remarkable capability of running on all devices and operating systems.">
+    <meta name="keywords"
+        content="exchange platform,currency exchange platform,changalab,usd to inr,currency exchnage,easy exchange,money exhcngae,bitcoin to usd,money exchange,crypto currency exchange,crypto currency">
 
-        <!-- Styles / Scripts -->
-        @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-            @vite(['resources/css/app.css', 'resources/js/app.js'])
-        @else
-            <style>
-                /* ! tailwindcss v3.4.1 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Figtree, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]{display:none}*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.absolute{position:absolute}.relative{position:relative}.-left-20{left:-5rem}.top-0{top:0px}.-bottom-16{bottom:-4rem}.-left-16{left:-4rem}.-mx-3{margin-left:-0.75rem;margin-right:-0.75rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.flex{display:flex}.grid{display:grid}.hidden{display:none}.aspect-video{aspect-ratio:16 / 9}.size-12{width:3rem;height:3rem}.size-5{width:1.25rem;height:1.25rem}.size-6{width:1.5rem;height:1.5rem}.h-12{height:3rem}.h-40{height:10rem}.h-full{height:100%}.min-h-screen{min-height:100vh}.w-full{width:100%}.w-\[calc\(100\%\+8rem\)\]{width:calc(100% + 8rem)}.w-auto{width:auto}.max-w-\[877px\]{max-width:877px}.max-w-2xl{max-width:42rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-center{align-items:center}.items-stretch{align-items:stretch}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.gap-2{gap:0.5rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.self-center{align-self:center}.overflow-hidden{overflow:hidden}.rounded-\[10px\]{border-radius:10px}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.rounded-sm{border-radius:0.125rem}.bg-\[\#FF2D20\]\/10{background-color:rgb(255 45 32 / 0.1)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity))}.bg-gradient-to-b{background-image:linear-gradient(to bottom, var(--tw-gradient-stops))}.from-transparent{--tw-gradient-from:transparent var(--tw-gradient-from-position);--tw-gradient-to:rgb(0 0 0 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-white{--tw-gradient-to:rgb(255 255 255 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #fff var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-white{--tw-gradient-to:#fff var(--tw-gradient-to-position)}.stroke-\[\#FF2D20\]{stroke:#FF2D20}.object-cover{object-fit:cover}.object-top{object-position:top}.p-6{padding:1.5rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.pt-3{padding-top:0.75rem}.text-center{text-align:center}.font-sans{font-family:Figtree, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-sm\/relaxed{font-size:0.875rem;line-height:1.625}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-semibold{font-weight:600}.text-black{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.shadow-\[0px_14px_34px_0px_rgba\(0\2c 0\2c 0\2c 0\.08\)\]{--tw-shadow:0px 14px 34px 0px rgba(0,0,0,0.08);--tw-shadow-colored:0px 14px 34px 0px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.ring-1{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.ring-transparent{--tw-ring-color:transparent}.ring-white\/\[0\.05\]{--tw-ring-color:rgb(255 255 255 / 0.05)}.drop-shadow-\[0px_4px_34px_rgba\(0\2c 0\2c 0\2c 0\.06\)\]{--tw-drop-shadow:drop-shadow(0px 4px 34px rgba(0,0,0,0.06));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.drop-shadow-\[0px_4px_34px_rgba\(0\2c 0\2c 0\2c 0\.25\)\]{--tw-drop-shadow:drop-shadow(0px 4px 34px rgba(0,0,0,0.25));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.selection\:bg-\[\#FF2D20\] *::selection{--tw-bg-opacity:1;background-color:rgb(255 45 32 / var(--tw-bg-opacity))}.selection\:text-white *::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.selection\:bg-\[\#FF2D20\]::selection{--tw-bg-opacity:1;background-color:rgb(255 45 32 / var(--tw-bg-opacity))}.selection\:text-white::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.hover\:text-black:hover{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity))}.hover\:text-black\/70:hover{color:rgb(0 0 0 / 0.7)}.hover\:ring-black\/20:hover{--tw-ring-color:rgb(0 0 0 / 0.2)}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus-visible\:ring-1:focus-visible{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus-visible\:ring-\[\#FF2D20\]:focus-visible{--tw-ring-opacity:1;--tw-ring-color:rgb(255 45 32 / var(--tw-ring-opacity))}@media (min-width: 640px){.sm\:size-16{width:4rem;height:4rem}.sm\:size-6{width:1.5rem;height:1.5rem}.sm\:pt-5{padding-top:1.25rem}}@media (min-width: 768px){.md\:row-span-3{grid-row:span 3 / span 3}}@media (min-width: 1024px){.lg\:col-start-2{grid-column-start:2}.lg\:h-16{height:4rem}.lg\:max-w-7xl{max-width:80rem}.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.lg\:flex-col{flex-direction:column}.lg\:items-end{align-items:flex-end}.lg\:justify-center{justify-content:center}.lg\:gap-8{gap:2rem}.lg\:p-10{padding:2.5rem}.lg\:pb-10{padding-bottom:2.5rem}.lg\:pt-0{padding-top:0px}.lg\:text-\[\#FF2D20\]{--tw-text-opacity:1;color:rgb(255 45 32 / var(--tw-text-opacity))}}@media (prefers-color-scheme: dark){.dark\:block{display:block}.dark\:hidden{display:none}.dark\:bg-black{--tw-bg-opacity:1;background-color:rgb(0 0 0 / var(--tw-bg-opacity))}.dark\:bg-zinc-900{--tw-bg-opacity:1;background-color:rgb(24 24 27 / var(--tw-bg-opacity))}.dark\:via-zinc-900{--tw-gradient-to:rgb(24 24 27 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #18181b var(--tw-gradient-via-position), var(--tw-gradient-to)}.dark\:to-zinc-900{--tw-gradient-to:#18181b var(--tw-gradient-to-position)}.dark\:text-white\/50{color:rgb(255 255 255 / 0.5)}.dark\:text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.dark\:text-white\/70{color:rgb(255 255 255 / 0.7)}.dark\:ring-zinc-800{--tw-ring-opacity:1;--tw-ring-color:rgb(39 39 42 / var(--tw-ring-opacity))}.dark\:hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.dark\:hover\:text-white\/70:hover{color:rgb(255 255 255 / 0.7)}.dark\:hover\:text-white\/80:hover{color:rgb(255 255 255 / 0.8)}.dark\:hover\:ring-zinc-700:hover{--tw-ring-opacity:1;--tw-ring-color:rgb(63 63 70 / var(--tw-ring-opacity))}.dark\:focus-visible\:ring-\[\#FF2D20\]:focus-visible{--tw-ring-opacity:1;--tw-ring-color:rgb(255 45 32 / var(--tw-ring-opacity))}.dark\:focus-visible\:ring-white:focus-visible{--tw-ring-opacity:1;--tw-ring-color:rgb(255 255 255 / var(--tw-ring-opacity))}}
-            </style>
-        @endif
-    </head>
-    <body class="font-sans antialiased dark:bg-black dark:text-white/50">
-        <div class="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50">
-            <img id="background" class="absolute -left-20 top-0 max-w-[877px]" src="https://laravel.com/assets/img/welcome/background.svg" alt="Laravel background" />
-            <div class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
-                <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
-                    <header class="grid grid-cols-2 items-center gap-2 py-10 lg:grid-cols-3">
-                        <div class="flex lg:justify-center lg:col-start-2">
-                            <svg class="h-12 w-auto text-white lg:h-16 lg:text-[#FF2D20]" viewBox="0 0 62 65" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M61.8548 14.6253C61.8778 14.7102 61.8895 14.7978 61.8897 14.8858V28.5615C61.8898 28.737 61.8434 28.9095 61.7554 29.0614C61.6675 29.2132 61.5409 29.3392 61.3887 29.4265L49.9104 36.0351V49.1337C49.9104 49.4902 49.7209 49.8192 49.4118 49.9987L25.4519 63.7916C25.3971 63.8227 25.3372 63.8427 25.2774 63.8639C25.255 63.8714 25.2338 63.8851 25.2101 63.8913C25.0426 63.9354 24.8666 63.9354 24.6991 63.8913C24.6716 63.8838 24.6467 63.8689 24.6205 63.8589C24.5657 63.8389 24.5084 63.8215 24.456 63.7916L0.501061 49.9987C0.348882 49.9113 0.222437 49.7853 0.134469 49.6334C0.0465019 49.4816 0.000120578 49.3092 0 49.1337L0 8.10652C0 8.01678 0.0124642 7.92953 0.0348998 7.84477C0.0423783 7.8161 0.0598282 7.78993 0.0697995 7.76126C0.0884958 7.70891 0.105946 7.65531 0.133367 7.6067C0.152063 7.5743 0.179485 7.54812 0.20192 7.51821C0.230588 7.47832 0.256763 7.43719 0.290416 7.40229C0.319084 7.37362 0.356476 7.35243 0.388883 7.32751C0.425029 7.29759 0.457436 7.26518 0.498568 7.2415L12.4779 0.345059C12.6296 0.257786 12.8015 0.211853 12.9765 0.211853C13.1515 0.211853 13.3234 0.257786 13.475 0.345059L25.4531 7.2415H25.4556C25.4955 7.26643 25.5292 7.29759 25.5653 7.32626C25.5977 7.35119 25.6339 7.37362 25.6625 7.40104C25.6974 7.43719 25.7224 7.47832 25.7523 7.51821C25.7735 7.54812 25.8021 7.5743 25.8196 7.6067C25.8483 7.65656 25.8645 7.70891 25.8844 7.76126C25.8944 7.78993 25.9118 7.8161 25.9193 7.84602C25.9423 7.93096 25.954 8.01853 25.9542 8.10652V33.7317L35.9355 27.9844V14.8846C35.9355 14.7973 35.948 14.7088 35.9704 14.6253C35.9792 14.5954 35.9954 14.5692 36.0053 14.5405C36.0253 14.4882 36.0427 14.4346 36.0702 14.386C36.0888 14.3536 36.1163 14.3274 36.1375 14.2975C36.1674 14.2576 36.1923 14.2165 36.2272 14.1816C36.2559 14.1529 36.292 14.1317 36.3244 14.1068C36.3618 14.0769 36.3942 14.0445 36.4341 14.0208L48.4147 7.12434C48.5663 7.03694 48.7383 6.99094 48.9133 6.99094C49.0883 6.99094 49.2602 7.03694 49.4118 7.12434L61.3899 14.0208C61.4323 14.0457 61.4647 14.0769 61.5021 14.1055C61.5333 14.1305 61.5694 14.1529 61.5981 14.1803C61.633 14.2165 61.6579 14.2576 61.6878 14.2975C61.7103 14.3274 61.7377 14.3536 61.7551 14.386C61.7838 14.4346 61.8 14.4882 61.8199 14.5405C61.8312 14.5692 61.8474 14.5954 61.8548 14.6253ZM59.893 27.9844V16.6121L55.7013 19.0252L49.9104 22.3593V33.7317L59.8942 27.9844H59.893ZM47.9149 48.5566V37.1768L42.2187 40.4299L25.953 49.7133V61.2003L47.9149 48.5566ZM1.99677 9.83281V48.5566L23.9562 61.199V49.7145L12.4841 43.2219L12.4804 43.2194L12.4754 43.2169C12.4368 43.1945 12.4044 43.1621 12.3682 43.1347C12.3371 43.1097 12.3009 43.0898 12.2735 43.0624L12.271 43.0586C12.2386 43.0275 12.2162 42.9888 12.1887 42.9539C12.1638 42.9203 12.1339 42.8916 12.114 42.8567L12.1127 42.853C12.0903 42.8156 12.0766 42.7707 12.0604 42.7283C12.0442 42.6909 12.023 42.656 12.013 42.6161C12.0005 42.5688 11.998 42.5177 11.9931 42.4691C11.9881 42.4317 11.9781 42.3943 11.9781 42.3569V15.5801L6.18848 12.2446L1.99677 9.83281ZM12.9777 2.36177L2.99764 8.10652L12.9752 13.8513L22.9541 8.10527L12.9752 2.36177H12.9777ZM18.1678 38.2138L23.9574 34.8809V9.83281L19.7657 12.2459L13.9749 15.5801V40.6281L18.1678 38.2138ZM48.9133 9.14105L38.9344 14.8858L48.9133 20.6305L58.8909 14.8846L48.9133 9.14105ZM47.9149 22.3593L42.124 19.0252L37.9323 16.6121V27.9844L43.7219 31.3174L47.9149 33.7317V22.3593ZM24.9533 47.987L39.59 39.631L46.9065 35.4555L36.9352 29.7145L25.4544 36.3242L14.9907 42.3482L24.9533 47.987Z" fill="currentColor"/></svg>
-                        </div>
-                        @if (Route::has('login'))
-                            <nav class="-mx-3 flex flex-1 justify-end">
-                                @auth
-                                    <a
-                                        href="{{ url('/dashboard') }}"
-                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                                    >
-                                        Dashboard
-                                    </a>
-                                @else
-                                    <a
-                                        href="{{ route('login') }}"
-                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                                    >
-                                        Log in
-                                    </a>
+    <link rel="shortcut icon" href="https://script.viserlab.com/changalab/demo/assets/images/logo_icon/favicon.png"
+        type="image/x-icon">
 
-                                    @if (Route::has('register'))
-                                        <a
-                                            href="{{ route('register') }}"
-                                            class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                                        >
-                                            Register
-                                        </a>
-                                    @endif
-                                @endauth
-                            </nav>
-                        @endif
-                    </header>
 
-                    <main class="mt-6">
-                        <div class="grid gap-6 lg:grid-cols-2 lg:gap-8">
-                            <a
-                                href="https://laravel.com/docs"
-                                id="docs-card"
-                                class="flex flex-col items-start gap-6 overflow-hidden rounded-lg bg-white p-6 shadow-[0px_14px_34px_0px_rgba(0,0,0,0.08)] ring-1 ring-white/[0.05] transition duration-300 hover:text-black/70 hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] md:row-span-3 lg:p-10 lg:pb-10 dark:bg-zinc-900 dark:ring-zinc-800 dark:hover:text-white/70 dark:hover:ring-zinc-700 dark:focus-visible:ring-[#FF2D20]"
-                            >
-                                <div id="screenshot-container" class="relative flex w-full flex-1 items-stretch">
-                                    <img
-                                        src="https://laravel.com/assets/img/welcome/docs-light.svg"
-                                        alt="Laravel documentation screenshot"
-                                        class="aspect-video h-full w-full flex-1 rounded-[10px] object-top object-cover drop-shadow-[0px_4px_34px_rgba(0,0,0,0.06)] dark:hidden"
-                                        onerror="
-                                            document.getElementById('screenshot-container').classList.add('!hidden');
-                                            document.getElementById('docs-card').classList.add('!row-span-1');
-                                            document.getElementById('docs-card-content').classList.add('!flex-row');
-                                            document.getElementById('background').classList.add('!hidden');
-                                        "
-                                    />
-                                    <img
-                                        src="https://laravel.com/assets/img/welcome/docs-dark.svg"
-                                        alt="Laravel documentation screenshot"
-                                        class="hidden aspect-video h-full w-full flex-1 rounded-[10px] object-top object-cover drop-shadow-[0px_4px_34px_rgba(0,0,0,0.25)] dark:block"
-                                    />
-                                    <div
-                                        class="absolute -bottom-16 -left-16 h-40 w-[calc(100%+8rem)] bg-gradient-to-b from-transparent via-white to-white dark:via-zinc-900 dark:to-zinc-900"
-                                    ></div>
-                                </div>
+    <link rel="apple-touch-icon" href="https://script.viserlab.com/changalab/demo/assets/images/logo_icon/logo.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="ChangaLab - Home">
 
-                                <div class="relative flex items-center gap-6 lg:items-end">
-                                    <div id="docs-card-content" class="flex items-start gap-6 lg:flex-col">
-                                        <div class="flex size-12 shrink-0 items-center justify-center rounded-full bg-[#FF2D20]/10 sm:size-16">
-                                            <svg class="size-5 sm:size-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path fill="#FF2D20" d="M23 4a1 1 0 0 0-1.447-.894L12.224 7.77a.5.5 0 0 1-.448 0L2.447 3.106A1 1 0 0 0 1 4v13.382a1.99 1.99 0 0 0 1.105 1.79l9.448 4.728c.14.065.293.1.447.1.154-.005.306-.04.447-.105l9.453-4.724a1.99 1.99 0 0 0 1.1-1.789V4ZM3 6.023a.25.25 0 0 1 .362-.223l7.5 3.75a.251.251 0 0 1 .138.223v11.2a.25.25 0 0 1-.362.224l-7.5-3.75a.25.25 0 0 1-.138-.22V6.023Zm18 11.2a.25.25 0 0 1-.138.224l-7.5 3.75a.249.249 0 0 1-.329-.099.249.249 0 0 1-.033-.12V9.772a.251.251 0 0 1 .138-.224l7.5-3.75a.25.25 0 0 1 .362.224v11.2Z"/><path fill="#FF2D20" d="m3.55 1.893 8 4.048a1.008 1.008 0 0 0 .9 0l8-4.048a1 1 0 0 0-.9-1.785l-7.322 3.706a.506.506 0 0 1-.452 0L4.454.108a1 1 0 0 0-.9 1.785H3.55Z"/></svg>
-                                        </div>
+    <meta itemprop="name" content="ChangaLab - Home">
+    <meta itemprop="description"
+        content="ChangaLab can be explained as a network of buyers and sellers, who transfer currency between each other or for their own. It is the means by which individuals, and companies convert one currency into another. This Currency Exchange Platform is the most advanced script in Codecanyon. The Currency Exchange Platform is endlessly appealing, feature-loaded, customized, and possesses the remarkable capability of running on all devices and operating systems.">
+    <meta itemprop="image"
+        content="https://script.viserlab.com/changalab/demo/assets/images/seo/66a8bb8d116e21722334093.png">
 
-                                        <div class="pt-3 sm:pt-5 lg:pt-0">
-                                            <h2 class="text-xl font-semibold text-black dark:text-white">Documentation</h2>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ChangaLab - Currency Exchange Platform">
+    <meta property="og:description"
+        content="ChangaLab can be explained as a network of buyers and sellers, who transfer currency between each other or for their own. It is the means by which individuals, companies convert one currency into another. This Currency Exchange Platform is the most advanced script in Codecanyon. The Currency Exchange Platform is endlessly appealing, feature-loaded, customized, and possesses the remarkable capability of running on all devices and operating systems.">
+    <meta property="og:image"
+        content="https://script.viserlab.com/changalab/demo/assets/images/seo/66a8bb8d116e21722334093.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1180">
+    <meta property="og:image:height" content="600">
+    <meta property="og:url" content="https://script.viserlab.com/changalab/demo">
 
-                                            <p class="mt-4 text-sm/relaxed">
-                                                Laravel has wonderful documentation covering every aspect of the framework. Whether you are a newcomer or have prior experience with Laravel, we recommend reading our documentation from beginning to end.
-                                            </p>
-                                        </div>
-                                    </div>
+    <meta name="twitter:card" content="summary_large_image">
 
-                                    <svg class="size-6 shrink-0 stroke-[#FF2D20]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"/></svg>
-                                </div>
-                            </a>
+    <link rel="stylesheet" href="https://script.viserlab.com/changalab/demo/assets/global/css/bootstrap.min.css?v=3.0">
+    <link rel="stylesheet" href="https://script.viserlab.com/changalab/demo/assets/global/css/all.min.css?v=3.0">
+    <link rel="stylesheet"
+        href="https://script.viserlab.com/changalab/demo/assets/global/css/line-awesome.min.css?v=3.0">
 
-                            <a
-                                href="https://laracasts.com"
-                                class="flex items-start gap-4 rounded-lg bg-white p-6 shadow-[0px_14px_34px_0px_rgba(0,0,0,0.08)] ring-1 ring-white/[0.05] transition duration-300 hover:text-black/70 hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] lg:pb-10 dark:bg-zinc-900 dark:ring-zinc-800 dark:hover:text-white/70 dark:hover:ring-zinc-700 dark:focus-visible:ring-[#FF2D20]"
-                            >
-                                <div class="flex size-12 shrink-0 items-center justify-center rounded-full bg-[#FF2D20]/10 sm:size-16">
-                                    <svg class="size-5 sm:size-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><g fill="#FF2D20"><path d="M24 8.25a.5.5 0 0 0-.5-.5H.5a.5.5 0 0 0-.5.5v12a2.5 2.5 0 0 0 2.5 2.5h19a2.5 2.5 0 0 0 2.5-2.5v-12Zm-7.765 5.868a1.221 1.221 0 0 1 0 2.264l-6.626 2.776A1.153 1.153 0 0 1 8 18.123v-5.746a1.151 1.151 0 0 1 1.609-1.035l6.626 2.776ZM19.564 1.677a.25.25 0 0 0-.177-.427H15.6a.106.106 0 0 0-.072.03l-4.54 4.543a.25.25 0 0 0 .177.427h3.783c.027 0 .054-.01.073-.03l4.543-4.543ZM22.071 1.318a.047.047 0 0 0-.045.013l-4.492 4.492a.249.249 0 0 0 .038.385.25.25 0 0 0 .14.042h5.784a.5.5 0 0 0 .5-.5v-2a2.5 2.5 0 0 0-1.925-2.432ZM13.014 1.677a.25.25 0 0 0-.178-.427H9.101a.106.106 0 0 0-.073.03l-4.54 4.543a.25.25 0 0 0 .177.427H8.4a.106.106 0 0 0 .073-.03l4.54-4.543ZM6.513 1.677a.25.25 0 0 0-.177-.427H2.5A2.5 2.5 0 0 0 0 3.75v2a.5.5 0 0 0 .5.5h1.4a.106.106 0 0 0 .073-.03l4.54-4.543Z"/></g></svg>
-                                </div>
+    <link rel="stylesheet"
+        href="https://script.viserlab.com/changalab/demo/assets/templates/blue_bliss/css/animate.css?v=3.0">
+    <link rel="stylesheet"
+        href="https://script.viserlab.com/changalab/demo/assets/templates/blue_bliss/css/odometer.css?v=3.0">
+    <link rel="stylesheet"
+        href="https://script.viserlab.com/changalab/demo/assets/templates/blue_bliss/css/nice-select.css?v=3.0">
+    <link rel="stylesheet"
+        href="https://script.viserlab.com/changalab/demo/assets/templates/blue_bliss/css/swiper.min.css?v=3.0">
+    <link rel="stylesheet"
+        href="https://script.viserlab.com/changalab/demo/assets/templates/blue_bliss/css/main.css?v=3.1">
+    <link rel="stylesheet"
+        href="https://script.viserlab.com/changalab/demo/assets/templates/blue_bliss/css/custom.css?v=3.0">
 
-                                <div class="pt-3 sm:pt-5">
-                                    <h2 class="text-xl font-semibold text-black dark:text-white">Laracasts</h2>
+    <link href="https://script.viserlab.com/changalab/demo/assets/global/css/select2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://script.viserlab.com/changalab/demo/assets/templates/blue_bliss/css/slick.css">
 
-                                    <p class="mt-4 text-sm/relaxed">
-                                        Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-                                    </p>
-                                </div>
+    <style>
+        .select2-container .select2-selection--single {
+            height: 46px;
+            width: 100%;
+        }
 
-                                <svg class="size-6 shrink-0 self-center stroke-[#FF2D20]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"/></svg>
-                            </a>
+        .select2-search--dropdown {
+            display: block !important;
+        }
 
-                            <a
-                                href="https://laravel-news.com"
-                                class="flex items-start gap-4 rounded-lg bg-white p-6 shadow-[0px_14px_34px_0px_rgba(0,0,0,0.08)] ring-1 ring-white/[0.05] transition duration-300 hover:text-black/70 hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] lg:pb-10 dark:bg-zinc-900 dark:ring-zinc-800 dark:hover:text-white/70 dark:hover:ring-zinc-700 dark:focus-visible:ring-[#FF2D20]"
-                            >
-                                <div class="flex size-12 shrink-0 items-center justify-center rounded-full bg-[#FF2D20]/10 sm:size-16">
-                                    <svg class="size-5 sm:size-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><g fill="#FF2D20"><path d="M8.75 4.5H5.5c-.69 0-1.25.56-1.25 1.25v4.75c0 .69.56 1.25 1.25 1.25h3.25c.69 0 1.25-.56 1.25-1.25V5.75c0-.69-.56-1.25-1.25-1.25Z"/><path d="M24 10a3 3 0 0 0-3-3h-2V2.5a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2V20a3.5 3.5 0 0 0 3.5 3.5h17A3.5 3.5 0 0 0 24 20V10ZM3.5 21.5A1.5 1.5 0 0 1 2 20V3a.5.5 0 0 1 .5-.5h14a.5.5 0 0 1 .5.5v17c0 .295.037.588.11.874a.5.5 0 0 1-.484.625L3.5 21.5ZM22 20a1.5 1.5 0 1 1-3 0V9.5a.5.5 0 0 1 .5-.5H21a1 1 0 0 1 1 1v10Z"/><path d="M12.751 6.047h2a.75.75 0 0 1 .75.75v.5a.75.75 0 0 1-.75.75h-2A.75.75 0 0 1 12 7.3v-.5a.75.75 0 0 1 .751-.753ZM12.751 10.047h2a.75.75 0 0 1 .75.75v.5a.75.75 0 0 1-.75.75h-2A.75.75 0 0 1 12 11.3v-.5a.75.75 0 0 1 .751-.753ZM4.751 14.047h10a.75.75 0 0 1 .75.75v.5a.75.75 0 0 1-.75.75h-10A.75.75 0 0 1 4 15.3v-.5a.75.75 0 0 1 .751-.753ZM4.75 18.047h7.5a.75.75 0 0 1 .75.75v.5a.75.75 0 0 1-.75.75h-7.5A.75.75 0 0 1 4 19.3v-.5a.75.75 0 0 1 .75-.753Z"/></g></svg>
-                                </div>
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            line-height: 40px;
+        }
 
-                                <div class="pt-3 sm:pt-5">
-                                    <h2 class="text-xl font-semibold text-black dark:text-white">Laravel News</h2>
+        .select2-container--default img {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+        }
 
-                                    <p class="mt-4 text-sm/relaxed">
-                                        Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
-                                    </p>
-                                </div>
+        .select2-results__option--selectable {
+            display: flex;
+        }
 
-                                <svg class="size-6 shrink-0 self-center stroke-[#FF2D20]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"/></svg>
-                            </a>
+        .select2-container .selection {
+            width: 220px;
+            height: 48px;
+            -moz-border-radius: 0;
+            border-radius: 0;
+            position: absolute;
+            right: 4px;
+            top: 50%;
+            padding: 0 10px;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            border-radius: 2px;
+            background: #E8E8E8;
+            border: 0 !important;
+        }
 
-                            <div class="flex items-start gap-4 rounded-lg bg-white p-6 shadow-[0px_14px_34px_0px_rgba(0,0,0,0.08)] ring-1 ring-white/[0.05] transition duration-300 hover:text-black/70 hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] lg:pb-10 dark:bg-zinc-900 dark:ring-zinc-800 dark:hover:text-white/70 dark:hover:ring-zinc-700 dark:focus-visible:ring-[#FF2D20]">
-                                <div class="flex size-12 shrink-0 items-center justify-center rounded-full bg-[#FF2D20]/10 sm:size-16">
-                                    <svg class="size-5 sm:size-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                        <g fill="#FF2D20">
-                                            <path
-                                                d="M16.597 12.635a.247.247 0 0 0-.08-.237 2.234 2.234 0 0 1-.769-1.68c.001-.195.03-.39.084-.578a.25.25 0 0 0-.09-.267 8.8 8.8 0 0 0-4.826-1.66.25.25 0 0 0-.268.181 2.5 2.5 0 0 1-2.4 1.824.045.045 0 0 0-.045.037 12.255 12.255 0 0 0-.093 3.86.251.251 0 0 0 .208.214c2.22.366 4.367 1.08 6.362 2.118a.252.252 0 0 0 .32-.079 10.09 10.09 0 0 0 1.597-3.733ZM13.616 17.968a.25.25 0 0 0-.063-.407A19.697 19.697 0 0 0 8.91 15.98a.25.25 0 0 0-.287.325c.151.455.334.898.548 1.328.437.827.981 1.594 1.619 2.28a.249.249 0 0 0 .32.044 29.13 29.13 0 0 0 2.506-1.99ZM6.303 14.105a.25.25 0 0 0 .265-.274 13.048 13.048 0 0 1 .205-4.045.062.062 0 0 0-.022-.07 2.5 2.5 0 0 1-.777-.982.25.25 0 0 0-.271-.149 11 11 0 0 0-5.6 2.815.255.255 0 0 0-.075.163c-.008.135-.02.27-.02.406.002.8.084 1.598.246 2.381a.25.25 0 0 0 .303.193 19.924 19.924 0 0 1 5.746-.438ZM9.228 20.914a.25.25 0 0 0 .1-.393 11.53 11.53 0 0 1-1.5-2.22 12.238 12.238 0 0 1-.91-2.465.248.248 0 0 0-.22-.187 18.876 18.876 0 0 0-5.69.33.249.249 0 0 0-.179.336c.838 2.142 2.272 4 4.132 5.353a.254.254 0 0 0 .15.048c1.41-.01 2.807-.282 4.117-.802ZM18.93 12.957l-.005-.008a.25.25 0 0 0-.268-.082 2.21 2.21 0 0 1-.41.081.25.25 0 0 0-.217.2c-.582 2.66-2.127 5.35-5.75 7.843a.248.248 0 0 0-.09.299.25.25 0 0 0 .065.091 28.703 28.703 0 0 0 2.662 2.12.246.246 0 0 0 .209.037c2.579-.701 4.85-2.242 6.456-4.378a.25.25 0 0 0 .048-.189 13.51 13.51 0 0 0-2.7-6.014ZM5.702 7.058a.254.254 0 0 0 .2-.165A2.488 2.488 0 0 1 7.98 5.245a.093.093 0 0 0 .078-.062 19.734 19.734 0 0 1 3.055-4.74.25.25 0 0 0-.21-.41 12.009 12.009 0 0 0-10.4 8.558.25.25 0 0 0 .373.281 12.912 12.912 0 0 1 4.826-1.814ZM10.773 22.052a.25.25 0 0 0-.28-.046c-.758.356-1.55.635-2.365.833a.25.25 0 0 0-.022.48c1.252.43 2.568.65 3.893.65.1 0 .2 0 .3-.008a.25.25 0 0 0 .147-.444c-.526-.424-1.1-.917-1.673-1.465ZM18.744 8.436a.249.249 0 0 0 .15.228 2.246 2.246 0 0 1 1.352 2.054c0 .337-.08.67-.23.972a.25.25 0 0 0 .042.28l.007.009a15.016 15.016 0 0 1 2.52 4.6.25.25 0 0 0 .37.132.25.25 0 0 0 .096-.114c.623-1.464.944-3.039.945-4.63a12.005 12.005 0 0 0-5.78-10.258.25.25 0 0 0-.373.274c.547 2.109.85 4.274.901 6.453ZM9.61 5.38a.25.25 0 0 0 .08.31c.34.24.616.561.8.935a.25.25 0 0 0 .3.127.631.631 0 0 1 .206-.034c2.054.078 4.036.772 5.69 1.991a.251.251 0 0 0 .267.024c.046-.024.093-.047.141-.067a.25.25 0 0 0 .151-.23A29.98 29.98 0 0 0 15.957.764a.25.25 0 0 0-.16-.164 11.924 11.924 0 0 0-2.21-.518.252.252 0 0 0-.215.076A22.456 22.456 0 0 0 9.61 5.38Z"
-                                            />
-                                        </g>
-                                    </svg>
-                                </div>
+        @media (max-width:1199px) {
+            .select2-container .selection {
+                width: 170px;
+            }
+        }
 
-                                <div class="pt-3 sm:pt-5">
-                                    <h2 class="text-xl font-semibold text-black dark:text-white">Vibrant Ecosystem</h2>
+        @media (max-width:991px) {
+            .select2-container .selection {
+                width: 296px;
+            }
+        }
 
-                                    <p class="mt-4 text-sm/relaxed">
-                                        Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white dark:focus-visible:ring-[#FF2D20]">Forge</a>, <a href="https://vapor.laravel.com" class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white">Vapor</a>, <a href="https://nova.laravel.com" class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white">Nova</a>, <a href="https://envoyer.io" class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white">Envoyer</a>, and <a href="https://herd.laravel.com" class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white">Herd</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white">Echo</a>, <a href="https://laravel.com/docs/horizon" class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white">Telescope</a>, and more.
-                                    </p>
-                                </div>
+        @media (max-width:767px) {
+            .select2-container .selection {
+                width: 235px;
+            }
+        }
+
+        @media (max-width:575px) {
+            .select2-container .selection {
+                width: 215px;
+            }
+        }
+
+        @media (max-width:424px) {
+            .select2-container .selection {
+                transform: unset;
+                position: relative;
+                width: 100%;
+                right: 0;
+            }
+        }
+
+        .select2-container--default .select2-selection--single .select2-selection__arrow b {
+            top: 80%;
+        }
+
+        .select2-container--default .select2-results__option--disabled {
+            display: none;
+        }
+
+        .select2-dropdown {
+            border: 1px solid #aaaaaa2e;
+        }
+
+        img.currency-image {
+            width: 25px;
+            height: 25px;
+            margin-right: 8px;
+        }
+
+        .select2-container--default .select2-selection--single {
+            border: 0;
+            background-color: transparent;
+        }
+
+        .select2-results__option:empty {
+            display: none !important;
+        }
+
+
+        .select2-container--default .select2-selection--single .select2-selection__arrow:after {
+            top: 4px !important;
+        }
+    </style>
+    <style>
+        .iRKbXZ {
+            max-width: 100% !important;
+        }
+
+        .ejKmWB .review-text p {
+            font-family: "Roboto", sans-serif;
+        }
+    </style>
+
+    <link rel="stylesheet"
+        href="https://script.viserlab.com/changalab/demo/assets/templates/blue_bliss/css/color.php?color=0094ff">
+    <meta http-equiv="origin-trial"
+        content="A41wt2Lsq30A9Ox/WehogvJckPI4aY9RoSxhb8FMtVnqaUle1AtI6Yf7Wk+7+Wm0AfDDOkMX+Wn6wnDpBWYgWwYAAAB8eyJvcmlnaW4iOiJodHRwczovL2Fkcm9sbC5jb206NDQzIiwiZmVhdHVyZSI6IkludGVyZXN0Q29ob3J0QVBJIiwiZXhwaXJ5IjoxNjI2MjIwNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+    <script type="text/javascript"
+        src="https://d.adroll.com/consent/check/YXRNNTO7ZBAMFBH67UUE5M?adroll_fpc=3cfa4c046cc4ac442f94980d2ce529f3-1729515315525&amp;flg=1&amp;pv=51990610969.23931&amp;arrfrr=https%3A%2F%2Fscript.viserlab.com%2Fchangalab%2Fdemo%2F&amp;_s=113d1be1b78b6600e412b0131224bb59&amp;_b=2">
+    </script>
+    <style id="monica-reading-highlight-style">
+        .monica-reading-highlight {
+            animation: fadeInOut 1.5s ease-in-out;
+        }
+
+        @keyframes fadeInOut {
+
+            0%,
+            100% {
+                background-color: transparent;
+            }
+
+            30%,
+            70% {
+                background-color: rgba(2, 118, 255, 0.20);
+            }
+        }
+    </style>
+    <div style="width: 1px; height: 1px; display: inline; position: absolute;"><img height="1" width="1"
+            style="border-style:none;" alt=""
+            src="https://d.adroll.com/cm/b/out?adroll_fpc=3cfa4c046cc4ac442f94980d2ce529f3-1729515315525&amp;flg=1&amp;pv=51990610969.23931&amp;arrfrr=https%3A%2F%2Fscript.viserlab.com%2Fchangalab%2Fdemo%2F&amp;advertisable=YXRNNTO7ZBAMFBH67UUE5M"><img
+            height="1" width="1" style="border-style:none;" alt=""
+            src="https://d.adroll.com/cm/experian/out?adroll_fpc=3cfa4c046cc4ac442f94980d2ce529f3-1729515315525&amp;flg=1&amp;pv=51990610969.23931&amp;arrfrr=https%3A%2F%2Fscript.viserlab.com%2Fchangalab%2Fdemo%2F&amp;advertisable=YXRNNTO7ZBAMFBH67UUE5M"><img
+            height="1" width="1" style="border-style:none;" alt=""
+            src="https://d.adroll.com/cm/g/out?adroll_fpc=3cfa4c046cc4ac442f94980d2ce529f3-1729515315525&amp;flg=1&amp;pv=51990610969.23931&amp;arrfrr=https%3A%2F%2Fscript.viserlab.com%2Fchangalab%2Fdemo%2F&amp;advertisable=YXRNNTO7ZBAMFBH67UUE5M"><img
+            height="1" width="1" style="border-style:none;" alt=""
+            src="https://d.adroll.com/cm/index/out?adroll_fpc=3cfa4c046cc4ac442f94980d2ce529f3-1729515315525&amp;flg=1&amp;pv=51990610969.23931&amp;arrfrr=https%3A%2F%2Fscript.viserlab.com%2Fchangalab%2Fdemo%2F&amp;advertisable=YXRNNTO7ZBAMFBH67UUE5M"><img
+            height="1" width="1" style="border-style:none;" alt=""
+            src="https://d.adroll.com/cm/l/out?adroll_fpc=3cfa4c046cc4ac442f94980d2ce529f3-1729515315525&amp;flg=1&amp;pv=51990610969.23931&amp;arrfrr=https%3A%2F%2Fscript.viserlab.com%2Fchangalab%2Fdemo%2F&amp;advertisable=YXRNNTO7ZBAMFBH67UUE5M"><img
+            height="1" width="1" style="border-style:none;" alt=""
+            src="https://d.adroll.com/cm/n/out?adroll_fpc=3cfa4c046cc4ac442f94980d2ce529f3-1729515315525&amp;flg=1&amp;pv=51990610969.23931&amp;arrfrr=https%3A%2F%2Fscript.viserlab.com%2Fchangalab%2Fdemo%2F&amp;advertisable=YXRNNTO7ZBAMFBH67UUE5M"><img
+            height="1" width="1" style="border-style:none;" alt=""
+            src="https://d.adroll.com/cm/o/out?adroll_fpc=3cfa4c046cc4ac442f94980d2ce529f3-1729515315525&amp;flg=1&amp;pv=51990610969.23931&amp;arrfrr=https%3A%2F%2Fscript.viserlab.com%2Fchangalab%2Fdemo%2F&amp;advertisable=YXRNNTO7ZBAMFBH67UUE5M"><img
+            height="1" width="1" style="border-style:none;" alt=""
+            src="https://d.adroll.com/cm/outbrain/out?adroll_fpc=3cfa4c046cc4ac442f94980d2ce529f3-1729515315525&amp;flg=1&amp;pv=51990610969.23931&amp;arrfrr=https%3A%2F%2Fscript.viserlab.com%2Fchangalab%2Fdemo%2F&amp;advertisable=YXRNNTO7ZBAMFBH67UUE5M"><img
+            height="1" width="1" style="border-style:none;" alt=""
+            src="https://d.adroll.com/cm/pubmatic/out?adroll_fpc=3cfa4c046cc4ac442f94980d2ce529f3-1729515315525&amp;flg=1&amp;pv=51990610969.23931&amp;arrfrr=https%3A%2F%2Fscript.viserlab.com%2Fchangalab%2Fdemo%2F&amp;advertisable=YXRNNTO7ZBAMFBH67UUE5M"><img
+            height="1" width="1" style="border-style:none;" alt=""
+            src="https://d.adroll.com/cm/r/out?adroll_fpc=3cfa4c046cc4ac442f94980d2ce529f3-1729515315525&amp;flg=1&amp;pv=51990610969.23931&amp;arrfrr=https%3A%2F%2Fscript.viserlab.com%2Fchangalab%2Fdemo%2F&amp;advertisable=YXRNNTO7ZBAMFBH67UUE5M"><img
+            height="1" width="1" style="border-style:none;" alt=""
+            src="https://d.adroll.com/cm/taboola/out?adroll_fpc=3cfa4c046cc4ac442f94980d2ce529f3-1729515315525&amp;flg=1&amp;pv=51990610969.23931&amp;arrfrr=https%3A%2F%2Fscript.viserlab.com%2Fchangalab%2Fdemo%2F&amp;advertisable=YXRNNTO7ZBAMFBH67UUE5M"><img
+            height="1" width="1" style="border-style:none;" alt=""
+            src="https://d.adroll.com/cm/triplelift/out?adroll_fpc=3cfa4c046cc4ac442f94980d2ce529f3-1729515315525&amp;flg=1&amp;pv=51990610969.23931&amp;arrfrr=https%3A%2F%2Fscript.viserlab.com%2Fchangalab%2Fdemo%2F&amp;advertisable=YXRNNTO7ZBAMFBH67UUE5M"><img
+            height="1" width="1" style="border-style:none;" alt=""
+            src="https://d.adroll.com/cm/x/out?adroll_fpc=3cfa4c046cc4ac442f94980d2ce529f3-1729515315525&amp;flg=1&amp;pv=51990610969.23931&amp;arrfrr=https%3A%2F%2Fscript.viserlab.com%2Fchangalab%2Fdemo%2F&amp;advertisable=YXRNNTO7ZBAMFBH67UUE5M">
+    </div>
+    <div style="width: 1px; height: 1px; display: inline; position: absolute;"></div>
+    <script charset="utf-8" src="https://embed.tawk.to/_s/v4/app/67183cd0c15/js/twk-chunk-bf24a88e.js"></script>
+    <script charset="utf-8" src="https://embed.tawk.to/_s/v4/app/67183cd0c15/js/twk-chunk-71978bb6.js"></script>
+    <script charset="utf-8" src="https://embed.tawk.to/_s/v4/app/67183cd0c15/js/twk-chunk-f1565420.js"></script>
+    <script charset="utf-8" src="https://embed.tawk.to/_s/v4/app/67183cd0c15/js/twk-chunk-7c2f6ba4.js"></script>
+    <script charset="utf-8" src="https://embed.tawk.to/_s/v4/app/67183cd0c15/js/twk-chunk-48f3b594.js"></script>
+    <script charset="utf-8" src="https://embed.tawk.to/_s/v4/app/67183cd0c15/js/twk-chunk-4fe9d5dd.js"></script>
+    <script charset="utf-8" src="https://embed.tawk.to/_s/v4/app/67183cd0c15/js/twk-chunk-2d0b9454.js"></script>
+    <script charset="utf-8" src="https://embed.tawk.to/_s/v4/app/67183cd0c15/js/twk-chunk-24d8db78.js"></script>
+    <style type="text/css">
+        #hl4hbpge6sig1729932400961 {
+            outline: none !important;
+            visibility: visible !important;
+            resize: none !important;
+            box-shadow: none !important;
+            overflow: visible !important;
+            background: none !important;
+            opacity: 1 !important;
+            filter: alpha(opacity=100) !important;
+            -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity 1
+            }) !important;
+        -mz-opacity:1 !important;
+        -khtml-opacity:1 !important;
+        top:auto !important;
+        right:0px !important;
+        bottom:0px !important;
+        left:auto !important;
+        position:fixed !important;
+        border:0 !important;
+        min-height:0px !important;
+        min-width:0px !important;
+        max-height:none !important;
+        max-width:none !important;
+        padding:0px !important;
+        margin:0px !important;
+        -moz-transition-property:none !important;
+        -webkit-transition-property:none !important;
+        -o-transition-property:none !important;
+        transition-property:none !important;
+        transform:none !important;
+        -webkit-transform:none !important;
+        -ms-transform:none !important;
+        width:auto !important;
+        height:auto !important;
+        display:none !important;
+        z-index:2000000000 !important;
+        background-color:transparent !important;
+        cursor:none !important;
+        float:none !important;
+        border-radius:unset !important;
+        pointer-events:auto !important;
+        clip:auto !important;
+        color-scheme:light !important;
+        }
+
+        #hl4hbpge6sig1729932400961.widget-hidden {
+            display: none !important;
+        }
+
+        #hl4hbpge6sig1729932400961.widget-visible {
+            display: block !important;
+        }
+
+        @media print {
+            #hl4hbpge6sig1729932400961.widget-visible {
+                display: none !important;
+            }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/emojione/2.2.7/lib/js/emojione.min.js" type="text/javascript" async="" defer="">
+    </script>
+    <script src="https://cdn.jsdelivr.net/emojione/2.2.7/lib/js/emojione.min.js" type="text/javascript" async="" defer="">
+    </script>
+    <style type="text/css">
+        @keyframes tawkMaxOpen {
+            0% {
+                opacity: 0;
+                transform: translate(0, 30px);
+                ;
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(0, 0px);
+            }
+        }
+
+        @-moz-keyframes tawkMaxOpen {
+            0% {
+                opacity: 0;
+                transform: translate(0, 30px);
+                ;
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(0, 0px);
+            }
+        }
+
+        @-webkit-keyframes tawkMaxOpen {
+            0% {
+                opacity: 0;
+                transform: translate(0, 30px);
+                ;
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(0, 0px);
+            }
+        }
+
+        #uvf3rgqfpgqo1729932401057.open {
+            animation: tawkMaxOpen .25s ease !important;
+        }
+
+        @keyframes tawkMaxClose {
+            from {
+                opacity: 1;
+                transform: translate(0, 0px);
+                ;
+            }
+
+            to {
+                opacity: 0;
+                transform: translate(0, 30px);
+                ;
+            }
+        }
+
+        @-moz-keyframes tawkMaxClose {
+            from {
+                opacity: 1;
+                transform: translate(0, 0px);
+                ;
+            }
+
+            to {
+                opacity: 0;
+                transform: translate(0, 30px);
+                ;
+            }
+        }
+
+        @-webkit-keyframes tawkMaxClose {
+            from {
+                opacity: 1;
+                transform: translate(0, 0px);
+                ;
+            }
+
+            to {
+                opacity: 0;
+                transform: translate(0, 30px);
+                ;
+            }
+        }
+
+        #uvf3rgqfpgqo1729932401057.closed {
+            animation: tawkMaxClose .25s ease !important
+        }
+    </style>
+    <style type="text/css">
+        .style-module_starRatingWrap__q-lJC {
+            display: inline-block;
+            touch-action: none
+        }
+
+        .style-module_simpleStarRating__nWUxf {
+            display: inline-block;
+            overflow: hidden;
+            position: relative;
+            touch-action: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+            vertical-align: middle;
+            white-space: nowrap
+        }
+
+        .style-module_fillIcons__6---A {
+            display: inline-block;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            white-space: nowrap
+        }
+
+        .style-module_emptyIcons__Bg-FZ {
+            display: inline-block
+        }
+
+        .style-module_tooltip__tKc3i {
+            background-color: #333;
+            border-radius: 5px;
+            color: #fff;
+            display: inline-block;
+            padding: 5px 15px;
+            vertical-align: middle
+        }
+    </style>
+    <style type="text/css">
+        .rfm-marquee-container {
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: row;
+            position: relative;
+            width: var(--width);
+            transform: var(--transform);
+        }
+
+        .rfm-marquee-container:hover div {
+            animation-play-state: var(--pause-on-hover);
+        }
+
+        .rfm-marquee-container:active div {
+            animation-play-state: var(--pause-on-click);
+        }
+
+        .rfm-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .rfm-overlay::before,
+        .rfm-overlay::after {
+            background: linear-gradient(to right, var(--gradient-color), rgba(255, 255, 255, 0));
+            content: "";
+            height: 100%;
+            position: absolute;
+            width: var(--gradient-width);
+            z-index: 2;
+            pointer-events: none;
+            touch-action: none;
+        }
+
+        .rfm-overlay::after {
+            right: 0;
+            top: 0;
+            transform: rotateZ(180deg);
+        }
+
+        .rfm-overlay::before {
+            left: 0;
+            top: 0;
+        }
+
+        .rfm-marquee {
+            flex: 0 0 auto;
+            min-width: var(--min-width);
+            z-index: 1;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            animation: scroll var(--duration) linear var(--delay) var(--iteration-count);
+            animation-play-state: var(--play);
+            animation-delay: var(--delay);
+            animation-direction: var(--direction);
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .rfm-initial-child-container {
+            flex: 0 0 auto;
+            display: flex;
+            min-width: auto;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .rfm-child {
+            transform: var(--transform);
+        }
+    </style>
+    <link id="cn-font-font_poppins" rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap">
+    <style id="cn-style-cn-global-styles">
+        #nindo-popup-portal,
+        #nindo-drawer-portal {
+            font-family: "Poppins", sans-serif;
+            line-height: 1.3;
+            z-index: 1000100;
+            position: relative;
+        }
+    </style>
+    <style type="text/css">
+        .rmsc {
+            --rmsc-main: #4285f4;
+            --rmsc-hover: #f1f3f5;
+            --rmsc-selected: #e2e6ea;
+            --rmsc-border: #ccc;
+            --rmsc-gray: #aaa;
+            --rmsc-bg: #fff;
+            --rmsc-p: 10px;
+            --rmsc-radius: 4px;
+            --rmsc-h: 38px
+        }
+
+        .rmsc * {
+            box-sizing: border-box;
+            transition: all .2s ease
+        }
+
+        .rmsc .gray {
+            color: var(--rmsc-gray)
+        }
+
+        .rmsc .dropdown-content {
+            position: absolute;
+            z-index: 1;
+            top: 100%;
+            width: 100%;
+            padding-top: 8px
+        }
+
+        .rmsc .dropdown-content .panel-content {
+            overflow: hidden;
+            border-radius: var(--rmsc-radius);
+            background: var(--rmsc-bg);
+            box-shadow: 0 0 0 1px #0000001a, 0 4px 11px #0000001a
+        }
+
+        .rmsc .dropdown-container {
+            position: relative;
+            outline: 0;
+            background-color: var(--rmsc-bg);
+            border: 1px solid var(--rmsc-border);
+            border-radius: var(--rmsc-radius)
+        }
+
+        .rmsc .dropdown-container[aria-disabled=true]:focus-within {
+            box-shadow: var(--rmsc-gray) 0 0 0 1px;
+            border-color: var(--rmsc-gray)
+        }
+
+        .rmsc .dropdown-container:focus-within {
+            box-shadow: var(--rmsc-main) 0 0 0 1px;
+            border-color: var(--rmsc-main)
+        }
+
+        .rmsc .dropdown-heading {
+            position: relative;
+            padding: 0 var(--rmsc-p);
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: var(--rmsc-h);
+            cursor: default;
+            outline: 0
+        }
+
+        .rmsc .dropdown-heading .dropdown-heading-value {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            flex: 1
+        }
+
+        .rmsc .clear-selected-button {
+            cursor: pointer;
+            background: none;
+            border: 0;
+            padding: 0;
+            display: flex
+        }
+
+        .rmsc .options {
+            max-height: 260px;
+            overflow-y: auto;
+            margin: 0;
+            padding-left: 0
+        }
+
+        .rmsc .options li {
+            list-style: none;
+            margin: 0
+        }
+
+        .rmsc .select-item {
+            box-sizing: border-box;
+            cursor: pointer;
+            display: block;
+            padding: var(--rmsc-p);
+            outline-offset: -1px;
+            outline-color: var(--rmsc-primary)
+        }
+
+        .rmsc .select-item:hover {
+            background: var(--rmsc-hover)
+        }
+
+        .rmsc .select-item.selected {
+            background: var(--rmsc-selected)
+        }
+
+        .rmsc .no-options {
+            padding: var(--rmsc-p);
+            text-align: center;
+            color: var(--rmsc-gray)
+        }
+
+        .rmsc .search {
+            width: 100%;
+            position: relative;
+            border-bottom: 1px solid var(--rmsc-border)
+        }
+
+        .rmsc .search input {
+            background: none;
+            height: var(--rmsc-h);
+            padding: 0 var(--rmsc-p);
+            width: 100%;
+            outline: 0;
+            border: 0;
+            font-size: 1em
+        }
+
+        .rmsc .search input:focus {
+            background: var(--rmsc-hover)
+        }
+
+        .rmsc .search-clear-button {
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background: none;
+            border: 0;
+            padding: 0 calc(var(--rmsc-p) / 2)
+        }
+
+        .rmsc .search-clear-button [hidden] {
+            display: none
+        }
+
+        .rmsc .item-renderer {
+            display: flex;
+            align-items: baseline
+        }
+
+        .rmsc .item-renderer input {
+            margin: 0 5px 0 0
+        }
+
+        .rmsc .item-renderer.disabled {
+            opacity: .5
+        }
+
+        .rmsc .spinner {
+            animation: rotate 2s linear infinite
+        }
+
+        .rmsc .spinner .path {
+            stroke: var(--rmsc-border);
+            stroke-width: 4px;
+            stroke-linecap: round;
+            animation: dash 1.5s ease-in-out infinite
+        }
+
+        @keyframes rotate {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        @keyframes dash {
+            0% {
+                stroke-dasharray: 1, 150;
+                stroke-dashoffset: 0
+            }
+
+            50% {
+                stroke-dasharray: 90, 150;
+                stroke-dashoffset: -35
+            }
+
+            to {
+                stroke-dasharray: 90, 150;
+                stroke-dashoffset: -124
+            }
+        }
+    </style>
+</head>
+
+
+<body monica-id="ofpnmcalabcbjgholdjcjblkibolbppb" monica-version="6.5.0">
+
+
+    <div class="top-notice py-2 bg--accent d-flex" id="top-notice">
+        <div class="container">
+            <div class="row justify-content-center">
+                <p class="top-notice-text text-center m-0">
+                    We are using a merchant for Skrill and NETELLER so in order to buy from their gateway you have to
+                    buy a minimum of 5250 BDT equivalent.
+                </p>
+            </div>
+        </div>
+        <div class="notice-close px-3 fs--18px">
+            <i class="las la-times"></i>
+        </div>
+    </div>
+
+    <div class="preloader" id="preloader" style="display: none;">
+        <div class="logo"></div>
+        <div class="loader-frame">
+            <div class="loader1" id="loader1">
+            </div>
+            <div class="circle"></div>
+            <h6 class="wellcome">
+                <span class="d-block w-100 text-white">Wellcome to</span>
+                <span class="d-block w-100">ChangaLab</span>
+            </h6>
+        </div>
+    </div>
+    <a href="#0" class="scrollToTop active"><i class="la la-angle-up"></i></a>
+    <div class="overlay"></div>
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-area">
+                    <div class="header-wrapper">
+                        <div class="header-top-item">
+                            <div class="header-top-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="header-top-content">
+                                <span>90 School Lane DERBY DE14 1BE</span>
                             </div>
                         </div>
-                    </main>
-
-                    <footer class="py-16 text-center text-sm text-black dark:text-white/70">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
-                    </footer>
+                        <div class="header-top-item">
+                            <div class="header-top-icon">
+                                <i class="far fa-envelope"></i>
+                            </div>
+                            <div class="header-top-content">
+                                <a href="mailto:support@changalab.com">
+                                    support@changalab.com
+                                </a>
+                            </div>
+                        </div>
+                        <div class="header-top-right-item header-top-item">
+                            <a href="tel:570-869-8015">
+                                <i class="fas fa-phone"></i> </a>
+                            <span>570-869-8015</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </body>
+        <div class="header-bottom animated fixed__header fadeInDown">
+            <div class="container">
+                <div class="header-bottom-area">
+                    <div class="logo">
+                        <a href="https://script.viserlab.com/changalab/demo">
+                            <img src="" alt="">
+                        </a>
+                    </div>
+                    <div class="menu-area">
+                        <ul class="menu">
+                            <li class="menu-item">
+                                <a href="https://script.viserlab.com/changalab/demo" class="menu-item__link active">
+                                    Home </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://script.viserlab.com/changalab/demo/affiliate-program"
+                                    class="menu-item__link ">
+                                    Affiliation
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://script.viserlab.com/changalab/demo/about" class="menu-item__link ">
+                                    About
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://script.viserlab.com/changalab/demo/blog" class="menu-item__link ">
+                                    Blog </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://script.viserlab.com/changalab/demo/contact" class="menu-item__link ">
+                                    Contact </a>
+                            </li>
+                            <li class="d-lg-none d-block">
+                                <div class="d-flex flex-wrap justify-content-between">
+                                    <a href="https://script.viserlab.com/changalab/demo/user/login"
+                                        class="btn btn--base-outline btn-sm">
+                                        Login </a>
+                                    <a href="https://script.viserlab.com/changalab/demo/user/register"
+                                        class="btn btn--base btn-sm">
+                                        Register </a>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="header-buttons d-lg-block d-none">
+                            <a href="https://script.viserlab.com/changalab/demo/user/login"
+                                class="btn btn--base-outline btn-sm">
+                                Login </a>
+                            <a href="https://script.viserlab.com/changalab/demo/user/register"
+                                class="btn btn--base btn-sm ">
+                                Register </a>
+                        </div>
+
+                        <div class="custom--dropdown ms-2">
+                            <div class="custom--dropdown__selected dropdown-list__item">
+                                <div>
+                                    <div class="thumb">
+                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/language/66a8c3432ec4e1722336067.png"
+                                            alt="language image">
+                                    </div>
+                                </div>
+                                <span class="text">English</span>
+                            </div>
+                            <ul class="dropdown-list">
+                                <li class="dropdown-list__item langSel" data-value="bn">
+                                    <div>
+                                        <div class="thumb">
+                                            <img src="https://script.viserlab.com/changalab/demo/assets/images/language/66a610a1a6eb71722159265.png"
+                                                alt="language image">
+                                        </div>
+                                    </div>
+                                    <span class="text">Bangla</span>
+                                </li>
+                                <li class="dropdown-list__item langSel" data-value="es">
+                                    <div>
+                                        <div class="thumb">
+                                            <img src="https://script.viserlab.com/changalab/demo/assets/images/language/66a610ab7dfd01722159275.png"
+                                                alt="language image">
+                                        </div>
+                                    </div>
+                                    <span class="text">Espanish</span>
+                                </li>
+                                <li class="dropdown-list__item langSel" data-value="tr">
+                                    <div>
+                                        <div class="thumb">
+                                            <img src="https://script.viserlab.com/changalab/demo/assets/images/language/66a610baa00ae1722159290.png"
+                                                alt="language image">
+                                        </div>
+                                    </div>
+                                    <span class="text">Turkish</span>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                        <div class="header-bar-area d-lg-none">
+                            <div class="header-bar">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <section class="banner-section bg_fixed bg_img banner-overlay"
+        data-background="https://script.viserlab.com/changalab/demo/assets/images/frontend/banner/66a6225d149331722163805.jpg"
+        style="background-image: url(&quot;https://script.viserlab.com/changalab/demo/assets/images/frontend/banner/66a6225d149331722163805.jpg&quot;);">
+        <div class="container">
+            <div class="banner-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="content">
+                            <h2 class="title text-white">Changalab - Secure and Suitable Currency Exchange Platform
+                            </h2>
+                        </div>
+                        <div class="currency-converter">
+                            <form class="exchange-form disableSubmission" method="POST"
+                                action="https://script.viserlab.com/changalab/demo/exchange" id="exchange-form">
+                                <input type="hidden" name="_token" value="EwEgoKFR4OOz0NRehU09Cj2W509m3L8IqjnBXAqK"
+                                    autocomplete="off">
+                                <div class="form-group sendData">
+                                    <div class="input-wrapper">
+                                        <input type="number" step="any" name="sending_amount"
+                                            id="sending_amount" class="form--control" placeholder="You Send"
+                                            value="" required="">
+                                        <select required=""
+                                            class="select2 form-control form--control select2-hidden-accessible"
+                                            data-type="select" name="sending_currency" id="sending_currency"
+                                            data-select2-id="select2-data-send" tabindex="-1" aria-hidden="true">
+                                            <option value="" selected="" disabled=""
+                                                data-select2-id="select2-data-2-ixvt">Select One</option>
+                                            <option
+                                                data-image="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce5b0b4ec41665983920.jpg"
+                                                data-min="1" data-max="200" data-buy="5538559.69"
+                                                data-currency="BTC" value="18" data-select-for="send">
+                                                Bitcoin - BTC
+                                            </option>
+                                            <option
+                                                data-image="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce62fefa191665984047.png"
+                                                data-min="1" data-max="5000000" data-buy="0.68"
+                                                data-currency="BDT" value="16" data-select-for="send">
+                                                Bkash - BDT
+                                            </option>
+                                            <option
+                                                data-image="https://script.viserlab.com/changalab/demo/assets/images/currency/6363475fc84051667450719.jpg"
+                                                data-min="1" data-max="2000" data-buy="80.42" data-currency="USD"
+                                                value="30" data-select-for="send">
+                                                Payoneer - USD
+                                            </option>
+                                            <option
+                                                data-image="https://script.viserlab.com/changalab/demo/assets/images/currency/63d782ac127d51675068076.jpg"
+                                                data-min="1" data-max="50000" data-buy="86.36" data-currency="EUR"
+                                                value="32" data-select-for="send">
+                                                Payoneer - EUR
+                                            </option>
+                                            <option
+                                                data-image="https://script.viserlab.com/changalab/demo/assets/images/currency/634d135eb50b11665995614.jpg"
+                                                data-min="1" data-max="50000" data-buy="80.42" data-currency="USD"
+                                                value="14" data-select-for="send">
+                                                Paypal - USD
+                                            </option>
+                                            <option
+                                                data-image="https://script.viserlab.com/changalab/demo/assets/images/currency/63d79313684cb1675072275.jpg"
+                                                data-min="1" data-max="50000" data-buy="0.8" data-currency="INR"
+                                                value="17" data-select-for="send">
+                                                PayTm - INR
+                                            </option>
+                                            <option
+                                                data-image="https://script.viserlab.com/changalab/demo/assets/images/currency/63d797ac989e11675073452.jpg"
+                                                data-min="1" data-max="50000" data-buy="82.1" data-currency="USD"
+                                                value="15" data-select-for="send">
+                                                Perfect Money - USD
+                                            </option>
+                                            <option
+                                                data-image="https://script.viserlab.com/changalab/demo/assets/images/currency/63d78ff91fec11675071481.jpg"
+                                                data-min="1" data-max="50000" data-buy="0.69" data-currency="BDT"
+                                                value="29" data-select-for="send">
+                                                Rocket - BDT
+                                            </option>
+                                            <option
+                                                data-image="https://script.viserlab.com/changalab/demo/assets/images/currency/63d79ba643fd91675074470.jpg"
+                                                data-min="1" data-max="100000" data-buy="81.26"
+                                                data-currency="USD" value="31" data-select-for="send">
+                                                Skrill - USD
+                                            </option>
+                                            <option
+                                                data-image="https://script.viserlab.com/changalab/demo/assets/images/currency/63d7826d88e8e1675068013.png"
+                                                data-min="1" data-max="20000" data-buy="78.75" data-currency="USD"
+                                                value="21" data-select-for="send">
+                                                Web Money - USD
+                                            </option>
+                                        </select><span class="select2 select2-container select2-container--default"
+                                            dir="ltr" data-select2-id="select2-data-1-9vxu"
+                                            style="width: 269.984px;"><span class="selection"><span
+                                                    class="select2-selection select2-selection--single"
+                                                    role="combobox" aria-haspopup="true" aria-expanded="false"
+                                                    tabindex="0" aria-disabled="false"
+                                                    aria-labelledby="select2-send-container"><span
+                                                        class="select2-selection__rendered"
+                                                        id="select2-send-container" role="textbox"
+                                                        aria-readonly="true" title="Select One">Select One</span><span
+                                                        class="select2-selection__arrow" role="presentation"><b
+                                                            role="presentation"></b></span></span></span><span
+                                                class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                    </div>
+                                    <span class="d-none" id="currency-limit"></span>
+                                </div>
+                                <span class="exchange-form__icon">
+                                    <i class="las la-exchange-alt"></i>
+                                </span>
+                                <div class="form-group receiveData ">
+                                    <div class="input-wrapper">
+                                        <input type="number" step="any" name="receiving_amount"
+                                            class="form--control" id="receiving_amount" value=""
+                                            placeholder="You Get" required="">
+                                        <select class="select2 form-control form--control select2-hidden-accessible"
+                                            name="receiving_currency" id="receiving_currency" required=""
+                                            value.bind="selectedThing2" data-select2-id="select2-data-receive"
+                                            tabindex="-1" aria-hidden="true">
+
+
+                                            <option value="" selected="" disabled=""
+                                                data-select2-id="select2-data-4-6904">Select One</option>
+                                            <option
+                                                data-image="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce5b0b4ec41665983920.jpg"
+                                                data-sell="6121565.97" data-currency="BTC" data-min="1"
+                                                data-max="100" data-reserve="80000051.5" value="18"
+                                                data-select-for="received">
+                                                Bitcoin - BTC
+                                            </option>
+                                            <option
+                                                data-image="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce62fefa191665984047.png"
+                                                data-sell="0.75" data-currency="BDT" data-min="10" data-max="20000"
+                                                data-reserve="8035230.15" value="16" data-select-for="received">
+                                                Bkash - BDT
+                                            </option>
+                                            <option
+                                                data-image="https://script.viserlab.com/changalab/demo/assets/images/currency/6363475fc84051667450719.jpg"
+                                                data-sell="87.12" data-currency="USD" data-min="1" data-max="1000"
+                                                data-reserve="4990.69" value="30" data-select-for="received">
+                                                Payoneer - USD
+                                            </option>
+                                            <option
+                                                data-image="https://script.viserlab.com/changalab/demo/assets/images/currency/63d782ac127d51675068076.jpg"
+                                                data-sell="95.45" data-currency="EUR" data-min="1" data-max="3000"
+                                                data-reserve="49999932.04" value="32" data-select-for="received">
+                                                Payoneer - EUR
+                                            </option>
+                                            <option
+                                                data-image="https://script.viserlab.com/changalab/demo/assets/images/currency/634d135eb50b11665995614.jpg"
+                                                data-sell="87.12" data-currency="USD" data-min="1" data-max="6000"
+                                                data-reserve="10000" value="14" data-select-for="received">
+                                                Paypal - USD
+                                            </option>
+                                            <option
+                                                data-image="https://script.viserlab.com/changalab/demo/assets/images/currency/63d79313684cb1675072275.jpg"
+                                                data-sell="1.2" data-currency="INR" data-min="1" data-max="20000"
+                                                data-reserve="79996.44" value="17" data-select-for="received">
+                                                PayTm - INR
+                                            </option>
+                                            <option
+                                                data-image="https://script.viserlab.com/changalab/demo/assets/images/currency/63d797ac989e11675073452.jpg"
+                                                data-sell="85.45" data-currency="USD" data-min="1" data-max="1000"
+                                                data-reserve="99633.63" value="15" data-select-for="received">
+                                                Perfect Money - USD
+                                            </option>
+                                            <option
+                                                data-image="https://script.viserlab.com/changalab/demo/assets/images/currency/63d78ff91fec11675071481.jpg"
+                                                data-sell="0.73" data-currency="BDT" data-min="1"
+                                                data-max="100000" data-reserve="6000" value="29"
+                                                data-select-for="received">
+                                                Rocket - BDT
+                                            </option>
+                                            <option
+                                                data-image="https://script.viserlab.com/changalab/demo/assets/images/currency/63d79ba643fd91675074470.jpg"
+                                                data-sell="86.29" data-currency="USD" data-min="1" data-max="1000"
+                                                data-reserve="10000" value="31" data-select-for="received">
+                                                Skrill - USD
+                                            </option>
+                                            <option
+                                                data-image="https://script.viserlab.com/changalab/demo/assets/images/currency/63d7826d88e8e1675068013.png"
+                                                data-sell="88.8" data-currency="USD" data-min="1" data-max="10000"
+                                                data-reserve="60000000" value="21" data-select-for="received">
+                                                Web Money - USD
+                                            </option>
+                                        </select><span class="select2 select2-container select2-container--default"
+                                            dir="ltr" data-select2-id="select2-data-3-pvvs"
+                                            style="width: 269.984px;"><span class="selection"><span
+                                                    class="select2-selection select2-selection--single"
+                                                    role="combobox" aria-haspopup="true" aria-expanded="false"
+                                                    tabindex="0" aria-disabled="false"
+                                                    aria-labelledby="select2-receive-container"><span
+                                                        class="select2-selection__rendered"
+                                                        id="select2-receive-container" role="textbox"
+                                                        aria-readonly="true" title="Select One">Select One</span><span
+                                                        class="select2-selection__arrow" role="presentation"><b
+                                                            role="presentation"></b></span></span></span><span
+                                                class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                    </div>
+                                    <span class="d-none" id="currency-limit-received"></span>
+                                </div>
+                                <div class="exchange-btn">
+                                    <button type="submit" class="btn--base btn">Exchange</button>
+                                </div>
+                            </form>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="exchange-form-bottom">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <form id="tracking-form"
+                                action="https://script.viserlab.com/changalab/demo/exchange/tracking" method="GET"
+                                class="disableSubmission">
+                                <input type="hidden" name="_token" value="EwEgoKFR4OOz0NRehU09Cj2W509m3L8IqjnBXAqK"
+                                    autocomplete="off">
+                                <div class="exchange-form-bottom">
+                                    <div class="form-group">
+                                        <input type="text" name="exchange_id" class="form--control"
+                                            placeholder="Enter your exchange ID" id="exchange_id">
+                                    </div>
+                                    <div class="exchange-form-bottom__btn">
+                                        <button type="submit" class="btn--base btn">Track now</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal trackModal" id="trackModal">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="text-center"> Exchange Information</h4>
+                    <span type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="las la-times"></i>
+                    </span>
+                </div>
+                <div id="exchange-information"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <section class="reserve-section padding-top padding-bottom">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="title">Reserve and Rates</h2>
+                <p>See our reserve amount of several currencies and current rates</p>
+            </div>
+            <div class="row gy-4">
+                <div class="col-xl-6 col-lg-7">
+                    <div class="custom-widget">
+                        <h6 class="custom-widget-title mb-3">Exchange Rates Now</h6>
+                        <div class="currency-wrapper">
+                            <div class="currency-wrapper__header">
+                                <p class="currency-wrapper__name">Currency</p>
+                                <div class="currency-wrapper__content">
+                                    <span class="buy-sell">Buy At</span>
+                                    <span class="buy-sell">Sell At</span>
+                                </div>
+                            </div>
+                            <ul class="currency-list slick-initialized slick-slider slick-vertical">
+                                <div class="slick-list draggable" style="height: 260px;">
+                                    <div class="slick-track"
+                                        style="opacity: 1; height: 1300px; transform: translate3d(0px, -520px, 0px); transition: transform 3000ms linear;">
+                                        <li class="currency-list__item slick-slide slick-cloned" data-slick-index="-5"
+                                            id="" aria-hidden="true" tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce5b0b4ec41665983920.jpg"
+                                                            class="thumb" alt="currency image">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Bitcoin -
+                                                        BTC
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell">
+                                                        ₹6,121,565.97
+                                                    </span>
+                                                    <span class="buy-sell">
+                                                        ₹5,538,559.69
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-cloned" data-slick-index="-4"
+                                            id="" aria-hidden="true" tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d79313684cb1675072275.jpg"
+                                                            class="thumb" alt="currency image">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        PayTm -
+                                                        INR
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell">
+                                                        ₹1.20
+                                                    </span>
+                                                    <span class="buy-sell">
+                                                        ₹0.80
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-cloned" data-slick-index="-3"
+                                            id="" aria-hidden="true" tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce62fefa191665984047.png"
+                                                            class="thumb" alt="currency image">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Bkash -
+                                                        BDT
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell">
+                                                        ₹0.75
+                                                    </span>
+                                                    <span class="buy-sell">
+                                                        ₹0.68
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-cloned" data-slick-index="-2"
+                                            id="" aria-hidden="true" tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d797ac989e11675073452.jpg"
+                                                            class="thumb" alt="currency image">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Perfect Money -
+                                                        USD
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell">
+                                                        ₹85.45
+                                                    </span>
+                                                    <span class="buy-sell">
+                                                        ₹82.10
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-cloned" data-slick-index="-1"
+                                            id="" aria-hidden="true" tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/634d135eb50b11665995614.jpg"
+                                                            class="thumb" alt="currency image">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Paypal -
+                                                        USD
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell">
+                                                        ₹87.12
+                                                    </span>
+                                                    <span class="buy-sell">
+                                                        ₹80.42
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide" data-slick-index="0"
+                                            aria-hidden="true" tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d782ac127d51675068076.jpg"
+                                                            class="thumb" alt="currency image">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Payoneer -
+                                                        EUR
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell">
+                                                        ₹95.45
+                                                    </span>
+                                                    <span class="buy-sell">
+                                                        ₹86.36
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide" data-slick-index="1"
+                                            aria-hidden="true" tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d79ba643fd91675074470.jpg"
+                                                            class="thumb" alt="currency image">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Skrill -
+                                                        USD
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell">
+                                                        ₹86.29
+                                                    </span>
+                                                    <span class="buy-sell">
+                                                        ₹81.26
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide" data-slick-index="2"
+                                            aria-hidden="true" tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/6363475fc84051667450719.jpg"
+                                                            class="thumb" alt="currency image">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Payoneer -
+                                                        USD
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell">
+                                                        ₹87.12
+                                                    </span>
+                                                    <span class="buy-sell">
+                                                        ₹80.42
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide" data-slick-index="3"
+                                            aria-hidden="true" tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d78ff91fec11675071481.jpg"
+                                                            class="thumb" alt="currency image">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Rocket -
+                                                        BDT
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell">
+                                                        ₹0.73
+                                                    </span>
+                                                    <span class="buy-sell">
+                                                        ₹0.69
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide" data-slick-index="4"
+                                            aria-hidden="true" tabindex="0" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d7826d88e8e1675068013.png"
+                                                            class="thumb" alt="currency image">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Web Money -
+                                                        USD
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell">
+                                                        ₹88.80
+                                                    </span>
+                                                    <span class="buy-sell">
+                                                        ₹78.75
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-current slick-active"
+                                            data-slick-index="5" aria-hidden="false" tabindex="0"
+                                            style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce5b0b4ec41665983920.jpg"
+                                                            class="thumb" alt="currency image">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Bitcoin -
+                                                        BTC
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell">
+                                                        ₹6,121,565.97
+                                                    </span>
+                                                    <span class="buy-sell">
+                                                        ₹5,538,559.69
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-active" data-slick-index="6"
+                                            aria-hidden="false" tabindex="0" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d79313684cb1675072275.jpg"
+                                                            class="thumb" alt="currency image">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        PayTm -
+                                                        INR
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell">
+                                                        ₹1.20
+                                                    </span>
+                                                    <span class="buy-sell">
+                                                        ₹0.80
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-active" data-slick-index="7"
+                                            aria-hidden="false" tabindex="0" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce62fefa191665984047.png"
+                                                            class="thumb" alt="currency image">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Bkash -
+                                                        BDT
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell">
+                                                        ₹0.75
+                                                    </span>
+                                                    <span class="buy-sell">
+                                                        ₹0.68
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-active" data-slick-index="8"
+                                            aria-hidden="false" tabindex="0" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d797ac989e11675073452.jpg"
+                                                            class="thumb" alt="currency image">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Perfect Money -
+                                                        USD
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell">
+                                                        ₹85.45
+                                                    </span>
+                                                    <span class="buy-sell">
+                                                        ₹82.10
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-active" data-slick-index="9"
+                                            aria-hidden="false" tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/634d135eb50b11665995614.jpg"
+                                                            class="thumb" alt="currency image">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Paypal -
+                                                        USD
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell">
+                                                        ₹87.12
+                                                    </span>
+                                                    <span class="buy-sell">
+                                                        ₹80.42
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-cloned" data-slick-index="10"
+                                            id="" aria-hidden="true" tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d782ac127d51675068076.jpg"
+                                                            class="thumb" alt="currency image">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Payoneer -
+                                                        EUR
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell">
+                                                        ₹95.45
+                                                    </span>
+                                                    <span class="buy-sell">
+                                                        ₹86.36
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-cloned" data-slick-index="11"
+                                            id="" aria-hidden="true" tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d79ba643fd91675074470.jpg"
+                                                            class="thumb" alt="currency image">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Skrill -
+                                                        USD
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell">
+                                                        ₹86.29
+                                                    </span>
+                                                    <span class="buy-sell">
+                                                        ₹81.26
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-cloned" data-slick-index="12"
+                                            id="" aria-hidden="true" tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/6363475fc84051667450719.jpg"
+                                                            class="thumb" alt="currency image">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Payoneer -
+                                                        USD
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell">
+                                                        ₹87.12
+                                                    </span>
+                                                    <span class="buy-sell">
+                                                        ₹80.42
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-cloned" data-slick-index="13"
+                                            id="" aria-hidden="true" tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d78ff91fec11675071481.jpg"
+                                                            class="thumb" alt="currency image">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Rocket -
+                                                        BDT
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell">
+                                                        ₹0.73
+                                                    </span>
+                                                    <span class="buy-sell">
+                                                        ₹0.69
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-cloned" data-slick-index="14"
+                                            id="" aria-hidden="true" tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d7826d88e8e1675068013.png"
+                                                            class="thumb" alt="currency image">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Web Money -
+                                                        USD
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell">
+                                                        ₹88.80
+                                                    </span>
+                                                    <span class="buy-sell">
+                                                        ₹78.75
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-cloned" data-slick-index="15"
+                                            id="" aria-hidden="true" tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce5b0b4ec41665983920.jpg"
+                                                            class="thumb" alt="currency image">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Bitcoin -
+                                                        BTC
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell">
+                                                        ₹6,121,565.97
+                                                    </span>
+                                                    <span class="buy-sell">
+                                                        ₹5,538,559.69
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-cloned" data-slick-index="16"
+                                            id="" aria-hidden="true" tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d79313684cb1675072275.jpg"
+                                                            class="thumb" alt="currency image">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        PayTm -
+                                                        INR
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell">
+                                                        ₹1.20
+                                                    </span>
+                                                    <span class="buy-sell">
+                                                        ₹0.80
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-cloned" data-slick-index="17"
+                                            id="" aria-hidden="true" tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce62fefa191665984047.png"
+                                                            class="thumb" alt="currency image">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Bkash -
+                                                        BDT
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell">
+                                                        ₹0.75
+                                                    </span>
+                                                    <span class="buy-sell">
+                                                        ₹0.68
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-cloned" data-slick-index="18"
+                                            id="" aria-hidden="true" tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d797ac989e11675073452.jpg"
+                                                            class="thumb" alt="currency image">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Perfect Money -
+                                                        USD
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell">
+                                                        ₹85.45
+                                                    </span>
+                                                    <span class="buy-sell">
+                                                        ₹82.10
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-cloned" data-slick-index="19"
+                                            id="" aria-hidden="true" tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/634d135eb50b11665995614.jpg"
+                                                            class="thumb" alt="currency image">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Paypal -
+                                                        USD
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell">
+                                                        ₹87.12
+                                                    </span>
+                                                    <span class="buy-sell">
+                                                        ₹80.42
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-5">
+                    <div class="custom-widget">
+                        <h6 class="custom-widget-title mb-3">Our Reserves</h6>
+                        <div class="currency-wrapper">
+                            <div class="currency-wrapper__header">
+                                <p class="currency-wrapper__name">Currency</p>
+                                <div class="currency-wrapper__content">
+                                    <span class="buy-sell">Reserved</span>
+                                </div>
+                            </div>
+                            <ul class="currency-list slick-initialized slick-slider slick-vertical">
+                                <div class="slick-list draggable" style="height: 260px;">
+                                    <div class="slick-track"
+                                        style="opacity: 1; height: 1300px; transform: translate3d(0px, -520px, 0px); transition: transform 3000ms linear;">
+                                        <li class="currency-list__item slick-slide slick-cloned" data-slick-index="-5"
+                                            id="" aria-hidden="true" tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d79313684cb1675072275.jpg"
+                                                            alt="currency-image" class="thumb">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        PayTm - INR
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell two">
+                                                        79,996.44
+                                                        INR
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-cloned" data-slick-index="-4"
+                                            id="" aria-hidden="true" tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d797ac989e11675073452.jpg"
+                                                            alt="currency-image" class="thumb">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Perfect Money - USD
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell two">
+                                                        99,633.63
+                                                        USD
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-cloned"
+                                            data-slick-index="-3" id="" aria-hidden="true"
+                                            tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d78ff91fec11675071481.jpg"
+                                                            alt="currency-image" class="thumb">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Rocket - BDT
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell two">
+                                                        6,000.00
+                                                        BDT
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-cloned"
+                                            data-slick-index="-2" id="" aria-hidden="true"
+                                            tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d79ba643fd91675074470.jpg"
+                                                            alt="currency-image" class="thumb">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Skrill - USD
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell two">
+                                                        10,000.00
+                                                        USD
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-cloned"
+                                            data-slick-index="-1" id="" aria-hidden="true"
+                                            tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d7826d88e8e1675068013.png"
+                                                            alt="currency-image" class="thumb">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Web Money - USD
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell two">
+                                                        60,000,000.00
+                                                        USD
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide" data-slick-index="0"
+                                            aria-hidden="true" tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce5b0b4ec41665983920.jpg"
+                                                            alt="currency-image" class="thumb">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Bitcoin - BTC
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell two">
+                                                        80,000,051.50
+                                                        BTC
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide" data-slick-index="1"
+                                            aria-hidden="true" tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce62fefa191665984047.png"
+                                                            alt="currency-image" class="thumb">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Bkash - BDT
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell two">
+                                                        8,035,230.15
+                                                        BDT
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide" data-slick-index="2"
+                                            aria-hidden="true" tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/6363475fc84051667450719.jpg"
+                                                            alt="currency-image" class="thumb">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Payoneer - USD
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell two">
+                                                        4,990.69
+                                                        USD
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide" data-slick-index="3"
+                                            aria-hidden="true" tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d782ac127d51675068076.jpg"
+                                                            alt="currency-image" class="thumb">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Payoneer - EUR
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell two">
+                                                        49,999,932.04
+                                                        EUR
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide" data-slick-index="4"
+                                            aria-hidden="true" tabindex="0" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/634d135eb50b11665995614.jpg"
+                                                            alt="currency-image" class="thumb">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Paypal - USD
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell two">
+                                                        10,000.00
+                                                        USD
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-current slick-active"
+                                            data-slick-index="5" aria-hidden="false" tabindex="0"
+                                            style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d79313684cb1675072275.jpg"
+                                                            alt="currency-image" class="thumb">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        PayTm - INR
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell two">
+                                                        79,996.44
+                                                        INR
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-active"
+                                            data-slick-index="6" aria-hidden="false" tabindex="0"
+                                            style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d797ac989e11675073452.jpg"
+                                                            alt="currency-image" class="thumb">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Perfect Money - USD
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell two">
+                                                        99,633.63
+                                                        USD
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-active"
+                                            data-slick-index="7" aria-hidden="false" tabindex="0"
+                                            style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d78ff91fec11675071481.jpg"
+                                                            alt="currency-image" class="thumb">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Rocket - BDT
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell two">
+                                                        6,000.00
+                                                        BDT
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-active"
+                                            data-slick-index="8" aria-hidden="false" tabindex="0"
+                                            style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d79ba643fd91675074470.jpg"
+                                                            alt="currency-image" class="thumb">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Skrill - USD
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell two">
+                                                        10,000.00
+                                                        USD
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-active"
+                                            data-slick-index="9" aria-hidden="false" tabindex="-1"
+                                            style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d7826d88e8e1675068013.png"
+                                                            alt="currency-image" class="thumb">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Web Money - USD
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell two">
+                                                        60,000,000.00
+                                                        USD
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-cloned"
+                                            data-slick-index="10" id="" aria-hidden="true"
+                                            tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce5b0b4ec41665983920.jpg"
+                                                            alt="currency-image" class="thumb">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Bitcoin - BTC
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell two">
+                                                        80,000,051.50
+                                                        BTC
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-cloned"
+                                            data-slick-index="11" id="" aria-hidden="true"
+                                            tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce62fefa191665984047.png"
+                                                            alt="currency-image" class="thumb">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Bkash - BDT
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell two">
+                                                        8,035,230.15
+                                                        BDT
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-cloned"
+                                            data-slick-index="12" id="" aria-hidden="true"
+                                            tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/6363475fc84051667450719.jpg"
+                                                            alt="currency-image" class="thumb">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Payoneer - USD
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell two">
+                                                        4,990.69
+                                                        USD
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-cloned"
+                                            data-slick-index="13" id="" aria-hidden="true"
+                                            tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d782ac127d51675068076.jpg"
+                                                            alt="currency-image" class="thumb">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Payoneer - EUR
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell two">
+                                                        49,999,932.04
+                                                        EUR
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-cloned"
+                                            data-slick-index="14" id="" aria-hidden="true"
+                                            tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/634d135eb50b11665995614.jpg"
+                                                            alt="currency-image" class="thumb">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Paypal - USD
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell two">
+                                                        10,000.00
+                                                        USD
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-cloned"
+                                            data-slick-index="15" id="" aria-hidden="true"
+                                            tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d79313684cb1675072275.jpg"
+                                                            alt="currency-image" class="thumb">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        PayTm - INR
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell two">
+                                                        79,996.44
+                                                        INR
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-cloned"
+                                            data-slick-index="16" id="" aria-hidden="true"
+                                            tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d797ac989e11675073452.jpg"
+                                                            alt="currency-image" class="thumb">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Perfect Money - USD
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell two">
+                                                        99,633.63
+                                                        USD
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-cloned"
+                                            data-slick-index="17" id="" aria-hidden="true"
+                                            tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d78ff91fec11675071481.jpg"
+                                                            alt="currency-image" class="thumb">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Rocket - BDT
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell two">
+                                                        6,000.00
+                                                        BDT
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-cloned"
+                                            data-slick-index="18" id="" aria-hidden="true"
+                                            tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d79ba643fd91675074470.jpg"
+                                                            alt="currency-image" class="thumb">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Skrill - USD
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell two">
+                                                        10,000.00
+                                                        USD
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="currency-list__item slick-slide slick-cloned"
+                                            data-slick-index="19" id="" aria-hidden="true"
+                                            tabindex="-1" style="width: 596px;">
+                                            <div class="currency-list__wrapper">
+                                                <div class="currency-list__left">
+                                                    <div class="currency-list__thumb">
+                                                        <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d7826d88e8e1675068013.png"
+                                                            alt="currency-image" class="thumb">
+                                                    </div>
+                                                    <span class="currency-list__text">
+                                                        Web Money - USD
+                                                    </span>
+                                                </div>
+                                                <div class="currency-list__content">
+                                                    <span class="buy-sell two">
+                                                        60,000,000.00
+                                                        USD
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="feature-section padding-top padding-bottom section-bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="section-header">
+                        <h2 class="title">Our Special Features</h2>
+                        <p> We support the most secure services and features. This secured website supports a
+                            user-friendly interface and various attractive features that ready to use.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center mb-30-none">
+                <div class="col-md-6 col-sm-10 col-xl-4">
+                    <div class="feature-item">
+                        <div class="feature-thumb">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h5 class="title">24/7 Support</h5>
+                            <p>We are here for you. We provide 24/7 customer support through e-mail and support tickets.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-10 col-xl-4">
+                    <div class="feature-item">
+                        <div class="feature-thumb">
+                            <i class="fas fa-money-check-alt"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h5 class="title">Crypto</h5>
+                            <p>Our platform supports all types of cryptocurrency having an easy deposit and withdrawal
+                                system.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-10 col-xl-4">
+                    <div class="feature-item">
+                        <div class="feature-thumb">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h5 class="title">Reliable</h5>
+                            <p>We are highly reliable and trusted by thousands of people. Your security is our top
+                                priority.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-10 col-xl-4">
+                    <div class="feature-item">
+                        <div class="feature-thumb">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h5 class="title">Fast Transaction</h5>
+                            <p>We support fast transactions all over the world. With changalab sending money is simple,
+                                quick, and hassle-free.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-10 col-xl-4">
+                    <div class="feature-item">
+                        <div class="feature-thumb">
+                            <i class="fas fa-money-bill"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h5 class="title">Low Transparent Fee</h5>
+                            <p>We make sure that you are able to send as much money as possibles, we offer the best
+                                exchange rates possible here.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-10 col-xl-4">
+                    <div class="feature-item">
+                        <div class="feature-thumb">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h5 class="title">Safe and Secure</h5>
+                            <p>We value your money and your privacy. We have deployed the best systems to ensure that
+                                your money and your account.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="client-section padding-bottom padding-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="section-header left-style">
+                        <h2 class="title">Clients Feedback</h2>
+                        <p>We always care for our clients and love to getting good feedbacks from you. Take a look at
+                            what some of our clients think of us.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="client-slider swiper-container-horizontal">
+                <div class="swiper-wrapper"
+                    style="transition-duration: 0ms; transform: translate3d(-2652px, 0px, 0px);">
+                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev"
+                        data-swiper-slide-index="1" style="width: 633px; margin-right: 30px;">
+                        <div class="client-item">
+                            <div class="client-thumb">
+                                <div class="content">
+                                    <h6 class="title">Faisal Kabir</h6>
+                                    <span>Group General Counsel and Compliance Officer</span>
+                                </div>
+                            </div>
+                            <div class="client-content">
+                                <blockquote> I joined here in 2017, this is legal, compliance, risk, financial crime,
+                                    internal audit and company secretariat teams.</blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active"
+                        data-swiper-slide-index="2" style="width: 633px; margin-right: 30px;">
+                        <div class="client-item">
+                            <div class="client-thumb">
+                                <div class="content">
+                                    <h6 class="title">Robart</h6>
+                                    <span>Businessman</span>
+                                </div>
+                            </div>
+                            <div class="client-content">
+                                <blockquote> This is a trustable site, I have joined here recently but their working
+                                    process is so user-friendly and riable.</blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide swiper-slide-duplicate-next" data-swiper-slide-index="0"
+                        style="width: 633px; margin-right: 30px;">
+                        <div class="client-item">
+                            <div class="client-thumb">
+                                <div class="content">
+                                    <h6 class="title">Nadine Reeves</h6>
+                                    <span>Chief Executive Officer</span>
+                                </div>
+                            </div>
+                            <div class="client-content">
+                                <blockquote> Changalab is the largest financial market in the world, it is a relatively
+                                    unfamiliar terrain for retail traders.</blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="1"
+                        style="width: 633px; margin-right: 30px;">
+                        <div class="client-item">
+                            <div class="client-thumb">
+                                <div class="content">
+                                    <h6 class="title">Faisal Kabir</h6>
+                                    <span>Group General Counsel and Compliance Officer</span>
+                                </div>
+                            </div>
+                            <div class="client-content">
+                                <blockquote> I joined here in 2017, this is legal, compliance, risk, financial crime,
+                                    internal audit and company secretariat teams.</blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="2"
+                        style="width: 633px; margin-right: 30px;">
+                        <div class="client-item">
+                            <div class="client-thumb">
+                                <div class="content">
+                                    <h6 class="title">Robart</h6>
+                                    <span>Businessman</span>
+                                </div>
+                            </div>
+                            <div class="client-content">
+                                <blockquote> This is a trustable site, I have joined here recently but their working
+                                    process is so user-friendly and riable.</blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-next" data-swiper-slide-index="0"
+                        style="width: 633px; margin-right: 30px;">
+                        <div class="client-item">
+                            <div class="client-thumb">
+                                <div class="content">
+                                    <h6 class="title">Nadine Reeves</h6>
+                                    <span>Chief Executive Officer</span>
+                                </div>
+                            </div>
+                            <div class="client-content">
+                                <blockquote> Changalab is the largest financial market in the world, it is a relatively
+                                    unfamiliar terrain for retail traders.</blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev"
+                        data-swiper-slide-index="1" style="width: 633px; margin-right: 30px;">
+                        <div class="client-item">
+                            <div class="client-thumb">
+                                <div class="content">
+                                    <h6 class="title">Faisal Kabir</h6>
+                                    <span>Group General Counsel and Compliance Officer</span>
+                                </div>
+                            </div>
+                            <div class="client-content">
+                                <blockquote> I joined here in 2017, this is legal, compliance, risk, financial crime,
+                                    internal audit and company secretariat teams.</blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+            </div>
+            <div class="common-pagination swiper-pagination-clickable swiper-pagination-bullets"><span
+                    class="swiper-pagination-bullet" tabindex="0" role="button"
+                    aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet" tabindex="0"
+                    role="button" aria-label="Go to slide 2"></span><span
+                    class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button"
+                    aria-label="Go to slide 3"></span></div>
+        </div>
+    </section>
+    <div class="how-section padding-top padding-bottom">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="section-header">
+                        <h2 class="title">Trust amplified unfiltered reviews</h2>
+                        <p>Empowering customers, inspiring trust, unfiltered Trustpilot Reviews</p>
+                    </div>
+                </div>
+            </div>
+            <script src="https://embed.tawk.to/_s/v4/app/67183cd0c15/js/twk-main.js" charset="UTF-8" crossorigin="*"></script>
+            <script src="https://embed.tawk.to/_s/v4/app/67183cd0c15/js/twk-vendor.js" charset="UTF-8" crossorigin="*"></script>
+            <script src="https://embed.tawk.to/_s/v4/app/67183cd0c15/js/twk-chunk-vendors.js" charset="UTF-8" crossorigin="*">
+            </script>
+            <script src="https://embed.tawk.to/_s/v4/app/67183cd0c15/js/twk-chunk-common.js" charset="UTF-8" crossorigin="*">
+            </script>
+            <script src="https://embed.tawk.to/_s/v4/app/67183cd0c15/js/twk-runtime.js" charset="UTF-8" crossorigin="*"></script>
+            <script src="https://embed.tawk.to/_s/v4/app/67183cd0c15/js/twk-app.js" charset="UTF-8" crossorigin="*"></script>
+            <script async="" src="https://s.adroll.com/j/YXRNNTO7ZBAMFBH67UUE5M/roundtrip.js"></script>
+            <script async="" src="https://embed.tawk.to/5fe0b9b2a8a254155ab5421d/1eq2tap1m" charset="UTF-8" crossorigin="*">
+            </script>
+            <script src="https://cdn.commoninja.com/sdk/latest/commonninja.js" defer=""></script>
+            <div class="commonninja_component pid-8fe58863-1703-4c54-a523-79c3b1366d8a hid-22hWjl"
+                style="transition: 0.2s; display: initial; width: 100%;"></div>
+        </div>
+    </div>
+
+
+    <div class="counter-section padding-top padding-bottom bg-overlay bg_fixed bg_img"
+        data-background="https://script.viserlab.com/changalab/demo/assets/images/frontend/counter/66a626bebd5451722164926.png"
+        style="background-image: url(&quot;https://script.viserlab.com/changalab/demo/assets/images/frontend/counter/66a626bebd5451722164926.png&quot;);">
+        <div class="container">
+            <div class="row justify-content-center mb-30-none">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="counter-item">
+                        <div class="counter-header">
+                            <h4 class="title odometer odometer-auto-theme" data-odometer-final="20">
+                                <div class="odometer-inside"><span class="odometer-digit"><span
+                                            class="odometer-digit-spacer">8</span><span
+                                            class="odometer-digit-inner"><span class="odometer-ribbon"><span
+                                                    class="odometer-ribbon-inner"><span
+                                                        class="odometer-value">2</span></span></span></span></span><span
+                                        class="odometer-digit"><span class="odometer-digit-spacer">8</span><span
+                                            class="odometer-digit-inner"><span class="odometer-ribbon"><span
+                                                    class="odometer-ribbon-inner"><span
+                                                        class="odometer-value">0</span></span></span></span></span>
+                                </div>
+                            </h4>
+                            <h4 class="title">K</h4>
+                        </div>
+                        <div class="counter-content">
+                            <h6 class="subtitle">Exchange</h6>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="counter-item">
+                        <div class="counter-header">
+                            <h4 class="title odometer odometer-auto-theme" data-odometer-final="98.4">
+                                <div class="odometer-inside"><span class="odometer-digit"><span
+                                            class="odometer-digit-spacer">8</span><span
+                                            class="odometer-digit-inner"><span class="odometer-ribbon"><span
+                                                    class="odometer-ribbon-inner"><span
+                                                        class="odometer-value">9</span></span></span></span></span><span
+                                        class="odometer-digit"><span class="odometer-digit-spacer">8</span><span
+                                            class="odometer-digit-inner"><span class="odometer-ribbon"><span
+                                                    class="odometer-ribbon-inner"><span
+                                                        class="odometer-value">8</span></span></span></span></span><span
+                                        class="odometer-formatting-mark odometer-radix-mark">.</span><span
+                                        class="odometer-digit"><span class="odometer-digit-spacer">8</span><span
+                                            class="odometer-digit-inner"><span class="odometer-ribbon"><span
+                                                    class="odometer-ribbon-inner"><span
+                                                        class="odometer-value">4</span></span></span></span></span>
+                                </div>
+                            </h4>
+                            <h4 class="title">K</h4>
+                        </div>
+                        <div class="counter-content">
+                            <h6 class="subtitle">Customer</h6>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="counter-item">
+                        <div class="counter-header">
+                            <h4 class="title odometer odometer-auto-theme" data-odometer-final="93">
+                                <div class="odometer-inside"><span class="odometer-digit"><span
+                                            class="odometer-digit-spacer">8</span><span
+                                            class="odometer-digit-inner"><span class="odometer-ribbon"><span
+                                                    class="odometer-ribbon-inner"><span
+                                                        class="odometer-value">9</span></span></span></span></span><span
+                                        class="odometer-digit"><span class="odometer-digit-spacer">8</span><span
+                                            class="odometer-digit-inner"><span class="odometer-ribbon"><span
+                                                    class="odometer-ribbon-inner"><span
+                                                        class="odometer-value">3</span></span></span></span></span>
+                                </div>
+                            </h4>
+                            <h4 class="title">K</h4>
+                        </div>
+                        <div class="counter-content">
+                            <h6 class="subtitle">Transaction</h6>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-money-check-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="counter-item">
+                        <div class="counter-header">
+                            <h4 class="title odometer odometer-auto-theme" data-odometer-final="20">
+                                <div class="odometer-inside"><span class="odometer-digit"><span
+                                            class="odometer-digit-spacer">8</span><span
+                                            class="odometer-digit-inner"><span class="odometer-ribbon"><span
+                                                    class="odometer-ribbon-inner"><span
+                                                        class="odometer-value">2</span></span></span></span></span><span
+                                        class="odometer-digit"><span class="odometer-digit-spacer">8</span><span
+                                            class="odometer-digit-inner"><span class="odometer-ribbon"><span
+                                                    class="odometer-ribbon-inner"><span
+                                                        class="odometer-value">0</span></span></span></span></span>
+                                </div>
+                            </h4>
+                            <h4 class="title">K</h4>
+                        </div>
+                        <div class="counter-content">
+                            <h6 class="subtitle">Currency</h6>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-money-bill"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="how-section padding-top padding-bottom">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="section-header">
+                        <h2 class="title">How To Work</h2>
+                        <p>Necessitatibus minima voluptate vel odit facere ipsa? Doloribus rem magnam accusamus delectus
+                            explicabo quam incidunt ipsam dolorum eos qui quia nostrum illo</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center gy-4">
+                <div class="col-xl-4 col-sm-8 col-lg-7">
+                    <div class="how-item">
+                        <div class="how-thumb"> <i class="las la-sync"></i> </div>
+                        <div class="how-content text-center">
+                            <h5 class="title">Pair Your Currency</h5>
+                            <p class="desc">Select the sending ad receving amount with currency</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-sm-8 col-lg-7">
+                    <div class="how-item">
+                        <div class="how-thumb"> <i class="las la-check-circle"></i> </div>
+                        <div class="how-content text-center">
+                            <h5 class="title">Confirm Your Exchange</h5>
+                            <p class="desc">Send the amount need to be sent with valid payment information</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-sm-8 col-lg-7">
+                    <div class="how-item">
+                        <div class="how-thumb"> <i class="fas fa-hand-holding-usd"></i> </div>
+                        <div class="how-content text-center">
+                            <h5 class="title">Get Expected Currency</h5>
+                            <p class="desc">Confirm your payment to get your accepted currency</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="faq-section padding-top padding-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 d-lg-block d-none rtl">
+                    <img src="https://script.viserlab.com/changalab/demo/assets/images/frontend/faq/63a82d9468bb31671966100.png"
+                        alt="faq image">
+                </div>
+                <div class="col-lg-7">
+                    <div class="section-header left-style">
+                        <h2 class="title">Frequently Asked Question</h2>
+                        <p>Some frequently Asked Questions</p>
+                    </div>
+                    <div class="faq-wrapper mb--20">
+                        <div class="faq-item active open">
+                            <div class="faq-title">
+                                <h6 class="title">Is Two-Factor Authentication (2FA) mandatory?</h6>
+                                <span class="right-icon"></span>
+                            </div>
+                            <div class="faq-content">All the clients who have signed up to on the site, are required
+                                to
+                                perform additional authorization at the following stages online:
+
+                                - Login
+                                - Adding or managing beneficiaries
+                                - Instructing a payment or booking a site</div>
+                        </div>
+                        <div class="faq-item ">
+                            <div class="faq-title">
+                                <h6 class="title">How To Create a Changylab account?</h6>
+                                <span class="right-icon"></span>
+                            </div>
+                            <div class="faq-content">If you want to open an account for personal use you can do it
+                                over the phone or online.&lt;div&gt;Opening an account online should only take a few
+                                minutes&lt;/div&gt;&lt;div&gt;You need to register to the site and just login to the
+                                site using the userid and password&lt;/div&gt;</div>
+                        </div>
+                        <div class="faq-item ">
+                            <div class="faq-title">
+                                <h6 class="title">In which forms can I buy foreign exchange?</h6>
+                                <span class="right-icon"></span>
+                            </div>
+                            <div class="faq-content">You can choose to buy foreign exchange in one or more of these
+                                modes: cash/currency notes, traveller’s cheques and prepaid
+                                multi-currency forex cards. Most people prefer to carry their currency
+                                in a combination of cash (generally for smaller expenses) and prepaid
+                                multi-currency cards which can be swiped at merchant outlets or used to
+                                withdraw cash at an ATM.</div>
+                        </div>
+                        <div class="faq-item ">
+                            <div class="faq-title">
+                                <h6 class="title">How To Exchange Currency?</h6>
+                                <span class="right-icon"></span>
+                            </div>
+                            <div class="faq-content">Always decline if given the opportunity to charge your purchase
+                                in USD.
+                                This may bring hidden transaction and conversion fees that will amount
+                                to much more than charging your purchase in the local currency. Insist
+                                that all purchases are charged in the local currency.
+
+                                There are always financial risks involved with traveling
+                                internationally, which is why it is important to take extra precautions
+                                making exchanges, purchases, or withdrawals abroad</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-bg padding-top padding-bottom">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="section-header">
+                        <h2 class="title">Our Latest Exchange</h2>
+                        <p>Transfer funds around the world from the comfort of your home with our easy-to-use online.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="card custom--card">
+                        <div class="card-body p-0">
+                            <table class="table custom--table table-responsive--md exchange-table">
+                                <thead>
+                                    <tr>
+                                        <th>User</th>
+                                        <th>Sent</th>
+                                        <th>Received</th>
+                                        <th>Amount</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td data-label="User">dssarx pzxoim</td>
+                                        <td data-label="Sent">
+                                            <span class="thumb">
+                                                <img class="table-currency-img"
+                                                    src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce62fefa191665984047.png"
+                                                    alt="currency image">
+                                            </span>
+                                            Bkash
+                                        </td>
+                                        <td data-label="Received">
+                                            <span class="thumb">
+                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/6363475fc84051667450719.jpg"
+                                                    class="table-currency-img" alt="currency image">
+                                            </span>
+                                            <span>
+                                                Payoneer
+                                            </span>
+                                        </td>
+                                        <td data-label="Amount">
+                                            1,281.18
+                                            BDT
+                                            <i class="la la-arrow-right" aria-hidden="true"></i>
+                                            9.96
+                                            USD
+                                        </td>
+                                        <td data-label="Date">
+                                            <div>
+                                                <span class="d-block">2024-07-30 06:02 AM</span>
+                                                <span>2 months ago</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="User">dssarx pzxoim</td>
+                                        <td data-label="Sent">
+                                            <span class="thumb">
+                                                <img class="table-currency-img"
+                                                    src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce62fefa191665984047.png"
+                                                    alt="currency image">
+                                            </span>
+                                            Bkash
+                                        </td>
+                                        <td data-label="Received">
+                                            <span class="thumb">
+                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d79313684cb1675072275.jpg"
+                                                    class="table-currency-img" alt="currency image">
+                                            </span>
+                                            <span>
+                                                PayTm
+                                            </span>
+                                        </td>
+                                        <td data-label="Amount">
+                                            10.00
+                                            BDT
+                                            <i class="la la-arrow-right" aria-hidden="true"></i>
+                                            5.64
+                                            INR
+                                        </td>
+                                        <td data-label="Date">
+                                            <div>
+                                                <span class="d-block">2024-07-29 11:43 AM</span>
+                                                <span>2 months ago</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="User">dssarx pzxoim</td>
+                                        <td data-label="Sent">
+                                            <span class="thumb">
+                                                <img class="table-currency-img"
+                                                    src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce5b0b4ec41665983920.jpg"
+                                                    alt="currency image">
+                                            </span>
+                                            Bitcoin
+                                        </td>
+                                        <td data-label="Received">
+                                            <span class="thumb">
+                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce62fefa191665984047.png"
+                                                    class="table-currency-img" alt="currency image">
+                                            </span>
+                                            <span>
+                                                Bkash
+                                            </span>
+                                        </td>
+                                        <td data-label="Amount">
+                                            50.00
+                                            BTC
+                                            <i class="la la-arrow-right" aria-hidden="true"></i>
+                                            1,640.00
+                                            BDT
+                                        </td>
+                                        <td data-label="Date">
+                                            <div>
+                                                <span class="d-block">2024-07-28 01:47 PM</span>
+                                                <span>2 months ago</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="User">Zephania Wong</td>
+                                        <td data-label="Sent">
+                                            <span class="thumb">
+                                                <img class="table-currency-img"
+                                                    src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d7826d88e8e1675068013.png"
+                                                    alt="currency image">
+                                            </span>
+                                            Web Money
+                                        </td>
+                                        <td data-label="Received">
+                                            <span class="thumb">
+                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d79ba643fd91675074470.jpg"
+                                                    class="table-currency-img" alt="currency image">
+                                            </span>
+                                            <span>
+                                                Skrill
+                                            </span>
+                                        </td>
+                                        <td data-label="Amount">
+                                            100.00
+                                            USD
+                                            <i class="la la-arrow-right" aria-hidden="true"></i>
+                                            100.00
+                                            USD
+                                        </td>
+                                        <td data-label="Date">
+                                            <div>
+                                                <span class="d-block">2023-01-30 06:38 PM</span>
+                                                <span>1 year ago</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="User">Harper Cooke</td>
+                                        <td data-label="Sent">
+                                            <span class="thumb">
+                                                <img class="table-currency-img"
+                                                    src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d7826d88e8e1675068013.png"
+                                                    alt="currency image">
+                                            </span>
+                                            Web Money
+                                        </td>
+                                        <td data-label="Received">
+                                            <span class="thumb">
+                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/6363475fc84051667450719.jpg"
+                                                    class="table-currency-img" alt="currency image">
+                                            </span>
+                                            <span>
+                                                Payoneer
+                                            </span>
+                                        </td>
+                                        <td data-label="Amount">
+                                            150.00
+                                            USD
+                                            <i class="la la-arrow-right" aria-hidden="true"></i>
+                                            150.00
+                                            USD
+                                        </td>
+                                        <td data-label="Date">
+                                            <div>
+                                                <span class="d-block">2023-01-30 06:27 PM</span>
+                                                <span>1 year ago</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="User">Jenna Roach</td>
+                                        <td data-label="Sent">
+                                            <span class="thumb">
+                                                <img class="table-currency-img"
+                                                    src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d7826d88e8e1675068013.png"
+                                                    alt="currency image">
+                                            </span>
+                                            Web Money
+                                        </td>
+                                        <td data-label="Received">
+                                            <span class="thumb">
+                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d79313684cb1675072275.jpg"
+                                                    class="table-currency-img" alt="currency image">
+                                            </span>
+                                            <span>
+                                                PayTm
+                                            </span>
+                                        </td>
+                                        <td data-label="Amount">
+                                            150.00
+                                            USD
+                                            <i class="la la-arrow-right" aria-hidden="true"></i>
+                                            9,375.00
+                                            INR
+                                        </td>
+                                        <td data-label="Date">
+                                            <div>
+                                                <span class="d-block">2023-01-30 06:25 PM</span>
+                                                <span>1 year ago</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="User">Harper Cooke</td>
+                                        <td data-label="Sent">
+                                            <span class="thumb">
+                                                <img class="table-currency-img"
+                                                    src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d797ac989e11675073452.jpg"
+                                                    alt="currency image">
+                                            </span>
+                                            Perfect Money
+                                        </td>
+                                        <td data-label="Received">
+                                            <span class="thumb">
+                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/634d135eb50b11665995614.jpg"
+                                                    class="table-currency-img" alt="currency image">
+                                            </span>
+                                            <span>
+                                                Paypal
+                                            </span>
+                                        </td>
+                                        <td data-label="Amount">
+                                            500.00
+                                            USD
+                                            <i class="la la-arrow-right" aria-hidden="true"></i>
+                                            466.67
+                                            USD
+                                        </td>
+                                        <td data-label="Date">
+                                            <div>
+                                                <span class="d-block">2023-01-30 06:15 PM</span>
+                                                <span>1 year ago</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="User">Jenna Roach</td>
+                                        <td data-label="Sent">
+                                            <span class="thumb">
+                                                <img class="table-currency-img"
+                                                    src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce5b0b4ec41665983920.jpg"
+                                                    alt="currency image">
+                                            </span>
+                                            Bitcoin
+                                        </td>
+                                        <td data-label="Received">
+                                            <span class="thumb">
+                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/6363475fc84051667450719.jpg"
+                                                    class="table-currency-img" alt="currency image">
+                                            </span>
+                                            <span>
+                                                Payoneer
+                                            </span>
+                                        </td>
+                                        <td data-label="Amount">
+                                            10.00
+                                            BTC
+                                            <i class="la la-arrow-right" aria-hidden="true"></i>
+                                            9.33
+                                            USD
+                                        </td>
+                                        <td data-label="Date">
+                                            <div>
+                                                <span class="d-block">2023-01-30 06:15 PM</span>
+                                                <span>1 year ago</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="User">Lucius Donaldson</td>
+                                        <td data-label="Sent">
+                                            <span class="thumb">
+                                                <img class="table-currency-img"
+                                                    src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce62fefa191665984047.png"
+                                                    alt="currency image">
+                                            </span>
+                                            Bkash
+                                        </td>
+                                        <td data-label="Received">
+                                            <span class="thumb">
+                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/6363475fc84051667450719.jpg"
+                                                    class="table-currency-img" alt="currency image">
+                                            </span>
+                                            <span>
+                                                Payoneer
+                                            </span>
+                                        </td>
+                                        <td data-label="Amount">
+                                            5,000.00
+                                            BDT
+                                            <i class="la la-arrow-right" aria-hidden="true"></i>
+                                            58.00
+                                            USD
+                                        </td>
+                                        <td data-label="Date">
+                                            <div>
+                                                <span class="d-block">2023-01-28 11:34 AM</span>
+                                                <span>1 year ago</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="User">Alfred Nobel</td>
+                                        <td data-label="Sent">
+                                            <span class="thumb">
+                                                <img class="table-currency-img"
+                                                    src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce62fefa191665984047.png"
+                                                    alt="currency image">
+                                            </span>
+                                            Bkash
+                                        </td>
+                                        <td data-label="Received">
+                                            <span class="thumb">
+                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d782ac127d51675068076.jpg"
+                                                    class="table-currency-img" alt="currency image">
+                                            </span>
+                                            <span>
+                                                Payoneer
+                                            </span>
+                                        </td>
+                                        <td data-label="Amount">
+                                            150.00
+                                            BDT
+                                            <i class="la la-arrow-right" aria-hidden="true"></i>
+                                            108.75
+                                            EUR
+                                        </td>
+                                        <td data-label="Date">
+                                            <div>
+                                                <span class="d-block">2023-01-12 05:45 PM</span>
+                                                <span>1 year ago</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="User">John Doe</td>
+                                        <td data-label="Sent">
+                                            <span class="thumb">
+                                                <img class="table-currency-img"
+                                                    src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce62fefa191665984047.png"
+                                                    alt="currency image">
+                                            </span>
+                                            Bkash
+                                        </td>
+                                        <td data-label="Received">
+                                            <span class="thumb">
+                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/6363475fc84051667450719.jpg"
+                                                    class="table-currency-img" alt="currency image">
+                                            </span>
+                                            <span>
+                                                Payoneer
+                                            </span>
+                                        </td>
+                                        <td data-label="Amount">
+                                            100.00
+                                            BDT
+                                            <i class="la la-arrow-right" aria-hidden="true"></i>
+                                            1.16
+                                            USD
+                                        </td>
+                                        <td data-label="Date">
+                                            <div>
+                                                <span class="d-block">2023-01-12 04:28 PM</span>
+                                                <span>1 year ago</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="User">John Doe</td>
+                                        <td data-label="Sent">
+                                            <span class="thumb">
+                                                <img class="table-currency-img"
+                                                    src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d79313684cb1675072275.jpg"
+                                                    alt="currency image">
+                                            </span>
+                                            PayTm
+                                        </td>
+                                        <td data-label="Received">
+                                            <span class="thumb">
+                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/6363475fc84051667450719.jpg"
+                                                    class="table-currency-img" alt="currency image">
+                                            </span>
+                                            <span>
+                                                Payoneer
+                                            </span>
+                                        </td>
+                                        <td data-label="Amount">
+                                            100.00
+                                            INR
+                                            <i class="la la-arrow-right" aria-hidden="true"></i>
+                                            1.28
+                                            USD
+                                        </td>
+                                        <td data-label="Date">
+                                            <div>
+                                                <span class="d-block">2023-01-12 04:11 PM</span>
+                                                <span>1 year ago</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="User">John Doe</td>
+                                        <td data-label="Sent">
+                                            <span class="thumb">
+                                                <img class="table-currency-img"
+                                                    src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce62fefa191665984047.png"
+                                                    alt="currency image">
+                                            </span>
+                                            Bkash
+                                        </td>
+                                        <td data-label="Received">
+                                            <span class="thumb">
+                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d782ac127d51675068076.jpg"
+                                                    class="table-currency-img" alt="currency image">
+                                            </span>
+                                            <span>
+                                                Payoneer
+                                            </span>
+                                        </td>
+                                        <td data-label="Amount">
+                                            150.00
+                                            BDT
+                                            <i class="la la-arrow-right" aria-hidden="true"></i>
+                                            108.75
+                                            EUR
+                                        </td>
+                                        <td data-label="Date">
+                                            <div>
+                                                <span class="d-block">2022-12-26 01:34 PM</span>
+                                                <span>1 year ago</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="User">John Doe</td>
+                                        <td data-label="Sent">
+                                            <span class="thumb">
+                                                <img class="table-currency-img"
+                                                    src="https://script.viserlab.com/changalab/demo/assets/images/currency/6363475fc84051667450719.jpg"
+                                                    alt="currency image">
+                                            </span>
+                                            Payoneer
+                                        </td>
+                                        <td data-label="Received">
+                                            <span class="thumb">
+                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce62fefa191665984047.png"
+                                                    class="table-currency-img" alt="currency image">
+                                            </span>
+                                            <span>
+                                                Bkash
+                                            </span>
+                                        </td>
+                                        <td data-label="Amount">
+                                            50.00
+                                            USD
+                                            <i class="la la-arrow-right" aria-hidden="true"></i>
+                                            3,888.89
+                                            BDT
+                                        </td>
+                                        <td data-label="Date">
+                                            <div>
+                                                <span class="d-block">2022-12-25 07:31 PM</span>
+                                                <span>1 year ago</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="User">John Doe</td>
+                                        <td data-label="Sent">
+                                            <span class="thumb">
+                                                <img class="table-currency-img"
+                                                    src="https://script.viserlab.com/changalab/demo/assets/images/currency/6363475fc84051667450719.jpg"
+                                                    alt="currency image">
+                                            </span>
+                                            Payoneer
+                                        </td>
+                                        <td data-label="Received">
+                                            <span class="thumb">
+                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce62fefa191665984047.png"
+                                                    class="table-currency-img" alt="currency image">
+                                            </span>
+                                            <span>
+                                                Bkash
+                                            </span>
+                                        </td>
+                                        <td data-label="Amount">
+                                            100.00
+                                            USD
+                                            <i class="la la-arrow-right" aria-hidden="true"></i>
+                                            7,777.78
+                                            BDT
+                                        </td>
+                                        <td data-label="Date">
+                                            <div>
+                                                <span class="d-block">2022-12-25 06:16 PM</span>
+                                                <span>1 year ago</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="User">John Doe</td>
+                                        <td data-label="Sent">
+                                            <span class="thumb">
+                                                <img class="table-currency-img"
+                                                    src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce62fefa191665984047.png"
+                                                    alt="currency image">
+                                            </span>
+                                            Bkash
+                                        </td>
+                                        <td data-label="Received">
+                                            <span class="thumb">
+                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d782ac127d51675068076.jpg"
+                                                    class="table-currency-img" alt="currency image">
+                                            </span>
+                                            <span>
+                                                Payoneer
+                                            </span>
+                                        </td>
+                                        <td data-label="Amount">
+                                            50.00
+                                            BDT
+                                            <i class="la la-arrow-right" aria-hidden="true"></i>
+                                            36.25
+                                            EUR
+                                        </td>
+                                        <td data-label="Date">
+                                            <div>
+                                                <span class="d-block">2022-12-25 02:29 PM</span>
+                                                <span>1 year ago</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="User">John Doe</td>
+                                        <td data-label="Sent">
+                                            <span class="thumb">
+                                                <img class="table-currency-img"
+                                                    src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce62fefa191665984047.png"
+                                                    alt="currency image">
+                                            </span>
+                                            Bkash
+                                        </td>
+                                        <td data-label="Received">
+                                            <span class="thumb">
+                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d782ac127d51675068076.jpg"
+                                                    class="table-currency-img" alt="currency image">
+                                            </span>
+                                            <span>
+                                                Payoneer
+                                            </span>
+                                        </td>
+                                        <td data-label="Amount">
+                                            50.00
+                                            BDT
+                                            <i class="la la-arrow-right" aria-hidden="true"></i>
+                                            36.25
+                                            EUR
+                                        </td>
+                                        <td data-label="Date">
+                                            <div>
+                                                <span class="d-block">2022-12-25 02:27 PM</span>
+                                                <span>1 year ago</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="User">John Doe</td>
+                                        <td data-label="Sent">
+                                            <span class="thumb">
+                                                <img class="table-currency-img"
+                                                    src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d782ac127d51675068076.jpg"
+                                                    alt="currency image">
+                                            </span>
+                                            Payoneer
+                                        </td>
+                                        <td data-label="Received">
+                                            <span class="thumb">
+                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce62fefa191665984047.png"
+                                                    class="table-currency-img" alt="currency image">
+                                            </span>
+                                            <span>
+                                                Bkash
+                                            </span>
+                                        </td>
+                                        <td data-label="Amount">
+                                            10.00
+                                            EUR
+                                            <i class="la la-arrow-right" aria-hidden="true"></i>
+                                            10.67
+                                            BDT
+                                        </td>
+                                        <td data-label="Date">
+                                            <div>
+                                                <span class="d-block">2022-12-24 05:12 PM</span>
+                                                <span>1 year ago</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="User">John Doe</td>
+                                        <td data-label="Sent">
+                                            <span class="thumb">
+                                                <img class="table-currency-img"
+                                                    src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d79313684cb1675072275.jpg"
+                                                    alt="currency image">
+                                            </span>
+                                            PayTm
+                                        </td>
+                                        <td data-label="Received">
+                                            <span class="thumb">
+                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce62fefa191665984047.png"
+                                                    class="table-currency-img" alt="currency image">
+                                            </span>
+                                            <span>
+                                                Bkash
+                                            </span>
+                                        </td>
+                                        <td data-label="Amount">
+                                            15.00
+                                            INR
+                                            <i class="la la-arrow-right" aria-hidden="true"></i>
+                                            16.00
+                                            BDT
+                                        </td>
+                                        <td data-label="Date">
+                                            <div>
+                                                <span class="d-block">2022-12-24 03:59 PM</span>
+                                                <span>1 year ago</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="User">John Doe</td>
+                                        <td data-label="Sent">
+                                            <span class="thumb">
+                                                <img class="table-currency-img"
+                                                    src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d782ac127d51675068076.jpg"
+                                                    alt="currency image">
+                                            </span>
+                                            Payoneer
+                                        </td>
+                                        <td data-label="Received">
+                                            <span class="thumb">
+                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce62fefa191665984047.png"
+                                                    class="table-currency-img" alt="currency image">
+                                            </span>
+                                            <span>
+                                                Bkash
+                                            </span>
+                                        </td>
+                                        <td data-label="Amount">
+                                            50.00
+                                            EUR
+                                            <i class="la la-arrow-right" aria-hidden="true"></i>
+                                            53.33
+                                            BDT
+                                        </td>
+                                        <td data-label="Date">
+                                            <div>
+                                                <span class="d-block">2022-12-24 02:59 PM</span>
+                                                <span>1 year ago</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="newsletter-section padding-top padding-bottom bg_img bg_fixed bg_overlay"
+        data-background="https://script.viserlab.com/changalab/demo/assets/images/frontend/subscribe/66a62730b2b5b1722165040.png"
+        style="background-image: url(&quot;https://script.viserlab.com/changalab/demo/assets/images/frontend/subscribe/66a62730b2b5b1722165040.png&quot;);">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="section-header mb-5 text-white">
+                        <h2 class="title text-white">Subscribe Our Newsletter</h2>
+                        <p class="text-white">Subscribe Our Newslater Now to get all the updates and Discount Offer
+                            News</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-7">
+                    <form class="newsletter-form disableSubmission" method="POST" id="newsletr-form">
+                        <input type="hidden" name="_token" value="EwEgoKFR4OOz0NRehU09Cj2W509m3L8IqjnBXAqK"
+                            autocomplete="off"> <input type="email" placeholder="Enter Your Email..."
+                            name="email" class="form--control text--base" required="">
+                        <button type="submit" id="subscribe" class="h5 text-white">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="exchange-currency padding-top padding-bottom">
+        <div class="container">
+            <div class="exchange-currency__wrapper section-bg">
+                <div class="thumb">
+                    <img src="https://script.viserlab.com/changalab/demo/assets/images/frontend/mobile_app/668bb6001cba61720432128.png"
+                        alt="mobile-image" class="w-unset">
+                </div>
+                <div class="exchange-currency__content">
+                    <h2 class="title">Changalab - Currency Exchange Mobile App</h2>
+                    <p class="desc">ChangaLab is a currency exchange flutter mobile application (Android &amp;IOS)
+                        that comes with the “ChangaLab – Currency Exchange Platform” CMS. Created with aspiring
+                        entrepreneurs and businesses entering the exciting world of currency exchange in mind</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="blog-section padding-bottom padding-top">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="section-header">
+                        <h2 class="title">Our Latest News</h2>
+                        <p> Lorem ipsum dolor sit amet consectetuer adipiscing elit. Aenean modo lula eget dolor. Aenean
+                            massa.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center gy-3">
+                <div class="col-md-6 col-xl-4 col-sm-10">
+                    <div class="post-item">
+                        <div class="post-thumb c-thumb">
+                            <a
+                                href="https://script.viserlab.com/changalab/demo/blog/streamline-your-financial-transactions:-how-to-use-online-currency-exchange-platforms">
+                                <img class="w-100"
+                                    src="https://script.viserlab.com/changalab/demo/assets/images/frontend/blog/thumb_63d0e81b972c41674635291.jpg"
+                                    alt="blog image">
+                            </a>
+                        </div>
+                        <div class="post-content">
+                            <div class="meta-post">
+                                <div class="date blog-date">
+                                    <span class="d-inline-block">
+                                        <i class="far fa-calendar-alt text-muted"></i>
+                                        Jan 25, 2023
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="blog-header pt-0">
+                                <h6 class="title">
+                                    <a
+                                        href="https://script.viserlab.com/changalab/demo/blog/streamline-your-financial-transactions:-how-to-use-online-currency-exchange-platforms">
+                                        Streamline Your Financial Transactions: How to Use Online Currency Exchange
+                                        Platforms
+                                    </a>
+                                </h6>
+                            </div>
+
+                            <div class="entry-content">
+                                Online currency exchange platforms are a convenient and efficient way to manage your
+                                international financial transaction... </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-4 col-sm-10">
+                    <div class="post-item">
+                        <div class="post-thumb c-thumb">
+                            <a
+                                href="https://script.viserlab.com/changalab/demo/blog/currency-trading-101:-understanding-the-risks-and-rewards">
+                                <img class="w-100"
+                                    src="https://script.viserlab.com/changalab/demo/assets/images/frontend/blog/thumb_63d0e839971a31674635321.jpg"
+                                    alt="blog image">
+                            </a>
+                        </div>
+                        <div class="post-content">
+                            <div class="meta-post">
+                                <div class="date blog-date">
+                                    <span class="d-inline-block">
+                                        <i class="far fa-calendar-alt text-muted"></i>
+                                        Jan 25, 2023
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="blog-header pt-0">
+                                <h6 class="title">
+                                    <a
+                                        href="https://script.viserlab.com/changalab/demo/blog/currency-trading-101:-understanding-the-risks-and-rewards">
+                                        Currency Trading 101: Understanding the Risks and Rewards
+                                    </a>
+                                </h6>
+                            </div>
+
+                            <div class="entry-content">
+                                Currency trading, also known as forex trading or foreign exchange trading, is the
+                                process of buying and selling differen... </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-4 col-sm-10">
+                    <div class="post-item">
+                        <div class="post-thumb c-thumb">
+                            <a
+                                href="https://script.viserlab.com/changalab/demo/blog/the-future-of-currency-exchange:-how-technology-is-changing-the-game">
+                                <img class="w-100"
+                                    src="https://script.viserlab.com/changalab/demo/assets/images/frontend/blog/thumb_63d0e8547bb101674635348.png"
+                                    alt="blog image">
+                            </a>
+                        </div>
+                        <div class="post-content">
+                            <div class="meta-post">
+                                <div class="date blog-date">
+                                    <span class="d-inline-block">
+                                        <i class="far fa-calendar-alt text-muted"></i>
+                                        Jan 25, 2023
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="blog-header pt-0">
+                                <h6 class="title">
+                                    <a
+                                        href="https://script.viserlab.com/changalab/demo/blog/the-future-of-currency-exchange:-how-technology-is-changing-the-game">
+                                        The Future of Currency Exchange: How Technology is Changing the Game
+                                    </a>
+                                </h6>
+                            </div>
+
+                            <div class="entry-content">
+                                Currency exchange, also known as foreign exchange or forex, has come a long way since
+                                the days of physically exchanging... </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="overflow-hidden">
+        <div class="footer-top padding-top padding-bottom">
+            <div class="container">
+                <div class="footer-area">
+                    <div class="footer-widget widget-about">
+                        <div class="footer-logo">
+                            <a href="https://script.viserlab.com/changalab/demo">
+                                <img src="https://script.viserlab.com/changalab/demo/assets/images/logo_icon/logo_dark.png"
+                                    alt="ChangaLab" title="ChangaLab">
+                            </a>
+                        </div>
+                        <p>Changalab - Secure and Suitable Currency Exchange Platform</p>
+                    </div>
+                    <div class="footer-widget widget-link">
+                        <h5 class="title">Support</h5>
+                        <ul>
+                            <li>
+                                <a href="https://script.viserlab.com/changalab/demo/contact">Contact</a>
+                            </li>
+                            <li>
+                                <a href="https://script.viserlab.com/changalab/demo/blog">Blog</a>
+                            </li>
+                            <li>
+                                <a href="https://script.viserlab.com/changalab/demo/user/login">Login</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-widget widget-link">
+                        <h5 class="title">Exchange Gateways</h5>
+                        <ul>
+                            <li>
+                                <a href="https://script.viserlab.com/changalab/demo">
+                                    Perfect Money
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://script.viserlab.com/changalab/demo">
+                                    Bkash
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://script.viserlab.com/changalab/demo">
+                                    PayTm
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-widget widget-link">
+                        <h5 class="title">Useful Link</h5>
+                        <ul>
+                            <li>
+                                <a href="https://script.viserlab.com/changalab/demo/policy/privacy-policy">
+                                    Privacy Policy
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://script.viserlab.com/changalab/demo/policy/terms-of-service">
+                                    Terms of Service
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://script.viserlab.com/changalab/demo/policy/refund-policy">
+                                    Refund Policy
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom section-bg">
+            <div class="container d-flex flex-wrap align-items-center justify-content-between">
+                <p>
+                    Copyright © 2024
+                    <a class=" text--base" href="https://script.viserlab.com/changalab/demo">ChangaLab</a>.
+                    <span class="ms-1">All Rights Reserved</span>
+                </p>
+                <ul class="social-icons">
+                    <li title="">
+                        <a href="https://www.facebook.com/" class="facebook" target="_blank">
+                            <i class="fab fa-facebook"></i> </a>
+                    </li>
+                    <li title="">
+                        <a href="https://x.com/" class="twiter" target="_blank">
+                            <i class="fa-brands fa-x-twitter"></i> </a>
+                    </li>
+                    <li title="">
+                        <a href="https://www.instagram.com/" class="instagram" target="_blank">
+                            <i class="fab fa-instagram"></i> </a>
+                    </li>
+                    <li title="">
+                        <a href="https://www.youtube.com/" class="youtube" target="_blank">
+                            <i class="fab fa-youtube"></i> </a>
+                    </li>
+                    <li title="">
+                        <a href="https://www.pinterest.com" class="pinterest" target="_blank">
+                            <i class="fab fa-pinterest"></i> </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://script.viserlab.com/changalab/demo/assets/global/js/jquery-3.7.1.min.js?v=3.0"></script>
+    <script src="https://script.viserlab.com/changalab/demo/assets/global/js/bootstrap.bundle.min.js?v=3.0"></script>
+
+    <script src="https://script.viserlab.com/changalab/demo/assets/templates/blue_bliss/js/modernizr-3.6.0.min.js"></script>
+    <script src="https://script.viserlab.com/changalab/demo/assets/templates/blue_bliss/js/plugins.js"></script>
+    <script src="https://script.viserlab.com/changalab/demo/assets/templates/blue_bliss/js/swiper.min.js"></script>
+    <script src="https://script.viserlab.com/changalab/demo/assets/templates/blue_bliss/js/wow.min.js"></script>
+    <script src="https://script.viserlab.com/changalab/demo/assets/templates/blue_bliss/js/odometer.min.js?v=3.0"></script>
+    <script src="https://script.viserlab.com/changalab/demo/assets/templates/blue_bliss/js/viewport.jquery.js?v=3.0">
+    </script>
+    <script src="https://script.viserlab.com/changalab/demo/assets/templates/blue_bliss/js/nice-select.js?v=3.0"></script>
+    <script src="https://script.viserlab.com/changalab/demo/assets/templates/blue_bliss/js/main.js?v=3.0"></script>
+
+    <script src="https://script.viserlab.com/changalab/demo/assets/global/js/select2.min.js"></script>
+    <script src="https://script.viserlab.com/changalab/demo/assets/templates/blue_bliss/js/slick.min.js"></script>
+
+
+    <link href="https://script.viserlab.com/changalab/demo/assets/global/css/iziToast.min.css" rel="stylesheet">
+    <link href="https://script.viserlab.com/changalab/demo/assets/global/css/iziToast_custom.css" rel="stylesheet">
+    <script src="https://script.viserlab.com/changalab/demo/assets/global/js/iziToast.min.js"></script>
+
+    <script>
+        "use strict";
+        const colors = {
+            success: '#28c76f',
+            error: '#eb2222',
+            warning: '#ff9f43',
+            info: '#1e9ff2',
+        }
+
+        const icons = {
+            success: 'fas fa-check-circle',
+            error: 'fas fa-times-circle',
+            warning: 'fas fa-exclamation-triangle',
+            info: 'fas fa-exclamation-circle',
+        }
+
+        const notifications = [];
+        const errors = [];
+
+
+        const triggerToaster = (status, message) => {
+            iziToast[status]({
+                title: status.charAt(0).toUpperCase() + status.slice(1),
+                message: message,
+                position: "topRight",
+                backgroundColor: '#fff',
+                icon: icons[status],
+                iconColor: colors[status],
+                progressBarColor: colors[status],
+                titleSize: '1rem',
+                messageSize: '1rem',
+                titleColor: '#474747',
+                messageColor: '#a2a2a2',
+                transitionIn: 'obunceInLeft'
+            });
+        }
+
+        if (notifications.length) {
+            notifications.forEach(element => {
+                triggerToaster(element[0], element[1]);
+            });
+        }
+
+        if (errors.length) {
+            errors.forEach(error => {
+                triggerToaster('error', error);
+            });
+        }
+
+        function notify(status, message) {
+            if (typeof message == 'string') {
+                triggerToaster(status, message);
+            } else {
+                $.each(message, (i, val) => triggerToaster(status, val));
+            }
+        }
+    </script>
+
+    <script src="https://script.viserlab.com/changalab/demo/assets/global/js/firebase/firebase-8.3.2.js"></script>
+
+    <script>
+        "use strict";
+
+        var permission = null;
+        var authenticated = '';
+        var pushNotify = 1;
+        var firebaseConfig = {
+            "serverKey": "AAAAg113O9Y:APA91bFmugQ0XiB2JnL5QzLYwEmpVbt-jBafLWHnO4AEKbD9UCQ9K5bBm72Lym9Uka2Xl0XEAg9dp3Np-ImXohKvLHeuHqT-U6iVpXiyq3IIJgYYWmjwrF5LCyMaDRCWYCe917ocbDCo"
+        };
+
+        function pushNotifyAction() {
+            permission = Notification.permission;
+
+            if (!('Notification' in window)) {
+                notify('info', 'Push notifications not available in your browser. Try Chromium.')
+            } else if (permission === 'denied' || permission == 'default') { //Notice for users dashboard
+                $('.notice').append(`<div class="alert alert--primary" role="alert">
+                <div class="alert__icon"><i class="fas fa-bell"></i></div>
+                <p class="alert__message m-0">
+                    <span class="fw-bold d-block">Please Allow / Reset Browser Notification</span>
+                    <small><i>If you want to get push notification then you have to allow notification from your browser </i></small>
+                </p>
+            </div>`);
+            }
+        }
+
+        //If enable push notification from admin panel
+        if (pushNotify == 1) {
+            pushNotifyAction();
+        }
+
+        //When users allow browser notification
+        if (permission != 'denied' && firebaseConfig) {
+
+            //Firebase
+            firebase.initializeApp(firebaseConfig);
+            const messaging = firebase.messaging();
+
+            navigator.serviceWorker.register(
+                    "https://script.viserlab.com/changalab/demo/assets/global/js/firebase/firebase-messaging-sw.js")
+
+                .then((registration) => {
+                    messaging.useServiceWorker(registration);
+
+                    function initFirebaseMessagingRegistration() {
+                        messaging
+                            .requestPermission()
+                            .then(function() {
+                                return messaging.getToken()
+                            })
+                            .then(function(token) {
+                                $.ajax({
+                                    url: 'https://script.viserlab.com/changalab/demo/user/add-device-token',
+                                    type: 'POST',
+                                    data: {
+                                        token: token,
+                                        '_token': "EwEgoKFR4OOz0NRehU09Cj2W509m3L8IqjnBXAqK"
+                                    },
+                                    success: function(response) {},
+                                    error: function(err) {},
+                                });
+                            }).catch(function(error) {});
+                    }
+
+                    messaging.onMessage(function(payload) {
+                        const title = payload.notification.title;
+                        const options = {
+                            body: payload.notification.body,
+                            icon: payload.data.icon,
+                            image: payload.notification.image,
+                            click_action: payload.data.click_action,
+                            vibrate: [200, 100, 200]
+                        };
+                        new Notification(title, options);
+                    });
+
+                    //For authenticated users
+                    if (authenticated) {
+                        initFirebaseMessagingRegistration();
+                    }
+
+                });
+
+        }
+    </script>
+
+    <script>
+        "use strict";
+        (function($) {
+            let sendId, sendMinAmount, sendMaxAmount, sendAmount, sendCurrency, sendCurrencyBuyRate;
+            let receivedId, receivedAmount, receivedCurrency, receiveCurrencySellRate;
+
+            //=============change select2 structure
+            $('.select2').select2({
+                templateResult: formatState
+            });
+
+            function formatState(state) {
+                if (!state.id) return state.text;
+                let selectType = $(state.element).data('select-for').toUpperCase();
+                if (sendId && selectType == 'RECEIVED' && sendId == state.element.value) {
+                    return false;
+                }
+                if (receivedId && selectType == 'SEND' && receivedId == state.element.value) {
+                    return false;
+                }
+                return $('<img class="ms-1"   src="' + $(state.element).data('image') + '"/> <span class="ms-3">' +
+                    state.text + '</span>');
+            }
+
+
+
+            $('[name=sending_currency]').on('change', function(e) {
+                sendId = parseInt($(this).val());
+                sendMinAmount = parseFloat($(this).find(':selected').data('min'));
+                sendMaxAmount = parseFloat($(this).find(':selected').data('max'));
+                sendCurrency = $(this).find(':selected').data('currency');
+                sendCurrencyBuyRate = parseFloat($(this).find(':selected').data('buy'));
+
+                $('#currency-limit').html(
+                    `Limit <span class="text--base">${sendMinAmount.toFixed(2)}</span> - <span class="text--base">${sendMaxAmount.toFixed(2)}</span> ${sendCurrency}`
+                );
+                $('#currency-limit').removeClass('d-none').addClass("d-block mt-2");
+
+                $("#sending_amount").siblings('.input-group-text').removeClass('d-none');
+                $("#sending_amount").removeClass('rounded');
+                $("#sending_amount").siblings('.input-group-text').text(sendCurrency);
+
+                if (sendId) {
+                    $(this).closest('.form-group').find('.select2-selection__rendered').html(
+                        `<img src="${$(this).find(':selected').data('image')}" class="currency-image"/> ${$(this).find(':selected').text()}`
+                    )
+                    calculationReceivedAmount();
+                }
+            });
+
+            $('[name=receiving_currency]').on('change', function(e) {
+                receivedId = parseInt($(this).val());
+                receiveCurrencySellRate = parseFloat($(this).find(':selected').data('sell'));
+                receivedCurrency = $(this).find(':selected').data('currency');
+
+                let minAmount = parseFloat($(this).find(':selected').data('min'));
+                let maxAmount = parseFloat($(this).find(':selected').data('max'));
+                let reserveAmount = parseFloat($(this).find(':selected').data('reserve'))
+
+                $('#currency-limit-received').html(
+                    `Limit                    <span class="text--base">${minAmount.toFixed(2)}</span> - <span class="text--base">${maxAmount.toFixed(2)}</span>
+                    ${receivedCurrency} | Reserve <span class="text--base">${reserveAmount.toFixed(2)}</span> ${receivedCurrency}`
+                );
+
+                $('#currency-limit-received').removeClass('d-none').addClass("d-block mt-2");
+                $("#receiving_amount").siblings('.input-group-text').removeClass('d-none');
+                $("#receiving_amount").removeClass('rounded');
+                $("#receiving_amount").siblings('.input-group-text').text(receivedCurrency);
+
+                if (receivedId) {
+                    $(this).closest('.form-group').find('.select2-selection__rendered').html(
+                        `<img src="${$(this).find(':selected').data('image')}" class="currency-image"/> ${$(this).find(':selected').text()}`
+                    )
+                    calculationReceivedAmount();
+                }
+            });
+
+            $('#sending_amount').on('input', function(e) {
+                sendAmount = parseFloat(this.value);
+                if (sendAmount < 0) {
+                    sendAmount = 0;
+                    notify('error', 'Negative amount is not allowed');
+                    $(this).val('');
+                    $('input[name="receiving_amount"]').val('');
+                } else {
+                    calculationReceivedAmount();
+                }
+            });
+
+            $('#receiving_amount').on('input', function(e) {
+                receivedAmount = parseFloat(this.value);
+                if (receivedAmount < 0) {
+                    notify('error', 'Negative amount is not allowed');
+                    receivedAmount = 0;
+                    $(this).val('');
+                    $('input[name="sending_amount"]').val('');
+                } else {
+                    calculationSendAmount();
+                }
+            });
+
+            const calculationReceivedAmount = () => {
+                if (!sendId && !receivedId && !sendCurrencyBuyRate && !receiveCurrencySellRate) {
+                    return false;
+                }
+                let amountReceived = (sendCurrencyBuyRate / receiveCurrencySellRate) * sendAmount;
+                $("#receiving_amount").val(amountReceived.toFixed(2));
+            }
+
+            const calculationSendAmount = () => {
+                if (!sendId && !receivedId && !sendCurrencyBuyRate && !receiveCurrencySellRate) {
+                    return false;
+                }
+                let amountReceived = (receiveCurrencySellRate / sendCurrencyBuyRate) * receivedAmount;
+                $("#sending_amount").val(amountReceived.toFixed(2));
+            }
+        })(jQuery);
+    </script>
+    <script>
+        "use strict";
+        (function($) {
+            $('#tracking-form').on('submit', function(e) {
+                e.preventDefault();
+                let exchangeId = $(this).find("input[name=exchange_id]").val() || null;
+                $.ajax({
+                    url: $(this).attr('action'),
+                    type: "GET",
+                    dataType: 'json',
+                    data: {
+                        "exchange_id": exchangeId
+                    },
+                    cache: false,
+                    success: function(response) {
+                        if (response.success) {
+                            $('#trackModal').find("#exchange-information").html(response.html)
+                            $("#trackModal").modal('show');
+                        } else {
+                            notify('error', response.error || response.message)
+                        }
+                    },
+                    error: function() {
+                        notify('error', `Something went the wrong`)
+                    }
+                });
+            });
+        })(jQuery);
+    </script>
+    <script>
+        (function($) {
+            'use strict'
+            document.addEventListener("DOMContentLoaded", function() {
+                const currencyLists = document.querySelectorAll(".currency-list");
+                currencyLists.forEach(singleList => {
+                    const items = singleList.querySelectorAll(".currency-list__item");
+                    if (items.length > 5) {
+                        $(singleList).slick({
+                            autoplay: true,
+                            dots: false,
+                            infinite: true,
+                            speed: 3000,
+                            slidesToShow: 5,
+                            arrows: false,
+                            slidesToScroll: 4,
+                            cssEase: "linear",
+                            vertical: true,
+                            autoplaySpeed: 0,
+                            verticalSwiping: true,
+                            swipeToSlide: true,
+                            swipe: true,
+                            focusOnHover: true,
+                            pauseOnHover: true,
+                        });
+                    }
+                });
+            });
+        })(jQuery);
+    </script>
+    <script>
+        "use strict";
+        (function($) {
+            setTimeout(() => {
+                $('body').find(".commonninja-ribbon-link").remove();
+            }, 1000);
+        })(jQuery);
+    </script>
+    <script>
+        "use strict";
+        (function($) {
+            $("#newsletr-form").on('submit', function(e) {
+                e.preventDefault();
+                let formData = new FormData($(this)[0]);
+                $.ajax({
+                    url: `https://script.viserlab.com/changalab/demo/subscribe`,
+                    method: "POST",
+                    data: formData,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function(resp) {
+                        if (resp.success) {
+                            $('input[name="email"]').val('');
+                            notify('success', resp.message)
+                        } else {
+                            notify('error', resp.error || `Something went wrong`)
+                        }
+                    },
+                    error: function(e) {
+                        notify(`Something went wrong`)
+                    }
+                });
+            });
+        })(jQuery);
+    </script>
+    <script>
+        "use stric";
+        $(document).ready(function() {
+            $('.custom--dropdown__selected').on('click', function() {
+                $(this).parent().toggleClass('open');
+            });
+
+            $('.custom--dropdown > .dropdown-list > .dropdown-list__item').on('click', function() {
+                $('.custom--dropdown > .dropdown-list > .dropdown-list__item').removeClass('selected');
+                $(this).addClass('selected').parent().parent().removeClass('open').children(
+                    '.custom--dropdown__selected').html($(this).html());
+            });
+
+            $(document).on('keyup', function(evt) {
+                if ((evt.keyCode || evt.which) === 27) {
+                    $('.custom--dropdown').removeClass('open');
+                }
+            });
+
+            $(document).on('click', function(evt) {
+                if ($(evt.target).closest(".custom--dropdown > .custom--dropdown__selected").length === 0) {
+                    $('.custom--dropdown').removeClass('open');
+                }
+            });
+        });
+    </script>
+
+    <script>
+        "use strict";
+        (function($) {
+            // language
+            $('.langSel').on('click', function(e) {
+                let langCode = $(this).data('value');
+                window.location.href = "https://script.viserlab.com/changalab/demo/change/" + langCode;
+            });
+
+            $('.policy').on('click', function() {
+                $.get('https://script.viserlab.com/changalab/demo/cookie/accept', function(response) {
+                    $('.cookies-card').addClass('d-none');
+                });
+            });
+
+            setTimeout(function() {
+                $('.cookies-card').removeClass('hide')
+            }, 2000);
+
+            var inputElements = $('[type=text],select,textarea');
+            $.each(inputElements, function(index, element) {
+                element = $(element);
+                element.closest('.form-group').find('label').attr('for', element.attr('name'));
+                element.attr('id', element.attr('name'))
+            });
+
+            $.each($('input, select, textarea'), function(i, element) {
+                var elementType = $(element);
+                if (elementType.attr('type') != 'checkbox') {
+                    if (element.hasAttribute('required')) {
+                        $(element).closest('.form-group').find('label').addClass('required');
+                    }
+                }
+            });
+
+            let disableSubmission = false;
+            $('.disableSubmission').on('submit', function(e) {
+                if (disableSubmission) {
+                    e.preventDefault()
+                } else {
+                    disableSubmission = true;
+                }
+            });
+        })(jQuery);
+    </script>
+
+    <script>
+        var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
+        (function() {
+            var s1 = document.createElement("script"),
+                s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/5fe0b9b2a8a254155ab5421d/1eq2tap1m';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+
+    <script>
+        if (window.top != window.self) {
+            document.body.innerHTML +=
+                '<div style="position:fixed;top:0;width:100%;z-index:9999999;background:#f8d7da;color:#721c24;text-align:center; padding: 20px;"><p style="font-size:20px; font-weight: bold;">You are using this website under an external iframe!!</p><p style="font-size:16px; margin-top: 20px;">for a better experience, please browse directly instead of an external iframe.</p><a href="' +
+                window.self.location +
+                '" target="_blank" style=" margin-top:20px; color: #fff;background-color: #dc3545; padding: 5px 10px; border-radius: 5px; text-decoration: none;">Browse Directly</a></div>';
+        }
+    </script>
+
+
+    <script>
+        adroll_adv_id = "YXRNNTO7ZBAMFBH67UUE5M";
+        adroll_pix_id = "MMQQDWGN25EXPHGRPA3NLR";
+        adroll_version = "2.0";
+        (function(w, d, e, o, a) {
+            w.__adroll_loaded = true;
+            w.adroll = w.adroll || [];
+            w.adroll.f = ['setProperties', 'identify', 'track'];
+            var roundtripUrl = "https://s.adroll.com/j/" + adroll_adv_id +
+                "/roundtrip.js";
+            for (a = 0; a < w.adroll.f.length; a++) {
+                w.adroll[w.adroll.f[a]] = w.adroll[w.adroll.f[a]] || (function(n) {
+                    return function() {
+                        w.adroll.push([n, arguments])
+                    }
+                })(w.adroll.f[a])
+            }
+            e = d.createElement('script');
+            o = d.getElementsByTagName('script')[0];
+            e.async = 1;
+            e.src = roundtripUrl;
+            o.parentNode.insertBefore(e, o);
+        })(window, document);
+        adroll.track("pageView");
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1ME4K0RD7K"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-1ME4K0RD7K');
+    </script>
+
+
+
+    <script src="https://cdn.commoninja.com/scripts/sdk/main.js" id="cn-main-script" async=""></script>
+    <div id="monica-content-root" class="monica-widget"></div><iframe id="adroll_slg"
+        src="https://x.adroll.com/pxl/iframe_content.html?adroll_fpc=3cfa4c046cc4ac442f94980d2ce529f3-1729515315525&amp;flg=1&amp;pv=51990610969.23931&amp;arrfrr=https%3A%2F%2Fscript.viserlab.com%2Fchangalab%2Fdemo%2F&amp;advertisable=YXRNNTO7ZBAMFBH67UUE5M"
+        title="no readable content" frameborder="0" marginwidth="0" marginheight="0"
+        allow="join-ad-interest-group"
+        style="position: absolute; width: 0px; height: 0px; border: 0px; padding: 0px; margin: 0px 0px 0px -1000px;"></iframe>
+    <script async="" charset="UTF-8" src="https://embed.tawk.to/_s/v4/app/67183cd0c15/languages/en.js"></script>
+    <div id="hl4hbpge6sig1729932400961" class="widget-visible"><iframe src="about:blank" frameborder="0"
+            scrolling="no" width="244px" height="44px"
+            style="outline:none !important; visibility:visible !important; resize:none !important; box-shadow:none !important; overflow:visible !important; background:none !important; opacity:1 !important; filter:alpha(opacity=100) !important; -ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity 1}) !important; -mz-opacity:1 !important; -khtml-opacity:1 !important; top:auto !important; right:10px !important; bottom:0px !important; left:auto !important; position:fixed !important; border:0 !important; min-height:44px !important; min-width:244px !important; max-height:44px !important; max-width:244px !important; padding:0 !important; margin:0 !important; -moz-transition-property:none !important; -webkit-transition-property:none !important; -o-transition-property:none !important; transition-property:none !important; transform:none !important; -webkit-transform:none !important; -ms-transform:none !important; width:244px !important; height:44px !important; display:block !important; z-index:1000001 !important; background-color:transparent !important; cursor:none !important; float:none !important; border-radius:unset !important; pointer-events:auto !important; clip:auto !important; color-scheme:light !important;"
+            id="co8046t2eh0g1729932400996" class="" title="chat widget"></iframe><iframe src="about:blank"
+            frameborder="0" scrolling="no" width="350px" height="520px"
+            style="outline:none !important; visibility:visible !important; resize:none !important; box-shadow:none !important; overflow:visible !important; background:none !important; opacity:1 !important; filter:alpha(opacity=100) !important; -ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity 1}) !important; -mz-opacity:1 !important; -khtml-opacity:1 !important; top:auto !important; right:0px !important; bottom:0px !important; left:auto !important; position:fixed !important; border:0 !important; min-height:520px !important; min-width:350px !important; max-height:520px !important; max-width:350px !important; padding:0 !important; margin:0 !important; -moz-transition-property:none !important; -webkit-transition-property:none !important; -o-transition-property:none !important; transition-property:none !important; transform:none !important; -webkit-transform:none !important; -ms-transform:none !important; width:350px !important; height:520px !important; display:none !important; z-index:1000002 !important; background-color:transparent !important; cursor:none !important; float:none !important; border-radius:5px 5px  0 0 !important; pointer-events:auto !important; clip:auto !important; color-scheme:light !important;"
+            id="uvf3rgqfpgqo1729932401057" class="" title="chat widget"></iframe><iframe src="about:blank"
+            frameborder="0" scrolling="no" width="360px" height="145px"
+            style="outline:none !important; visibility:visible !important; resize:none !important; box-shadow:none !important; overflow:visible !important; background:none !important; opacity:1 !important; filter:alpha(opacity=100) !important; -ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity 1}) !important; -mz-opacity:1 !important; -khtml-opacity:1 !important; top:auto !important; right:10px !important; bottom:60px; left:auto !important; position:fixed !important; border:0 !important; min-height:145px !important; min-width:360px !important; max-height:145px !important; max-width:360px !important; padding:0 !important; margin:0 !important; -moz-transition-property:none !important; -webkit-transition-property:none !important; -o-transition-property:none !important; transition-property:none !important; transform:none !important; -webkit-transform:none !important; -ms-transform:none !important; width:360px !important; height:145px !important; display:none !important; z-index:auto !important; background-color:transparent !important; cursor:none !important; float:none !important; border-radius:unset !important; pointer-events:auto !important; clip:auto !important; color-scheme:light !important;"
+            id="kg5dt8alu3u81729932401029" class="" title="chat widget"></iframe><iframe src="about:blank"
+            frameborder="0" scrolling="no" width="142px" height="86px"
+            style="outline:none !important; visibility:visible !important; resize:none !important; box-shadow:none !important; overflow:visible !important; background:none !important; opacity:1 !important; filter:alpha(opacity=100) !important; -ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity 1}) !important; -mz-opacity:1 !important; -khtml-opacity:1 !important; top:auto !important; right:69px !important; bottom:44px !important; left:auto !important; position:fixed !important; border:0 !important; min-height:86px !important; min-width:142px !important; max-height:86px !important; max-width:142px !important; padding:0 !important; margin:0px 0 0 0 !important; -moz-transition-property:none !important; -webkit-transition-property:none !important; -o-transition-property:none !important; transition-property:none !important; transform:rotate(0deg) translateZ(0); -webkit-transform:rotate(0deg) translateZ(0); -ms-transform:rotate(0deg) translateZ(0); width:142px !important; height:86px !important; display:block !important; z-index:1000002 !important; background-color:transparent !important; cursor:none !important; float:none !important; border-radius:unset !important; pointer-events:auto !important; clip:auto !important; color-scheme:light !important; -moz-transform:rotate(0deg) translateZ(0); -o-transform:rotate(0deg) translateZ(0); transform-origin:0; -moz-transform-origin:0; -webkit-transform-origin:0; -o-transform-origin:0; -ms-transform-origin:0;"
+            id="dil5v882e6ao1729932401017" class="" title="chat widget"></iframe></div>
+</body>
+
 </html>
