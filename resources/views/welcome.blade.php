@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title> ExchangePro - Home</title>
+    <title> ExchangePro - Dashboard</title>
 
-    <meta name="title" Content="ChangaLab - Home">
+    <meta name="title" Content="ChangaLab - Dashboard">
     <meta name="description"
         content="ChangaLab can be explained as a network of buyers and sellers, who transfer currency between each other or for their own. It is the means by which individuals, and companies convert one currency into another. This Currency Exchange Platform is the most advanced script in Codecanyon. The Currency Exchange Platform is endlessly appealing, feature-loaded, customized, and possesses the remarkable capability of running on all devices and operating systems.">
     <meta name="keywords"
@@ -16,34 +16,7 @@
 </head>
 <body>
     <header class="bg-white dark:bg-gray-800">
-        <div class="bg-gray-100 dark:bg-gray-700">
-            <div class="container mx-auto px-4">
-                <div class="flex justify-center items-center py-2 space-x-4">
-                    <div class="flex items-center flex-1 justify-center">
-                        <!-- Heroicons location icon -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600 dark:text-gray-300" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M10 2a7 7 0 00-7 7c0 3.87 3.13 7 7 7s7-3.13 7-7a7 7 0 00-7-7zm0 12a5 5 0 01-5-5 5 5 0 0110 0 5 5 0 01-5 5z"></path>
-                            <path d="M10 5a2 2 0 00-2 2 2 2 0 004 0 2 2 0 00-2-2z"></path>
-                        </svg>
-                        <span class="ml-2 text-gray-600 dark:text-gray-300">90 School Lane DERBY DE14 1BE</span>
-                    </div>
-                    <div class="flex items-center flex-1 justify-center">
-                        <!-- Heroicons envelope icon -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600 dark:text-gray-300" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M2 4a2 2 0 00-2 2v8a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2H2zm0 2h16l-8 6-8-6z"></path>
-                        </svg>
-                        <a href="mailto:support@changalab.com" class="ml-2 text-gray-600 dark:text-gray-300">support@changalab.com</a>
-                    </div>
-                    <div class="flex items-center flex-1 justify-center">
-                        <!-- Heroicons phone icon -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600 dark:text-gray-300" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M3 3a1 1 0 011-1h12a1 1 0 011 1v14a1 1 0 01-1 1H4a1 1 0 01-1-1V3z"></path>
-                        </svg>
-                        <span class="ml-2 text-gray-600 dark:text-gray-300">570-869-8015</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <div class="py-4">
             <div class="container mx-auto px-4">
                 <div class="flex justify-between items-center">
@@ -55,7 +28,7 @@
                     </div>
                     <nav class="flex space-x-4">
                         <a href="https://script.viserlab.com/changalab/demo"
-                            class="text-gray-600 dark:text-gray-300">Home</a>
+                            class="text-gray-600 dark:text-gray-300">Dashboard</a>
                         <a href="https://script.viserlab.com/changalab/demo/affiliate-program"
                             class="text-gray-600 dark:text-gray-300">Affiliation</a>
                         <a href="https://script.viserlab.com/changalab/demo/about"
