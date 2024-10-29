@@ -1,6 +1,7 @@
 <!-- resources/views/layouts/app.blade.php -->
 <!DOCTYPE html>
-<html lang="en">
+{{-- <html lang="en"> --}}
+<html lang="en" x-data="{ darkMode: localStorage.getItem('dark-mode') === 'true' }" x-bind:class="{ 'dark': darkMode }">
 
 <head>
     <meta charset="UTF-8" />
@@ -11,23 +12,23 @@
 </head>
 
 <body class="font-sans antialiased">
- 
-        @include('partials.header')
-        @include('partials.sidebar')
 
-        <!-- Page Heading -->
-        @isset($header)
-            <header class="bg-white dark:bg-gray-800 shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
-        @endisset
+    @include('partials.header')
+    @include('partials.sidebar')
 
-        <!-- Page Content -->
-        <main>
-            {{ $slot }}
-        </main>
+    <!-- Page Heading -->
+    <div class="p-4 sm:ml-64">
+        <div class="p-4 mt-14">
+            @isset($header)
+                {{ $header }}
+            @endisset
+        </div>
+    </div>
+
+    <!-- Page Content -->
+    <main>
+        {{ $slot }}
+    </main>
 
 
     <script src="{{ mix('js/app.js') }}" defer></script>

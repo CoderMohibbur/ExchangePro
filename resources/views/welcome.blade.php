@@ -17,33 +17,28 @@
 
 <body>
     <header class="bg-white dark:bg-gray-800">
-
         <div class="py-4">
             <div class="container mx-auto px-4">
                 <div class="flex justify-between items-center">
                     <div class="logo">
-                        <a >
-                            <img src="img/oliva.png"
-                                alt="ChangaLab" class="h-10">
-
-                        </a>
+                        <a href="/" class="flex ms-2 md:me-24">
+                            <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 me-3" alt="FlowBite Logo" />
+                            <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">ExchangePro</span>
+                          </a>
                     </div>
-                    <nav class="flex space-x-4">
-                        <a
-                            class="text-gray-600 dark:text-gray-300">Dashboard</a>
-                        <a
-                            class="text-gray-600 dark:text-gray-300">Affiliation</a>
-                        <a
-                            class="text-gray-600 dark:text-gray-300">About</a>
-                        <a
-                            class="text-gray-600 dark:text-gray-300">Blog</a>
-                        <a
-                            class="text-gray-600 dark:text-gray-300">Contact</a>
-                    </nav>
-                    <div class="hidden lg:flex space-x-4">
-                        <a href="/login"
-                            class="border border-gray-300 text-gray-600 dark:text-gray-300 rounded-md py-2 px-4">Login</a>
-                        <a href="/register" class="bg-blue-600 text-white rounded-md py-2 px-4">Register</a>
+                    <div class="flex justify-between items-center space-x-8">
+                        <nav class="flex space-x-4">
+                            <a class="text-gray-600 dark:text-gray-300">Dashboard</a>
+                            <a class="text-gray-600 dark:text-gray-300">Affiliation</a>
+                            <a class="text-gray-600 dark:text-gray-300">About</a>
+                            <a class="text-gray-600 dark:text-gray-300">Blog</a>
+                            <a class="text-gray-600 dark:text-gray-300">Contact</a>
+                        </nav>
+                        <div class="hidden lg:flex space-x-4">
+                            <a href="/login"
+                                class="border border-gray-300 text-gray-600 dark:text-gray-300 rounded-md py-2 px-4">Login</a>
+                            <a href="/register" class="bg-blue-600 text-white rounded-md py-2 px-4">Register</a>
+                        </div>
                     </div>
                     <div class="lg:hidden">
                         <button class="flex flex-col space-y-1">
@@ -52,30 +47,7 @@
                             <span class="block w-8 h-1 bg-gray-600 dark:bg-gray-300"></span>
                         </button>
                     </div>
-                    <div class="relative">
-                        <button class="flex items-center space-x-2">
-                            <img src="https://script.viserlab.com/changalab/demo/assets/images/language/66a8c3432ec4e1722336067.png"
-                                alt="language image" class="w-6 h-6">
-                            <span class="text-gray-600 dark:text-gray-300">English</span>
-                        </button>
-                        <ul class="absolute right-0 mt-2 bg-white dark:bg-gray-700 shadow-lg rounded-md z-10 hidden">
-                            <li class="flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer">
-                                <img src="https://script.viserlab.com/changalab/demo/assets/images/language/66a610a1a6eb71722159265.png"
-                                    alt="language image" class="w-6 h-6">
-                                <span class="ml-2 text-gray-600 dark:text-gray-300">Bangla</span>
-                            </li>
-                            <li class="flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer">
-                                <img src="https://script.viserlab.com/changalab/demo/assets/images/language/66a610ab7dfd01722159275.png"
-                                    alt="language image" class="w-6 h-6">
-                                <span class="ml-2 text-gray-600 dark:text-gray-300">Espanish</span>
-                            </li>
-                            <li class="flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer">
-                                <img src="https://script.viserlab.com/changalab/demo/assets/images/language/66a610baa00ae1722159290.png"
-                                    alt="language image" class="w-6 h-6">
-                                <span class="ml-2 text-gray-600 dark:text-gray-300">Turkish</span>
-                            </li>
-                        </ul>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -218,8 +190,7 @@
                                 stroke="currentColor" class="w-12 h-12 mx-auto">
 
                                 <path stroke-linecap="round" stroke-linejoin="round"
-
-                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                                    d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
                             </svg>
 
 
@@ -532,7 +503,8 @@
                             <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                                 viewBox="0 0 24 24">
-                                <path d="M3.478 2.404a.75.75 0 0 0-.926.941l2.432 7.905H13.5a.75.75 0 0 1 0 1.5H4.984l-2.432 7.905a.75.75 0 0 0 .926.94 60.519 60.519 0 0 0 18.445-8.986.75.75 0 0 0 0-1.218A60.517 60.517 0 0 0 3.478 2.404Z" />
+                                <path
+                                    d="M3.478 2.404a.75.75 0 0 0-.926.941l2.432 7.905H13.5a.75.75 0 0 1 0 1.5H4.984l-2.432 7.905a.75.75 0 0 0 .926.94 60.519 60.519 0 0 0 18.445-8.986.75.75 0 0 0 0-1.218A60.517 60.517 0 0 0 3.478 2.404Z" />
 
                             </svg>
 
@@ -556,8 +528,7 @@
                 <!-- Blog Post 1 -->
                 <div class="w-full md:w-1/2 xl:w-1/3 px-4 mb-8">
                     <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
-                        <a
-                            class="block">
+                        <a class="block">
                             <img src="https://script.viserlab.com/changalab/demo/assets/images/frontend/blog/thumb_63d0e81b972c41674635291.jpg"
                                 alt="blog image" class="w-full h-48 object-cover">
                         </a>
@@ -573,8 +544,7 @@
                                 </span>
                             </div>
                             <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
-                                <a
-                   >
+                                <a>
                                     Streamline Your Financial Transactions: How to Use Online Currency Exchange
                                     Platforms
                                 </a>
@@ -589,8 +559,7 @@
                 <!-- Blog Post 2 -->
                 <div class="w-full md:w-1/2 xl:w-1/3 px-4 mb-8">
                     <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
-                        <a
-                            class="block">
+                        <a class="block">
                             <img src="https://script.viserlab.com/changalab/demo/assets/images/frontend/blog/thumb_63d0e839971a31674635321.jpg"
                                 alt="blog image" class="w-full h-48 object-cover">
                         </a>
@@ -606,8 +575,7 @@
                                 </span>
                             </div>
                             <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
-                                <a
-                                    >
+                                <a>
                                     Currency Trading 101: Understanding the Risks and Rewards
                                 </a>
                             </h3>
@@ -621,8 +589,7 @@
                 <!-- Blog Post 3 -->
                 <div class="w-full md:w-1/2 xl:w-1/3 px-4 mb-8">
                     <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
-                        <a
-                            class="block">
+                        <a class="block">
                             <img src="https://script.viserlab.com/changalab/demo/assets/images/frontend/blog/thumb_63d0e8547bb101674635348.png"
                                 alt="blog image" class="w-full h-48 object-cover">
                         </a>
@@ -638,8 +605,7 @@
                                 </span>
                             </div>
                             <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
-                                <a
-                                >
+                                <a>
                                     The Future of Currency Exchange: How Technology is Changing the Game
                                 </a>
                             </h3>
@@ -660,9 +626,7 @@
                     <div class="w-full lg:w-1/4 px-4 mb-8">
                         <div class="footer-widget">
                             <div class="footer-logo mb-4">
-                                <a
-                                    <img src="img/oliva.png"
-                                        alt="ChangaLab" title="ChangaLab" class="h-12">
+                                <a <img src="img/oliva.png" alt="ChangaLab" title="ChangaLab" class="h-12">
                                 </a>
                             </div>
                             <p class="text-gray-700 dark:text-gray-300">Changalab - Secure and Suitable Currency
@@ -673,12 +637,9 @@
                         <div class="footer-widget">
                             <h5 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Support</h5>
                             <ul class="space-y-2">
-                                <li><a
-                                        class="text-gray-700 dark:text-gray-300 hover:text-blue-500">Contact</a></li>
-                                <li><a
-                                        class="text-gray-700 dark:text-gray-300 hover:text-blue-500">Blog</a></li>
-                                <li><a
-                                        class="text-gray-700 dark:text-gray-300 hover:text-blue-500">Login</a></li>
+                                <li><a class="text-gray-700 dark:text-gray-300 hover:text-blue-500">Contact</a></li>
+                                <li><a class="text-gray-700 dark:text-gray-300 hover:text-blue-500">Blog</a></li>
+                                <li><a class="text-gray-700 dark:text-gray-300 hover:text-blue-500">Login</a></li>
                             </ul>
                         </div>
                     </div>
@@ -687,13 +648,10 @@
                             <h5 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Exchange Gateways
                             </h5>
                             <ul class="space-y-2">
-                                <li><a
-                                        class="text-gray-700 dark:text-gray-300 hover:text-blue-500">Perfect Money</a>
+                                <li><a class="text-gray-700 dark:text-gray-300 hover:text-blue-500">Perfect Money</a>
                                 </li>
-                                <li><a
-                                        class="text-gray-700 dark:text-gray-300 hover:text-blue-500">Bkash</a></li>
-                                <li><a
-                                        class="text-gray-700 dark:text-gray-300 hover:text-blue-500">PayTm</a></li>
+                                <li><a class="text-gray-700 dark:text-gray-300 hover:text-blue-500">Bkash</a></li>
+                                <li><a class="text-gray-700 dark:text-gray-300 hover:text-blue-500">PayTm</a></li>
                             </ul>
                         </div>
                     </div>
@@ -701,14 +659,11 @@
                         <div class="footer-widget">
                             <h5 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Useful Links</h5>
                             <ul class="space-y-2">
-                                <li><a
-                                        class="text-gray-700 dark:text-gray-300 hover:text-blue-500">Privacy Policy</a>
+                                <li><a class="text-gray-700 dark:text-gray-300 hover:text-blue-500">Privacy Policy</a>
                                 </li>
-                                <li><a
-                                        class="text-gray-700 dark:text-gray-300 hover:text-blue-500">Terms of
+                                <li><a class="text-gray-700 dark:text-gray-300 hover:text-blue-500">Terms of
                                         Service</a></li>
-                                 <li><a
-                                        class="text-gray-700 dark:text-gray-300 hover:text-blue-500">Refund Policy</a>
+                                <li><a class="text-gray-700 dark:text-gray-300 hover:text-blue-500">Refund Policy</a>
                                 </li>
                             </ul>
 
@@ -731,7 +686,9 @@
                             <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                                 viewBox="0 0 24 24">
-                                <path fill-rule="evenodd" d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z" clip-rule="evenodd"/>
+                                <path fill-rule="evenodd"
+                                    d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z"
+                                    clip-rule="evenodd" />
 
                             </svg>
 
@@ -759,7 +716,9 @@
                             <svg class="w-6 h-6 text-gray-100 dark:text-white" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                                 viewBox="0 0 24 24">
-                                <path fill-rule="evenodd" d="M2 10a8 8 0 1 1 16 0 8 8 0 0 1-16 0Zm6.39-2.908a.75.75 0 0 1 .766.027l3.5 2.25a.75.75 0 0 1 0 1.262l-3.5 2.25A.75.75 0 0 1 8 12.25v-4.5a.75.75 0 0 1 .39-.658Z" clip-rule="evenodd" />
+                                <path fill-rule="evenodd"
+                                    d="M2 10a8 8 0 1 1 16 0 8 8 0 0 1-16 0Zm6.39-2.908a.75.75 0 0 1 .766.027l3.5 2.25a.75.75 0 0 1 0 1.262l-3.5 2.25A.75.75 0 0 1 8 12.25v-4.5a.75.75 0 0 1 .39-.658Z"
+                                    clip-rule="evenodd" />
 
                             </svg>
 
