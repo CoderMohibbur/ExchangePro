@@ -21,6 +21,23 @@ class ExchangeController extends Controller
     return view('exchanges.pending');
 }
 
+public function canceled ()
+{
+    return view('exchanges.canceled');
+}
+public function refunded ()
+{
+    return view('exchanges.refunded');
+}
+public function approved ()
+{
+    return view('exchanges.approved');
+}
+
+public function currencies ()
+{
+    return view('currencies');
+}
 
     /**
      * Show the form for creating a new resource.
