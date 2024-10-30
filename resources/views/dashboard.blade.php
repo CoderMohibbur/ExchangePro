@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h1 class=" text-xl font-semibold">Dashboard</h1>
+        <h1 class=" text-xl dark:text-white font-semibold">Dashboard</h1>
     </x-slot>
    
     <div class="p-4 sm:ml-64">
@@ -88,7 +88,7 @@
                     </div>
                 </a>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mt-2 mb-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mt-4 mb-5">
                 <!-- Approved Exchanges Widget -->
                 <a href="https://script.viserlab.com/changalab/demo/admin/exchange/approved" class="block">
                     <div class="p-6 rounded-lg bg-green-500 dark:bg-green-700 text-white shadow-lg transition-transform transform hover:scale-105">
@@ -160,7 +160,7 @@
                     </div>
                 </a>
             </div>
-            <h2 class=" text-xl font-semibold">Reserved Currencies</h2>
+            <h2 class=" text-xl dark:text-white font-semibold">Reserved Currencies</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mt-4">
                 <!-- Paypal - USD Widget -->
                 <div class="p-4 rounded-lg bg-white dark:bg-gray-800 shadow-lg flex items-center space-x-4 transition-transform transform hover:scale-105">

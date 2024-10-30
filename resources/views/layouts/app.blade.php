@@ -11,7 +11,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="font-sans antialiased">
+<body class="dark:bg-gray-900 font-sans antialiased">
 
     @include('partials.header')
     @include('partials.sidebar')
