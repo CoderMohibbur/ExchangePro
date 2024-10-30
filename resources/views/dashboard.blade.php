@@ -11,8 +11,10 @@
                     <div class="p-6 rounded-lg bg-blue-500 dark:bg-blue-700 text-white shadow-lg transition-transform transform hover:scale-105">
                         <div class="flex items-center justify-between">
                             <span class="text-4xl">
-                                <svg class="w-10 h-10" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-2.385 0-4.535-.835-6.217-2.217A7.93 7.93 0 0 0 12 16c2.385 0 4.535.835 6.217 2.217A7.93 7.93 0 0 0 12 20zm-4-6c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3zm8 0c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" class="size-10">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16 12a4 4 0 1 0-8 0 4 4 0 0 0 8 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 20a7 7 0 0 1 14 0H5z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.5 7.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM6.5 7.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
                                 </svg>
                             </span>
                             <div class="text-right">
@@ -28,8 +30,12 @@
                     <div class="p-6 rounded-lg bg-green-500 dark:bg-green-700 text-white shadow-lg transition-transform transform hover:scale-105">
                         <div class="flex items-center justify-between">
                             <span class="text-4xl">
-                                <svg class="w-10 h-10" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 18a8 8 0 110-16 8 8 0 010 16zm-1-9V7h2v4h4v2h-6z"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" class="size-12">
+                                    <!-- User Icon -->
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16 12a4 4 0 1 0-8 0 4 4 0 0 0 8 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 20a7 7 0 0 1 14 0H5z"/>
+                                    <!-- Check Mark for Active Status -->
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l2 2 4-4" />
                                 </svg>
                             </span>
                             <div class="text-right">
@@ -45,9 +51,12 @@
                     <div class="p-6 rounded-lg bg-red-500 dark:bg-red-700 text-white shadow-lg transition-transform transform hover:scale-105">
                         <div class="flex items-center justify-between">
                             <span class="text-4xl">
-                                <svg class="w-10 h-10" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 18a8 8 0 110-16 8 8 0 010 16zM10.293 9.293L12 10.586l1.707-1.293A1 1 0 1115 9.586L12.707 12 15 14.414a1 1 0 11-1.414 1.414L12 13.414l-1.707 1.707A1 1 0 019 14.414L11.293 12 9 9.586a1 1 0 111.293-1.293z"/>
-                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" class="size-10">
+                                    <!-- Envelope Icon -->
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M5 19h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z"/>
+                                    <!-- Exclamation Mark for Unverified Status -->
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 11v4m0 2h.01" />
+                                </svg>                                
                             </span>
                             <div class="text-right">
                                 <p class="text-lg font-medium">Email Unverified Users</p>
@@ -62,8 +71,13 @@
                     <div class="p-6 rounded-lg bg-yellow-500 dark:bg-yellow-700 text-white shadow-lg transition-transform transform hover:scale-105">
                         <div class="flex items-center justify-between">
                             <span class="text-4xl">
-                                <svg class="w-10 h-10" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <path d="M17 7h-2V4a3 3 0 10-6 0v3H7a5 5 0 000 10h10a5 5 0 000-10zm-3-3a1 1 0 012 0v3h-2V4zM7 18a3 3 0 010-6h10a3 3 0 010 6H7z"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" class="size-10">
+                                    <!-- Mobile Phone Icon -->
+                                    <rect x="7" y="4" width="10" height="16" rx="2" ry="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01"/>
+                                    
+                                    <!-- Exclamation Mark for Unverified Status -->
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v4m0 2h.01" />
                                 </svg>
                             </span>
                             <div class="text-right">
@@ -80,8 +94,9 @@
                     <div class="p-6 rounded-lg bg-green-500 dark:bg-green-700 text-white shadow-lg transition-transform transform hover:scale-105">
                         <div class="flex items-center justify-between">
                             <span class="text-4xl">
-                                <svg class="w-10 h-10" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <path d="M10 15l5.5-5.5-1.41-1.41L10 12.17l-1.59-1.59L7 11.5z"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" class="size-10">
+                                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                             </span>
                             <div class="text-right">
@@ -97,8 +112,8 @@
                     <div class="p-6 rounded-lg bg-yellow-500 dark:bg-yellow-700 text-white shadow-lg transition-transform transform hover:scale-105">
                         <div class="flex items-center justify-between">
                             <span class="text-4xl">
-                                <svg class="w-10 h-10" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <path d="M19 12a7 7 0 1 1-7-7 7 7 0 0 1 7 7zm-7 8a8 8 0 1 0-8-8 8 8 0 0 0 8 8zm.59-4.59L12 17l-1.59-1.59a1 1 0 1 1 1.42-1.42l.59.58.58-.59a1 1 0 0 1 1.42 1.42z"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-10">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3"/>
                                 </svg>
                             </span>
                             <div class="text-right">
@@ -114,9 +129,10 @@
                     <div class="p-6 rounded-lg bg-gray-800 dark:bg-gray-600 text-white shadow-lg transition-transform transform hover:scale-105">
                         <div class="flex items-center justify-between">
                             <span class="text-4xl">
-                                <svg class="w-10 h-10" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <path d="M18 6v2H6V6H4v12h2v-2h12v2h2V6h-2zM6 12v-2h8v2H6z"/>
-                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
+                                  </svg>
+                                  
                             </span>
                             <div class="text-right">
                                 <p class="text-lg font-medium">Refunded Exchanges</p>
@@ -131,8 +147,9 @@
                     <div class="p-6 rounded-lg bg-red-500 dark:bg-red-700 text-white shadow-lg transition-transform transform hover:scale-105">
                         <div class="flex items-center justify-between">
                             <span class="text-4xl">
-                                <svg class="w-10 h-10" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <path d="M5 13h14v2H5v-2zm14 4v2H5v-2h14zM5 7v2h14V7H5z"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" class="size-10">
+                                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+                                    <line x1="8" y1="8" x2="16" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
                                 </svg>
                             </span>
                             <div class="text-right">
@@ -143,100 +160,116 @@
                     </div>
                 </a>
             </div>
+            <h2 class=" text-xl font-semibold">Reserved Currencies</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mt-4">
+                <!-- Paypal - USD Widget -->
+                <div class="p-4 rounded-lg bg-white dark:bg-gray-800 shadow-lg flex items-center space-x-4 transition-transform transform hover:scale-105">
+                    <div class="flex-shrink-0">
+                        <img class="w-16 h-16 rounded-full" src="https://script.viserlab.com/changalab/demo/assets/images/currency/634d135eb50b11665995614.jpg" alt="Paypal">
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 dark:text-white">Paypal - USD</h4>
+                        <p class="text-lg text-gray-600 dark:text-gray-400">10,000.00 USD</p>
+                    </div>
+                </div>
             
+                <!-- Perfect Money - USD Widget -->
+                <div class="p-4 rounded-lg bg-white dark:bg-gray-800 shadow-lg flex items-center space-x-4 transition-transform transform hover:scale-105">
+                    <div class="flex-shrink-0">
+                        <img class="w-16 h-16 rounded-full" src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d797ac989e11675073452.jpg" alt="Perfect Money">
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 dark:text-white">Perfect Money - USD</h4>
+                        <p class="text-lg text-gray-600 dark:text-gray-400">99,633.63 USD</p>
+                    </div>
+                </div>
             
-            <div class="flex items-center justify-center h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800">
-                <p class="text-2xl text-gray-400 dark:text-gray-500">
-                    <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 18 18">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M9 1v16M1 9h16" />
-                    </svg>
-                </p>
-            </div>
-            <div class="grid grid-cols-2 gap-4 mb-4">
-                <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                    <p class="text-2xl text-gray-400 dark:text-gray-500">
-                        <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 18 18">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 1v16M1 9h16" />
-                        </svg>
-                    </p>
+                <!-- Bkash - BDT Widget -->
+                <div class="p-4 rounded-lg bg-white dark:bg-gray-800 shadow-lg flex items-center space-x-4 transition-transform transform hover:scale-105">
+                    <div class="flex-shrink-0">
+                        <img class="w-16 h-16 rounded-full" src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce62fefa191665984047.png" alt="Bkash">
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 dark:text-white">Bkash - BDT</h4>
+                        <p class="text-lg text-gray-600 dark:text-gray-400">8,035,230.15 BDT</p>
+                    </div>
                 </div>
-                <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                    <p class="text-2xl text-gray-400 dark:text-gray-500">
-                        <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 18 18">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 1v16M1 9h16" />
-                        </svg>
-                    </p>
+            
+                <!-- PayTm - INR Widget -->
+                <div class="p-4 rounded-lg bg-white dark:bg-gray-800 shadow-lg flex items-center space-x-4 transition-transform transform hover:scale-105">
+                    <div class="flex-shrink-0">
+                        <img class="w-16 h-16 rounded-full" src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d79313684cb1675072275.jpg" alt="PayTm">
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 dark:text-white">PayTm - INR</h4>
+                        <p class="text-lg text-gray-600 dark:text-gray-400">79,996.44 INR</p>
+                    </div>
                 </div>
-                <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                    <p class="text-2xl text-gray-400 dark:text-gray-500">
-                        <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 18 18">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 1v16M1 9h16" />
-                        </svg>
-                    </p>
+            
+                <!-- Bitcoin - BTC Widget -->
+                <div class="p-4 rounded-lg bg-white dark:bg-gray-800 shadow-lg flex items-center space-x-4 transition-transform transform hover:scale-105">
+                    <div class="flex-shrink-0">
+                        <img class="w-16 h-16 rounded-full" src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce5b0b4ec41665983920.jpg" alt="Bitcoin">
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 dark:text-white">Bitcoin - BTC</h4>
+                        <p class="text-lg text-gray-600 dark:text-gray-400">80,000,051.50 BTC</p>
+                    </div>
                 </div>
-                <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                    <p class="text-2xl text-gray-400 dark:text-gray-500">
-                        <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 18 18">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 1v16M1 9h16" />
-                        </svg>
-                    </p>
+            
+                <!-- Web Money - USD Widget -->
+                <div class="p-4 rounded-lg bg-white dark:bg-gray-800 shadow-lg flex items-center space-x-4 transition-transform transform hover:scale-105">
+                    <div class="flex-shrink-0">
+                        <img class="w-16 h-16 rounded-full" src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d7826d88e8e1675068013.png" alt="Web Money">
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 dark:text-white">Web Money - USD</h4>
+                        <p class="text-lg text-gray-600 dark:text-gray-400">60,000,000.00 USD</p>
+                    </div>
                 </div>
-            </div>
-            <div class="flex items-center justify-center h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800">
-                <p class="text-2xl text-gray-400 dark:text-gray-500">
-                    <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 18 18">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M9 1v16M1 9h16" />
-                    </svg>
-                </p>
-            </div>
-            <div class="grid grid-cols-2 gap-4">
-                <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                    <p class="text-2xl text-gray-400 dark:text-gray-500">
-                        <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="none" viewBox="0 0 18 18">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" d="M9 1v16M1 9h16" />
-                        </svg>
-                    </p>
+            
+                <!-- Rocket - BDT Widget -->
+                <div class="p-4 rounded-lg bg-white dark:bg-gray-800 shadow-lg flex items-center space-x-4 transition-transform transform hover:scale-105">
+                    <div class="flex-shrink-0">
+                        <img class="w-16 h-16 rounded-full" src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d78ff91fec11675071481.jpg" alt="Rocket">
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 dark:text-white">Rocket - BDT</h4>
+                        <p class="text-lg text-gray-600 dark:text-gray-400">6,000.00 BDT</p>
+                    </div>
                 </div>
-                <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                    <p class="text-2xl text-gray-400 dark:text-gray-500">
-                        <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="none" viewBox="0 0 18 18">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" d="M9 1v16M1 9h16" />
-                        </svg>
-                    </p>
+            
+                <!-- Payoneer - USD Widget -->
+                <div class="p-4 rounded-lg bg-white dark:bg-gray-800 shadow-lg flex items-center space-x-4 transition-transform transform hover:scale-105">
+                    <div class="flex-shrink-0">
+                        <img class="w-16 h-16 rounded-full" src="https://script.viserlab.com/changalab/demo/assets/images/currency/6363475fc84051667450719.jpg" alt="Payoneer">
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 dark:text-white">Payoneer - USD</h4>
+                        <p class="text-lg text-gray-600 dark:text-gray-400">4,990.69 USD</p>
+                    </div>
                 </div>
-                <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                    <p class="text-2xl text-gray-400 dark:text-gray-500">
-                        <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="none" viewBox="0 0 18 18">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" d="M9 1v16M1 9h16" />
-                        </svg>
-                    </p>
+            
+                <!-- Skrill - USD Widget -->
+                <div class="p-4 rounded-lg bg-white dark:bg-gray-800 shadow-lg flex items-center space-x-4 transition-transform transform hover:scale-105">
+                    <div class="flex-shrink-0">
+                        <img class="w-16 h-16 rounded-full" src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d79ba643fd91675074470.jpg" alt="Skrill">
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 dark:text-white">Skrill - USD</h4>
+                        <p class="text-lg text-gray-600 dark:text-gray-400">10,000.00 USD</p>
+                    </div>
                 </div>
-                <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                    <p class="text-2xl text-gray-400 dark:text-gray-500">
-                        <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="none" viewBox="0 0 18 18">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" d="M9 1v16M1 9h16" />
-                        </svg>
-                    </p>
+            
+                <!-- Payoneer - EUR Widget -->
+                <div class="p-4 rounded-lg bg-white dark:bg-gray-800 shadow-lg flex items-center space-x-4 transition-transform transform hover:scale-105">
+                    <div class="flex-shrink-0">
+                        <img class="w-16 h-16 rounded-full" src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d782ac127d51675068076.jpg" alt="Payoneer EUR">
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 dark:text-white">Payoneer - EUR</h4>
+                        <p class="text-lg text-gray-600 dark:text-gray-400">49,999,932.04 EUR</p>
+                    </div>
                 </div>
             </div>
         </div>
