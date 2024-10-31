@@ -13,12 +13,34 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('full_name');
+            $table->string('username')->unique();
+            $table->string('phone_number')->nullable();
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->enum('usertype', ['admin', 'user'])->default('user');
+            $table->boolean('active_status')->default(true);
+            $table->string('random_code')->nullable();
+            $table->string('notificationToken')->nullable();
             $table->rememberToken();
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent()->nullable();
+            $table->string('language')->default('en');
+            $table->unsignedBigInteger('style_id')->nullable();
+            $table->enum('rtl_ltl', ['rtl', 'ltl'])->default('ltl');
+            $table->string('selected_session')->nullable();
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->unsignedBigInteger('updated_by')->nullable();
+            $table->boolean('access_status')->default(true);
+            $table->unsignedBigInteger('company_id')->nullable();
+            $table->unsignedBigInteger('role_id')->nullable();
+            $table->boolean('is_administrator')->default(false);
+            $table->boolean('is_registered')->default(false);
+            $table->string('device_token')->nullable();
+
+            // Foreign key constraints
+            $table->foreign('created_by')->references('id')->on('users')->onDelete('set null');
+            $table->foreign('updated_by')->references('id')->on('users')->onDelete('set null');
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

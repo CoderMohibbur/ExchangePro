@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h1 class=" text-xl dark:text-white font-semibold">All Exchange</h1>
+        <h1 class="text-xl dark:text-white font-semibold">All Exchanges</h1>
     </x-slot>
 
     <div class="p-4 sm:ml-64">
@@ -8,8 +8,7 @@
             <div class="container mx-auto px-4 py-4">
                 <div class="rounded-lg shadow-lg bg-white dark:bg-gray-800">
                     <div class="overflow-hidden overflow-x-auto">
-                        <table
-                            class="w-full min-w-max table-auto bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200">
+                        <table class="w-full min-w-max table-auto bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200">
                             <thead class="bg-gray-100 dark:bg-gray-700">
                                 <tr>
                                     <th class="px-4 py-2 text-left font-semibold">Exchange ID</th>
@@ -99,5 +98,4 @@
             </div>
         </div>
     </div>
-
 </x-app-layout>

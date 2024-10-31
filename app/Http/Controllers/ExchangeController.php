@@ -2,88 +2,74 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Currency;
 use App\Models\Exchange;
 use Illuminate\Http\Request;
 
 class ExchangeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $exchanges = Exchange::all();
+        $exchanges = Exchange::with('currency')->get();
         return view('exchanges.index', compact('exchanges'));
     }
 
-    public function pending()
-{
-    return view('exchanges.pending');
-}
-
-public function canceled ()
-{
-    return view('exchanges.canceled');
-}
-public function refunded ()
-{
-    return view('exchanges.refunded');
-}
-public function approved ()
-{
-    return view('exchanges.approved');
-}
-
-public function currencies ()
-{
-    return view('currencies');
-}
-
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        $currencies = Currency::all();
+        return view('exchanges.create', compact('currencies'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'exchange_type' => 'required|in:buy,sell',
+            'seller_name' => 'required_if:exchange_type,buy',
+            'buyer_name' => 'required_if:exchange_type,sell',
+            'currency_id' => 'required|exists:currencies,id',
+            'quantity' => 'required|numeric',
+            'rate' => 'required|numeric',
+            'paid_to_seller_bdt' => 'nullable|numeric',
+            'status' => 'required|in:pending,approved,canceled',
+        ]);
+
+        Exchange::create($validated);
+
+        return redirect()->route('exchanges.index')->with('success', 'Exchange created successfully');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Exchange $exchange)
     {
-        //
+        return view('exchanges.show', compact('exchange'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Exchange $exchange)
     {
-        //
+        $currencies = Currency::all();
+        return view('exchanges.edit', compact('exchange', 'currencies'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Exchange $exchange)
     {
-        //
+        $validated = $request->validate([
+            'exchange_type' => 'required|in:buy,sell',
+            'seller_name' => 'required_if:exchange_type,buy',
+            'buyer_name' => 'required_if:exchange_type,sell',
+            'currency_id' => 'required|exists:currencies,id',
+            'quantity' => 'required|numeric',
+            'rate' => 'required|numeric',
+            'paid_to_seller_bdt' => 'nullable|numeric',
+            'status' => 'required|in:pending,approved,canceled',
+        ]);
+
+        $exchange->update($validated);
+
+        return redirect()->route('exchanges.index')->with('success', 'Exchange updated successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Exchange $exchange)
     {
-        //
+        $exchange->delete();
+        return redirect()->route('exchanges.index')->with('success', 'Exchange deleted successfully');
     }
 }

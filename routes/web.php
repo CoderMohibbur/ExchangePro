@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ExchangeController;
 
@@ -23,9 +25,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/exchanges/canceled', [ExchangeController::class, 'canceled'])->name('exchanges.canceled');
     Route::get('/exchanges/refunded', [ExchangeController::class, 'refunded'])->name('exchanges.refunded');
     Route::get('/exchanges/approved', [ExchangeController::class, 'approved'])->name('exchanges.approved');
-   //currencies
+    //currencies
     Route::get('/exchanges/currencies', [ExchangeController::class, 'currencies'])->name('exchanges.currencies');
-    Route::resource('exchanges', controller: ExchangeController::class);
+    Route::resource('exchanges', ExchangeController::class);
+
+    Route::resource('companies', CompanyController::class);
+    Route::resource('roles', RoleController::class);
+
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

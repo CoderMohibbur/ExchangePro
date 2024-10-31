@@ -54,8 +54,8 @@
     </header>
 
     <section class="banner-section bg-fixed bg-img banner-overlay dark:bg-gray-900"
-        data-background="https://script.viserlab.com/changalab/demo/assets/images/frontend/banner/66a6225d149331722163805.jpg"
-        style="background-image:url('https://script.viserlab.com/changalab/demo/assets/images/frontend/banner/66a6225d149331722163805.jpg');">
+        data-background="/img/background image.png"
+        style="background-image:url('/img/background image.png');">
         <div class="container mx-auto py-12 px-4 lg:px-8">
             <div class="text-center mb-10">
                 <h2 class="text-3xl lg:text-4xl font-bold text-white dark:text-gray-200">
