@@ -20,6 +20,11 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/exchanges/pending', [ExchangeController::class, 'pending'])->name('exchangePending');
+    Route::get('/exchanges/canceled', [ExchangeController::class, 'canceled'])->name('exchanges.canceled');
+    Route::get('/exchanges/refunded', [ExchangeController::class, 'refunded'])->name('exchanges.refunded');
+    Route::get('/exchanges/approved', [ExchangeController::class, 'approved'])->name('exchanges.approved');
+   //currencies
+    Route::get('/exchanges/currencies', [ExchangeController::class, 'currencies'])->name('exchanges.currencies');
     Route::resource('exchanges', controller: ExchangeController::class);
 });
 
