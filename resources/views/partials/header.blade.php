@@ -15,7 +15,7 @@
           </div>
           <div class="flex items-center">
               <!-- Dark Mode Toggle Button -->
-              <button @click="darkMode = !darkMode; localStorage.setItem('dark-mode', darkMode)" class="p-2 text-gray-600 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-600">
+              <button @click="darkMode = !darkMode; localStorage.setItem('dark-mode', darkMode)" class="p-2 flex text-gray-600 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-600">
                 <!-- Sun Icon for Light Mode -->
 
                 <svg x-show="!darkMode" class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">

@@ -19,7 +19,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/exchanges/pending', [ExchangeController::class, 'pending'])->name('exchanges.pending');
+    Route::get('/exchanges/pending', [ExchangeController::class, 'pending'])->name('exchangePending');
     Route::resource('exchanges', controller: ExchangeController::class);
 });
 
