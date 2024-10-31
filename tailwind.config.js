@@ -8,14 +8,16 @@ export default {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
     ],
-    darkMode: 'class',
+    darkMode: 'class', // Enables dark mode using class
     theme: {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                merriweather: ['"Merriweather"', 'serif'], // Adds 'Merriweather' as a custom font
             },
         },
     },
-
-    plugins: [forms],
+    plugins: [
+        forms, // Tailwind CSS forms plugin
+    ],
 };
