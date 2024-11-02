@@ -1,10 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BankController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\ExchangeController;
+use App\Http\Controllers\BankBalanceController;
+use App\Http\Controllers\TransactionController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -34,6 +38,12 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('companies', CompanyController::class);
     Route::resource('roles', RoleController::class);
+    Route::resource('currencies', CurrencyController::class);
+    Route::resource('banks', BankController::class);
+    Route::resource('bank_balances', BankBalanceController::class);
+    Route::resource('transactions', TransactionController::class);
+
+
 
 });
 
