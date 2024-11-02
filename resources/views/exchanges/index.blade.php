@@ -7,7 +7,24 @@
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
             <div class="container mx-auto px-4 py-4">
                 <div class="rounded-lg shadow-lg bg-white dark:bg-gray-800">
-                    <div class="overflow-hidden overflow-x-auto">
+                    <!-- Search Form -->
+                    <div class="flex justify-between items-center p-4">
+                        <form action="{{ route('exchanges.index') }}" method="GET" class="flex space-x-2">
+                            <input type="text" name="search" placeholder="Search by user or exchange ID" 
+                                   value="{{ request('search') }}" 
+                                   class="w-full px-4 py-2 border rounded-md dark:bg-gray-700 dark:text-white dark:border-gray-600" />
+                            <button type="submit" class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 transition">
+                                Search
+                            </button>
+                        </form>
+                        <a href="{{ route('exchanges.create') }}" 
+                           class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 transition">
+                           Add New Exchange
+                        </a>
+                    </div>
+
+                    <!-- Exchanges Table -->
+                    <div class="overflow-x-auto">
                         <table class="w-full min-w-max table-auto bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200">
                             <thead class="bg-gray-100 dark:bg-gray-700">
                                 <tr>
@@ -26,11 +43,11 @@
                                     <tr class="border-b border-gray-200 dark:border-gray-700">
                                         <td class="px-4 py-3">
                                             <span class="font-bold">{{ $exchange->id }}</span><br>
-                                            <small class="text-gray-500 dark:text-gray-400">{{ $exchange->date_time->format('Y-m-d h:i A') }}</small>
+                                            <small class="text-gray-500 dark:text-gray-400">{{ \Carbon\Carbon::parse($exchange->date_time)->format('Y-m-d h:i A') }}</small>
                                         </td>
                                         <td class="px-4 py-3">
                                             <span class="block">{{ $exchange->user->full_name ?? 'N/A' }}</span>
-                                            <a href="{{ route('profile.edit') }}" class="text-blue-500 hover:underline">@ {{ $exchange->user->username ?? 'N/A' }}</a>
+                                            <a href="{{ route('profile.show', $exchange->user->id) }}" class="text-blue-500 hover:underline">@ {{ $exchange->user->username ?? 'N/A' }}</a>
                                         </td>
                                         <td class="px-4 py-3">
                                             <span class="block">{{ $exchange->currency->name ?? 'N/A' }}</span>

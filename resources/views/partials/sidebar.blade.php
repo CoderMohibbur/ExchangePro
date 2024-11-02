@@ -22,21 +22,22 @@
                </svg>
          </button>
          <ul id="dropdown-example" class="hidden py-2 space-y-2">
-               <li>
-                  <a href="{{ route('exchangePending') }}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->is('exchanges/pending') ? 'active' : '' }}">Pending Exchange</a>
-               </li>
-               <li>
-                  <a href="/exchanges/canceled" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Canceled Exchange</a>
-               </li>
-               <li>
-                  <a href="/exchanges/refunded" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Refunded Exchange</a>
-               </li>
-               <li>
-                <a href="/exchanges/approved" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Approved Exchange</a>
-             </li>
-             <li>
-                <a href="{{ route('exchanges.index') }}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->is('exchanges') ? 'active' : '' }}">All Exchange</a>
-             </li>
+            <li>
+               <a href="{{ route('exchanges.index') }}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->is('exchanges') ? 'active' : '' }}">All Exchange</a>
+            </li>
+            <li>
+               <a href="{{ route('exchangePending') }}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->is('exchanges/pending') ? 'active' : '' }}">Pending Exchange</a>
+            </li>
+            <li>
+               <a href="/exchanges/canceled" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Canceled Exchange</a>
+            </li>
+            <li>
+               <a href="/exchanges/refunded" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Refunded Exchange</a>
+            </li>
+            <li>
+            <a href="/exchanges/approved" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Approved Exchange</a>
+         </li>
+
          </ul>
       </li>
         <li>

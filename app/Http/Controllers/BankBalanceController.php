@@ -8,11 +8,22 @@ use Illuminate\Http\Request;
 
 class BankBalanceController extends Controller
 {
-    public function index()
-    {
-        $balances = BankBalance::with('bank')->paginate(10);
-        return view('bank_balances.index', compact('balances'));
-    }
+    public function index(Request $request)
+{
+    $search = $request->input('search');
+
+    $balances = BankBalance::with('bank')
+        ->when($search, function ($query, $search) {
+            $query->whereHas('bank', function ($q) use ($search) {
+                $q->where('name', 'like', "%{$search}%");
+            })->orWhere('transaction_id', 'like', "%{$search}%");
+        })
+        ->paginate(10)
+        ->withQueryString();
+
+    return view('bank_balances.index', compact('balances', 'search'));
+}
+
 
     public function create()
     {

@@ -9,13 +9,24 @@ use Illuminate\Support\Facades\Auth;
 
 class ExchangeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $exchanges = Exchange::with(['currency', 'user'])->paginate(10);
+        $query = Exchange::with(['currency', 'user']);
+    
+        if ($request->filled('search')) {
+            $search = $request->input('search');
+            $query->whereHas('user', function ($q) use ($search) {
+                $q->where('full_name', 'like', "%{$search}%")
+                  ->orWhere('username', 'like', "%{$search}%");
+            })
+            ->orWhere('id', 'like', "%{$search}%");
+        }
+    
+        $exchanges = $query->paginate(10);
+    
         return view('exchanges.index', compact('exchanges'));
     }
     
-
     public function create()
     {
         $currencies = Currency::all();
