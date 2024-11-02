@@ -214,7 +214,9 @@
                                 required>
                                 <option value="" selected disabled>Select Currency</option>
                                 <option value="18">Bitcoin - BTC</option>
-                                <option value="16">Bkash - BDT</option>
+                                <option value="16">Bkash -
+                                    
+                                </option>
                                 <option value="30">Payoneer - USD</option>
                                 <option value="32">Payoneer - EUR</option>
                                 <option value="14">Paypal - USD</option>
@@ -617,7 +619,7 @@
                             <p class="text-lg text-gray-800 dark:text-gray-300 mt-4">Transfer funds around the world
                                 from the comfort of your home with our easy-to-use online platform.</p>
                         </div>
-                        
+
                     </div>
                 </div>
 
