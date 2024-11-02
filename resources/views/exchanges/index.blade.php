@@ -22,75 +22,67 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="border-b border-gray-200 dark:border-gray-700">
-                                    <td class="px-4 py-3">
-                                        <span class="font-bold">PHHBIH4KD92B</span><br>
-                                        <small class="text-gray-500 dark:text-gray-400">2024-10-29 12:18 PM</small>
-                                    </td>
-                                    <td class="px-4 py-3">
-                                        <span class="block">ely omer</span>
-                                        <a href="https://script.viserlab.com/changalab/demo/admin/users/detail/3566"
-                                            class="text-blue-500 hover:underline">@elyfour</a>
-                                    </td>
-                                    <td class="px-4 py-3">
-                                        <span class="block">Rocket</span>
-                                        <span class="text-blue-500">BDT</span>
-                                    </td>
-                                    <td class="px-4 py-3">
-                                        <span class="block">5,000.00 BDT</span>
-                                        <span>5,000.00</span> +
-                                        <span class="text-red-500">77.00</span> =
-                                        <span>5,077.00 BDT</span>
-                                    </td>
-                                    <td class="px-4 py-3">
-                                        <span class="block">Payoneer</span>
-                                        <span class="text-blue-500">USD</span>
-                                    </td>
-                                    <td class="px-4 py-3">
-                                        <span class="block">39.60 USD</span>
-                                        <span>39.60</span> -
-                                        <span class="text-red-500">1.09</span> =
-                                        <span>38.51 USD</span>
-                                    </td>
-                                    <td class="px-4 py-3">
-                                        <span
-                                            class="px-2 py-1 rounded-full text-sm font-medium bg-yellow-200 text-yellow-700 dark:bg-yellow-500 dark:text-yellow-100">Pending</span>
-                                    </td>
-                                    <td class="px-4 py-3">
-                                        <a href="https://script.viserlab.com/changalab/demo/admin/exchange/details/2951"
-                                            class="px-4 py-1 text-sm font-semibold text-blue-500 border border-blue-500 rounded hover:bg-blue-500 hover:text-white dark:hover:bg-blue-700 dark:hover:border-blue-700 dark:border-blue-500 dark:text-blue-400 transition duration-200">
-                                            <i class="las la-desktop"></i> Details
-                                        </a>
-                                    </td>
-                                </tr>
-                                <!-- Repeat table rows as necessary -->
+                                @forelse($exchanges as $exchange)
+                                    <tr class="border-b border-gray-200 dark:border-gray-700">
+                                        <td class="px-4 py-3">
+                                            <span class="font-bold">{{ $exchange->id }}</span><br>
+                                            <small class="text-gray-500 dark:text-gray-400">{{ $exchange->date_time->format('Y-m-d h:i A') }}</small>
+                                        </td>
+                                        <td class="px-4 py-3">
+                                            <span class="block">{{ $exchange->user->full_name ?? 'N/A' }}</span>
+                                            <a href="{{ route('profile.edit') }}" class="text-blue-500 hover:underline">@ {{ $exchange->user->username ?? 'N/A' }}</a>
+                                        </td>
+                                        <td class="px-4 py-3">
+                                            <span class="block">{{ $exchange->currency->name ?? 'N/A' }}</span>
+                                            <span class="text-blue-500">{{ $exchange->currency->code ?? '' }}</span>
+                                        </td>
+                                        <td class="px-4 py-3">
+                                            <span class="block">{{ number_format($exchange->quantity, 2) }} {{ $exchange->currency->code ?? '' }}</span>
+                                            <span>{{ number_format($exchange->quantity, 2) }}</span> +
+                                            <span class="text-red-500">{{ number_format($exchange->fee ?? 0, 2) }}</span> =
+                                            <span>{{ number_format($exchange->quantity + $exchange->fee, 2) }} {{ $exchange->currency->code ?? '' }}</span>
+                                        </td>
+                                        <td class="px-4 py-3">
+                                            <span class="block">{{ $exchange->exchange_type === 'buy' ? 'Payoneer' : 'Wise' }}</span>
+                                            <span class="text-blue-500">USD</span>
+                                        </td>
+                                        <td class="px-4 py-3">
+                                            <span class="block">{{ number_format($exchange->send_amount ?? 0, 2) }} USD</span>
+                                            <span>{{ number_format($exchange->send_amount ?? 0, 2) }}</span> -
+                                            <span class="text-red-500">{{ number_format($exchange->send_fee ?? 0, 2) }}</span> =
+                                            <span>{{ number_format(($exchange->send_amount ?? 0) - ($exchange->send_fee ?? 0), 2) }} USD</span>
+                                        </td>
+                                        <td class="px-4 py-3">
+                                            <span class="px-2 py-1 rounded-full text-sm font-medium 
+                                                {{ $exchange->status == 'pending' ? 'bg-yellow-200 text-yellow-700 dark:bg-yellow-500 dark:text-yellow-100' : ($exchange->status == 'approved' ? 'bg-green-200 text-green-700 dark:bg-green-500 dark:text-green-100' : 'bg-red-200 text-red-700 dark:bg-red-500 dark:text-red-100') }}">
+                                                {{ ucfirst($exchange->status) }}
+                                            </span>
+                                        </td>
+                                        <td class="px-4 py-3">
+                                            <a href="{{ route('exchanges.show', $exchange->id) }}" class="px-4 py-1 text-sm font-semibold text-blue-500 border border-blue-500 rounded hover:bg-blue-500 hover:text-white dark:hover:bg-blue-700 dark:hover:border-blue-700 dark:border-blue-500 dark:text-blue-400 transition duration-200">
+                                                <i class="las la-desktop"></i> Details
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="8" class="px-4 py-3 text-center text-gray-500 dark:text-gray-400">
+                                            No exchanges found.
+                                        </td>
+                                    </tr>
+                                @endforelse
                             </tbody>
                         </table>
                     </div>
+
+                    <!-- Pagination -->
                     <div class="bg-gray-50 dark:bg-gray-900 p-4 rounded-b-lg">
                         <div class="flex items-center justify-between">
                             <p class="text-sm text-gray-600 dark:text-gray-400">
-                                Showing <span class="font-semibold">1</span> to <span class="font-semibold">20</span> of
-                                <span class="font-semibold">640</span> results
+                                Showing <span class="font-semibold">{{ $exchanges->firstItem() }}</span> to <span class="font-semibold">{{ $exchanges->lastItem() }}</span> of <span class="font-semibold">{{ $exchanges->total() }}</span> results
                             </p>
                             <div class="flex">
-                                <button
-                                    class="px-3 py-1 text-gray-400 bg-gray-200 rounded-l-md hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600"
-                                    disabled>‹</button>
-                                <button
-                                    class="px-3 py-1 text-gray-800 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600">1</button>
-                                <button
-                                    class="px-3 py-1 text-gray-800 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600">2</button>
-                                <button
-                                    class="px-3 py-1 text-gray-800 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600">3</button>
-                                <button
-                                    class="px-3 py-1 text-gray-800 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600">4</button>
-                                <button
-                                    class="px-3 py-1 text-gray-800 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600">5</button>
-                                <button
-                                    class="px-3 py-1 text-gray-800 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600">6</button>
-                                <button
-                                    class="px-3 py-1 text-gray-400 bg-gray-200 rounded-r-md hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600">›</button>
+                                {{ $exchanges->links() }}
                             </div>
                         </div>
                     </div>

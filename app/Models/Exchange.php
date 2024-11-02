@@ -10,6 +10,7 @@ class Exchange extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',          // Add user_id here
         'exchange_type',
         'date_time',
         'seller_name',
@@ -28,4 +29,16 @@ class Exchange extends Model
     {
         return $this->belongsTo(Currency::class);
     }
+
+    /**
+     * Define relationship with User.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id'); // Ensure user_id is the foreign key
+    }
+
+    protected $casts = [
+        'date_time' => 'datetime',
+    ];
 }
