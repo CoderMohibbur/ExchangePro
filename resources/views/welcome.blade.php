@@ -158,14 +158,17 @@
 
 
     <section class="banner-section bg-fixed bg-img banner-overlay dark:bg-gray-900"
-        data-background="/img/background image.png"
-        style="background-image:url('/img/background image.png');">
+        data-background="/img/background image.png" style="background-image:url('/img/background image.png');">
         <div class="container mx-auto py-12 px-4 lg:px-8">
             <div class="text-center mb-10">
-                <h2 class="text-3xl lg:text-4xl font-bold text-white dark:text-gray-200">
+                <h2 class="text-3xl lg:text-4xl font-bold text-blue-500">
                     ExchangePro - Currency Exchange Platform
                 </h2>
             </div>
+
+
+
+
             <!-- Currency Converter Form -->
             <div class="bg-white dark:bg-gray-800/60 p-4 mt-8 rounded-lg shadow-sm max-w-md mx-auto">
                 <form
@@ -606,49 +609,58 @@
             <div class="flex flex-wrap justify-center">
                 <div class="w-full lg:w-7/12 px-4 mb-8">
                     <div class="bg-white shadow-lg rounded-lg p-6 md:p-8 relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-400 opacity-30 rounded-lg"></div>
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-400 opacity-30 rounded-lg">
+                        </div>
                         <div class="relative z-10 text-center mb-6">
-                            <h2 class="text-4xl font-bold text-gray-900 dark:text-gray-100 md:text-5xl">Our Latest Exchange</h2>
-                            <p class="text-lg text-gray-800 dark:text-gray-300 mt-4">Transfer funds around the world from the comfort of your home with our easy-to-use online platform.</p>
+                            <h2 class="text-4xl font-bold text-gray-900 dark:text-gray-100 md:text-5xl">Our Latest
+                                Exchange</h2>
+                            <p class="text-lg text-gray-800 dark:text-gray-300 mt-4">Transfer funds around the world
+                                from the comfort of your home with our easy-to-use online platform.</p>
                         </div>
-                        <div class="relative z-10">
-                            <button class="mt-4 bg-blue-500 text-white font-semibold py-3 px-6 rounded-lg shadow hover:bg-blue-600 transition duration-200">
-                                Get Started
-                            </button>
-                        </div>
+                        
                     </div>
                 </div>
 
 
                 <div class="w-full lg:w-12/12 px-4">
-                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-2xl">
+                    <div
+                        class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-2xl">
                         <div class="overflow-x-auto">
                             <table class="min-w-full table-auto">
                                 <thead>
                                     <tr class="bg-gray-300 dark:bg-gray-700">
-                                        <th class="py-3 px-4 text-left text-gray-900 dark:text-gray-100 font-semibold">User</th>
-                                        <th class="py-3 px-4 text-left text-gray-900 dark:text-gray-100 font-semibold">Sent</th>
-                                        <th class="py-3 px-4 text-left text-gray-900 dark:text-gray-100 font-semibold">Received</th>
-                                        <th class="py-3 px-4 text-left text-gray-900 dark:text-gray-100 font-semibold">Amount</th>
-                                        <th class="py-3 px-4 text-left text-gray-900 dark:text-gray-100 font-semibold">Date</th>
+                                        <th class="py-3 px-4 text-left text-gray-900 dark:text-gray-100 font-semibold">
+                                            User</th>
+                                        <th class="py-3 px-4 text-left text-gray-900 dark:text-gray-100 font-semibold">
+                                            Sent</th>
+                                        <th class="py-3 px-4 text-left text-gray-900 dark:text-gray-100 font-semibold">
+                                            Received</th>
+                                        <th class="py-3 px-4 text-left text-gray-900 dark:text-gray-100 font-semibold">
+                                            Amount</th>
+                                        <th class="py-3 px-4 text-left text-gray-900 dark:text-gray-100 font-semibold">
+                                            Date</th>
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
                                     <tr class="hover:bg-gray-100 dark:hover:bg-gray-600">
-                                        <td class="py-3 px-4 text-gray-700 dark:text-gray-300" data-label="User">dssarx pzxoim</td>
+                                        <td class="py-3 px-4 text-gray-700 dark:text-gray-300" data-label="User">
+                                            dssarx pzxoim</td>
                                         <td class="py-3 px-4 text-gray-700 dark:text-gray-300" data-label="Sent">
                                             <span class="inline-block w-6 h-6">
-                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce62fefa191665984047.png" alt="currency image" class="rounded-full">
+                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce62fefa191665984047.png"
+                                                    alt="currency image" class="rounded-full">
                                             </span>
                                             Bkash
                                         </td>
                                         <td class="py-3 px-4 text-gray-700 dark:text-gray-300" data-label="Received">
                                             <span class="inline-block w-6 h-6">
-                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/6363475fc84051667450719.jpg" alt="currency image" class="rounded-full">
+                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/6363475fc84051667450719.jpg"
+                                                    alt="currency image" class="rounded-full">
                                             </span>
                                             Payoneer
                                         </td>
-                                        <td class="py-3 px-4 text-green-600 font-bold" data-label="Amount">1,281.18 BDT<i class="la la-arrow-right ml-2"></i>9.96 USD</td>
+                                        <td class="py-3 px-4 text-green-600 font-bold" data-label="Amount">1,281.18
+                                            BDT<i class="la la-arrow-right ml-2"></i>9.96 USD</td>
                                         <td class="py-3 px-4 text-gray-700 dark:text-gray-300" data-label="Date">
                                             <div>
                                                 <span class="block">2024-07-30 06:02 AM</span>
@@ -657,20 +669,24 @@
                                         </td>
                                     </tr>
                                     <tr class="hover:bg-gray-100 dark:hover:bg-gray-600">
-                                        <td class="py-3 px-4 text-gray-700 dark:text-gray-300" data-label="User">dssarx pzxoim</td>
+                                        <td class="py-3 px-4 text-gray-700 dark:text-gray-300" data-label="User">
+                                            dssarx pzxoim</td>
                                         <td class="py-3 px-4 text-gray-700 dark:text-gray-300" data-label="Sent">
                                             <span class="inline-block w-6 h-6">
-                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce62fefa191665984047.png" alt="currency image" class="rounded-full">
+                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce62fefa191665984047.png"
+                                                    alt="currency image" class="rounded-full">
                                             </span>
                                             Bkash
                                         </td>
                                         <td class="py-3 px-4 text-gray-700 dark:text-gray-300" data-label="Received">
                                             <span class="inline-block w-6 h-6">
-                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d79313684cb1675072275.jpg" alt="currency image" class="rounded-full">
+                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d79313684cb1675072275.jpg"
+                                                    alt="currency image" class="rounded-full">
                                             </span>
                                             PayTm
                                         </td>
-                                        <td class="py-3 px-4 text-green-600 font-bold" data-label="Amount">10.00 BDT<i class="la la-arrow-right ml-2"></i>5.64 INR</td>
+                                        <td class="py-3 px-4 text-green-600 font-bold" data-label="Amount">10.00 BDT<i
+                                                class="la la-arrow-right ml-2"></i>5.64 INR</td>
                                         <td class="py-3 px-4 text-gray-700 dark:text-gray-300" data-label="Date">
                                             <div>
                                                 <span class="block">2024-07-29 11:43 AM</span>
@@ -679,20 +695,24 @@
                                         </td>
                                     </tr>
                                     <tr class="hover:bg-gray-100 dark:hover:bg-gray-600">
-                                        <td class="py-3 px-4 text-gray-700 dark:text-gray-300" data-label="User">dssarx pzxoim</td>
+                                        <td class="py-3 px-4 text-gray-700 dark:text-gray-300" data-label="User">
+                                            dssarx pzxoim</td>
                                         <td class="py-3 px-4 text-gray-700 dark:text-gray-300" data-label="Sent">
                                             <span class="inline-block w-6 h-6">
-                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce5b0b4ec41665983920.jpg" alt="currency image" class="rounded-full">
+                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce5b0b4ec41665983920.jpg"
+                                                    alt="currency image" class="rounded-full">
                                             </span>
                                             Bitcoin
                                         </td>
                                         <td class="py-3 px-4 text-gray-700 dark:text-gray-300" data-label="Received">
                                             <span class="inline-block w-6 h-6">
-                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce62fefa191665984047.png" alt="currency image" class="rounded-full">
+                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce62fefa191665984047.png"
+                                                    alt="currency image" class="rounded-full">
                                             </span>
                                             Bkash
                                         </td>
-                                        <td class="py-3 px-4 text-green-600 font-bold" data-label="Amount">50.00 BTC<i class="la la-arrow-right ml-2"></i>1,640.00 BDT</td>
+                                        <td class="py-3 px-4 text-green-600 font-bold" data-label="Amount">50.00 BTC<i
+                                                class="la la-arrow-right ml-2"></i>1,640.00 BDT</td>
                                         <td class="py-3 px-4 text-gray-700 dark:text-gray-300" data-label="Date">
                                             <div>
                                                 <span class="block">2024-07-28 01:47 PM</span>
@@ -701,20 +721,24 @@
                                         </td>
                                     </tr>
                                     <tr class="hover:bg-gray-100 dark:hover:bg-gray-600">
-                                        <td class="py-3 px-4 text-gray-700 dark:text-gray-300" data-label="User">John Doe</td>
+                                        <td class="py-3 px-4 text-gray-700 dark:text-gray-300" data-label="User">John
+                                            Doe</td>
                                         <td class="py-3 px-4 text-gray-700 dark:text-gray-300" data-label="Sent">
                                             <span class="inline-block w-6 h-6">
-                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d782ac127d51675068076.jpg" alt="currency image" class="rounded-full">
+                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d782ac127d51675068076.jpg"
+                                                    alt="currency image" class="rounded-full">
                                             </span>
                                             Payoneer
                                         </td>
                                         <td class="py-3 px-4 text-gray-700 dark:text-gray-300" data-label="Received">
                                             <span class="inline-block w-6 h-6">
-                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce62fefa191665984047.png" alt="currency image" class="rounded-full">
+                                                <img src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce62fefa191665984047.png"
+                                                    alt="currency image" class="rounded-full">
                                             </span>
                                             Bkash
                                         </td>
-                                        <td class="py-3 px-4 text-green-600 font-bold" data-label="Amount">50.00 EUR<i class="la la-arrow-right ml-2"></i>53.33 BDT</td>
+                                        <td class="py-3 px-4 text-green-600 font-bold" data-label="Amount">50.00 EUR<i
+                                                class="la la-arrow-right ml-2"></i>53.33 BDT</td>
                                         <td class="py-3 px-4 text-gray-700 dark:text-gray-300" data-label="Date">
                                             <div>
                                                 <span class="block">2022-12-24 02:59 PM</span>
@@ -738,10 +762,14 @@
                 <div class="w-full lg:w-7/12 px-4 mb-8">
                     <div class="bg-blue-600 rounded-lg p-8 shadow-lg text-center mb-8 md:mb-12">
                         <h2 class="text-3xl md:text-4xl font-semibold text-white">Subscribe to Our Newsletter</h2>
-                        <p class="mt-4 text-gray-200">Stay updated with the latest news and exclusive discounts by subscribing to our newsletter!</p>
+                        <p class="mt-4 text-gray-200">Stay updated with the latest news and exclusive discounts by
+                            subscribing to our newsletter!</p>
                         <form class="mt-6">
-                            <input type="email" placeholder="Enter your email address" class="border border-gray-300 rounded-lg p-3 w-full md:w-2/3 focus:outline-none focus:ring-2 focus:ring-blue-400" required>
-                            <button type="submit" class="mt-4 bg-white text-blue-600 font-semibold py-2 px-4 rounded-lg shadow hover:bg-gray-200 transition duration-200">Subscribe</button>
+                            <input type="email" placeholder="Enter your email address"
+                                class="border border-gray-300 rounded-lg p-3 w-full md:w-2/3 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                                required>
+                            <button type="submit"
+                                class="mt-4 bg-white text-blue-600 font-semibold py-2 px-4 rounded-lg shadow hover:bg-gray-200 transition duration-200">Subscribe</button>
                         </form>
                     </div>
                 </div>
@@ -757,7 +785,8 @@
                 <p class="text-gray-600 dark:text-gray-300 mb-4">
                     Discover the latest updates and insights from our team. Stay informed with our news.
                 </p>
-                <button class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                <button
+                    class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
                     Learn More
                 </button>
             </div>
@@ -880,9 +909,14 @@
                         <div class="footer-widget">
                             <h5 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Support</h5>
                             <ul class="space-y-2">
-                                <li><a class="text-gray-700 dark:text-gray-300 hover:text-blue-500 transition">Contact</a></li>
-                                <li><a class="text-gray-700 dark:text-gray-300 hover:text-blue-500 transition">Blog</a></li>
-                                <li><a class="text-gray-700 dark:text-gray-300 hover:text-blue-500 transition">Login</a></li>
+                                <li><a
+                                        class="text-gray-700 dark:text-gray-300 hover:text-blue-500 transition">Contact</a>
+                                </li>
+                                <li><a class="text-gray-700 dark:text-gray-300 hover:text-blue-500 transition">Blog</a>
+                                </li>
+                                <li><a
+                                        class="text-gray-700 dark:text-gray-300 hover:text-blue-500 transition">Login</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -890,11 +924,17 @@
                     <!-- Exchange Gateways -->
                     <div class="w-full lg:w-1/4 px-4 mb-8">
                         <div class="footer-widget">
-                            <h5 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Exchange Gateways</h5>
+                            <h5 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Exchange Gateways
+                            </h5>
                             <ul class="space-y-2">
-                                <li><a class="text-gray-700 dark:text-gray-300 hover:text-blue-500 transition">Perfect Money</a></li>
-                                <li><a class="text-gray-700 dark:text-gray-300 hover:text-blue-500 transition">Bkash</a></li>
-                                <li><a class="text-gray-700 dark:text-gray-300 hover:text-blue-500 transition">PayTm</a></li>
+                                <li><a class="text-gray-700 dark:text-gray-300 hover:text-blue-500 transition">Perfect
+                                        Money</a></li>
+                                <li><a
+                                        class="text-gray-700 dark:text-gray-300 hover:text-blue-500 transition">Bkash</a>
+                                </li>
+                                <li><a
+                                        class="text-gray-700 dark:text-gray-300 hover:text-blue-500 transition">PayTm</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -904,9 +944,12 @@
                         <div class="footer-widget">
                             <h5 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Useful Links</h5>
                             <ul class="space-y-2">
-                                <li><a class="text-gray-700 dark:text-gray-300 hover:text-blue-500 transition">Privacy Policy</a></li>
-                                <li><a class="text-gray-700 dark:text-gray-300 hover:text-blue-500 transition">Terms of Service</a></li>
-                                <li><a class="text-gray-700 dark:text-gray-300 hover:text-blue-500 transition">Refund Policy</a></li>
+                                <li><a class="text-gray-700 dark:text-gray-300 hover:text-blue-500 transition">Privacy
+                                        Policy</a></li>
+                                <li><a class="text-gray-700 dark:text-gray-300 hover:text-blue-500 transition">Terms of
+                                        Service</a></li>
+                                <li><a class="text-gray-700 dark:text-gray-300 hover:text-blue-500 transition">Refund
+                                        Policy</a></li>
                             </ul>
                         </div>
                     </div>
@@ -918,33 +961,47 @@
         <div class="py-4 bg-gray-800 dark:bg-gray-700">
             <div class="container mx-auto flex flex-wrap justify-between items-center">
                 <p class="text-gray-300">
-                    &copy; 2024 <a class="text-blue-500 hover:text-blue-400 transition" href="https://japanbangladeshit.com/">Japan Bangladesh IT</a>. All Rights Reserved
+                    &copy; 2024 <a class="text-blue-500 hover:text-blue-400 transition"
+                        href="https://japanbangladeshit.com/">Japan Bangladesh IT</a>. All Rights Reserved
                 </p>
                 <ul class="flex space-x-4">
                     <li>
-                        <a href="https://www.facebook.com/" target="_blank" class="text-gray-300 hover:text-blue-500 transition">
-                            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                <path fill-rule="evenodd" d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z" clip-rule="evenodd" />
+                        <a href="https://www.facebook.com/" target="_blank"
+                            class="text-gray-300 hover:text-blue-500 transition">
+                            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd"
+                                    d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z"
+                                    clip-rule="evenodd" />
                             </svg>
                         </a>
                     </li>
                     <li>
-                        <a href="https://x.com/" target="_blank" class="text-gray-300 hover:text-blue-500 transition">
-                            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M13.795 10.533 20.68 2h-3.073l-5.255 6.517L7.69 2H1l7.806 10.91L1.47 22h3.074l5.705-7.07L15.31 22H22l-8.205-11.467Zm-2.38 2.95L9.97 11.464 4.36 3.627h2.31l4.528 6.317 1.443 2.02 6.018 8.409h-2.31l-4.934-6.89Z" />
+                        <a href="https://x.com/" target="_blank"
+                            class="text-gray-300 hover:text-blue-500 transition">
+                            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M13.795 10.533 20.68 2h-3.073l-5.255 6.517L7.69 2H1l7.806 10.91L1.47 22h3.074l5.705-7.07L15.31 22H22l-8.205-11.467Zm-2.38 2.95L9.97 11.464 4.36 3.627h2.31l4.528 6.317 1.443 2.02 6.018 8.409h-2.31l-4.934-6.89Z" />
                             </svg>
                         </a>
                     </li>
                     <li>
-                        <a href="https://www.instagram.com/" target="_blank" class="text-gray-300 hover:text-blue-500 transition">
-                            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                <path fill="currentColor" fill-rule="evenodd" d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z" clip-rule="evenodd" />
+                        <a href="https://www.instagram.com/" target="_blank"
+                            class="text-gray-300 hover:text-blue-500 transition">
+                            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 24 24">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"
+                                    clip-rule="evenodd" />
                             </svg>
                         </a>
                     </li>
                     <li>
-                        <a href="https://www.youtube.com/" target="_blank" class="text-gray-300 hover:text-blue-500 transition">
-                            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                        <a href="https://www.youtube.com/" target="_blank"
+                            class="text-gray-300 hover:text-blue-500 transition">
+                            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor" viewBox="0 0 24 24">
                             </svg>
                         </a>
                     </li>
@@ -969,33 +1026,6 @@
             });
         });
     </script>
-    <script>
-        window.onload = function() {
-            const anchorTags = document.querySelectorAll('a');
-            anchorTags.forEach(function(a) {
-                a.addEventListener('click', function(ev) {
-                    ev.preventDefault();
-                })
-            });
-            const dropdownEl = document.querySelector('[data-dropdown-toggle]');
-            if (dropdownEl) {
-                dropdownEl.click();
-            }
-            const modalEl = document.querySelector('[data-modal-toggle]');
-            if (modalEl) {
-                modalEl.click();
-            }
-            const dateRangePickerEl = document.querySelector('[data-rangepicker] input');
-            if (dateRangePickerEl) {
-                dateRangePickerEl.focus();
-            }
-            const drawerEl = document.querySelector('[data-drawer-show]');
-            if (drawerEl) {
-                drawerEl.click();
-            }
-        }
-    </script>
-
     <script>
         document.getElementById('mega-menu-dropdown-button').addEventListener('click', function() {
             var dropdown = document.getElementById('mega-menu-dropdown');
