@@ -5,14 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Currency;
 use App\Models\Exchange;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ExchangeController extends Controller
 {
     public function index()
     {
-        $exchanges = Exchange::with('currency')->get();
+        $exchanges = Exchange::with(['currency', 'user'])->paginate(10);
         return view('exchanges.index', compact('exchanges'));
     }
+    
 
     public function create()
     {
@@ -32,9 +34,12 @@ class ExchangeController extends Controller
             'paid_to_seller_bdt' => 'nullable|numeric',
             'status' => 'required|in:pending,approved,canceled',
         ]);
-
+    
+        // Add authenticated user's ID
+        $validated['user_id'] = Auth::id();
+    
         Exchange::create($validated);
-
+    
         return redirect()->route('exchanges.index')->with('success', 'Exchange created successfully');
     }
 
