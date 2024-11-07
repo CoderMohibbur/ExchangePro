@@ -13,9 +13,7 @@
         content="exchange platform,currency exchange platform,changalab,usd to inr,currency exchnage,easy exchange,money exhcngae,bitcoin to usd,money exchange,crypto currency exchange,crypto currency">
     @vite(['resources/css/app.css', 'resources/js/app.js']) <!-- Vite directive -->
 
-
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400&display=swap" rel="stylesheet">
-
 
 </head>
 
@@ -24,7 +22,7 @@
 
     <nav class="bg-white border-gray-200 dark:bg-gray-900">
         <div class="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto p-4">
-            <a href="https://flowbite.com" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">ExchangePro</span>
             </a>

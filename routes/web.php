@@ -3,12 +3,15 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BankController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\ExchangeController;
+use App\Http\Controllers\UserTypeController;
 use App\Http\Controllers\BankBalanceController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\CurrencyReserveController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,7 +27,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/profile/{user}', [ProfileController::class, 'show'])->name('profile.show');
-
 });
 
 Route::middleware('auth')->group(function () {
@@ -32,6 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/exchanges/canceled', [ExchangeController::class, 'canceled'])->name('exchanges.canceled');
     Route::get('/exchanges/refunded', [ExchangeController::class, 'refunded'])->name('exchanges.refunded');
     Route::get('/exchanges/approved', [ExchangeController::class, 'approved'])->name('exchanges.approved');
+
     //currencies
     Route::get('/exchanges/currencies', [ExchangeController::class, 'currencies'])->name('exchanges.currencies');
     Route::resource('exchanges', ExchangeController::class);
@@ -42,7 +45,10 @@ Route::middleware('auth')->group(function () {
     Route::resource('banks', BankController::class);
     Route::resource('bank_balances', BankBalanceController::class);
     Route::resource('transactions', TransactionController::class);
-
+    Route::resource('user_types', UserTypeController::class);
+    Route::resource('users', UserController::class);
+    // Route::post('currency_reserves/{currencyReserve}/adjust', [CurrencyReserveController::class, 'adjustBalance'])->name('currency_reserves.adjust');
+    Route::resource('currency_reserves', CurrencyReserveController::class);
 
 
 });

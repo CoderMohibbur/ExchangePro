@@ -1,4 +1,7 @@
 <x-app-layout>
+    <x-slot name="title">
+        All Exchanges
+    </x-slot>
     <x-slot name="header">
         <h1 class="text-xl dark:text-white font-semibold">All Exchanges</h1>
     </x-slot>

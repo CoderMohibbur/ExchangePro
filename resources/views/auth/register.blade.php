@@ -2,11 +2,18 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
-        <!-- Full Name -->
+        <!-- First Name -->
         <div>
-            <x-input-label for="full_name" :value="__('Full Name')" />
-            <x-text-input id="full_name" class="block mt-1 w-full" type="text" name="full_name" :value="old('full_name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('full_name')" class="mt-2" />
+            <x-input-label for="first_name" :value="__('First Name')" />
+            <x-text-input id="first_name" class="block mt-1 w-full" type="text" name="first_name" :value="old('first_name')" required autofocus autocomplete="given-name" />
+            <x-input-error :messages="$errors->get('first_name')" class="mt-2" />
+        </div>
+
+        <!-- Last Name -->
+        <div class="mt-4">
+            <x-input-label for="last_name" :value="__('Last Name')" />
+            <x-text-input id="last_name" class="block mt-1 w-full" type="text" name="last_name" :value="old('last_name')" required autocomplete="family-name" />
+            <x-input-error :messages="$errors->get('last_name')" class="mt-2" />
         </div>
 
         <!-- Username -->
@@ -42,7 +49,7 @@
                 {{ __('Already registered?') }}
             </a>
 
-            <x-primary-button class="ms-4">
+            <x-primary-button class="ml-4">
                 {{ __('Register') }}
             </x-primary-button>
         </div>

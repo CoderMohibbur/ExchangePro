@@ -16,27 +16,29 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'full_name',
+        'first_name',
+        'last_name',
         'username',
         'phone_number',
         'email',
         'password',
-        'usertype',
+        'user_type_id',
+        'role_id',
         'active_status',
+        'access_status',
         'random_code',
         'notificationToken',
         'language',
-        'style_id',
         'rtl_ltl',
         'selected_session',
-        'created_by',
-        'updated_by',
-        'access_status',
-        'company_id',
-        'role_id',
+        'can_login',
         'is_administrator',
         'is_registered',
         'device_token',
+        'style_id',
+        'company_id',
+        'created_by',
+        'updated_by',
     ];
 
     /**
@@ -52,12 +54,13 @@ class User extends Authenticatable
     /**
      * The attributes that should be cast.
      *
-     * @return array<string, string>
+     * @var array<string, string>
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
         'active_status' => 'boolean',
+        'access_status' => 'boolean',
         'is_administrator' => 'boolean',
         'is_registered' => 'boolean',
     ];
@@ -65,13 +68,42 @@ class User extends Authenticatable
     /**
      * Relationships
      */
+    
+    // Define relationship with UserType
+    public function userType()
+    {
+        return $this->belongsTo(UserType::class, 'user_type_id');
+    }
+
+    // Define relationship with Role
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    // Define relationship with Company
     public function company()
     {
         return $this->belongsTo(Company::class);
     }
 
-    public function role()
+    // Define relationship with the user who created this user
+    public function creator()
     {
-        return $this->belongsTo(Role::class);
+        return $this->belongsTo(User::class, 'created_by');
+    }
+
+    // Define relationship with the user who last updated this user
+    public function updater()
+    {
+        return $this->belongsTo(User::class, 'updated_by');
+    }
+
+    /**
+     * Accessor to get the full name by concatenating first and last names.
+     */
+    public function getFullNameAttribute()
+    {
+        return "{$this->first_name} {$this->last_name}";
     }
 }

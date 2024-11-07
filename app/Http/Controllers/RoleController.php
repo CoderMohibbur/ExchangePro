@@ -8,11 +8,20 @@ use Illuminate\Http\Request;
 class RoleController extends Controller
 {
     /**
-     * Display a listing of roles.
+     * Display a listing of the roles.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $roles = Role::all();
+        $query = Role::query();
+
+        // If search query is present, filter results
+        if ($request->filled('search')) {
+            $query->where('name', 'like', '%' . $request->input('search') . '%')
+                  ->orWhere('description', 'like', '%' . $request->input('search') . '%');
+        }
+
+        $roles = $query->paginate(10);
+
         return view('roles.index', compact('roles'));
     }
 
@@ -29,22 +38,14 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|unique:roles,name',
+        $validated = $request->validate([
+            'name' => 'required|unique:roles|max:255',
             'description' => 'nullable|string',
         ]);
 
-        Role::create($request->all());
+        Role::create($validated);
 
         return redirect()->route('roles.index')->with('success', 'Role created successfully.');
-    }
-
-    /**
-     * Display the specified role.
-     */
-    public function show(Role $role)
-    {
-        return view('roles.show', compact('role'));
     }
 
     /**
@@ -60,12 +61,12 @@ class RoleController extends Controller
      */
     public function update(Request $request, Role $role)
     {
-        $request->validate([
-            'name' => 'required|unique:roles,name,' . $role->id,
+        $validated = $request->validate([
+            'name' => 'required|max:255|unique:roles,name,' . $role->id,
             'description' => 'nullable|string',
         ]);
 
-        $role->update($request->all());
+        $role->update($validated);
 
         return redirect()->route('roles.index')->with('success', 'Role updated successfully.');
     }

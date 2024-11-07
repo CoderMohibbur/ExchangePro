@@ -13,14 +13,19 @@ class CurrencySeeder extends Seeder
     public function run(): void
     {
         $currencies = [
-            ['name' => 'Payoneer', 'code' => 'USD', 'exchange_rate' => 1.0000],
-            ['name' => 'Wise', 'code' => 'EUR', 'exchange_rate' => 0.9200],
-            ['name' => 'USDT', 'code' => 'USDT', 'exchange_rate' => 1.0000],
-            ['name' => 'PayPal', 'code' => 'USD', 'exchange_rate' => 1.0000],
+            ['name' => 'Payoneer', 'code' => 'USD', 'exchange_rate' => 1.00],
+            ['name' => 'Paypal', 'code' => 'USD', 'exchange_rate' => 1.00],
+            ['name' => 'Wise', 'code' => 'EUR', 'exchange_rate' => 0.85],
+            ['name' => 'GBP', 'code' => 'GBP', 'exchange_rate' => 0.75],
+            ['name' => 'Tether', 'code' => 'USDT', 'exchange_rate' => 1.00],
+            ['name' => 'Bangladeshi Taka', 'code' => 'TK', 'exchange_rate' => 85.00],
         ];
 
         foreach ($currencies as $currency) {
-            Currency::updateOrCreate(['code' => $currency['code']], $currency);
+            Currency::firstOrCreate(
+                ['code' => $currency['code']], // Unique field to prevent duplicates
+                ['name' => $currency['name'], 'exchange_rate' => $currency['exchange_rate']]
+            );
         }
     }
 }

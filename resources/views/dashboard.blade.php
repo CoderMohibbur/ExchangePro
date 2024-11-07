@@ -7,7 +7,6 @@
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
             <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
                 <!-- Total Users Widget -->
-                <a href="https://script.viserlab.com/changalab/demo/admin/users" class="block">
                     <div class="p-6 rounded-lg bg-blue-500 dark:bg-blue-700 text-white shadow-lg transition-transform transform hover:scale-105">
                         <div class="flex items-center justify-between">
                             <span class="text-4xl">
@@ -23,10 +22,8 @@
                             </div>
                         </div>
                     </div>
-                </a>
             
                 <!-- Active Users Widget -->
-                <a href="https://script.viserlab.com/changalab/demo/admin/users/active" class="block">
                     <div class="p-6 rounded-lg bg-green-500 dark:bg-green-700 text-white shadow-lg transition-transform transform hover:scale-105">
                         <div class="flex items-center justify-between">
                             <span class="text-4xl">
@@ -44,10 +41,8 @@
                             </div>
                         </div>
                     </div>
-                </a>
             
                 <!-- Email Unverified Users Widget -->
-                <a href="https://script.viserlab.com/changalab/demo/admin/users/email-unverified" class="block">
                     <div class="p-6 rounded-lg bg-red-500 dark:bg-red-700 text-white shadow-lg transition-transform transform hover:scale-105">
                         <div class="flex items-center justify-between">
                             <span class="text-4xl">
@@ -64,10 +59,8 @@
                             </div>
                         </div>
                     </div>
-                </a>
             
                 <!-- Mobile Unverified Users Widget -->
-                <a href="https://script.viserlab.com/changalab/demo/admin/users/mobile-unverified" class="block">
                     <div class="p-6 rounded-lg bg-yellow-500 dark:bg-yellow-700 text-white shadow-lg transition-transform transform hover:scale-105">
                         <div class="flex items-center justify-between">
                             <span class="text-4xl">
@@ -86,11 +79,9 @@
                             </div>
                         </div>
                     </div>
-                </a>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mt-4 mb-5">
                 <!-- Approved Exchanges Widget -->
-                <a href="https://script.viserlab.com/changalab/demo/admin/exchange/approved" class="block">
                     <div class="p-6 rounded-lg bg-green-500 dark:bg-green-700 text-white shadow-lg transition-transform transform hover:scale-105">
                         <div class="flex items-center justify-between">
                             <span class="text-4xl">
@@ -105,10 +96,8 @@
                             </div>
                         </div>
                     </div>
-                </a>
             
                 <!-- Pending Exchange Widget -->
-                <a href="https://script.viserlab.com/changalab/demo/admin/exchange/pending" class="block">
                     <div class="p-6 rounded-lg bg-yellow-500 dark:bg-yellow-700 text-white shadow-lg transition-transform transform hover:scale-105">
                         <div class="flex items-center justify-between">
                             <span class="text-4xl">
@@ -122,10 +111,8 @@
                             </div>
                         </div>
                     </div>
-                </a>
             
                 <!-- Refunded Exchanges Widget -->
-                <a href="https://script.viserlab.com/changalab/demo/admin/exchange/refunded" class="block">
                     <div class="p-6 rounded-lg bg-gray-800 dark:bg-gray-600 text-white shadow-lg transition-transform transform hover:scale-105">
                         <div class="flex items-center justify-between">
                             <span class="text-4xl">
@@ -140,10 +127,8 @@
                             </div>
                         </div>
                     </div>
-                </a>
             
                 <!-- Canceled Exchanges Widget -->
-                <a href="https://script.viserlab.com/changalab/demo/admin/exchange/canceled" class="block">
                     <div class="p-6 rounded-lg bg-red-500 dark:bg-red-700 text-white shadow-lg transition-transform transform hover:scale-105">
                         <div class="flex items-center justify-between">
                             <span class="text-4xl">
@@ -158,7 +143,6 @@
                             </div>
                         </div>
                     </div>
-                </a>
             </div>
             <h2 class=" text-xl dark:text-white font-semibold">Reserved Currencies</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mt-4">

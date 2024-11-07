@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('currencies', function (Blueprint $table) {
+        Schema::create('currency_reserves', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique(); // e.g., Payoneer, Wise
-            $table->string('code')->unique(); // e.g., USD, EUR
-            $table->decimal('exchange_rate', 10, 4)->default(1.0000); // Optional exchange rate column
+            $table->foreignId('currency_id')->constrained('currencies')->onDelete('cascade');
+            $table->decimal('balance', 15, 4)->default(0.0000); // Tracks balance of each currency
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('currencies');
+        Schema::dropIfExists('currency_reserves');
     }
 };

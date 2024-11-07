@@ -57,6 +57,16 @@ class LoginRequest extends FormRequest
             ]);
         }
 
+        $user = Auth::user();
+
+        // Check if the user has login permission
+        if (! $user->can_login) {
+            Auth::logout();
+            throw ValidationException::withMessages([
+                'login' => __('This user does not have permission to log in.'),
+            ]);
+        }
+
         RateLimiter::clear($this->throttleKey());
     }
 

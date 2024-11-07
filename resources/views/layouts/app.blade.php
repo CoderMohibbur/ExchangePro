@@ -13,8 +13,8 @@
 </head>
 
 <body class="dark:bg-gray-900 font-sans antialiased">
-    @include('partials.header')
-    @include('partials.sidebar')
+    @include('layouts.header')
+    @include('layouts.sidebar')
 
     <!-- Page Heading -->
     <div class="p-4 sm:ml-64">
