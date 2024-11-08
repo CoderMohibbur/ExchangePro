@@ -9,7 +9,7 @@
                 <div class="rounded-lg shadow-lg bg-white dark:bg-gray-800">
                     <div class="flex justify-between p-4">
                         <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Currency Reserves</h2>
-                        <a href="{{ route('currency_reserves.create') }}" 
+                        <a href="{{ route('currency_reserve.create') }}" 
                            class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 transition">
                            Add New Reserve
                         </a>
@@ -29,11 +29,11 @@
                                         <td class="px-4 py-3">{{ $currencyReserve->currency->name }}</td>
                                         <td class="px-4 py-3">{{ number_format($currencyReserve->balance, 2) }}</td>
                                         <td class="px-4 py-3 flex space-x-2">
-                                            <a href="{{ route('currency_reserves.edit', $currencyReserve->id) }}" 
+                                            <a href="{{ route('currency_reserve.edit', $currencyReserve->id) }}" 
                                                class="px-3 py-1 text-sm font-semibold text-yellow-600 border border-yellow-600 rounded hover:bg-yellow-600 hover:text-white dark:text-yellow-400 dark:border-yellow-400 dark:hover:text-white transition duration-200">
                                                Edit
                                             </a>
-                                            <form action="{{ route('currency_reserves.destroy', $currencyReserve->id) }}" method="POST" onsubmit="return confirm('Are you sure?')">
+                                            <form action="{{ route('currency_reserve.destroy', $currencyReserve->id) }}" method="POST" onsubmit="return confirm('Are you sure?')">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" 

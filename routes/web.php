@@ -47,8 +47,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('transactions', TransactionController::class);
     Route::resource('user_types', UserTypeController::class);
     Route::resource('users', UserController::class);
-    // Route::post('currency_reserves/{currencyReserve}/adjust', [CurrencyReserveController::class, 'adjustBalance'])->name('currency_reserves.adjust');
-    Route::resource('currency_reserves', CurrencyReserveController::class);
+    Route::post('currency_reserve/{currencyReserve}/adjust', [CurrencyReserveController::class, 'adjustBalance'])->name('currency_reserves.adjust');
+    Route::resource('currency_reserve', CurrencyReserveController::class);
 
 
 });

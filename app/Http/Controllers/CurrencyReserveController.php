@@ -16,7 +16,7 @@ class CurrencyReserveController extends Controller
     public function index()
     {
         $currencyReserves = CurrencyReserve::with('currency')->paginate(10);
-        return view('currency_reserves.index', compact('currencyReserves'));
+        return view('currency_reserve.index', compact('currencyReserves'));
     }
 
 
@@ -26,7 +26,7 @@ class CurrencyReserveController extends Controller
     public function create()
     {
         $currencies = Currency::all();
-        return view('currency_reserves.create', compact('currencies'));
+        return view('currency_reserve.create', compact('currencies'));
     }
 
     /**
@@ -41,7 +41,7 @@ class CurrencyReserveController extends Controller
 
         CurrencyReserve::create($validated);
 
-        return redirect()->route('currency_reserves.index')
+        return redirect()->route('currency_reserve.index')
             ->with('success', 'Currency Reserve created successfully.');
     }
 
@@ -50,7 +50,7 @@ class CurrencyReserveController extends Controller
      */
     public function show(CurrencyReserve $currencyReserve)
     {
-        return view('currency_reserves.show', compact('currencyReserve'));
+        return view('currency_reserve.show', compact('currencyReserve'));
     }
 
     /**
@@ -59,7 +59,7 @@ class CurrencyReserveController extends Controller
     public function edit(CurrencyReserve $currencyReserve)
     {
         $currencies = Currency::all();
-        return view('currency_reserves.edit', compact('currencyReserve', 'currencies'));
+        return view('currency_reserve.edit', compact('currencyReserve', 'currencies'));
     }
 
     /**
@@ -74,7 +74,7 @@ class CurrencyReserveController extends Controller
 
         $currencyReserve->update($validated);
 
-        return redirect()->route('currency_reserves.index')->with('success', 'Currency reserve updated successfully.');
+        return redirect()->route('currency_reserve.index')->with('success', 'Currency reserve updated successfully.');
     }
 
     /**
@@ -84,7 +84,7 @@ class CurrencyReserveController extends Controller
     {
         $currencyReserve->delete();
 
-        return redirect()->route('currency_reserves.index')
+        return redirect()->route('currency_reserve.index')
             ->with('success', 'Currency Reserve deleted successfully.');
     }
 
@@ -104,7 +104,7 @@ class CurrencyReserveController extends Controller
 
         $currencyReserve->save();
 
-        return redirect()->route('currency_reserves.index')
+        return redirect()->route('currency_reserve.index')
             ->with('success', 'Currency Reserve balance updated successfully.');
     }
 }
