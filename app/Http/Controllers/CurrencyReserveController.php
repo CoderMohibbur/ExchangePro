@@ -94,17 +94,37 @@ class CurrencyReserveController extends Controller
     public function adjustBalance(Request $request, CurrencyReserve $currencyReserve)
     {
         $validated = $request->validate([
-            'amount' => 'required|numeric',
-            'action' => 'required|in:increment,decrement',
+            'adjustment_type' => 'required|in:credit,debit',
+            'amount' => 'required|numeric|min:0.01',
         ]);
 
-        $currencyReserve->balance = $request->action === 'increment'
-            ? $currencyReserve->balance + $validated['amount']
-            : $currencyReserve->balance - $validated['amount'];
+        try {
+            // Calculate new balance based on adjustment type
+            $newBalance = $validated['adjustment_type'] === 'credit'
+                ? $currencyReserve->balance + $validated['amount']
+                : $currencyReserve->balance - $validated['amount'];
 
-        $currencyReserve->save();
+            // Ensure balance doesn’t go negative
+            if ($newBalance < 0) {
+                return redirect()->back()->withErrors('Adjustment would result in a negative balance.');
+            }
 
-        return redirect()->route('currency_reserve.index')
-            ->with('success', 'Currency Reserve balance updated successfully.');
+            // Update the currency reserve balance
+            $currencyReserve->update(['balance' => $newBalance]);
+
+            // Optionally log the adjustment in currency reserve transactions
+            $currencyReserve->transactions()->create([
+                'currency_id' => $currencyReserve->currency_id,
+                'transaction_type' => $validated['adjustment_type'],
+                'amount' => $validated['amount'],
+                'balance_before' => $currencyReserve->balance,
+                'balance_after' => $newBalance,
+                'notes' => $request->input('notes', ''),
+            ]);
+
+            return redirect()->route('currency_reserves.index')->with('success', 'Balance adjusted successfully.');
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors('Failed to adjust balance: ' . $e->getMessage());
+        }
     }
 }

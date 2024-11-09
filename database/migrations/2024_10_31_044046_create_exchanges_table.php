@@ -25,6 +25,7 @@ return new class extends Migration
             $table->decimal('total_amount', 15, 2); // Total calculated amount
             $table->decimal('paid_to_seller_bdt', 15, 2)->nullable(); // Amount paid to seller in BDT
             $table->decimal('due_amount', 15, 2)->default(0); // Amount still owed
+            $table->enum('payment_status', ['Paid', 'Partial', 'Due'])->default('Due'); // Payment status
             $table->enum('status', ['pending', 'approved', 'canceled'])->default('pending'); // Status of the exchange
             $table->foreignId('bank_id')->constrained('banks')->onDelete('cascade'); // Reference to banks table
             $table->decimal('npds_cost', 15, 2)->default(0); // NPSD charges, if applicable

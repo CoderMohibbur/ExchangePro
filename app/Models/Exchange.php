@@ -12,17 +12,42 @@ class Exchange extends Model
     protected $fillable = [
         'exchange_type', 'user_role', 'date_time', 'seller_name', 'buyer_name',
         'currency_id', 'quantity', 'rate', 'total_amount', 'paid_to_seller_bdt',
-        'due_amount', 'npds_cost', 'bank_id', 'status', 'user_id',
+        'due_amount', 'npds_cost', 'bank_id', 'status', 'user_id', 'payment_status',
     ];
 
     protected static function booted()
     {
         static::creating(function ($exchange) {
+            // Calculate total amount
             $exchange->total_amount = $exchange->quantity * $exchange->rate;
-            if ($exchange->exchange_type === 'buy' && $exchange->paid_to_seller_bdt < $exchange->total_amount) {
-                $exchange->due_amount = $exchange->total_amount - $exchange->paid_to_seller_bdt;
+
+            // Calculate due amount and payment status based on `paid_to_seller_bdt`
+            $exchange->updatePaymentStatus();
+        });
+
+        static::updating(function ($exchange) {
+            // Recalculate due amount and payment status if `paid_to_seller_bdt` is changed
+            if ($exchange->isDirty('paid_to_seller_bdt')) {
+                $exchange->updatePaymentStatus();
             }
         });
+    }
+
+    /**
+     * Update due amount and payment status.
+     */
+    public function updatePaymentStatus()
+    {
+        if ($this->paid_to_seller_bdt >= $this->total_amount) {
+            $this->due_amount = 0;
+            $this->payment_status = 'Paid';
+        } elseif ($this->paid_to_seller_bdt > 0) {
+            $this->due_amount = $this->total_amount - $this->paid_to_seller_bdt;
+            $this->payment_status = 'Partial';
+        } else {
+            $this->due_amount = $this->total_amount;
+            $this->payment_status = 'Due';
+        }
     }
 
     /**

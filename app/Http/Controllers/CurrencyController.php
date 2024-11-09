@@ -10,11 +10,19 @@ class CurrencyController extends Controller
     /**
      * Display a listing of the currencies.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $currencies = Currency::paginate(10); // Pagination for easier viewing
-        return view('currencies.index', compact('currencies'));
+        $search = $request->input('search'); // Get search input
+
+        // Filter currencies based on search input for 'name' or 'code'
+        $currencies = Currency::when($search, function ($query, $search) {
+            $query->where('name', 'like', "%{$search}%")
+                ->orWhere('code', 'like', "%{$search}%");
+        })->paginate(10)->withQueryString(); // Maintain query string in pagination links
+
+        return view('currencies.index', compact('currencies', 'search'));
     }
+
 
     /**
      * Show the form for creating a new currency.

@@ -11,7 +11,9 @@ use App\Http\Controllers\ExchangeController;
 use App\Http\Controllers\UserTypeController;
 use App\Http\Controllers\BankBalanceController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\BankTransactionController;
 use App\Http\Controllers\CurrencyReserveController;
+use App\Http\Controllers\CurrencyReserveTransactionController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -47,8 +49,12 @@ Route::middleware('auth')->group(function () {
     Route::resource('transactions', TransactionController::class);
     Route::resource('user_types', UserTypeController::class);
     Route::resource('users', UserController::class);
-    Route::post('currency_reserve/{currencyReserve}/adjust', [CurrencyReserveController::class, 'adjustBalance'])->name('currency_reserves.adjust');
+    Route::post('currency_reserve/{currencyReserve}/adjust', [CurrencyReserveController::class, 'adjustBalance'])->name('currency_reserve.adjust');
     Route::resource('currency_reserve', CurrencyReserveController::class);
+    Route::resource('currency_reserve_transactions', CurrencyReserveTransactionController::class);
+    Route::resource('bank_transactions', BankTransactionController::class);
+
+
 
 
 });
