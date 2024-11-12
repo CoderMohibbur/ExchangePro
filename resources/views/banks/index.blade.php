@@ -19,29 +19,39 @@
                             <thead class="bg-gray-100 dark:bg-gray-700">
                                 <tr>
                                     <th class="px-4 py-2 text-left font-semibold">Bank Name</th>
-                                    <th class="px-4 py-2 text-left font-semibold">Total Balance (BDT)</th>
-                                    <th class="px-4 py-2 text-left font-semibold">Actions</th>
+                                    <th class="px-4 py-2 text-center font-semibold">Total Balance (BDT)</th>
+                                    <th class="px-4 py-2 text-center font-semibold">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse($banks as $bank)
                                     <tr class="border-b border-gray-200 dark:border-gray-700">
                                         <td class="px-4 py-3">{{ $bank->name }}</td>
-                                        <td class="px-4 py-3">{{ number_format($bank->balances->sum('amount'), 2) }}</td>
-                                        <td class="px-4 py-3 flex space-x-2">
+                                        <td class="px-4 py-3 text-center">{{ number_format($bank->balance, 2) }}</td>
+                                        <td class="px-4 py-3 flex space-x-2 justify-center">
                                             <a href="{{ route('banks.edit', $bank->id) }}" 
-                                               class="px-3 py-1 text-sm font-semibold text-yellow-600 border border-yellow-600 rounded hover:bg-yellow-600 hover:text-white dark:text-yellow-400 dark:border-yellow-400 dark:hover:text-white transition duration-200">
+                                               class="px-3 py-1 text-sm font-semibold text-yellow-600 border border-yellow-600 rounded hover:bg-yellow-600 hover:text-white transition duration-200">
                                                Edit
                                             </a>
                                             <form action="{{ route('banks.destroy', $bank->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this bank?');">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" 
-                                                        class="px-3 py-1 text-sm font-semibold text-red-600 border border-red-600 rounded hover:bg-red-600 hover:text-white dark:text-white dark:border-red-400 dark:hover:bg-red-500 transition duration-200">
+                                                        class="px-3 py-1 text-sm font-semibold text-red-600 border border-red-600 rounded hover:bg-red-600 hover:text-white transition duration-200">
                                                     Delete
                                                 </button>
                                             </form>
+                                            <a href="{{ route('banks.withdrawForm', $bank->id) }}" 
+                                               class="px-3 py-1 text-sm font-semibold text-blue-500 border border-blue-500 rounded hover:bg-blue-500 hover:text-white transition duration-200">
+                                                Withdraw
+                                            </a>
+                                            <a href="{{ route('banks.depositForm', $bank->id) }}" 
+                                               class="px-3 py-1 text-sm font-semibold text-green-500 border border-green-500 rounded hover:bg-green-500 hover:text-white transition duration-200">
+                                                Deposit
+                                            </a>
                                         </td>
+                                        
+                                        
                                     </tr>
                                 @empty
                                     <tr>

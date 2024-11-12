@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\ExchangeController;
 use App\Http\Controllers\UserTypeController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BankBalanceController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\BankTransactionController;
@@ -20,9 +21,9 @@ Route::get('/', function () {
 });
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -38,12 +39,20 @@ Route::middleware('auth')->group(function () {
     Route::get('/exchanges/approved', [ExchangeController::class, 'approved'])->name('exchanges.approved');
 
     //currencies
+
+    Route::get('/exchanges/{exchange}/payment', [ExchangeController::class, 'completePartialPaymentForm'])->name('exchanges.payment');
+    Route::post('/exchanges/{exchange}/payment', [ExchangeController::class, 'completePartialPayment'])->name('exchanges.completePartialPayment');
+
     Route::get('/exchanges/currencies', [ExchangeController::class, 'currencies'])->name('exchanges.currencies');
     Route::resource('exchanges', ExchangeController::class);
 
     Route::resource('companies', CompanyController::class);
     Route::resource('roles', RoleController::class);
     Route::resource('currencies', CurrencyController::class);
+    Route::get('/banks/{bank}/withdraw', [BankController::class, 'showWithdrawForm'])->name('banks.withdrawForm');
+    Route::post('/banks/{bank}/withdraw', [BankController::class, 'processWithdraw'])->name('banks.withdraw');
+    Route::get('/banks/{bank}/deposit', [BankController::class, 'depositForm'])->name('banks.depositForm');
+    Route::post('/banks/{bank}/deposit', [BankController::class, 'processDeposit'])->name('banks.processDeposit');
     Route::resource('banks', BankController::class);
     Route::resource('bank_balances', BankBalanceController::class);
     Route::resource('transactions', TransactionController::class);

@@ -17,8 +17,8 @@
                                 </svg>
                             </span>
                             <div class="text-right">
-                                <p class="text-lg font-medium">Total Users</p>
-                                <h3 class="text-3xl font-bold">2597</h3>
+                                <p class="text-lg font-medium">All Time USD Sell</p>
+                                <h3 class="text-xl font-bold">{{ number_format($totalUsdSold, 2) }} USD</h3>
                             </div>
                         </div>
                     </div>
@@ -36,8 +36,8 @@
                                 </svg>
                             </span>
                             <div class="text-right">
-                                <p class="text-lg font-medium">Active Users</p>
-                                <h3 class="text-3xl font-bold">2597</h3>
+                                <p class="text-lg font-medium">All Time USD Buy</p>
+                                <h3 class="text-xl font-bold">{{ number_format($totalUsdBought, 2) }} USD</h3>
                             </div>
                         </div>
                     </div>
@@ -54,8 +54,8 @@
                                 </svg>                                
                             </span>
                             <div class="text-right">
-                                <p class="text-lg font-medium">Email Unverified Users</p>
-                                <h3 class="text-3xl font-bold">0</h3>
+                                <p class="text-lg font-medium">All Time Profit (BDT)</p>
+                                <h3 class="text-xl font-bold">{{ number_format($totalProfitInBDT, 2) }} BDT</h3>
                             </div>
                         </div>
                     </div>
@@ -74,8 +74,8 @@
                                 </svg>
                             </span>
                             <div class="text-right">
-                                <p class="text-lg font-medium">Mobile Unverified Users</p>
-                                <h3 class="text-3xl font-bold">0</h3>
+                                <p class="text-lg font-medium">Total Due to Sellers</p>
+                                <h3 class="text-xl font-bold">{{ number_format($totalDueToSellers, 2) }} BDT</h3>
                             </div>
                         </div>
                     </div>
@@ -91,8 +91,8 @@
                                 </svg>
                             </span>
                             <div class="text-right">
-                                <p class="text-lg font-medium">Approved Exchanges</p>
-                                <h3 class="text-3xl font-bold">32</h3>
+                                <p class="text-lg font-medium">Total Bank Balance</p>
+                                <h3 class="text-xl font-bold">{{ number_format($totalBankBalance, 2) }} BDT</h3>
                             </div>
                         </div>
                     </div>

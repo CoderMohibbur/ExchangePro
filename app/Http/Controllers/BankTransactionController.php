@@ -52,20 +52,6 @@ class BankTransactionController extends Controller
 
         $validated['created_by_user_id'] = Auth::id();
 
-        $bank = Bank::findOrFail($validated['bank_id']);
-        $validated['balance_before'] = $bank->balance;
-
-        // Adjust bank balance and calculate balance after
-        if ($validated['transaction_type'] === 'debit') {
-            $validated['balance_after'] = $validated['balance_before'] - $validated['amount'];
-            $bank->balance -= $validated['amount'];
-        } else {
-            $validated['balance_after'] = $validated['balance_before'] + $validated['amount'];
-            $bank->balance += $validated['amount'];
-        }
-
-        $bank->save(); // Save the adjusted balance only once
-
         BankTransaction::create($validated);
 
         return redirect()->route('bank_transactions.index')->with('success', 'Transaction recorded successfully.');
@@ -94,29 +80,7 @@ class BankTransactionController extends Controller
             'notes' => 'nullable|string|max:255',
         ]);
 
-        $bank = $bankTransaction->bank;
-
-        // Revert previous transaction's effect on bank balance
-        if ($bankTransaction->transaction_type === 'debit') {
-            $bank->balance += $bankTransaction->amount;
-        } else {
-            $bank->balance -= $bankTransaction->amount;
-        }
-
-        // Set balance before the updated transaction
-        $validated['balance_before'] = $bank->balance;
-
-        // Apply the new transaction’s impact on the bank balance
-        if ($validated['transaction_type'] === 'debit') {
-            $validated['balance_after'] = $bank->balance - $validated['amount'];
-            $bank->balance -= $validated['amount'];
-        } else {
-            $validated['balance_after'] = $bank->balance + $validated['amount'];
-            $bank->balance += $validated['amount'];
-        }
-
-        $bank->save(); // Save the adjusted balance only once
-
+        // Update the transaction data
         $bankTransaction->update($validated);
 
         return redirect()->route('bank_transactions.index')->with('success', 'Transaction updated successfully.');
@@ -135,17 +99,6 @@ class BankTransactionController extends Controller
      */
     public function destroy(BankTransaction $bankTransaction)
     {
-        $bank = $bankTransaction->bank;
-
-        // Revert the transaction effect on bank balance before deletion
-        if ($bankTransaction->transaction_type === 'debit') {
-            $bank->balance += $bankTransaction->amount;
-        } else {
-            $bank->balance -= $bankTransaction->amount;
-        }
-
-        $bank->save(); // Save the adjusted balance only once
-
         $bankTransaction->delete();
 
         return redirect()->route('bank_transactions.index')->with('success', 'Transaction deleted successfully.');

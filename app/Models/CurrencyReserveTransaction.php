@@ -25,6 +25,36 @@ class CurrencyReserveTransaction extends Model
     ];
 
     /**
+     * Boot method to handle balance adjustments.
+     */
+    protected static function booted()
+    {
+        static::creating(function ($transaction) {
+            $currencyReserve = CurrencyReserve::where('currency_id', $transaction->currency_id)->first();
+
+            if (!$currencyReserve) {
+                throw new \Exception('Currency reserve not found for currency ID: ' . $transaction->currency_id);
+            }
+
+            // Record balance before transaction
+            $transaction->balance_before = $currencyReserve->balance;
+
+            // Adjust currency reserve balance based on transaction type
+            if ($transaction->transaction_type === 'credit') {
+                $currencyReserve->balance += $transaction->amount;
+            } elseif ($transaction->transaction_type === 'debit') {
+                $currencyReserve->balance -= $transaction->amount;
+            }
+
+            // Record balance after transaction
+            $transaction->balance_after = $currencyReserve->balance;
+
+            // Save the updated currency reserve balance
+            $currencyReserve->save();
+        });
+    }
+
+    /**
      * Get the currency associated with the transaction.
      */
     public function currency()

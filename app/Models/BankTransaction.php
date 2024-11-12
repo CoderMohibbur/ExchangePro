@@ -23,32 +23,6 @@ class BankTransaction extends Model
     ];
 
     /**
-     * Boot method to handle balance adjustments.
-     */
-    // protected static function booted()
-    // {
-    //     static::creating(function ($transaction) {
-    //         $bank = $transaction->bank;  // Fetch the associated bank
-
-    //         // Record balance before transaction
-    //         $transaction->balance_before = $bank->balance;
-
-    //         // Adjust bank balance based on transaction type
-    //         if ($transaction->transaction_type === 'credit') {
-    //             $bank->balance += $transaction->amount;
-    //         } elseif ($transaction->transaction_type === 'debit') {
-    //             $bank->balance -= $transaction->amount;
-    //         }
-
-    //         // Record balance after transaction
-    //         $transaction->balance_after = $bank->balance;
-
-    //         // Save the updated bank balance
-    //         $bank->save();
-    //     });
-    // }
-
-    /**
      * Relationship with Bank.
      */
     public function bank()

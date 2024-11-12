@@ -78,10 +78,21 @@
                                                 {{ ucfirst($exchange->status) }}
                                             </span>
                                         </td>
-                                        <td class="px-4 py-3">
-                                            <a href="{{ route('exchanges.show', $exchange->id) }}" class="px-4 py-1 text-sm font-semibold text-blue-500 border border-blue-500 rounded hover:bg-blue-500 hover:text-white dark:hover:bg-blue-700 dark:hover:border-blue-700 dark:border-blue-500 dark:text-blue-400 transition duration-200">
-                                                <i class="las la-desktop"></i> Details
+                                        <td class="px-4 py-3 flex space-x-2">
+                                            <a href="{{ route('exchanges.payment', $exchange->id) }}" 
+                                                class="px-4 py-1 text-sm font-semibold text-green-500 border border-green-500 rounded hover:bg-green-500 hover:text-white dark:hover:bg-green-700 dark:hover:border-green-700 dark:border-green-500 dark:text-green-400 transition duration-200">
+                                                <i class="las la-money-bill"></i> Pay
+                                             </a>
+                                            <a href="{{ route('exchanges.edit', $exchange->id) }}" class="px-4 py-1 text-sm font-semibold text-yellow-500 border border-yellow-500 rounded hover:bg-yellow-500 hover:text-white dark:hover:bg-yellow-700 dark:hover:border-yellow-700 dark:border-yellow-500 dark:text-yellow-400 transition duration-200">
+                                                <i class="las la-edit"></i> Edit
                                             </a>
+                                            <form action="{{ route('exchanges.destroy', $exchange->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this exchange?');">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="px-4 py-1 text-sm font-semibold text-red-500 border border-red-500 rounded hover:bg-red-500 hover:text-white dark:hover:bg-red-700 dark:hover:border-red-700 dark:border-red-500 dark:text-red-400 transition duration-200">
+                                                    <i class="las la-trash"></i> Delete
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @empty
