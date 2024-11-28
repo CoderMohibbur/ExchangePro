@@ -15,14 +15,34 @@
             </div>
             <div class="flex items-center space-x-8">
                 <!-- Metrics Section -->
-                <div class="flex text-sm font-semibold text-gray-700 dark:text-gray-300">
-                    <span class="block">Total USD Bought Today: <strong>{{ $navbarMetrics['totalUsdBoughtToday'] }}</strong></span>
-                    <span class="block">Total USD Sold Today: <strong>{{ $navbarMetrics['totalUsdSoldToday'] }}</strong></span>
-                    <span class="block">Remaining USD to Sell: <strong>{{ $navbarMetrics['remainingUsdToSell'] }}</strong></span>
-                    <span class="block">Profit of the Day: <strong>{{ $navbarMetrics['profitOfTheDay'] }}</strong> BDT</span>
-                    <span class="block">Total Bank Balance: <strong>{{ $navbarMetrics['totalBankBalance'] }}</strong> BDT</span>
-                    <span class="block">Amount Due to Sellers Today: <strong>{{ $navbarMetrics['amountDueToSellersToday'] }}</strong> BDT</span>
+                <div class="flex flex-row space-x-4 text-sm font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+                    <span class="hover:bg-gray-100 dark:hover:bg-gray-700 px-4 py-2 rounded-md transition-all">
+                        <span class="font-medium">USD Buy Today:</span> 
+                        <strong class="text-blue-600">{{ $navbarMetrics['totalUsdBoughtToday'] }}</strong>
+                    </span>
+                    <span class="hover:bg-gray-100 dark:hover:bg-gray-700 px-4 py-2 rounded-md transition-all">
+                        <span class="font-medium">USD Sell Today:</span> 
+                        <strong class="text-green-600">{{ $navbarMetrics['totalUsdSoldToday'] }}</strong>
+                    </span>
+                    <span class="hover:bg-gray-100 dark:hover:bg-gray-700 px-4 py-2 rounded-md transition-all">
+                        <span class="font-medium">Available USD:</span> 
+                        <strong class="text-yellow-500">{{ $navbarMetrics['remainingUsdToSell'] }}</strong>
+                    </span>
+                    <span class="hover:bg-gray-100 dark:hover:bg-gray-700 px-4 py-2 rounded-md transition-all">
+                        <span class="font-medium">Profit Today:</span> 
+                        <strong class="text-teal-600">{{ $navbarMetrics['profitOfTheDay'] }}</strong> BDT
+                    </span>
+                    <span class="hover:bg-gray-100 dark:hover:bg-gray-700 px-4 py-2 rounded-md transition-all">
+                        <span class="font-medium">Bank Balance:</span> 
+                        <strong class="text-indigo-600">{{ $navbarMetrics['totalBankBalance'] }}</strong> BDT
+                    </span>
+                    <span class="hover:bg-gray-100 dark:hover:bg-gray-700 px-4 py-2 rounded-md transition-all">
+                        <span class="font-medium">Today Due:</span> 
+                        <strong class="text-red-600">{{ $navbarMetrics['amountDueToSellersToday'] }}</strong> BDT
+                    </span>
                 </div>
+                
+               
                 
                 <!-- Dark Mode Toggle Button -->
                 <button @click="darkMode = !darkMode; localStorage.setItem('dark-mode', darkMode)" class="p-2 text-gray-600 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-600">
