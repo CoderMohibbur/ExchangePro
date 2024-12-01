@@ -18,12 +18,56 @@
                                 class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm">
                         </div>
 
-                        <!-- Bank Balance (Optional) -->
+                        <!-- Beneficiary Name -->
                         <div class="mb-4">
-                            <label for="balance" class="block text-gray-700 dark:text-gray-300">Initial Balance (BDT):</label>
-                            <input type="number" name="balance" id="balance" value="{{ old('balance', $bank->balances->sum('amount')) }}" step="0.01"
-                                class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm" disabled>
-                            <small class="text-gray-500 dark:text-gray-400">The initial balance is for display only. To adjust, please use the bank balance management options.</small>
+                            <label for="beneficiary_name" class="block text-gray-700 dark:text-gray-300">Beneficiary Name:</label>
+                            <input type="text" name="beneficiary_name" id="beneficiary_name" value="{{ old('beneficiary_name', $bank->beneficiary_name) }}" required
+                                class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm">
+                        </div>
+
+                        <!-- Account Number -->
+                        <div class="mb-4">
+                            <label for="account_number" class="block text-gray-700 dark:text-gray-300">Account Number:</label>
+                            <input type="text" name="account_number" id="account_number" value="{{ old('account_number', $bank->account_number) }}" required
+                                class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm">
+                        </div>
+
+                        <!-- Account Type -->
+                        <div class="mb-4">
+                            <label for="account_type" class="block text-gray-700 dark:text-gray-300">Account Type:</label>
+                            <select name="account_type" id="account_type" required
+                                class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm">
+                                <option value="checking" {{ old('account_type', $bank->account_type) == 'checking' ? 'selected' : '' }}>Checking</option>
+                                <option value="savings" {{ old('account_type', $bank->account_type) == 'savings' ? 'selected' : '' }}>Savings</option>
+                            </select>
+                        </div>
+
+                        <!-- Routing -->
+                        <div class="mb-4">
+                            <label for="routing" class="block text-gray-700 dark:text-gray-300">Routing:</label>
+                            <input type="text" name="routing" id="routing" value="{{ old('routing', $bank->routing) }}" required
+                                class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm">
+                        </div>
+
+                        <!-- Bank Address -->
+                        <div class="mb-4">
+                            <label for="bank_address" class="block text-gray-700 dark:text-gray-300">Bank Address:</label>
+                            <input type="text" name="bank_address" id="bank_address" value="{{ old('bank_address', $bank->bank_address) }}" required
+                                class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm">
+                        </div>
+
+                        <!-- NPSB Fee -->
+                        <div class="mb-4">
+                            <label for="npsb_fee" class="block text-gray-700 dark:text-gray-300">NPSB Fee (BDT):</label>
+                            <input type="number" step="0.01" name="npsb_fee" id="npsb_fee" value="{{ old('npsb_fee', $bank->npsb_fee) }}" required
+                                class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm">
+                        </div>
+
+                        <!-- EFT/BEFTN Fee -->
+                        <div class="mb-4">
+                            <label for="eft_beftn_fee" class="block text-gray-700 dark:text-gray-300">EFT/BEFTN Fee (BDT):</label>
+                            <input type="number" step="0.01" name="eft_beftn_fee" id="eft_beftn_fee" value="{{ old('eft_beftn_fee', $bank->eft_beftn_fee) }}" required
+                                class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm">
                         </div>
 
                         <!-- Submit Button -->

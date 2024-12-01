@@ -19,6 +19,11 @@
                             <thead class="bg-gray-100 dark:bg-gray-700">
                                 <tr>
                                     <th class="px-4 py-2 text-left font-semibold">Bank Name</th>
+                                    <th class="px-4 py-2 text-left font-semibold">Beneficiary Name</th>
+                                    <th class="px-4 py-2 text-left font-semibold">Account Number</th>
+                                    <th class="px-4 py-2 text-left font-semibold">Account Type</th>
+                                    <th class="px-4 py-2 text-left font-semibold">Routing</th>
+                                    <th class="px-4 py-2 text-left font-semibold">Bank Address</th>
                                     <th class="px-4 py-2 text-center font-semibold">Total Balance (BDT)</th>
                                     <th class="px-4 py-2 text-center font-semibold">Actions</th>
                                 </tr>
@@ -26,7 +31,20 @@
                             <tbody>
                                 @forelse($banks as $bank)
                                     <tr class="border-b border-gray-200 dark:border-gray-700">
-                                        <td class="px-4 py-3">{{ $bank->name }}</td>
+                                        <td class="px-4 py-3 flex align-middle justify-evenly">
+                                            <a href="{{ route('banks.show', $bank->id) }}" class="text-blue-500 hover:underline">
+                                                {{ $bank->name }}
+                                                <!-- SVG Icon after bank name -->
+                                            </a>
+                                            <svg class="w-6 h-6 text-gray-800 dark:text-white cursor-pointer" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" onclick="copyBankInfo('{{ $bank->name }}', '{{ $bank->beneficiary_name }}', '{{ $bank->account_number }}', '{{ $bank->account_type }}', '{{ $bank->routing }}', '{{ $bank->bank_address }}')">
+                                                <path stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M9 8v3a1 1 0 0 1-1 1H5m11 4h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-7a1 1 0 0 0-1 1v1m4 3v10a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-7.13a1 1 0 0 1 .24-.65L7.7 8.35A1 1 0 0 1 8.46 8H13a1 1 0 0 1 1 1Z"/>
+                                            </svg>                                              
+                                        </td>
+                                        <td class="px-4 py-3">{{ $bank->beneficiary_name }}</td>
+                                        <td class="px-4 py-3">{{ $bank->account_number }}</td>
+                                        <td class="px-4 py-3">{{ $bank->account_type }}</td>
+                                        <td class="px-4 py-3">{{ $bank->routing }}</td>
+                                        <td class="px-4 py-3">{{ $bank->bank_address }}</td>
                                         <td class="px-4 py-3 text-center">{{ number_format($bank->balance, 2) }}</td>
                                         <td class="px-4 py-3 flex space-x-2 justify-center">
                                             <a href="{{ route('banks.edit', $bank->id) }}" 
@@ -49,13 +67,18 @@
                                                class="px-3 py-1 text-sm font-semibold text-green-500 border border-green-500 rounded hover:bg-green-500 hover:text-white transition duration-200">
                                                 Deposit
                                             </a>
+
+                                            <!-- Copy Info Button -->
+                                            <button type="button" 
+                                                    class="px-3 py-1 text-sm font-semibold text-blue-500 border border-blue-500 rounded hover:bg-blue-500 hover:text-white transition duration-200"
+                                                    onclick="copyBankInfo('{{ $bank->name }}', '{{ $bank->beneficiary_name }}', '{{ $bank->account_number }}', '{{ $bank->account_type }}', '{{ $bank->routing }}', '{{ $bank->bank_address }}')">
+                                                Copy Info
+                                            </button>
                                         </td>
-                                        
-                                        
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="3" class="px-4 py-3 text-center text-gray-500 dark:text-gray-400">
+                                        <td colspan="8" class="px-4 py-3 text-center text-gray-500 dark:text-gray-400">
                                             No banks found.
                                         </td>
                                     </tr>
@@ -63,18 +86,31 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="bg-gray-50 dark:bg-gray-900 p-4 rounded-b-lg">
-                        <div class="flex items-center justify-between">
-                            <p class="text-sm text-gray-600 dark:text-gray-400">
-                                Showing <span class="font-semibold">{{ $banks->firstItem() }}</span> to <span class="font-semibold">{{ $banks->lastItem() }}</span> of <span class="font-semibold">{{ $banks->total() }}</span> results
-                            </p>
-                            <div class="flex">
-                                {{ $banks->links() }}
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- JavaScript for Copying Info -->
+    <script>
+        function copyBankInfo(name, beneficiaryName, accountNumber, accountType, routing, bankAddress) {
+            // Create the text to be copied
+            const info = `Bank name:\n${name}\n\nBank address:\n${bankAddress}\n\nRouting (ABA):\n${routing}\n\nAccount number:\n${accountNumber}\n\nAccount type:\n${accountType}\n\nBeneficiary name:\n${beneficiaryName}`;
+            
+            // Create a temporary textarea to copy the text
+            const textarea = document.createElement('textarea');
+            textarea.value = info;
+            document.body.appendChild(textarea);
+            
+            // Select and copy the text
+            textarea.select();
+            document.execCommand('copy');
+            
+            // Remove the temporary textarea
+            document.body.removeChild(textarea);
+            
+            // Alert the user
+            alert('Bank information copied to clipboard!');
+        }
+    </script>
 </x-app-layout>

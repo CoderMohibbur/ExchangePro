@@ -16,6 +16,51 @@
                             <input type="text" name="name" id="name" class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm" required>
                         </div>
 
+                        <!-- Beneficiary Name Input -->
+                        <div class="mb-4">
+                            <label for="beneficiary_name" class="block text-gray-700 dark:text-gray-300">Beneficiary Name:</label>
+                            <input type="text" name="beneficiary_name" id="beneficiary_name" class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm" required>
+                        </div>
+
+                        <!-- Account Number Input -->
+                        <div class="mb-4">
+                            <label for="account_number" class="block text-gray-700 dark:text-gray-300">Account Number:</label>
+                            <input type="text" name="account_number" id="account_number" class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm" required>
+                        </div>
+
+                        <!-- Account Type Input -->
+                        <div class="mb-4">
+                            <label for="account_type" class="block text-gray-700 dark:text-gray-300">Account Type:</label>
+                            <select name="account_type" id="account_type" class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm" required>
+                                <option value="checking">Checking</option>
+                                <option value="savings">Savings</option>
+                            </select>
+                        </div>
+
+                        <!-- Routing Input -->
+                        <div class="mb-4">
+                            <label for="routing" class="block text-gray-700 dark:text-gray-300">Routing:</label>
+                            <input type="text" name="routing" id="routing" class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm" required>
+                        </div>
+
+                        <!-- Bank Address Input -->
+                        <div class="mb-4">
+                            <label for="bank_address" class="block text-gray-700 dark:text-gray-300">Bank Address:</label>
+                            <input type="text" name="bank_address" id="bank_address" class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm" required>
+                        </div>
+
+                        <!-- NPSB Fee Input -->
+                        <div class="mb-4">
+                            <label for="npsb_fee" class="block text-gray-700 dark:text-gray-300">NPSB Fee (BDT):</label>
+                            <input type="number" step="0.01" name="npsb_fee" id="npsb_fee" class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm" required>
+                        </div>
+
+                        <!-- EFT/BEFTN Fee Input -->
+                        <div class="mb-4">
+                            <label for="eft_beftn_fee" class="block text-gray-700 dark:text-gray-300">EFT/BEFTN Fee (BDT):</label>
+                            <input type="number" step="0.01" name="eft_beftn_fee" id="eft_beftn_fee" class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm" required>
+                        </div>
+
                         <!-- Submit Button -->
                         <button type="submit" class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-500 transition duration-200">
                             Create Bank

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\BlockIP;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BankController;
 use App\Http\Controllers\RoleController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\ExchangeController;
 use App\Http\Controllers\UserTypeController;
+use App\Http\Controllers\BlockedIpController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BankBalanceController;
 use App\Http\Controllers\TransactionController;
@@ -25,7 +27,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', BlockIP::class])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -39,7 +41,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/exchanges/approved', [ExchangeController::class, 'approved'])->name('exchanges.approved');
 
     //currencies
-
     Route::get('/exchanges/{exchange}/payment', [ExchangeController::class, 'completePartialPaymentForm'])->name('exchanges.payment');
     Route::post('/exchanges/{exchange}/payment', [ExchangeController::class, 'completePartialPayment'])->name('exchanges.completePartialPayment');
 
@@ -62,6 +63,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('currency_reserve', CurrencyReserveController::class);
     Route::resource('currency_reserve_transactions', CurrencyReserveTransactionController::class);
     Route::resource('bank_transactions', BankTransactionController::class);
+    Route::resource('blocked-ips', BlockedIpController::class);
 
 
 

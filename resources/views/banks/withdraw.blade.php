@@ -23,6 +23,13 @@
                             <textarea name="notes" id="notes" class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm"></textarea>
                         </div>
 
+                        <!-- Transaction Date (Optional) -->
+                        <div class="mb-4">
+                            <label for="transaction_date" class="block text-gray-700 dark:text-gray-300">Transaction Date:</label>
+                            <input type="date" name="transaction_date" id="transaction_date" class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm" value="{{ old('transaction_date', now()->toDateString()) }}">
+                            <small class="text-gray-500 dark:text-gray-400">Leave blank to use today's date.</small>
+                        </div>
+
                         <!-- Submit Button -->
                         <div class="flex space-x-4">
                             <button type="submit" 

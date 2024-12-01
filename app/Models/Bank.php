@@ -9,13 +9,26 @@ class Bank extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    // Fillable fields
+    protected $fillable = [
+        'name', 
+        'beneficiary_name', 
+        'account_number', 
+        'account_type', 
+        'routing', 
+        'bank_address', 
+        'npsb_fee', 
+        'eft_beftn_fee', 
+        'balance'
+    ];
 
+    // Relationship with BankBalance model
     public function balances()
     {
         return $this->hasMany(BankBalance::class);
     }
 
+    // Relationship with BankTransaction model
     public function transactions()
     {
         return $this->hasMany(BankTransaction::class);
