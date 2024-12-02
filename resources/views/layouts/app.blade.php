@@ -30,9 +30,6 @@
         {{ $slot }}
     </main>
 
-    <!-- Flowbite Script -->
-    <script src="https://unpkg.com/flowbite@latest/dist/flowbite.min.js"></script>
-
     <!-- Dropdown Active State Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
