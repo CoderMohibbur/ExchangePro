@@ -9,25 +9,32 @@
                 <div class="rounded-lg shadow-lg bg-white dark:bg-gray-800 p-6">
                     <form action="{{ route('currency_reserve.store') }}" method="POST">
                         @csrf
-                        <div class="mb-4">
-                            <label class="block text-gray-700 dark:text-gray-300">Currency</label>
-                            <select name="currency_id" class="w-full mt-1 border rounded p-2 dark:bg-gray-700 dark:text-gray-300">
-                                @foreach($currencies as $currency)
-                                    <option value="{{ $currency->id }}">{{ $currency->name }} ({{ $currency->code }})</option>
-                                @endforeach
-                            </select>
-                            @error('currency_id')
-                                <p class="text-red-600 mt-1">{{ $message }}</p>
-                            @enderror
+                        <div class=" grid gap-4 grid-cols-2">
+                            <div class="mb-4">
+                                <label class="block text-gray-700 dark:text-gray-300">Currency</label>
+                                <select name="currency_id"
+                                    class="w-full mt-1 border rounded p-2 dark:bg-gray-700 dark:text-gray-300">
+                                    @foreach ($currencies as $currency)
+                                        <option value="{{ $currency->id }}">{{ $currency->name }}
+                                            ({{ $currency->code }})</option>
+                                    @endforeach
+                                </select>
+                                @error('currency_id')
+                                    <p class="text-red-600 mt-1">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 dark:text-gray-300">Balance</label>
+                                <input type="number" name="balance" step="0.01"
+                                    class="w-full mt-1 border rounded p-2 dark:bg-gray-700 dark:text-gray-300">
+                                @error('balance')
+                                    <p class="text-red-600 mt-1">{{ $message }}</p>
+                                @enderror
+                            </div>
                         </div>
-                        <div class="mb-4">
-                            <label class="block text-gray-700 dark:text-gray-300">Balance</label>
-                            <input type="number" name="balance" step="0.01" class="w-full mt-1 border rounded p-2 dark:bg-gray-700 dark:text-gray-300">
-                            @error('balance')
-                                <p class="text-red-600 mt-1">{{ $message }}</p>
-                            @enderror
-                        </div>
-                        <button type="submit" class="px-4 py-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600">Save Reserve</button>
+                        <button type="submit"
+                            class="px-4 py-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600">Save
+                            Reserve</button>
                     </form>
                 </div>
             </div>

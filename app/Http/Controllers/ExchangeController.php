@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bank;
+use App\Models\Role;
 use App\Models\Currency;
 use App\Models\Exchange;
+use App\Models\UserType;
 use Illuminate\Http\Request;
 use App\Models\BankTransaction;
 use Illuminate\Support\Facades\Auth;
@@ -33,7 +35,9 @@ class ExchangeController extends Controller
     {
         $currencies = Currency::all();
         $banks = Bank::all();
-        return view('exchanges.create', compact('currencies', 'banks'));
+        $userTypes = UserType::all();
+        $roles = Role::all();
+        return view('exchanges.create', compact('currencies', 'banks','userTypes','roles'));
     }
 
     public function store(Request $request)

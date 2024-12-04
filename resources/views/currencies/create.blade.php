@@ -9,19 +9,26 @@
                 <div class="rounded-lg shadow-lg bg-white dark:bg-gray-800 p-6">
                     <form action="{{ route('currencies.store') }}" method="POST">
                         @csrf
-                        <div class="mb-4">
-                            <label class="block text-gray-700 dark:text-gray-300">Name</label>
-                            <input type="text" name="name" class="w-full mt-1 border rounded p-2 dark:bg-gray-700 dark:text-gray-300">
+                        <div class=" grid gap-6 grid-cols-2">
+                            <div class="">
+                                <label class="block text-gray-700 dark:text-gray-300">Name</label>
+                                <input type="text" name="name"
+                                    class="w-full mt-1 border rounded p-2 dark:bg-gray-700 dark:text-gray-300">
+                            </div>
+                            <div class="">
+                                <label class="block text-gray-700 dark:text-gray-300">Code</label>
+                                <input type="text" name="code"
+                                    class="w-full mt-1 border rounded p-2 dark:bg-gray-700 dark:text-gray-300">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 dark:text-gray-300">Exchange Rate</label>
+                                <input type="number" name="exchange_rate" step="0.0001"
+                                    class="w-full mt-1 border rounded p-2 dark:bg-gray-700 dark:text-gray-300">
+                            </div>
                         </div>
-                        <div class="mb-4">
-                            <label class="block text-gray-700 dark:text-gray-300">Code</label>
-                            <input type="text" name="code" class="w-full mt-1 border rounded p-2 dark:bg-gray-700 dark:text-gray-300">
-                        </div>
-                        <div class="mb-4">
-                            <label class="block text-gray-700 dark:text-gray-300">Exchange Rate</label>
-                            <input type="number" name="exchange_rate" step="0.0001" class="w-full mt-1 border rounded p-2 dark:bg-gray-700 dark:text-gray-300">
-                        </div>
-                        <button type="submit" class="px-4 py-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600">Save Currency</button>
+                        <button type="submit"
+                            class="px-4 py-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600">Save
+                            Currency</button>
                     </form>
                 </div>
             </div>

@@ -20,52 +20,74 @@
 
                     <form action="{{ route('bank_transactions.store') }}" method="POST">
                         @csrf
+                        <div class=" grid grid-cols-2 gap-4">
+                            <!-- Bank -->
+                            <div>
+                                <label for="bank_id" class="block text-gray-700 dark:text-gray-300">Bank:</label>
+                                <select name="bank_id" id="bank_id"
+                                    class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm"
+                                    required>
+                                    @foreach ($banks as $bank)
+                                        <option value="{{ $bank->id }}">{{ $bank->name }}</option>
+                                    @endforeach
+                                </select>
+                                @error('bank_id')
+                                    <p class="text-red-600 mt-1">{{ $message }}</p>
+                                @enderror
+                            </div>
 
-                        <!-- Bank -->
-                        <div class="mb-4">
-                            <label for="bank_id" class="block text-gray-700 dark:text-gray-300">Bank:</label>
-                            <select name="bank_id" id="bank_id" class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm" required>
-                                @foreach($banks as $bank)
-                                    <option value="{{ $bank->id }}">{{ $bank->name }}</option>
-                                @endforeach
-                            </select>
-                            @error('bank_id')<p class="text-red-600 mt-1">{{ $message }}</p>@enderror
+                            <!-- Transaction Type -->
+                            <div>
+                                <label for="transaction_type" class="block text-gray-700 dark:text-gray-300">Transaction
+                                    Type:</label>
+                                <select name="transaction_type" id="transaction_type"
+                                    class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm"
+                                    required>
+                                    <option value="credit">Credit</option>
+                                    <option value="debit">Debit</option>
+                                </select>
+                                @error('transaction_type')
+                                    <p class="text-red-600 mt-1">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <!-- Amount -->
+                            <div>
+                                <label for="amount" class="block text-gray-700 dark:text-gray-300">Amount:</label>
+                                <input type="number" name="amount" id="amount" step="0.01"
+                                    class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm"
+                                    required>
+                                @error('amount')
+                                    <p class="text-red-600 mt-1">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <!-- Balance Before (Hidden) -->
+                            <input type="hidden" name="balance_before" id="balance_before">
+                            @error('balance_before')
+                                <p class="text-red-600 mt-1">{{ $message }}</p>
+                            @enderror
+
+                            <!-- Balance After (Hidden) -->
+                            <input type="hidden" name="balance_after" id="balance_after">
+                            @error('balance_after')
+                                <p class="text-red-600 mt-1">{{ $message }}</p>
+                            @enderror
+
+                            <!-- Notes -->
+                            <div>
+                                <label for="notes" class="block text-gray-700 dark:text-gray-300">Notes
+                                    (optional):</label>
+                                <textarea name="notes" id="notes" rows="3"
+                                    class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm"></textarea>
+                                @error('notes')
+                                    <p class="text-red-600 mt-1">{{ $message }}</p>
+                                @enderror
+                            </div>
                         </div>
-
-                        <!-- Transaction Type -->
-                        <div class="mb-4">
-                            <label for="transaction_type" class="block text-gray-700 dark:text-gray-300">Transaction Type:</label>
-                            <select name="transaction_type" id="transaction_type" class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm" required>
-                                <option value="credit">Credit</option>
-                                <option value="debit">Debit</option>
-                            </select>
-                            @error('transaction_type')<p class="text-red-600 mt-1">{{ $message }}</p>@enderror
-                        </div>
-
-                        <!-- Amount -->
-                        <div class="mb-4">
-                            <label for="amount" class="block text-gray-700 dark:text-gray-300">Amount:</label>
-                            <input type="number" name="amount" id="amount" step="0.01" class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm" required>
-                            @error('amount')<p class="text-red-600 mt-1">{{ $message }}</p>@enderror
-                        </div>
-
-                        <!-- Balance Before (Hidden) -->
-                        <input type="hidden" name="balance_before" id="balance_before">
-                        @error('balance_before')<p class="text-red-600 mt-1">{{ $message }}</p>@enderror
-
-                        <!-- Balance After (Hidden) -->
-                        <input type="hidden" name="balance_after" id="balance_after">
-                        @error('balance_after')<p class="text-red-600 mt-1">{{ $message }}</p>@enderror
-
-                        <!-- Notes -->
-                        <div class="mb-4">
-                            <label for="notes" class="block text-gray-700 dark:text-gray-300">Notes (optional):</label>
-                            <textarea name="notes" id="notes" rows="3" class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm"></textarea>
-                            @error('notes')<p class="text-red-600 mt-1">{{ $message }}</p>@enderror
-                        </div>
-
                         <!-- Submit Button -->
-                        <button type="submit" class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition duration-200">
+                        <button type="submit"
+                            class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition duration-200">
                             Save Transaction
                         </button>
                     </form>
