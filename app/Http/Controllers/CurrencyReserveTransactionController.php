@@ -164,7 +164,7 @@ class CurrencyReserveTransactionController extends Controller
             // Delete the transaction
             $currencyReserveTransaction->delete();
 
-            return redirect()->route('currency_reserve_transactions.index')->with('success', 'Transaction deleted successfully.');
+            return redirect()->route('currency_reserve_transactions.index')->with('error', 'Transaction deleted successfully.');
         } catch (\Exception $e) {
             return redirect()->back()->withErrors('Failed to delete transaction: ' . $e->getMessage());
         }

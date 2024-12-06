@@ -22,13 +22,38 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
+    // public function store(LoginRequest $request): RedirectResponse
+    // {
+    //     $request->authenticate();
+
+    //     $request->session()->regenerate();
+
+    //     return redirect()->intended(route('dashboard'));
+    // }
     public function store(LoginRequest $request): RedirectResponse
     {
+        // Attempt to authenticate the user (this will throw an exception if authentication fails)
         $request->authenticate();
 
-        $request->session()->regenerate();
+        // Check if the authenticated user can log in
+        $user = auth()->user(); // Get the currently authenticated user
 
-        return redirect()->intended(route('dashboard'));
+        if ($user && $user->can_login == 1) {
+            // Regenerate session to avoid session fixation attacks
+            $request->session()->regenerate();
+
+            // Redirect to the intended page or dashboard
+            return redirect()->intended(route('dashboard'));
+        }
+
+        // If login fails due to can_login == 0, log them out and clear the session
+        auth()->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return back()->withErrors([
+            'email' => 'Your account is not allowed to log in.'
+        ]);
     }
 
     /**
