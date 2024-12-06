@@ -10,6 +10,9 @@
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
             <div class="container mx-auto px-4 py-4">
                 <div class="rounded-lg shadow-lg bg-white dark:bg-gray-800">
+                    <x-toast-success />
+                    <x-toast-danger />
+                    <x-toast-warning />
                     <div class="overflow-hidden overflow-x-auto">
                         <table
                             class="w-full min-w-max table-auto bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200">
