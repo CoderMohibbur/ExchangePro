@@ -9,6 +9,7 @@
                 <div class="rounded-lg shadow-lg bg-white dark:bg-gray-800">
                     <x-toast-success />
                     <x-toast-danger />
+                    <x-toast-warning />
                     <!-- Search Form -->
                     <div class="flex justify-between items-center p-4">
                         <form action="{{ route('currency_reserve_transactions.index') }}" method="GET" class="flex space-x-2">
