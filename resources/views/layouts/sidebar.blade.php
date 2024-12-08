@@ -56,7 +56,7 @@
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group {{ request()->is('exchanges') ? 'active' : '' }}">
                     <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m16 10 3-3m0 0-3-3m3 3H5v3m3 4-3 3m0 0 3 3m-3-3h14v-3"/>
-                    </svg>         
+                    </svg>
                     <span class="ms-3">Exchanges</span>
                 </a>
             </li>
@@ -147,25 +147,25 @@
                 </button>
                 <ul id="dropdown-Ticket" class="hidden py-2 space-y-2">
                     <li>
-                        <a href="#"
+                        <a href="{{ route('tickets.filter', 'Pending') }}"
                             class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Pending
                             Ticket
                         </a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="{{ route('tickets.filter', 'Closed') }}"
                             class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Closed
                             Ticket
 
                         </a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="{{ route('tickets.filter', 'Answered') }}"
                             class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Answered
                             Ticket</a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="{{ route('tickets.index') }}"
                             class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">All
                             Ticket</a>
                     </li>

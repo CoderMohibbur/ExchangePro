@@ -17,6 +17,7 @@ use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\BankTransactionController;
 use App\Http\Controllers\CurrencyReserveController;
 use App\Http\Controllers\CurrencyReserveTransactionController;
+use App\Http\Controllers\TicketController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -65,6 +66,14 @@ Route::middleware('auth')->group(function () {
     Route::resource('bank_transactions', BankTransactionController::class);
     Route::resource('blocked-ips', BlockedIpController::class);
 
+
+    Route::get('/tickets', [TicketController::class, 'index'])->name('tickets.index');
+Route::get('/tickets/create', [TicketController::class, 'create'])->name('tickets.create');
+Route::post('/tickets', [TicketController::class, 'store'])->name('tickets.store');
+Route::get('/tickets/status/{status}', [TicketController::class, 'filter'])->name('tickets.filter');
+Route::get('/tickets/{ticket}', [TicketController::class, 'show'])->name('tickets.show');
+Route::get('/tickets/{ticket}/edit', [TicketController::class, 'edit'])->name('tickets.edit');
+Route::delete('/tickets/{ticket}', [TicketController::class, 'destroy'])->name('tickets.destroy');
 
 
 
