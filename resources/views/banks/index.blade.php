@@ -7,9 +7,12 @@
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
             <div class="container mx-auto px-4 py-4">
                 <div class="rounded-lg shadow-lg bg-white dark:bg-gray-800">
+                    <x-toast-success />
+                    <x-toast-danger />
+                    <x-toast-warning />
                     <div class="flex justify-between p-4">
                         <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Banks</h2>
-                        <a href="{{ route('banks.create') }}" 
+                        <a href="{{ route('banks.create') }}"
                            class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 transition">
                            Add New Bank
                         </a>
@@ -47,29 +50,29 @@
                                         <td class="px-4 py-3">{{ $bank->bank_address }}</td> --}}
                                         <td class="px-4 py-3 text-center">{{ number_format($bank->balance, 2) }}</td>
                                         <td class="px-4 py-3 flex space-x-2 justify-center">
-                                            <a href="{{ route('banks.edit', $bank->id) }}" 
+                                            <a href="{{ route('banks.edit', $bank->id) }}"
                                                class="px-3 py-1 text-sm font-semibold text-yellow-600 border border-yellow-600 rounded hover:bg-yellow-600 hover:text-white transition duration-200">
                                                Edit
                                             </a>
                                             <form action="{{ route('banks.destroy', $bank->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this bank?');">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" 
+                                                <button type="submit"
                                                         class="px-3 py-1 text-sm font-semibold text-red-600 border border-red-600 rounded hover:bg-red-600 hover:text-white transition duration-200">
                                                     Delete
                                                 </button>
                                             </form>
-                                            <a href="{{ route('banks.withdrawForm', $bank->id) }}" 
+                                            <a href="{{ route('banks.withdrawForm', $bank->id) }}"
                                                class="px-3 py-1 text-sm font-semibold text-blue-500 border border-blue-500 rounded hover:bg-blue-500 hover:text-white transition duration-200">
                                                 Withdraw
                                             </a>
-                                            <a href="{{ route('banks.depositForm', $bank->id) }}" 
+                                            <a href="{{ route('banks.depositForm', $bank->id) }}"
                                                class="px-3 py-1 text-sm font-semibold text-green-500 border border-green-500 rounded hover:bg-green-500 hover:text-white transition duration-200">
                                                 Deposit
                                             </a>
 
                                             <!-- Copy Info Button -->
-                                            <button type="button" 
+                                            <button type="button"
                                                     class="px-3 py-1 text-sm font-semibold text-blue-500 border border-blue-500 rounded hover:bg-blue-500 hover:text-white transition duration-200"
                                                     onclick="copyBankInfo('{{ $bank->name }}', '{{ $bank->beneficiary_name }}', '{{ $bank->account_number }}', '{{ $bank->account_type }}', '{{ $bank->routing }}', '{{ $bank->bank_address }}')">
                                                 Copy Info
@@ -96,19 +99,19 @@
         function copyBankInfo(name, beneficiaryName, accountNumber, accountType, routing, bankAddress) {
             // Create the text to be copied
             const info = `Bank name:\n${name}\n\nBank address:\n${bankAddress}\n\nRouting (ABA):\n${routing}\n\nAccount number:\n${accountNumber}\n\nAccount type:\n${accountType}\n\nBeneficiary name:\n${beneficiaryName}`;
-            
+
             // Create a temporary textarea to copy the text
             const textarea = document.createElement('textarea');
             textarea.value = info;
             document.body.appendChild(textarea);
-            
+
             // Select and copy the text
             textarea.select();
             document.execCommand('copy');
-            
+
             // Remove the temporary textarea
             document.body.removeChild(textarea);
-            
+
             // Alert the user
             alert('Bank information copied to clipboard!');
         }

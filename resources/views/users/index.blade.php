@@ -7,17 +7,20 @@
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
             <div class="container mx-auto px-4 py-4">
                 <div class="rounded-lg shadow-lg bg-white dark:bg-gray-800">
+                    <x-toast-success />
+                    <x-toast-danger />
+                    <x-toast-warning />
                     <!-- Search Form -->
                     <div class="flex justify-between items-center p-4">
                         <form action="{{ route('users.index') }}" method="GET" class="flex space-x-2">
-                            <input type="text" name="search" placeholder="Search by name or email" 
-                                   value="{{ request('search') }}" 
+                            <input type="text" name="search" placeholder="Search by name or email"
+                                   value="{{ request('search') }}"
                                    class="w-full px-4 py-2 border rounded-md dark:bg-gray-700 dark:text-white dark:border-gray-600" />
                             <button type="submit" class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 transition">
                                 Search
                             </button>
                         </form>
-                        <a href="{{ route('users.create') }}" 
+                        <a href="{{ route('users.create') }}"
                            class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 transition">
                            Add New User
                         </a>
@@ -44,7 +47,7 @@
                                         <td class="px-4 py-3">{{ $user->email }}</td>
                                         <td class="px-4 py-3">{{ $user->role->name ?? 'N/A' }}</td>
                                         <td class="px-4 py-3">
-                                            <span class="px-2 py-1 rounded-full text-sm font-medium 
+                                            <span class="px-2 py-1 rounded-full text-sm font-medium
                                                 {{ $user->active_status ? 'bg-green-200 text-green-700' : 'bg-red-200 text-red-700' }}">
                                                 {{ $user->active_status ? 'Active' : 'Inactive' }}
                                             </span>
