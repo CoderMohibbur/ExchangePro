@@ -21,9 +21,9 @@
                                     <th class="px-4 py-2 text-left font-semibold">Bank Name</th>
                                     <th class="px-4 py-2 text-left font-semibold">Beneficiary Name</th>
                                     <th class="px-4 py-2 text-left font-semibold">Account Number</th>
-                                    <th class="px-4 py-2 text-left font-semibold">Account Type</th>
+                                    {{-- <th class="px-4 py-2 text-left font-semibold">Account Type</th>
                                     <th class="px-4 py-2 text-left font-semibold">Routing</th>
-                                    <th class="px-4 py-2 text-left font-semibold">Bank Address</th>
+                                    <th class="px-4 py-2 text-left font-semibold">Bank Address</th> --}}
                                     <th class="px-4 py-2 text-center font-semibold">Total Balance (BDT)</th>
                                     <th class="px-4 py-2 text-center font-semibold">Actions</th>
                                 </tr>
@@ -36,15 +36,15 @@
                                                 {{ $bank->name }}
                                                 <!-- SVG Icon after bank name -->
                                             </a>
-                                            <svg class="w-6 h-6 text-gray-800 dark:text-white cursor-pointer" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" onclick="copyBankInfo('{{ $bank->name }}', '{{ $bank->beneficiary_name }}', '{{ $bank->account_number }}', '{{ $bank->account_type }}', '{{ $bank->routing }}', '{{ $bank->bank_address }}')">
+                                            {{-- <svg class="w-6 h-6 text-gray-800 dark:text-white cursor-pointer" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" onclick="copyBankInfo('{{ $bank->name }}', '{{ $bank->beneficiary_name }}', '{{ $bank->account_number }}', '{{ $bank->account_type }}', '{{ $bank->routing }}', '{{ $bank->bank_address }}')">
                                                 <path stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M9 8v3a1 1 0 0 1-1 1H5m11 4h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-7a1 1 0 0 0-1 1v1m4 3v10a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-7.13a1 1 0 0 1 .24-.65L7.7 8.35A1 1 0 0 1 8.46 8H13a1 1 0 0 1 1 1Z"/>
-                                            </svg>                                              
+                                            </svg>                                               --}}
                                         </td>
                                         <td class="px-4 py-3">{{ $bank->beneficiary_name }}</td>
                                         <td class="px-4 py-3">{{ $bank->account_number }}</td>
-                                        <td class="px-4 py-3">{{ $bank->account_type }}</td>
+                                        {{-- <td class="px-4 py-3">{{ $bank->account_type }}</td>
                                         <td class="px-4 py-3">{{ $bank->routing }}</td>
-                                        <td class="px-4 py-3">{{ $bank->bank_address }}</td>
+                                        <td class="px-4 py-3">{{ $bank->bank_address }}</td> --}}
                                         <td class="px-4 py-3 text-center">{{ number_format($bank->balance, 2) }}</td>
                                         <td class="px-4 py-3 flex space-x-2 justify-center">
                                             <a href="{{ route('banks.edit', $bank->id) }}" 
