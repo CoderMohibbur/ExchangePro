@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     public function up(): void
     {
         Schema::create('bank_transactions', function (Blueprint $table) {
@@ -19,6 +20,9 @@ return new class extends Migration {
             $table->foreignId('created_by_user_id')->constrained('users')->onDelete('cascade'); // User who created the transaction
             $table->foreignId('updated_by_user_id')->nullable()->constrained('users')->onDelete('set null'); // User who last updated
             $table->string('notes')->nullable(); // Optional notes
+            $table->date('transaction_date')->nullable(); // New column for storing the transaction date (nullable)
+            $table->string('transaction_description')->nullable(); // New column for storing a description of the transaction
+            $table->enum('transaction_status', ['pending', 'completed', 'failed'])->default('pending'); // New column for storing transaction status
             $table->timestamps(); // Timestamps
         });
     }

@@ -19,7 +19,8 @@ class Bank extends Model
         'bank_address', 
         'npsb_fee', 
         'eft_beftn_fee', 
-        'balance'
+        'balance', 
+        'logo',  // Add logo to the fillable property
     ];
 
     // Relationship with BankBalance model

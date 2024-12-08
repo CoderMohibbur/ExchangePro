@@ -21,6 +21,7 @@ return new class extends Migration {
             $table->decimal('npsb_fee', 10, 2)->default(0); // NPSB Fee
             $table->decimal('eft_beftn_fee', 10, 2)->default(0); // EFT/BEFTN Fee
             $table->decimal('balance', 15, 2)->default(0);  // Balance column with a default of 0
+            $table->string('logo')->nullable(); // Bank logo (nullable)
             $table->timestamps();
         });
     }

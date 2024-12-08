@@ -28,7 +28,6 @@ return new class extends Migration
             $table->decimal('maximum_limit_for_sell', 10, 2)->nullable(); // Maximum limit for selling
             $table->decimal('minimum_limit_for_buy', 10, 2)->nullable(); // Minimum limit for buying
             $table->decimal('maximum_limit_for_buy', 10, 2)->nullable(); // Maximum limit for buying
-            $table->foreignId('user_detail_form_id')->nullable()->constrained(); // Foreign key to user detail form (if applicable)
             $table->text('instruction')->nullable(); // Any instructions or additional information
             $table->string('image')->nullable(); // Image URL or file path
             $table->boolean('available_for_sell')->default(false); // Whether this currency is available for sell

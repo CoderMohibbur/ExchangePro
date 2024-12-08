@@ -43,7 +43,7 @@
                                         <td class="px-4 py-3">{{ ucfirst($transaction->transaction_type) }}</td>
                                         <td class="px-4 py-3">{{ number_format($transaction->amount, 2) }} BDT</td>
                                         <td class="px-4 py-3">{{ $transaction->reference ?? 'N/A' }}</td>
-                                        <td class="px-4 py-3">{{ $transaction->created_at->format('Y-m-d H:i') }}</td>
+                                        <td class="px-4 py-3">{{ $transaction->transaction_date->format('Y-m-d H:i') }}</td>
                                         <td class="px-4 py-3 flex space-x-2">
                                             <a href="{{ route('bank_transactions.edit', $transaction) }}"
                                                class="px-3 py-1 text-sm font-semibold text-yellow-600 border border-yellow-600 rounded hover:bg-yellow-600 hover:text-white dark:text-yellow-400 dark:border-yellow-400 dark:hover:text-white transition duration-200">

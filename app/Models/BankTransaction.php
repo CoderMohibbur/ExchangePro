@@ -9,6 +9,7 @@ class BankTransaction extends Model
 {
     use HasFactory;
 
+    // Add new columns to the $fillable array
     protected $fillable = [
         'bank_id', 
         'exchange_id', 
@@ -19,7 +20,10 @@ class BankTransaction extends Model
         'buyer_or_seller_user_id', 
         'created_by_user_id', 
         'updated_by_user_id', 
-        'notes'
+        'notes',
+        'transaction_date',  // New column for storing the transaction date
+        'transaction_description',  // New column for storing the transaction description
+        'transaction_status',  // New column for storing the transaction status
     ];
 
     /**
@@ -61,4 +65,11 @@ class BankTransaction extends Model
     {
         return $this->belongsTo(User::class, 'updated_by_user_id');
     }
+
+    protected $dates = ['transaction_date']; // Cast the 'transaction_date' field to Carbon
+
+    // Or you can explicitly cast it to a date in the $casts property:
+    protected $casts = [
+        'transaction_date' => 'datetime', // or 'date' if you're working with just the date
+    ];
 }

@@ -11,38 +11,48 @@
                     <form action="{{ route('banks.withdraw', $bank->id) }}" method="POST">
                         @csrf
 
-                        <!-- Withdrawal Amount -->
-                        <div class="mb-4">
-                            <label for="amount" class="block text-gray-700 dark:text-gray-300">Amount to Withdraw:</label>
-                            <input type="number" name="amount" id="amount" class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm" step="0.01" required>
-                        </div>
+                        <div class=" grid gap-4 grid-cols-2">
+                            <!-- Withdrawal Amount -->
+                            <div>
+                                <label for="amount" class="block text-gray-700 dark:text-gray-300">Amount to
+                                    Withdraw:</label>
+                                <input type="number" name="amount" id="amount"
+                                    class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm"
+                                    step="0.01" required>
+                                <small class="text-gray-500 dark:text-gray-400">Please enter you withdrow Amount.</small>
+                            </div>
 
-                        <!-- Notes -->
-                        <div class="mb-4">
-                            <label for="notes" class="block text-gray-700 dark:text-gray-300">Notes:</label>
-                            <textarea name="notes" id="notes" class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm"></textarea>
-                        </div>
+                            <!-- Transaction Date (Optional) -->
+                            <div>
+                                <label for="transaction_date" class="block text-gray-700 dark:text-gray-300">Transaction
+                                    Date:</label>
+                                    <input type="text" name="transaction_date" id="datepicker-autohide" datepicker  datepicker-autohide
+                                    class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm"
+                                    value="{{ old('transaction_date', now()->format('d/m/Y')) }}" placeholder="Select date">
+                                <small class="text-gray-500 dark:text-gray-400">Leave blank to use today's date.</small>
+                            </div>
 
-                        <!-- Transaction Date (Optional) -->
-                        <div class="mb-4">
-                            <label for="transaction_date" class="block text-gray-700 dark:text-gray-300">Transaction Date:</label>
-                            <input type="date" name="transaction_date" id="transaction_date" class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm" value="{{ old('transaction_date', now()->toDateString()) }}">
-                            <small class="text-gray-500 dark:text-gray-400">Leave blank to use today's date.</small>
+                            <!-- Notes -->
+                            <div class="mb-4">
+                                <label for="notes" class="block text-gray-700 dark:text-gray-300">Notes:</label>
+                                <textarea name="notes" id="notes"
+                                    class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm"></textarea>
+                            </div>
                         </div>
 
                         <!-- Submit Button -->
                         <div class="flex space-x-4">
-                            <button type="submit" 
-                                    class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-500 transition duration-200">
+                            <button type="submit"
+                                class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-500 transition duration-200">
                                 Withdraw
                             </button>
-                        
-                            <a href="{{ route('banks.index') }}" 
-                               class="px-4 py-2 bg-gray-500 text-white font-semibold rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-75 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-500 transition duration-200">
-                                Banks List
+
+                            <a href="{{ route('banks.index') }}"
+                                class="px-4 py-2 bg-gray-500 text-white font-semibold rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-75 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-500 transition duration-200">
+                                Cancel
                             </a>
                         </div>
-                        
+
                     </form>
                 </div>
             </div>
