@@ -16,7 +16,7 @@ use App\Http\Controllers\BankBalanceController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\BankTransactionController;
 use App\Http\Controllers\CurrencyReserveController;
-use App\Http\Controllers\CurrencyReserveTransactionController;
+use App\Http\Controllers\CurrencyTransactionController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -61,13 +61,15 @@ Route::middleware('auth')->group(function () {
     Route::resource('users', UserController::class);
     Route::post('currency_reserve/{currencyReserve}/adjust', [CurrencyReserveController::class, 'adjustBalance'])->name('currency_reserve.adjust');
     Route::resource('currency_reserve', CurrencyReserveController::class);
-    Route::resource('currency_reserve_transactions', CurrencyReserveTransactionController::class);
+    Route::resource('currency_transactions', CurrencyTransactionController::class);
     Route::resource('bank_transactions', BankTransactionController::class);
     Route::resource('blocked-ips', BlockedIpController::class);
 
 
-
-
+    Route::get('/get-bank-fees/{bankId}', [BankController::class, 'getFees']);
+    Route::get('/get-currency-fees/{currencyId}', [CurrencyController::class, 'getFees']);
+    // Route::post('/users/store', [UserController::class, 'storesave']);
+    Route::post('/users', [UserController::class, 'storesave'])->name('users.storesave');
 });
 
 require __DIR__ . '/auth.php';

@@ -28,7 +28,15 @@ return new class extends Migration
             $table->enum('payment_status', ['Paid', 'Partial', 'Due'])->default('Due'); // Payment status
             $table->enum('status', ['pending', 'approved', 'canceled'])->default('pending'); // Status of the exchange
             $table->foreignId('bank_id')->constrained('banks')->onDelete('cascade'); // Reference to banks table
-            $table->decimal('npds_cost', 15, 2)->default(0); // NPSD charges, if applicable
+
+            // Bank Transaction Fees
+            $table->decimal('npsb_fee', 10, 2)->default(0); // NPSB Fee
+            $table->decimal('eft_beftn_fee', 10, 2)->default(0); // EFT/BEFTN Fee
+
+            // Currency Transaction Fees
+            $table->decimal('fixed_currency_fee', 15, 2)->nullable()->default(0); // Fixed Currency Fee for exchange
+            $table->decimal('percent_currency_fee', 5, 2)->nullable()->default(0); // Percentage Currency Fee for exchange
+
             $table->timestamps(); // Created at and Updated at
         });
     }

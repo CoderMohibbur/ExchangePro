@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Exchange extends Model
 {
@@ -21,62 +21,44 @@ class Exchange extends Model
         'total_amount',
         'paid_to_seller_bdt',
         'due_amount',
-        'npds_cost',
         'bank_id',
         'status',
         'user_id',
         'payment_status',
+        'npsb_fee',  // NPSB Fee
+        'eft_beftn_fee', // EFT/BEFTN Fee
+        'fixed_currency_fee', // Fixed Currency Fee
+        'percent_currency_fee', // Percentage Currency Fee
     ];
 
+    /**
+     * The "booted" method of the model.
+     */
     protected static function booted()
     {
-        static::creating(function ($exchange) {
-            // Calculate total amount
-            $exchange->total_amount = $exchange->quantity * $exchange->rate;
-    
-            // Calculate due amount and payment status based on paid_to_seller_bdt
+        static::created(function ($exchange) {
+            // Call the method to create currency transaction based on exchange type
+            $exchange->createCurrencyTransaction();
+        
+            // Call the method to create bank transaction based on exchange type
+            $exchange->createBankTransaction();
+
+                 // Calculate due amount and payment status based on paid_to_seller_bdt
             $exchange->updatePaymentStatus();
         });
-    
+        
         static::updating(function ($exchange) {
             if ($exchange->isDirty('paid_to_seller_bdt')) {
                 $exchange->updatePaymentStatus();
             }
         });
-    
-        // Automatically delete related transactions and update balances when an Exchange is deleted
+
         static::deleting(function ($exchange) {
-            // Update bank balance based on transaction type
-            $bank = $exchange->bank;
-            $bankTransactionType = $exchange->exchange_type === 'buy' ? 'debit' : 'credit';
-            
-            if ($exchange->paid_to_seller_bdt > 0) {
-                if ($bankTransactionType === 'debit') {
-                    $bank->balance += $exchange->paid_to_seller_bdt;
-                } else {
-                    $bank->balance -= $exchange->paid_to_seller_bdt;
-                }
-                $bank->save();
-            }
-    
-            // Update currency reserve balance based on exchange type
-            $currencyReserve = CurrencyReserve::firstOrCreate(
-                ['currency_id' => $exchange->currency_id],
-                ['balance' => 0]  // Initialize balance if no reserve exists
-            );
-    
-            $currencyTransactionType = $exchange->exchange_type === 'buy' ? 'credit' : 'debit';
-            $balanceAdjustment = $exchange->exchange_type === 'buy' ? -$exchange->quantity : $exchange->quantity;
-    
-            // Adjust the currency reserve balance accordingly
-            $currencyReserve->balance += $balanceAdjustment;
-            $currencyReserve->save();
-    
-            // Delete related transactions
-            $exchange->currencyReserveTransactions()->delete();
-            $exchange->bankTransactions()->delete();
+            // Call the methods to update currency reserve and bank balance after deletion
+
         });
     }
+    
     
     /**
      * Update due amount and payment status.
@@ -95,66 +77,155 @@ class Exchange extends Model
         }
     }
 
-    /**
-     * Process currency and bank transactions for the exchange.
-     */
-    public function processExchangeTransaction()
+
+    public function updateCurrencyReserve()
     {
-        // Determine transaction type and balance adjustment based on exchange type
-        $currencyTransactionType = $this->exchange_type === 'buy' ? 'credit' : 'debit';
-        $balanceAdjustment = $this->exchange_type === 'buy' ? $this->quantity : -$this->quantity;
+        // Fetch the currency associated with the transaction
+        $currency = $this->currency;
 
-        // Retrieve the current balance of the currency reserve
-        $currencyReserve = CurrencyReserve::where('currency_id', $this->currency_id)->first();
-        if (!$currencyReserve) {
-            throw new \Exception('Currency reserve not found for currency ID: ' . $this->currency_id);
+        // If the currency exists, update the reserve based on transaction type
+        if ($currency) {
+            // Get the sum of all credit transactions for the specific currency
+            $totalCredits = CurrencyTransaction::where('currency_id', $currency->id)
+                                        ->where('transaction_type', 'credit')
+                                        ->sum('amount');
+
+            // Get the sum of all debit transactions for the specific currency
+            $totalDebits = CurrencyTransaction::where('currency_id', $currency->id)
+                                        ->where('transaction_type', 'debit')
+                                        ->sum('amount');
+
+            // Calculate the new reserve (Credits - Debits)
+            $newReserve = $totalCredits - $totalDebits;
+
+            // Update the currency's reserve with the new reserve
+            $currency->reserve = $newReserve;
+
+            // Save the updated currency reserve
+            $currency->save();
         }
-        $currentBalance = $currencyReserve->balance;
+    }
+    public function updateBankBalance()
+    {
+        // Fetch the bank associated with the transaction
+        $bank = $this->bank;
 
-        // Create currency reserve transaction with correct balance values
-        CurrencyReserveTransaction::create([
-            'currency_id' => $this->currency_id,
-            'exchange_id' => $this->id,
-            'transaction_type' => $currencyTransactionType,
-            'amount' => $this->quantity,
-            'balance_before' => $currentBalance,
-            'balance_after' => $currentBalance + $balanceAdjustment,
-            'notes' => 'Currency reserve update for exchange ID: ' . $this->id,
-        ]);
+        // If the bank exists, update the balance based on transaction type
+        if ($bank) {
+            // Get the sum of all credit transactions for the specific bank
+            $totalCredits = BankTransaction::where('bank_id', $bank->id)
+                                        ->where('transaction_type', 'credit')
+                                        ->sum('amount');
 
-        // Update currency reserve balance
-        $currencyReserve->balance = $currentBalance + $balanceAdjustment;
-        $currencyReserve->save();
+            // Get the sum of all debit transactions for the specific bank
+            $totalDebits = BankTransaction::where('bank_id', $bank->id)
+                                        ->where('transaction_type', 'debit')
+                                        ->sum('amount');
 
-        // Determine bank transaction type
-        $bankTransactionType = $this->exchange_type === 'buy' ? 'debit' : 'credit';
+            // Calculate the new balance (Credits - Debits)
+            $newBalance = $totalCredits - $totalDebits;
 
-        // Create bank transaction if payment is made
-        if ($this->paid_to_seller_bdt > 0) {
-            $bankBalanceBefore = $this->bank->balance;
-            $bankBalanceAfter = $this->exchange_type === 'buy'
-                ? $bankBalanceBefore - $this->paid_to_seller_bdt
-                : $bankBalanceBefore + $this->paid_to_seller_bdt;
+            // Update the bank's balance with the new balance
+            $bank->balance = $newBalance;
 
+            // Save the updated bank balance
+            $bank->save();
+        }
+    }
+
+
+    /**
+     * Create a bank transaction.
+     */
+    public function createBankTransaction()
+    {
+        // Determine the total amount of the exchange
+        $totalAmount = $this->quantity * $this->rate;
+         // Initialize npsb variable to 0
+        $npsb = 0;
+
+        // Check if either the bank transaction fee or npsb_fee is greater than 0
+        if ($this->npsb_fee > 0 || $this->bank_transaction_fee > 0) {
+            $npsb = 1; // Set npsb to 1 if any fee is greater than 0
+        }
+        if ($this->exchange_type === 'buy') {
+            // Create a Debit transaction if the exchange type is 'buy'
             BankTransaction::create([
                 'bank_id' => $this->bank_id,
                 'exchange_id' => $this->id,
-                'transaction_type' => $bankTransactionType,
+                'transaction_type' => 'debit', // or 'credit'
                 'amount' => $this->paid_to_seller_bdt,
-                'balance_before' => $bankBalanceBefore,
-                'balance_after' => $bankBalanceAfter,
-                'notes' => 'Payment for exchange ID: ' . $this->id,
-                'created_by_user_id' => auth()->id(), // Set the current user's ID
+                'buyer_or_seller_user_id' => $this->user_id,
+                'transaction_date' => now(),
+                'transaction_description' => 'Buy Exchange', // or 'Sell Exchange'
+                'transaction_status' => 'completed',
+                'transaction_purpose' => 'dollar_buy', // or 'dollar_sale'
+                'created_by_user_id' => auth()->id(),
+                'updated_by_user_id' => null,
+                'npsb' => $npsb,
             ]);
-
-            // Update bank balance
-            $this->bank->balance = $bankBalanceAfter;
-            $this->bank->save();
+        } elseif ($this->exchange_type === 'sell') {
+            // Create a Credit transaction if the exchange type is 'sell'
+            BankTransaction::create([
+                'bank_id' => $this->bank_id,
+                'exchange_id' => $this->id,
+                'transaction_type' => 'debit', // or 'credit'
+                'amount' => $this->paid_to_seller_bdt,
+                'buyer_or_seller_user_id' => $this->user_id,
+                'transaction_date' => now(),
+                'transaction_description' => 'Buy Exchange', // or 'Sell Exchange'
+                'transaction_status' => 'completed',
+                'transaction_purpose' => 'dollar_buy', // or 'dollar_sale'
+                'created_by_user_id' => auth()->id(),
+                'updated_by_user_id' => null,
+                'npsb' => $npsb,
+            ]);
         }
     }
 
     /**
-     * Relationship with Bank.
+     * Update the reserve column in the currencies table.
+     */
+    public function createCurrencyTransaction()
+    {
+        // Determine the total amount of the exchange
+        $totalAmount = $this->quantity * $this->rate;
+
+        if ($this->exchange_type === 'buy') {
+            // Create a Credit currency transaction if the exchange type is 'buy'
+            CurrencyTransaction::create([
+                'currency_id' => $this->currency_id,
+                'exchange_id' => $this->id,
+                'transaction_type' => 'credit',
+                'amount' => $this->quantity,  // The total amount of the exchange
+                'user_id' => $this->user_id,  // User who made the exchange
+                'transaction_date' => now(),
+                'transaction_description' => 'Buy Exchange',
+                'transaction_status' => 'completed',  // Set the transaction status
+                'transaction_purpose' => 'dollar_buy',  // Can be adjusted according to the purpose
+                'created_by' => auth()->id(),
+            ]);
+        } elseif ($this->exchange_type === 'sell') {
+            // Create a Debit currency transaction if the exchange type is 'sell'
+            CurrencyTransaction::create([
+                'currency_id' => $this->currency_id,
+                'exchange_id' => $this->id,
+                'transaction_type' => 'debit',
+                'amount' => $this->quantity,  // The total amount of the exchange
+                'user_id' => $this->user_id,  // User who made the exchange
+                'transaction_date' => now(),
+                'transaction_description' => 'Sell Exchange',
+                'transaction_status' => 'completed',  // Set the transaction status
+                'transaction_purpose' => 'dollar_sale',  // Can be adjusted according to the purpose
+                'created_by' => auth()->id(),
+            ]);
+        }
+    }
+
+    // Relationships
+
+    /**
+     * Get the associated bank.
      */
     public function bank()
     {
@@ -162,7 +233,7 @@ class Exchange extends Model
     }
 
     /**
-     * Relationship with Currency.
+     * Get the associated currency.
      */
     public function currency()
     {
@@ -170,7 +241,7 @@ class Exchange extends Model
     }
 
     /**
-     * Relationship with User.
+     * Get the associated user.
      */
     public function user()
     {
@@ -178,15 +249,15 @@ class Exchange extends Model
     }
 
     /**
-     * Relationship with CurrencyReserveTransaction.
+     * Get the associated currency transactions.
      */
-    public function currencyReserveTransactions()
+    public function currencyTransactions()
     {
-        return $this->hasMany(CurrencyReserveTransaction::class, 'exchange_id');
+        return $this->hasMany(CurrencyTransaction::class, 'exchange_id');
     }
 
     /**
-     * Relationship with BankTransaction.
+     * Get the associated bank transactions.
      */
     public function bankTransactions()
     {

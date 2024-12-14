@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             UserTypeSeeder::class,
             RoleSeeder::class,
             CurrencySeeder::class,
+            BankSeeder::class
         ]);
 
         // Create the first user as Superadmin with user type Admin

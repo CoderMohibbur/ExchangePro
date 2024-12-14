@@ -15,32 +15,37 @@
             </div>
             <div class="flex items-center space-x-8">
                 <!-- Metrics Section -->
-                <div class="flex flex-row space-x-4 text-sm font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 rounded-lg">
-                    <span class="hover:bg-gray-100 dark:hover:bg-gray-700 px-4 py-2 rounded-md transition-all">
-                        <span class="font-medium">USD Buy Today:</span> 
+                <div class="hidden md:flex flex-row text-sm font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 rounded-lg">
+                    <span class="hover:bg-gray-100 dark:hover:bg-gray-700 px-4 rounded-md transition-all">
+                        <span class="font-medium">USD Buy Today:</span><br>
                         <strong class="text-blue-600">{{ $navbarMetrics['totalUsdBoughtToday'] }}</strong>
                     </span>
-                    <span class="hover:bg-gray-100 dark:hover:bg-gray-700 px-4 py-2 rounded-md transition-all">
-                        <span class="font-medium">USD Sell Today:</span> 
+                    <span class="hover:bg-gray-100 dark:hover:bg-gray-700 px-4 rounded-md transition-all">
+                        <span class="font-medium">USD Sell Today:</span> <br>
                         <strong class="text-green-600">{{ $navbarMetrics['totalUsdSoldToday'] }}</strong>
                     </span>
-                    <span class="hover:bg-gray-100 dark:hover:bg-gray-700 px-4 py-2 rounded-md transition-all">
-                        <span class="font-medium">Available USD:</span> 
+                    <span class="hover:bg-gray-100 dark:hover:bg-gray-700 px-4 rounded-md transition-all">
+                        <span class="font-medium">Available USD:</span> <br>
                         <strong class="text-yellow-500">{{ $navbarMetrics['remainingUsdToSell'] }}</strong>
                     </span>
-                    <span class="hover:bg-gray-100 dark:hover:bg-gray-700 px-4 py-2 rounded-md transition-all">
-                        <span class="font-medium">Profit Today:</span> 
+                    <span class="hover:bg-gray-100 dark:hover:bg-gray-700 px-4 rounded-md transition-all">
+                        <span class="font-medium">Profit Today:</span> <br>
                         <strong class="text-teal-600">{{ $navbarMetrics['profitOfTheDay'] }}</strong> BDT
                     </span>
-                    <span class="hover:bg-gray-100 dark:hover:bg-gray-700 px-4 py-2 rounded-md transition-all">
-                        <span class="font-medium">Bank Balance:</span> 
+                    <span class="hover:bg-gray-100 dark:hover:bg-gray-700 px-4 rounded-md transition-all">
+                        <span class="font-medium">Bank Balance:</span> <br>
                         <strong class="text-indigo-600">{{ $navbarMetrics['totalBankBalance'] }}</strong> BDT
                     </span>
-                    <span class="hover:bg-gray-100 dark:hover:bg-gray-700 px-4 py-2 rounded-md transition-all">
-                        <span class="font-medium">Today Due:</span> 
+                    <span class="hover:bg-gray-100 dark:hover:bg-gray-700 px-4 rounded-md transition-all">
+                        <span class="font-medium">Today Due:</span> <br>
                         <strong class="text-red-600">{{ $navbarMetrics['amountDueToSellersToday'] }}</strong> BDT
                     </span>
                 </div>
+                    <!-- Button to open the modal -->
+                <svg id="openModal" class="cursor-pointer w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M11 4.717c-2.286-.58-4.16-.756-7.045-.71A1.99 1.99 0 0 0 2 6v11c0 1.133.934 2.022 2.044 2.007 2.759-.038 4.5.16 6.956.791V4.717Zm2 15.081c2.456-.631 4.198-.829 6.956-.791A2.013 2.013 0 0 0 22 16.999V6a1.99 1.99 0 0 0-1.955-1.993c-2.885-.046-4.76.13-7.045.71v15.081Z" clip-rule="evenodd"/>
+                </svg>
+                  
                 
                 <!-- Dark Mode Toggle Button -->
                 <button @click="darkMode = !darkMode; localStorage.setItem('dark-mode', darkMode)" class="p-2 text-gray-600 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-600">
@@ -81,4 +86,70 @@
             </div>
         </div>
     </div>
+<!-- Modal -->
+<div id="mobileMetricsModal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 z-50 flex justify-center items-center">
+    <div class="bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg w-11/12 md:w-1/3 p-6">
+        <div class="flex justify-between items-center">
+            <h3 class="text-xl font-semibold">Metrics</h3>
+            <button id="closeModal" class="text-gray-400 hover:text-gray-600 dark:text-gray-200 dark:hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div class="mt-4 space-y-4">
+            <div class="flex justify-between text-sm">
+                <span class="font-medium">USD Buy Today:</span>
+                <strong class="text-blue-600">{{ $navbarMetrics['totalUsdBoughtToday'] }} USD</strong>
+            </div>
+            <div class="flex justify-between text-sm">
+                <span class="font-medium">USD Sell Today:</span>
+                <strong class="text-green-600">{{ $navbarMetrics['totalUsdSoldToday'] }} USD</strong>
+            </div>
+            <div class="flex justify-between text-sm">
+                <span class="font-medium">Available USD:</span>
+                <strong class="text-yellow-500">{{ $navbarMetrics['remainingUsdToSell'] }} USD</strong>
+            </div>
+            <div class="flex justify-between text-sm">
+                <span class="font-medium">Profit Today:</span>
+                <strong class="text-teal-600">{{ $navbarMetrics['profitOfTheDay'] }} BDT</strong> 
+            </div>
+            <div class="flex justify-between text-sm">
+                <span class="font-medium">Bank Balance:</span>
+                <strong class="text-indigo-600">{{ $navbarMetrics['totalBankBalance'] }} BDT</strong>
+            </div>
+            <div class="flex justify-between text-sm">
+                <span class="font-medium">Today Due:</span>
+                <strong class="text-red-600">{{ $navbarMetrics['amountDueToSellersToday'] }} BDT</strong>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add JavaScript to handle modal toggle -->
+<script>
+    // Get the modal and buttons
+    const openModalButton = document.getElementById('openModal');
+    const closeModalButton = document.getElementById('closeModal');
+    const mobileMetricsModal = document.getElementById('mobileMetricsModal');
+
+    // Open the modal when the button is clicked
+    openModalButton.addEventListener('click', function() {
+        mobileMetricsModal.classList.remove('hidden');
+    });
+
+    // Close the modal when the close button is clicked
+    closeModalButton.addEventListener('click', function() {
+        mobileMetricsModal.classList.add('hidden');
+    });
+
+    // Close modal if the overlay (background) is clicked
+    mobileMetricsModal.addEventListener('click', function(e) {
+        if (e.target === mobileMetricsModal) {
+            mobileMetricsModal.classList.add('hidden');
+        }
+    });
+</script>
+
 </nav>

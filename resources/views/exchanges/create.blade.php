@@ -22,7 +22,7 @@
                     @endif
                     <form action="{{ route('exchanges.store') }}" method="POST">
                         @csrf
-                        <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
+                        <div class="grid gap-6 sm:grid-cols-2 sm:gap-4">
 
                             <!-- Exchange Type -->
                             <div>
@@ -30,7 +30,7 @@
                                     Type:</label>
                                 <select name="exchange_type" id="exchange_type"
                                     class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm"
-                                    required onchange="toggleUserFieldLabel()">
+                                    required onchange="toggleUserFieldLabel(); toggleAmountFieldLabel();">
                                     <option value="buy">Buy</option>
                                     <option value="sell">Sell</option>
                                 </select>
@@ -43,7 +43,7 @@
                                 <div class="relative">
                                     <input type="text" name="user_search" id="user_search"
                                         class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm"
-                                        placeholder="Search for a user..." oninput="debounceSearchUsers()">
+                                        placeholder="Search for a user..." oninput="debounceSearchUsers()" required>
                                     <button type="button" id="defaultModalButton"
                                         data-modal-target="createUserdefaultModal"
                                         data-modal-toggle="createUserdefaultModal"
@@ -54,6 +54,7 @@
                                 </div>
                                 <input type="hidden" name="user_id" id="user_id">
                             </div>
+
                             <!-- Currency -->
                             <div>
                                 <label for="currency_id"
@@ -96,13 +97,15 @@
 
                             <!-- Paid Amount -->
                             <div>
-                                <label for="paid_to_seller_bdt" class="block text-gray-700 dark:text-gray-300">Paid to
+                                <label id="paid_to_seller_bdt_label" for="paid_to_seller_bdt"
+                                    class="block text-gray-700 dark:text-gray-300">Paid to
                                     Seller (BDT):</label>
                                 <input type="number" name="paid_to_seller_bdt" id="paid_to_seller_bdt"
                                     class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm"
-                                    step="0.01" oninput="updatePaymentStatus()">
+                                    step="0.01" required oninput="updatePaymentStatus()">
                             </div>
 
+                            <!-- Bank Selection -->
                             <div>
                                 <label for="bank_id" class="block text-gray-700 dark:text-gray-300">Bank:</label>
                                 <select name="bank_id" id="bank_id"
@@ -114,17 +117,42 @@
                                 </select>
                             </div>
 
-                            <!-- Status -->
+                            <!-- Bank Transaction Fees -->
+                            <div id="bank_transaction_fees" class="">
+                                <label for="bank_transaction_fee" class="block text-gray-700 dark:text-gray-300">Bank
+                                    Transaction Fee:</label>
+                                <select name="bank_transaction_fee" id="bank_transaction_fee"
+                                    class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm">
+                                    <option value="">Select Bank Transaction Fee</option>
+                                    <option value="npsb_fee">NPSB Fee</option>
+                                    <option value="eft_beftn_fee">EFT/BEFTN Fee</option>
+                                </select>
+                            </div>
+
+                            <!-- Currency Transaction Fees -->
+                            <div id="currency_transaction_fees" class="">
+                                <label for="currency_transaction_fee"
+                                    class="block text-gray-700 dark:text-gray-300">Currency Transaction Fee:</label>
+                                <select name="currency_transaction_fee" id="currency_transaction_fee"
+                                    class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm">
+                                    <option value="">Select Currency Transaction Fee</option>
+                                    <option value="fixed_currency_fee">Fixed Currency Fee</option>
+                                    <option value="percent_currency_fee">Percentage Currency Fee</option>
+                                </select>
+                            </div>
+                            <!-- Exchange Status -->
                             <div>
-                                <label for="status" class="block text-gray-700 dark:text-gray-300">Status:</label>
-                                <select name="status" id="status"
+                                <label for="exchange_status" class="block text-gray-700 dark:text-gray-300">Exchange
+                                    Status:</label>
+                                <select name="exchange_status" id="exchange_status"
                                     class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm"
                                     required>
-                                    <option value="pending">Pending</option>
                                     <option value="approved">Approved</option>
+                                    <option value="pending">Pending</option>
                                     <option value="canceled">Canceled</option>
                                 </select>
                             </div>
+
                         </div>
 
                         <!-- Submit Button -->
@@ -132,6 +160,10 @@
                             class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
                             Create Exchange
                         </button>
+                        <a href="{{ route('exchanges.index') }}"
+                            class="px-4 py-2 bg-gray-500 text-white font-semibold rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-75 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-500 transition duration-200">
+                            Cancel
+                        </a>
                     </form>
                 </div>
             </div>
@@ -162,31 +194,36 @@
                     </button>
                 </div>
                 <!-- Modal body -->
-                <form action="{{ route('users.store') }}" method="POST">
+                <form id="createUserForm">
                     @csrf
                     <div class=" grid grid-cols-2 gap-4">
                         <!-- First Name -->
-                        <div>
-                            <label for="first_name" class="block text-gray-700 dark:text-gray-300">First Name:</label>
+                        <div class="col-span-2">
+                            <label for="first_name" class="block text-gray-700 dark:text-gray-300">Full Name:</label>
                             <input type="text" name="first_name" id="first_name"
                                 class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm"
                                 required>
                         </div>
 
+                        {{-- <div class="hidden">
+                            <label for="full_name" class="block text-gray-700 dark:text-gray-300">Full Name:</label>
+                            <input type="text" name="full_name" id="full_name"
+                                class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm">
+                        </div> --}}
+
                         <!-- Last Name -->
-                        <div>
+                        {{-- <div>
                             <label for="last_name" class="block text-gray-700 dark:text-gray-300">Last Name:</label>
                             <input type="text" name="last_name" id="last_name"
                                 class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm"
                                 required>
-                        </div>
+                        </div> --}}
 
                         <!-- Email -->
                         <div>
                             <label for="email" class="block text-gray-700 dark:text-gray-300">Email:</label>
                             <input type="email" name="email" id="email"
-                                class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm"
-                                required>
+                                class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm">
                         </div>
 
                         <!-- Phone Number -->
@@ -267,13 +304,56 @@
                         class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition duration-200">
                         Create User
                     </button>
+
                 </form>
             </div>
         </div>
     </div>
 
-
     <!-- JavaScript for dynamic field label and search functionality -->
+
+    <script>
+        document.getElementById('createUserForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+
+            let formData = new FormData(this); // Get form data
+
+            // Make the AJAX request using fetch
+            fetch("{{ route('users.storesave') }}", {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Close the modal
+                        document.querySelector('[data-modal-toggle="createUserdefaultModal"]')
+                    .click(); // Manually trigger closing
+
+                        // Select the newly created user in the dropdown
+                        // let userDropdown = document.getElementById('user_id');
+                        // let option = document.createElement('option');
+                        // option.value = data.data.id;
+                        // option.text = `${data.data.first_name} ${data.data.last_name}`;
+                        // userDropdown.appendChild(option);
+                        // userDropdown.value = data.data.id; // Select the newly created user
+
+                         // Set the first_name in the input field
+                    document.getElementById('user_search').value = data.data.first_name;
+
+                    // Set the user_id in the hidden field
+                    document.getElementById('user_id').value = data.data.id;
+
+                        // Optionally, display a success message
+                        alert('User created successfully');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again.');
+                });
+        });
+    </script>
     <script>
         document.addEventListener("DOMContentLoaded", function(event) {
             document.getElementById('defaultModalButton').click();
@@ -284,6 +364,12 @@
             const exchangeType = document.getElementById('exchange_type').value;
             const userFieldLabel = document.getElementById('user_field_label');
             userFieldLabel.innerText = exchangeType === 'buy' ? 'Seller Name:' : 'Buyer Name:';
+        }
+
+        function toggleAmountFieldLabel() {
+            const exchangeType = document.getElementById('exchange_type').value;
+            const amountLabel = document.getElementById('paid_to_seller_bdt_label'); // Get the label by ID
+            amountLabel.innerText = exchangeType === 'buy' ? 'Paid To Seller (BDT):' : 'Received From Buyer (BDT):';
         }
 
         function calculateTotal() {
@@ -351,5 +437,58 @@
         toggleUserFieldLabel();
         calculateTotal();
         updatePaymentStatus();
+        toggleAmountFieldLabel();
     </script>
+    <script>
+        document.getElementById('bank_id').addEventListener('change', function() {
+            const bankId = this.value;
+            if (bankId) {
+                fetch(`/get-bank-fees/${bankId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        const bankFeesDropdown = document.getElementById('bank_transaction_fee');
+                        bankFeesDropdown.innerHTML = `
+                            <option value="${data.npsb_fee}">NPSB Fee (${data.npsb_fee})</option>
+                            <option value="${data.eft_beftn_fee}">EFT/BEFTN Fee (${data.eft_beftn_fee})</option>
+                            <option value="0">No Fee</option>
+                        `;
+                    });
+            }
+        });
+
+        document.getElementById('currency_id').addEventListener('change', function() {
+            const currencyId = this.value;
+            if (currencyId) {
+                fetch(`/get-currency-fees/${currencyId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        const currencyFeesDropdown = document.getElementById('currency_transaction_fee');
+                        currencyFeesDropdown.innerHTML = `
+                            <option value="0">No Fee</option>
+                            <option value="${data.percent_charge_for_sell}">Percentage Currency Fee (${data.percent_charge_for_sell}%)</option>
+                            <option value="${data.fixed_charge_for_sell}">Fixed Currency Fee (${data.fixed_charge_for_sell})</option>
+                        `;
+                    });
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const bankId = document.getElementById('bank_id').value;
+            const currencyId = document.getElementById('currency_id').value;
+            if (bankId) document.getElementById('bank_id').dispatchEvent(new Event('change'));
+            if (currencyId) document.getElementById('currency_id').dispatchEvent(new Event('change'));
+        });
+    </script>
+    {{-- <script>
+        // Listen for input changes in the "first_name" field and update "full_name" accordingly
+        document.getElementById('first_name').addEventListener('input', function() {
+            // Get the value of "first_name"
+            var firstName = this.value;
+    
+            // Set the value of "full_name" to the same as "first_name"
+            document.getElementById('full_name').value = firstName;
+        });
+    </script> --}}
+
 </x-app-layout>

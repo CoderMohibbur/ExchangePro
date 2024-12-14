@@ -45,6 +45,7 @@
                                     <th class="px-4 py-2 text-left font-semibold">Name</th>
                                     <th class="px-4 py-2 text-left font-semibold">Code</th>
                                     <th class="px-4 py-2 text-left font-semibold">Exchange Rate</th>
+                                    <th class="px-4 py-2 text-left font-semibold">Reserve</th>
                                     <th class="px-4 py-2 text-left font-semibold">Actions</th>
                                 </tr>
                             </thead>
@@ -53,7 +54,8 @@
                                     <tr class="border-b border-gray-200 dark:border-gray-700">
                                         <td class="px-4 py-3">{{ $currency->name }}</td>
                                         <td class="px-4 py-3">{{ $currency->code }}</td>
-                                        <td class="px-4 py-3">{{ number_format($currency->exchange_rate, 4) }}</td>
+                                        <td class="px-4 py-3">{{ number_format($currency->exchange_rate, 2) }}</td>
+                                        <td class="px-4 py-3">{{ number_format($currency->reserve, 2) }}</td>
                                         <td class="px-4 py-3 flex space-x-2">
                                             <a href="{{ route('currencies.edit', $currency) }}"
                                                class="px-3 py-1 text-sm font-semibold text-yellow-600 border border-yellow-600 rounded hover:bg-yellow-600 hover:text-white dark:text-yellow-400 dark:border-yellow-400 dark:hover:text-white transition duration-200">

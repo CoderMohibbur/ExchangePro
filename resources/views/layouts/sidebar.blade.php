@@ -53,14 +53,14 @@
             </li>
             <li>
                 <a href="{{ route('exchanges.index') }}"
-                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group {{ request()->is('exchanges') ? 'active' : '' }}">
-                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group {{ request()->is('exchanges/*') || request()->is('exchanges') ? 'active' : '' }}">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m16 10 3-3m0 0-3-3m3 3H5v3m3 4-3 3m0 0 3 3m-3-3h14v-3"/>
                     </svg>         
                     <span class="ms-3">Exchanges</span>
                 </a>
             </li>
-            <li>
+            {{-- <li>
                 <button type="button"
                     class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                     aria-controls="dropdown-currencies" data-collapse-toggle="dropdown-currencies">
@@ -80,20 +80,58 @@
                             class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->is('currencies') ? 'active' : '' }}">List
                             Currency</a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a href="/currency_reserve"
                             class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->is('currency_reserve') ? 'active' : '' }}">Currency
                             Reserve</a>
-                    </li>
-                    <li>
-                        <a href="/currency_reserve_transactions"
-                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->is('currency_reserve_transactions') ? 'active' : '' }}">Currency
+                    </li> --}}
+                   {{-- <li>
+                        <a href="/currency_transactions"
+                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->is('currency_transactions') ? 'active' : '' }}">Currency
                             Transactions</a>
                     </li>
                 </ul>
+            </li> --}}
+            
+            <li>
+                <a href="{{ route('banks.index') }}"
+                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group {{ request()->is('banks') ? 'active' : '' }}">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m4 12 8-8 8 8M6 10.5V19a1 1 0 0 0 1 1h3v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h3a1 1 0 0 0 1-1v-8.5"/>
+                      </svg>                      
+                    <span class="ms-3">List Bank</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('bank_transactions.index') }}"
+                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group {{ request()->is('bank_transactions') ? 'active' : '' }}">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 20V7m0 13-4-4m4 4 4-4m4-12v13m0-13 4 4m-4-4-4 4"/>
+                      </svg>
+                    <span class="ms-3">Bank Transactions</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('currencies.index') }}"
+                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group {{ request()->is('currencies') ? 'active' : '' }}">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 17.345a4.76 4.76 0 0 0 2.558 1.618c2.274.589 4.512-.446 4.999-2.31.487-1.866-1.273-3.9-3.546-4.49-2.273-.59-4.034-2.623-3.547-4.488.486-1.865 2.724-2.899 4.998-2.31.982.236 1.87.793 2.538 1.592m-3.879 12.171V21m0-18v2.2"/>
+                    </svg>                   
+                    <span class="ms-3">List Currency</span>
+                </a>
             </li>
 
             <li>
+                <a href="{{ route('currency_transactions.index') }}"
+                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group {{ request()->is('currency_transactions') ? 'active' : '' }}">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 20V7m0 13-4-4m4 4 4-4m4-12v13m0-13 4 4m-4-4-4 4"/>
+                      </svg>                     
+                    <span class="ms-3">Currency Transactions</span>
+                </a>
+            </li>
+
+            {{-- <li>
                 <button type="button"
                     class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                     aria-controls="dropdown-bank" data-collapse-toggle="dropdown-bank">
@@ -112,18 +150,16 @@
                 <ul id="dropdown-bank" class="hidden py-2 space-y-2">
                     <li>
                         <a href="/banks"
-                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->is('banks') ? 'active' : '' }}">List
-                            Bank</a>
+                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->is('banks') ? 'active' : '' }}">List Bank</a>
                     </li>
                     <li>
                         <a href="/bank_transactions"
-                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->is('bank_transactions') ? 'active' : '' }}">Bank
-                            Transactions</a>
+                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->is('bank_transactions') ? 'active' : '' }}">Bank Transactions</a>
                     </li>
 
                 </ul>
-            </li>
-            <li>
+            </li> --}}
+            {{-- <li>
                 <button type="button"
                     class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                     aria-controls="dropdown-Ticket" data-collapse-toggle="dropdown-Ticket">
@@ -230,27 +266,28 @@
                         <path d="M8 3a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V7a4 4 0 0 1 4-4z" />
 
                         {{-- <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 20h-4v-.5c1.0989-1.0329 3.75-2.5 3.75-3.5v-1.0001c0-.5523-.4477-.9999-1-.9999H17c-.5522 0-1 .4477-1 1M4.00004 4l9.12206 11.3932m0-11.3932L4 15.3932"/> --}}
-                    </svg>
+                   {{--  </svg>
 
 
                     <span class="flex-1 ms-3 whitespace-nowrap">Subscribers</span>
                     <span
                         class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span>
                 </a>
-            </li>
+            </li> --}}
+
             <li>
                 <a href="{{ route('blocked-ips.index') }}"
-                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group {{ request()->is('blocked-ips') ? 'active' : '' }}">
                     <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                         viewBox="0 0 20 18">
                         <path d="M12 2C8.13 2 5 5.13 5 9c0 3.86 7 11 7 11s7-7.14 7-11c0-3.87-3.13-7-7-7z" />
                         <path d="M12 9c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3z" />
-                    </svg>
-                    <span class="flex-1 ms-3 whitespace-nowrap">IP Blocking</span>
+                    </svg>                    
+                    <span class="ms-3">IP Blocking</span>
                 </a>
             </li>
-            <li>
+            {{-- <li>
                 <a href="#"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -281,9 +318,6 @@
                     <span class="flex-1 ms-3 whitespace-nowrap">System Setting</span>
                 </a>
             </li>
-
-
-
             <li>
                 <button type="button"
                     class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
@@ -342,7 +376,7 @@
                     </svg>
                     <span class="flex-1 ms-3 whitespace-nowrap">Report & Request</span>
                 </a>
-            </li>
+            </li> --}}
         </ul>
     </div>
 </aside>

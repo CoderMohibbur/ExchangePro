@@ -11,21 +11,30 @@ return new class extends Migration
         Schema::create('bank_transactions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('bank_id')->constrained('banks')->onDelete('cascade'); // Link to banks table
-            $table->foreignId('exchange_id')->nullable()->constrained('exchanges')->onDelete('cascade'); // Link to exchanges table, nullable
+            $table->foreignId('exchange_id')->nullable()->constrained('exchanges')->onDelete('cascade');
             $table->enum('transaction_type', ['debit', 'credit']); // Transaction type (debit or credit)
             $table->decimal('amount', 15, 2); // Transaction amount
-            $table->decimal('balance_before', 15, 2); // Balance before transaction
-            $table->decimal('balance_after', 15, 2); // Balance after transaction
             $table->foreignId('buyer_or_seller_user_id')->nullable()->constrained('users')->onDelete('set null'); // Buyer or Seller user ID
-            $table->foreignId('created_by_user_id')->constrained('users')->onDelete('cascade'); // User who created the transaction
-            $table->foreignId('updated_by_user_id')->nullable()->constrained('users')->onDelete('set null'); // User who last updated
-            $table->string('notes')->nullable(); // Optional notes
-            $table->date('transaction_date')->nullable(); // New column for storing the transaction date (nullable)
+            $table->datetime('transaction_date')->nullable(); // For storing date and time (nullable)
             $table->string('transaction_description')->nullable(); // New column for storing a description of the transaction
             $table->enum('transaction_status', ['pending', 'completed', 'failed'])->default('pending'); // New column for storing transaction status
+            $table->enum('transaction_purpose', [
+                'opening_balance', 
+                'balance_adjustment', 
+                'transaction_fee', 
+                'expense', 
+                'dollar_buy', 
+                'dollar_sale', 
+                'withdraw', 
+                'deposit'
+            ])->nullable()->default('deposit'); // New column for storing the transaction purpose
+            $table->foreignId('created_by_user_id')->constrained('users')->onDelete('cascade'); // User who created the transaction
+            $table->foreignId('updated_by_user_id')->nullable()->constrained('users')->onDelete('set null'); // User who last updated
+            $table->boolean('npsb')->default(0); // New column for npsb, defaulting to 0
             $table->timestamps(); // Timestamps
         });
     }
+    
 
     public function down(): void
     {

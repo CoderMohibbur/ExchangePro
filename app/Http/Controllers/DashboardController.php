@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\Bank;
+use App\Models\Currency;
 use App\Models\Exchange;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\CurrencyTransaction;
 
 class DashboardController extends Controller
 {
@@ -29,12 +31,17 @@ class DashboardController extends Controller
         // 5. Total Bank Balance in BDT
         $totalBankBalance = Bank::sum('balance');
 
+        $banks = Bank::all();
+        $currencies = Currency::all();
+
         return view('dashboard', compact(
             'totalUsdSold',
             'totalUsdBought',
             'totalProfitInBDT',
             'totalDueToSellers',
-            'totalBankBalance'
+            'totalBankBalance',
+            'banks',
+            'currencies'
         ));
 
     }
@@ -50,7 +57,16 @@ class DashboardController extends Controller
             ->whereDate('created_at', $today)
             ->sum('quantity');
 
-        $remainingUsdToSell = $totalUsdBoughtToday - $totalUsdSoldToday;
+                // Get the total amount of credit transactions (USD bought) for the specified currency
+        $totalUsdBought = CurrencyTransaction::where('transaction_type', 'credit')  // Credit transactions represent USD bought
+        ->sum('amount');
+
+        // Get the total amount of debit transactions (USD sold) for the specified currency
+        $totalUsdSold = CurrencyTransaction::where('transaction_type', 'debit')  // Debit transactions represent USD sold
+        ->sum('amount');
+
+        // Calculate the remaining USD to sell
+        $remainingUsdToSell = $totalUsdBought - $totalUsdSold;
 
         $today = now()->toDateString(); // Get today's date
 

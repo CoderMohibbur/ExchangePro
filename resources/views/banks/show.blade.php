@@ -60,26 +60,26 @@
                         </div>
                         <!-- Total Debits for Current Month -->
                         <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg shadow-md">
-                            <h3 class="font-semibold text-gray-700 dark:text-gray-200">Total Debits (This Month)</h3>
-                            <p class="text-gray-600 dark:text-gray-400">{{ number_format($totalDebitsMonth, 2) }} BDT</p>
+                            <h3 class="font-semibold text-gray-700 dark:text-gray-200">Bank To Bank Month</h3>
+                            <p class="text-gray-600 dark:text-gray-400">{{ number_format($bankToBankMonth, 2) }} BDT</p>
                         </div>
 
                         <!-- Total Credits for Current Month -->
                         <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg shadow-md">
-                            <h3 class="font-semibold text-gray-700 dark:text-gray-200">Total Credits (This Month)</h3>
-                            <p class="text-gray-600 dark:text-gray-400">{{ number_format($totalCreditsMonth, 2) }} BDT</p>
+                            <h3 class="font-semibold text-gray-700 dark:text-gray-200">NPSB This Month</h3>
+                            <p class="text-gray-600 dark:text-gray-400">{{ number_format($npsbThisMonth, 2) }} BDT</p>
                         </div>
 
                         <!-- Total Debits for Current Year -->
                         <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg shadow-md">
-                            <h3 class="font-semibold text-gray-700 dark:text-gray-200">Total Debits (This Year)</h3>
-                            <p class="text-gray-600 dark:text-gray-400">{{ number_format($totalDebitsYear, 2) }} BDT</p>
+                            <h3 class="font-semibold text-gray-700 dark:text-gray-200">Bank To Bank Today</h3>
+                            <p class="text-gray-600 dark:text-gray-400">{{ number_format($bankToBankToday, 2) }} BDT</p>
                         </div>
 
                         <!-- Total Credits for Current Year -->
                         <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg shadow-md">
-                            <h3 class="font-semibold text-gray-700 dark:text-gray-200">Total Credits (This Year)</h3>
-                            <p class="text-gray-600 dark:text-gray-400">{{ number_format($totalCreditsYear, 2) }} BDT</p>
+                            <h3 class="font-semibold text-gray-700 dark:text-gray-200">NPSB Today</h3>
+                            <p class="text-gray-600 dark:text-gray-400">{{ number_format($npsbThisMonth, 2) }} BDT</p>
                         </div>
                     </div>
 
@@ -112,8 +112,8 @@
                                         <th class="px-4 py-2 text-left font-semibold">Transaction Type</th>
                                         <th class="px-4 py-2 text-left font-semibold">Amount</th>
                                         <th class="px-4 py-2 text-left font-semibold">Transaction ID</th>
-                                        <th class="px-4 py-2 text-left font-semibold">Date</th>
-                                        <th class="px-4 py-2 text-left font-semibold">Actions</th>
+                                        <th class="px-4 py-2 text-center font-semibold">Date</th>
+                                        <th class="px-4 py-2 text-center font-semibold">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -125,9 +125,9 @@
                                             <td class="px-4 py-3">{{ number_format($transaction->amount, 2) }} BDT
                                             </td>
                                             <td class="px-4 py-3">{{ $transaction->reference ?? 'N/A' }}</td>
-                                            <td class="px-4 py-3">
-                                                {{ $transaction->transaction_date->format('Y-m-d H:i') }}</td>
-                                            <td class="px-4 py-3 flex space-x-2">
+                                            <td class="px-4 py-3 text-center">
+                                                {{ $transaction->transaction_date}}</td>
+                                            <td class="px-4 py-3 flex space-x-2 justify-center">
                                                 <a href="{{ route('bank_transactions.edit', $transaction) }}"
                                                     class="px-3 py-1 text-sm font-semibold text-yellow-600 border border-yellow-600 rounded hover:bg-yellow-600 hover:text-white dark:text-yellow-400 dark:border-yellow-400 dark:hover:text-white transition duration-200">
                                                     Edit

@@ -16,10 +16,10 @@ return new class extends Migration
             
             // Personal Information
             $table->string('first_name');
-            $table->string('last_name');
-            $table->string('full_name')->storedAs("CONCAT(first_name, ' ', last_name)"); // Auto-generated full name
+            $table->string('last_name')->nullable();
+            $table->string('full_name')->nullable()->storedAs("CONCAT(first_name, ' ', last_name)"); // Auto-generated full name
             $table->string('username')->unique()->nullable(); // Nullable, added when login access is granted
-            $table->string('email')->unique();
+            $table->string('email')->unique()->nullable();
             $table->string('phone_number')->nullable();
             $table->string('password')->nullable(); // Nullable, added when login access is granted
 

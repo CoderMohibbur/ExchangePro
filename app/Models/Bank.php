@@ -23,12 +23,6 @@ class Bank extends Model
         'logo',  // Add logo to the fillable property
     ];
 
-    // Relationship with BankBalance model
-    public function balances()
-    {
-        return $this->hasMany(BankBalance::class);
-    }
-
     // Relationship with BankTransaction model
     public function transactions()
     {

@@ -34,9 +34,10 @@
 
                             <!-- Notes -->
                             <div class="mb-4">
-                                <label for="notes" class="block text-gray-700 dark:text-gray-300">Notes:</label>
-                                <textarea name="notes" id="notes"
-                                    class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm"></textarea>
+                                <label for="transaction_description"
+                                    class="block text-gray-700 dark:text-gray-300">Transaction Description:</label>
+                                <textarea name="transaction_description" id="transaction_description"
+                                    class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm">{{ old('transaction_description', 'Bank Withdraw') }}</textarea>
                             </div>
                         </div>
 

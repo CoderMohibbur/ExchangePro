@@ -144,117 +144,39 @@
                         </div>
                     </div>
             </div>
-            <h2 class=" text-xl dark:text-white font-semibold">Reserved Currencies</h2>
+            <h2 class=" text-xl dark:text-white font-semibold">Bank Balance</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mt-4 mb-4">
+                @foreach ($banks as $index => $bank)
+                    <div class="p-4 rounded-lg bg-white dark:bg-gray-800 shadow-lg flex items-center space-x-4 transition-transform transform hover:scale-105">
+                        
+                        <div class="flex-shrink-0">
+                            <img class="w-16 h-16 rounded-full" 
+                                src="{{ $bank->logo ? asset('storage/' . $bank->logo) : asset('images/default-bank-logo.jpg') }}" 
+                                alt="{{ $bank->name }}">
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-800 dark:text-white">{{ $bank->name }}</h4>
+                            <p class="text-lg text-gray-600 dark:text-gray-400">{{ $bank->balance }} BDT</p>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            <h2 class=" text-xl dark:text-white font-semibold">Currencies</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mt-4">
                 <!-- Paypal - USD Widget -->
+                @foreach ($currencies as $currency)
                 <div class="p-4 rounded-lg bg-white dark:bg-gray-800 shadow-lg flex items-center space-x-4 transition-transform transform hover:scale-105">
                     <div class="flex-shrink-0">
-                        <img class="w-16 h-16 rounded-full" src="https://script.viserlab.com/changalab/demo/assets/images/currency/634d135eb50b11665995614.jpg" alt="Paypal">
+                        <img class="w-16 h-16 rounded-full" 
+                            src="{{ $currency->image ? asset('storage/' . $currency->image) : asset('images/default-currency-logo.jpg') }}" 
+                            alt="{{ $currency->name }}">
                     </div>
                     <div>
-                        <h4 class="text-xl font-semibold text-gray-800 dark:text-white">Paypal - USD</h4>
-                        <p class="text-lg text-gray-600 dark:text-gray-400">10,000.00 USD</p>
+                        <h4 class="text-xl font-semibold text-gray-800 dark:text-white">{{ $currency->name }}</h4>
+                        <p class="text-lg text-gray-600 dark:text-gray-400">{{ $currency->reserve }} {{ $currency->code }}</p>
                     </div>
                 </div>
-            
-                <!-- Perfect Money - USD Widget -->
-                <div class="p-4 rounded-lg bg-white dark:bg-gray-800 shadow-lg flex items-center space-x-4 transition-transform transform hover:scale-105">
-                    <div class="flex-shrink-0">
-                        <img class="w-16 h-16 rounded-full" src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d797ac989e11675073452.jpg" alt="Perfect Money">
-                    </div>
-                    <div>
-                        <h4 class="text-xl font-semibold text-gray-800 dark:text-white">Perfect Money - USD</h4>
-                        <p class="text-lg text-gray-600 dark:text-gray-400">99,633.63 USD</p>
-                    </div>
-                </div>
-            
-                <!-- Bkash - BDT Widget -->
-                <div class="p-4 rounded-lg bg-white dark:bg-gray-800 shadow-lg flex items-center space-x-4 transition-transform transform hover:scale-105">
-                    <div class="flex-shrink-0">
-                        <img class="w-16 h-16 rounded-full" src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce62fefa191665984047.png" alt="Bkash">
-                    </div>
-                    <div>
-                        <h4 class="text-xl font-semibold text-gray-800 dark:text-white">Bkash - BDT</h4>
-                        <p class="text-lg text-gray-600 dark:text-gray-400">8,035,230.15 BDT</p>
-                    </div>
-                </div>
-            
-                <!-- PayTm - INR Widget -->
-                <div class="p-4 rounded-lg bg-white dark:bg-gray-800 shadow-lg flex items-center space-x-4 transition-transform transform hover:scale-105">
-                    <div class="flex-shrink-0">
-                        <img class="w-16 h-16 rounded-full" src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d79313684cb1675072275.jpg" alt="PayTm">
-                    </div>
-                    <div>
-                        <h4 class="text-xl font-semibold text-gray-800 dark:text-white">PayTm - INR</h4>
-                        <p class="text-lg text-gray-600 dark:text-gray-400">79,996.44 INR</p>
-                    </div>
-                </div>
-            
-                <!-- Bitcoin - BTC Widget -->
-                <div class="p-4 rounded-lg bg-white dark:bg-gray-800 shadow-lg flex items-center space-x-4 transition-transform transform hover:scale-105">
-                    <div class="flex-shrink-0">
-                        <img class="w-16 h-16 rounded-full" src="https://script.viserlab.com/changalab/demo/assets/images/currency/634ce5b0b4ec41665983920.jpg" alt="Bitcoin">
-                    </div>
-                    <div>
-                        <h4 class="text-xl font-semibold text-gray-800 dark:text-white">Bitcoin - BTC</h4>
-                        <p class="text-lg text-gray-600 dark:text-gray-400">80,000,051.50 BTC</p>
-                    </div>
-                </div>
-            
-                <!-- Web Money - USD Widget -->
-                <div class="p-4 rounded-lg bg-white dark:bg-gray-800 shadow-lg flex items-center space-x-4 transition-transform transform hover:scale-105">
-                    <div class="flex-shrink-0">
-                        <img class="w-16 h-16 rounded-full" src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d7826d88e8e1675068013.png" alt="Web Money">
-                    </div>
-                    <div>
-                        <h4 class="text-xl font-semibold text-gray-800 dark:text-white">Web Money - USD</h4>
-                        <p class="text-lg text-gray-600 dark:text-gray-400">60,000,000.00 USD</p>
-                    </div>
-                </div>
-            
-                <!-- Rocket - BDT Widget -->
-                <div class="p-4 rounded-lg bg-white dark:bg-gray-800 shadow-lg flex items-center space-x-4 transition-transform transform hover:scale-105">
-                    <div class="flex-shrink-0">
-                        <img class="w-16 h-16 rounded-full" src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d78ff91fec11675071481.jpg" alt="Rocket">
-                    </div>
-                    <div>
-                        <h4 class="text-xl font-semibold text-gray-800 dark:text-white">Rocket - BDT</h4>
-                        <p class="text-lg text-gray-600 dark:text-gray-400">6,000.00 BDT</p>
-                    </div>
-                </div>
-            
-                <!-- Payoneer - USD Widget -->
-                <div class="p-4 rounded-lg bg-white dark:bg-gray-800 shadow-lg flex items-center space-x-4 transition-transform transform hover:scale-105">
-                    <div class="flex-shrink-0">
-                        <img class="w-16 h-16 rounded-full" src="https://script.viserlab.com/changalab/demo/assets/images/currency/6363475fc84051667450719.jpg" alt="Payoneer">
-                    </div>
-                    <div>
-                        <h4 class="text-xl font-semibold text-gray-800 dark:text-white">Payoneer - USD</h4>
-                        <p class="text-lg text-gray-600 dark:text-gray-400">4,990.69 USD</p>
-                    </div>
-                </div>
-            
-                <!-- Skrill - USD Widget -->
-                <div class="p-4 rounded-lg bg-white dark:bg-gray-800 shadow-lg flex items-center space-x-4 transition-transform transform hover:scale-105">
-                    <div class="flex-shrink-0">
-                        <img class="w-16 h-16 rounded-full" src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d79ba643fd91675074470.jpg" alt="Skrill">
-                    </div>
-                    <div>
-                        <h4 class="text-xl font-semibold text-gray-800 dark:text-white">Skrill - USD</h4>
-                        <p class="text-lg text-gray-600 dark:text-gray-400">10,000.00 USD</p>
-                    </div>
-                </div>
-            
-                <!-- Payoneer - EUR Widget -->
-                <div class="p-4 rounded-lg bg-white dark:bg-gray-800 shadow-lg flex items-center space-x-4 transition-transform transform hover:scale-105">
-                    <div class="flex-shrink-0">
-                        <img class="w-16 h-16 rounded-full" src="https://script.viserlab.com/changalab/demo/assets/images/currency/63d782ac127d51675068076.jpg" alt="Payoneer EUR">
-                    </div>
-                    <div>
-                        <h4 class="text-xl font-semibold text-gray-800 dark:text-white">Payoneer - EUR</h4>
-                        <p class="text-lg text-gray-600 dark:text-gray-400">49,999,932.04 EUR</p>
-                    </div>
-                </div>
+            @endforeach
             </div>
         </div>
     </div>

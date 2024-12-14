@@ -1,6 +1,9 @@
 <x-app-layout>
     <x-slot name="header">
+        <div class="flex justify-between">
         <h1 class="text-xl dark:text-white font-semibold">Manage Banks</h1>
+        <h1 class="text-xl dark:text-white font-semibold">Total Bank Blance: {{ number_format($banks->sum('balance'), 2) }}</h1>
+    </div>
     </x-slot>
 
     <div class="p-4 sm:ml-64">

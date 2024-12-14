@@ -10,6 +10,9 @@
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
             <div class="container mx-auto px-4 py-4">
                 <div class="rounded-lg shadow-lg bg-white dark:bg-gray-800">
+                    <x-toast-success />
+                    <x-toast-danger />
+                    <x-toast-warning />
                     <!-- Search Form -->
                     <div class="flex justify-between items-center p-4">
                         <form action="{{ route('exchanges.index') }}" method="GET" class="flex space-x-2">
@@ -37,55 +40,90 @@
                                     <th class="px-4 py-2 text-left font-semibold">Received Amount</th>
                                     <th class="px-4 py-2 text-left font-semibold">Send Method</th>
                                     <th class="px-4 py-2 text-left font-semibold">Send Amount</th>
-                                    <th class="px-4 py-2 text-left font-semibold">Status</th>
-                                    <th class="px-4 py-2 text-left font-semibold">Action</th>
+                                    <th class="px-4 py-2 text-center font-semibold">Status</th>
+                                    <th class="px-4 py-2 text-center font-semibold">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse($exchanges as $exchange)
                                     <tr class="border-b border-gray-200 dark:border-gray-700">
                                         <td class="px-4 py-3">
-                                            <span class="font-bold">{{ $exchange->id }}</span><br>
+                                            <span class="font-bold">{{ $exchange->id }} | {{ ucfirst($exchange->exchange_type) }}</span><br>
                                             <small class="text-gray-500 dark:text-gray-400">{{ \Carbon\Carbon::parse($exchange->date_time)->format('Y-m-d h:i A') }}</small>
                                         </td>
                                         <td class="px-4 py-3">
                                             <span class="block">{{ $exchange->user->full_name ?? 'N/A' }}</span>
-                                            <a href="{{ route('profile.show', $exchange->user->id) }}" class="text-blue-500 hover:underline">@ {{ $exchange->user->username ?? 'N/A' }}</a>
+                                            <small><a href="users/{{ $exchange->user->id }}" class="text-blue-500 hover:underline">{{ $exchange->user->username ?? 'N/A' }}</a></small>
                                         </td>
+                        
+                                        <!-- Received Method (Dynamic) -->
                                         <td class="px-4 py-3">
-                                            <span class="block">{{ $exchange->currency->name ?? 'N/A' }}</span>
-                                            <span class="text-blue-500">{{ $exchange->currency->code ?? '' }}</span>
+                                            @if($exchange->exchange_type == 'buy')
+                                                <span class="block">{{ $exchange->currency->name ?? 'N/A' }}</span>
+                                                <small class="text-blue-500">{{ $exchange->currency->code ?? '' }}</small>
+                                            @else
+                                                <span class="block">{{ $exchange->bank->name ?? 'N/A' }}</span>
+                                                <small class="text-blue-500">BDT</small>
+                                            @endif
                                         </td>
+                        
+                                        <!-- Received Amount (Dynamic) -->
                                         <td class="px-4 py-3">
-                                            <span class="block">{{ number_format($exchange->quantity, 2) }} {{ $exchange->currency->code ?? '' }}</span>
-                                            <span>{{ number_format($exchange->quantity, 2) }}</span> +
-                                            <span class="text-red-500">{{ number_format($exchange->fee ?? 0, 2) }}</span> =
-                                            <span>{{ number_format($exchange->quantity + $exchange->fee, 2) }} {{ $exchange->currency->code ?? '' }}</span>
+                                            @if($exchange->exchange_type == 'buy')
+                                                <span class="block">{{ number_format($exchange->quantity, 2) }} {{ $exchange->currency->code ?? '' }}</span>
+                                                <span>{{ number_format($exchange->quantity, 2) }}</span> x
+                                                <span class="text-red-500">{{ number_format($exchange->rate ?? 0, 2) }}</span> =
+                                                <span>{{ number_format($exchange->quantity * $exchange->rate, 2) }} BDT</span>
+                                            @else
+                                                <span class="block">{{ number_format($exchange->total_amount ?? 0, 2) }} BDT</span>
+                                                <span>{{ number_format($exchange->total_amount ?? 0, 2) }}</span> +
+                                                <span class="text-red-500">{{ number_format($exchange->send_fee ?? 0, 2) }}</span> =
+                                                <span>{{ number_format(($exchange->total_amount ?? 0) + ($exchange->send_fee ?? 0), 2) }} BDT</span>
+                                            @endif
                                         </td>
+                        
+                                        <!-- Send Method (Dynamic) -->
                                         <td class="px-4 py-3">
-                                            <span class="block">{{ $exchange->exchange_type === 'buy' ? 'Payoneer' : 'Wise' }}</span>
-                                            <span class="text-blue-500">USD</span>
+                                            @if($exchange->exchange_type == 'buy')
+                                                <span class="block">{{ $exchange->bank->name ?? 'N/A' }}</span>
+                                                <small class="text-blue-500">BDT</small>
+                                            @else
+                                                <span class="block">{{ $exchange->currency->name ?? 'N/A' }}</span>
+                                                <small class="text-blue-500">{{ $exchange->currency->code ?? '' }}</small>
+                                            @endif
                                         </td>
+                        
+                                        <!-- Send Amount (Dynamic) -->
                                         <td class="px-4 py-3">
-                                            <span class="block">{{ number_format($exchange->send_amount ?? 0, 2) }} USD</span>
-                                            <span>{{ number_format($exchange->send_amount ?? 0, 2) }}</span> -
+                                            @if($exchange->exchange_type == 'buy')
+                                            <span class="block">{{ number_format($exchange->total_amount ?? 0, 2) }} BDT</span>
+                                            <span>{{ number_format($exchange->total_amount ?? 0, 2) }}</span> +
                                             <span class="text-red-500">{{ number_format($exchange->send_fee ?? 0, 2) }}</span> =
-                                            <span>{{ number_format(($exchange->send_amount ?? 0) - ($exchange->send_fee ?? 0), 2) }} USD</span>
+                                            <span>{{ number_format(($exchange->total_amount ?? 0) + ($exchange->send_fee ?? 0), 2) }} BDT</span>
+                                            @else
+                                                <span class="block">{{ number_format($exchange->quantity, 2) }} {{ $exchange->currency->code ?? '' }}</span>
+                                                <span>{{ number_format($exchange->quantity, 2) }}</span> x
+                                                <span class="text-red-500">{{ number_format($exchange->rate ?? 0, 2) }}</span> =
+                                                <span>{{ number_format($exchange->quantity * $exchange->rate, 2) }} BDT</span>
+                                            @endif
                                         </td>
+                        
                                         <td class="px-4 py-3">
                                             <span class="px-2 py-1 rounded-full text-sm font-medium 
-                                                {{ $exchange->status == 'pending' ? 'bg-yellow-200 text-yellow-700 dark:bg-yellow-500 dark:text-yellow-100' : ($exchange->status == 'approved' ? 'bg-green-200 text-green-700 dark:bg-green-500 dark:text-green-100' : 'bg-red-200 text-red-700 dark:bg-red-500 dark:text-red-100') }}">
-                                                {{ ucfirst($exchange->status) }}
+                                                {{ $exchange->payment_status == 'Partial' ? 'bg-yellow-200 text-yellow-700 dark:bg-yellow-500 dark:text-yellow-100' : 
+                                                ($exchange->payment_status == 'Paid' ? 'bg-green-200 text-green-700 dark:bg-green-500 dark:text-green-100' : 
+                                                'bg-red-200 text-red-700 dark:bg-red-500 dark:text-red-100') }}">
+                                                {{ ucfirst($exchange->payment_status) }}
                                             </span>
                                         </td>
                                         <td class="px-4 py-3 flex space-x-2">
                                             <a href="{{ route('exchanges.payment', $exchange->id) }}" 
                                                 class="px-4 py-1 text-sm font-semibold text-green-500 border border-green-500 rounded hover:bg-green-500 hover:text-white dark:hover:bg-green-700 dark:hover:border-green-700 dark:border-green-500 dark:text-green-400 transition duration-200">
                                                 <i class="las la-money-bill"></i> Pay
-                                             </a>
-                                            <a href="{{ route('exchanges.edit', $exchange->id) }}" class="px-4 py-1 text-sm font-semibold text-yellow-500 border border-yellow-500 rounded hover:bg-yellow-500 hover:text-white dark:hover:bg-yellow-700 dark:hover:border-yellow-700 dark:border-yellow-500 dark:text-yellow-400 transition duration-200">
-                                                <i class="las la-edit"></i> Edit
                                             </a>
+                                            {{-- <a href="{{ route('exchanges.edit', $exchange->id) }}" class="px-4 py-1 text-sm font-semibold text-yellow-500 border border-yellow-500 rounded hover:bg-yellow-500 hover:text-white dark:hover:bg-yellow-700 dark:hover:border-yellow-700 dark:border-yellow-500 dark:text-yellow-400 transition duration-200">
+                                                <i class="las la-edit"></i> Edit
+                                            </a> --}}
                                             <form action="{{ route('exchanges.destroy', $exchange->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this exchange?');">
                                                 @csrf
                                                 @method('DELETE')
@@ -104,6 +142,8 @@
                                 @endforelse
                             </tbody>
                         </table>
+                        
+                        
                     </div>
 
                     <!-- Pagination -->
@@ -121,7 +161,4 @@
             </div>
         </div>
     </div>
-
-    
-    
 </x-app-layout>

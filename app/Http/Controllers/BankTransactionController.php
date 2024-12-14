@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Bank;
 use App\Models\BankTransaction;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class BankTransactionController extends Controller
@@ -41,21 +42,33 @@ class BankTransactionController extends Controller
      */
     public function store(Request $request)
     {
+        // Validate the incoming request data
         $validated = $request->validate([
-            'bank_id' => 'required|exists:banks,id',
-            'exchange_id' => 'nullable|exists:exchanges,id',
-            'transaction_type' => 'required|in:debit,credit',
-            'amount' => 'required|numeric|min:0',
-            'buyer_or_seller_user_id' => 'nullable|exists:users,id',
-            'notes' => 'nullable|string|max:255',
+            'bank_id' => 'required|exists:banks,id',  // Validate bank_id exists in the banks table
+            'exchange_id' => 'nullable|exists:exchanges,id',  // Validate exchange_id exists in the exchanges table, nullable
+            'transaction_type' => 'required|in:debit,credit',  // Validate that the transaction_type is either debit or credit
+            'amount' => 'required|numeric|min:0',  // Validate that the amount is numeric and non-negative
+            'buyer_or_seller_user_id' => 'nullable|exists:users,id',  // Validate user_id exists in the users table, nullable
+            'notes' => 'nullable|string|max:255',  // Validate that notes are optional and can be a string with max length 255  
+            'transaction_date' => 'nullable|date',  // Validate that transaction_date is a valid date (nullable)
+            'transaction_description' => 'nullable|string|max:255',  // Validate transaction description is optional and a string
+            'transaction_status' => 'nullable|in:pending,completed,failed',  // Validate transaction status values
+            'transaction_purpose' => 'nullable|in:opening_balance,balance_adjustment,transaction_fee,expense,dollar_buy,dollar_sale,withdraw,deposit',  // Validate transaction purpose
         ]);
 
+        // Set the current authenticated user as the creator
         $validated['created_by_user_id'] = Auth::id();
 
+        // Optionally set the user who last updated (can be null initially)
+        $validated['updated_by_user_id'] = null;  // You can leave this as null, or set it when an update is made later
+
+        // Create the bank transaction using the validated data
         BankTransaction::create($validated);
 
+        // Redirect to the bank transactions index page with a success message
         return redirect()->route('bank_transactions.index')->with('success', 'Transaction recorded successfully.');
     }
+
 
     /**
      * Show the form for editing the specified bank transaction.

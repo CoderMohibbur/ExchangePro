@@ -14,62 +14,98 @@ class BankTransaction extends Model
         'bank_id', 
         'exchange_id', 
         'transaction_type', 
-        'amount', 
-        'balance_before', 
-        'balance_after', 
+        'amount',
         'buyer_or_seller_user_id', 
-        'created_by_user_id', 
-        'updated_by_user_id', 
-        'notes',
         'transaction_date',  // New column for storing the transaction date
         'transaction_description',  // New column for storing the transaction description
         'transaction_status',  // New column for storing the transaction status
+        'transaction_purpose',  // New column for storing the transaction purpose
+        'created_by_user_id', 
+        'updated_by_user_id',
+        'npsb'
     ];
 
-    /**
-     * Relationship with Bank.
-     */
+    // Define the relationship with Bank.
     public function bank()
     {
         return $this->belongsTo(Bank::class);
     }
 
-    /**
-     * Relationship with Exchange.
-     */
+    // Define the relationship with Exchange.
     public function exchange()
     {
         return $this->belongsTo(Exchange::class);
     }
 
-    /**
-     * Relationship with User as Buyer or Seller.
-     */
+    // Define the relationship with User as Buyer or Seller.
     public function buyerOrSeller()
     {
         return $this->belongsTo(User::class, 'buyer_or_seller_user_id');
     }
 
-    /**
-     * Relationship with User who created the transaction.
-     */
+    // Define the relationship with User who created the transaction.
     public function createdBy()
     {
         return $this->belongsTo(User::class, 'created_by_user_id');
     }
 
-    /**
-     * Relationship with User who updated the transaction.
-     */
+    // Define the relationship with User who updated the transaction.
     public function updatedBy()
     {
         return $this->belongsTo(User::class, 'updated_by_user_id');
     }
 
-    protected $dates = ['transaction_date']; // Cast the 'transaction_date' field to Carbon
+    /**
+     * Event listener to update bank balance after a transaction is created.
+     */   
 
-    // Or you can explicitly cast it to a date in the $casts property:
-    protected $casts = [
-        'transaction_date' => 'datetime', // or 'date' if you're working with just the date
-    ];
+     protected static function booted()
+    {
+        // After creating or updating a transaction, recalculate the bank balance
+        static::created(function ($transaction) {
+            $transaction->updateBankBalance();
+        });
+
+        static::updated(function ($transaction) {
+            $transaction->updateBankBalance();
+        });
+
+        // After deleting a transaction, recalculate the bank balance
+        static::deleted(function ($transaction) {
+            $transaction->updateBankBalance();
+        });
+    }
+
+
+    /**
+     * Update the bank balance based on the transaction type.
+     */
+    public function updateBankBalance()
+    {
+        // Fetch the bank associated with the transaction
+        $bank = $this->bank;
+
+        // If the bank exists, update the balance based on transaction type
+        if ($bank) {
+            // Get the sum of all credit transactions for the specific bank
+            $totalCredits = BankTransaction::where('bank_id', $bank->id)
+                                        ->where('transaction_type', 'credit')
+                                        ->sum('amount');
+
+            // Get the sum of all debit transactions for the specific bank
+            $totalDebits = BankTransaction::where('bank_id', $bank->id)
+                                        ->where('transaction_type', 'debit')
+                                        ->sum('amount');
+
+            // Calculate the new balance (Credits - Debits)
+            $newBalance = $totalCredits - $totalDebits;
+
+            // Update the bank's balance with the new balance
+            $bank->balance = $newBalance;
+
+            // Save the updated bank balance
+            $bank->save();
+        }
+    }
+
 }

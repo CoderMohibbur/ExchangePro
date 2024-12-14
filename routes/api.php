@@ -14,3 +14,6 @@ Route::get('/test', function () {
 });
 
 Route::get('/users/search', [UserController::class, 'search'])->name('api.users.search');
+
+// In routes/api.php
+

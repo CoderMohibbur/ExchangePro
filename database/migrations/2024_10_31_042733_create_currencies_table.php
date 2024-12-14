@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('currencies', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique(); // e.g., Payoneer, Wise
-            $table->string('code')->unique(); // e.g., USD, EUR
+            $table->string('code')->nullable(); // e.g., USD, EUR
             $table->decimal('exchange_rate', 10, 4)->default(1.0000); // Optional exchange rate column
-            $table->decimal('cur_sym', 10, 2)->nullable(); // Currency symbol (e.g., $, €, etc.)
+            $table->string('cur_sym', 10)->nullable(); // Currency symbol (e.g., $, €, etc.)
             $table->decimal('sell_at', 10, 4)->nullable(); // Selling rate (e.g., 1.23)
             $table->decimal('buy_at', 10, 4)->nullable(); // Buying rate (e.g., 1.21)
             $table->decimal('fixed_charge_for_sell', 10, 2)->nullable(); // Fixed charge for selling (e.g., 2.50)

@@ -12,28 +12,31 @@
                         @csrf
                         <div class="grid grid-cols-2 gap-4">
                             <!-- Deposit Amount -->
-                            <div class="mb-4">
+                            <div>
                                 <label for="amount" class="block text-gray-700 dark:text-gray-300">Deposit
                                     Amount:</label>
                                 <input type="number" name="amount" id="amount"
                                     class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm"
                                     step="0.01" required>
-                                <small class="text-gray-500 dark:text-gray-400">Please enter your Deposit Amount.</small>
+                                <small class="text-gray-500 dark:text-gray-400">Please enter your Deposit
+                                    Amount.</small>
                             </div>
                             <!-- Transaction Date (Optional) -->
-                            <div class="mb-4">
+                            <div>
                                 <label for="transaction_date" class="block text-gray-700 dark:text-gray-300">Transaction
                                     Date:</label>
-                                <input type="text" name="transaction_date" id="transaction_date" datepicker  datepicker-autohide
+                                <input type="text" name="transaction_date" id="transaction_date" datepicker
+                                    datepicker-autohide
                                     class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm"
                                     value="{{ old('transaction_date', now()->format('d/m/Y')) }}">
                                 <small class="text-gray-500 dark:text-gray-400">Leave blank to use today's date.</small>
                             </div>
                             <!-- Notes -->
                             <div class="mb-4">
-                                <label for="notes" class="block text-gray-700 dark:text-gray-300">Notes:</label>
-                                <textarea name="notes" id="notes"
-                                    class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm"></textarea>
+                                <label for="transaction_description"
+                                    class="block text-gray-700 dark:text-gray-300">Transaction Description:</label>
+                                <textarea name="transaction_description" id="transaction_description"
+                                    class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm">{{ old('transaction_description', 'Bank Deposit') }}</textarea>
                             </div>
                         </div>
                         <!-- Submit Button -->

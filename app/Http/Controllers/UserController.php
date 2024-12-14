@@ -38,8 +38,9 @@ class UserController extends Controller
     {
         $validated = $request->validate([
             'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'last_name' => 'nullable|string|max:255',
+            'full_name' => 'nullable|string|max:255',
+            'email' => 'nullable|string|email|max:255|unique:users',
             'phone_number' => 'nullable|string|max:20',
             'role_id' => 'nullable|exists:roles,id',
             'user_type_id' => 'nullable|exists:user_types,id',
@@ -53,6 +54,7 @@ class UserController extends Controller
             $validated['password'] = Hash::make($validated['password']);
         }
 
+        $validated['full_name'] = $validated['first_name'];
         // Set can_login based on checkbox, defaulting to false if not set
         $validated['can_login'] = $request->has('allow_login') ? true : false;
 
@@ -60,6 +62,42 @@ class UserController extends Controller
 
         return Redirect::route('users.index')->with('success', 'User created successfully.');
     }
+
+
+    public function storesave(Request $request)
+{
+    // Validate incoming request data
+    $validated = $request->validate([
+        'first_name' => 'required|string|max:255',
+        'last_name' => 'nullable|string|max:255',
+        'email' => 'nullable|string|email|max:255|unique:users,email',  // Ensure 'email' is unique
+        'phone_number' => 'nullable|string|max:20',
+        'role_id' => 'nullable|exists:roles,id',
+        'user_type_id' => 'nullable|exists:user_types,id',
+        'username' => 'nullable|string|max:255|unique:users,username', // Ensure 'username' is unique
+        'password' => 'nullable|string|min:8|confirmed',
+        'active_status' => 'boolean',
+    ]);
+
+    // If password is provided, hash it
+    if (isset($validated['password'])) {
+        $validated['password'] = Hash::make($validated['password']);
+    }
+
+    // Set `can_login` based on checkbox, defaulting to false if not set
+    $validated['can_login'] = $request->has('allow_login') ? true : false;
+
+    // Create the user
+    $user = User::create($validated);
+
+    // Return the created user data as a response (for AJAX success)
+    return response()->json([
+        'success' => true,
+        'message' => 'User created successfully.',
+        'data' => $user
+    ], 201); // 201 for created response
+}
+
 
     /**
      * Display the specified user.
@@ -128,7 +166,7 @@ class UserController extends Controller
         $query = $request->get('q', '');
 
         // Query users based on name, username, email, or phone
-        $users = User::where('full_name', 'like', "%{$query}%")
+        $users = User::where('first_name', 'like', "%{$query}%")
             ->orWhere('username', 'like', "%{$query}%")
             ->orWhere('email', 'like', "%{$query}%")
             ->orWhere('phone_number', 'like', "%{$query}%")
