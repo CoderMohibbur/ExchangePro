@@ -70,16 +70,42 @@ class DashboardController extends Controller
 
         $today = now()->toDateString(); // Get today's date
 
-        $totalSellAmountToday = Exchange::where('exchange_type', 'sell')
-            ->whereDate('created_at', $today)
-            ->sum('total_amount');
+        // $totalSellAmountToday = Exchange::where('exchange_type', 'sell')
+        //     ->whereDate('created_at', $today)
+        //     ->sum('total_amount');
 
-        $totalBuyAmountToday = Exchange::where('exchange_type', 'buy')
-            ->whereDate('created_at', $today)
-            ->sum('total_amount');
+        // $totalBuyAmountToday = Exchange::where('exchange_type', 'buy')
+        //     ->whereDate('created_at', $today)
+        //     ->sum('total_amount');
 
-        // Calculate profit for today
-        $totalProfitTodayInBDT = $totalSellAmountToday - $totalBuyAmountToday;
+        // // Calculate profit for today
+        // $totalProfitTodayInBDT = $totalSellAmountToday - $totalBuyAmountToday;
+
+        $today = now()->toDateString();
+
+        // Get the total quantity of dollars sold today
+        $totalQuantitySoldToday = Exchange::where('exchange_type', 'sell')
+            ->whereDate('created_at', $today)
+            ->sum('quantity');
+        
+        // Get the average selling rate for dollars sold today
+        $averageSellRate = Exchange::where('exchange_type', 'sell')
+            ->whereDate('created_at', $today)
+            ->avg('rate');
+        
+        // Get the total amount spent purchasing those dollars
+        $totalPurchaseCostForSoldDollarsToday = Exchange::where('exchange_type', 'buy')
+            ->whereDate('created_at', $today)
+            ->sum(DB::raw('quantity * rate'));
+        
+        // Calculate total bank fees for the day
+        $totalBankFeesToday = Exchange::whereDate('created_at', $today)
+            ->sum(DB::raw('npsb_fee + eft_beftn_fee + fixed_currency_fee + percent_currency_fee'));
+        
+        // Calculate profit
+        $totalProfitTodayInBDT = ($totalQuantitySoldToday * $averageSellRate) - $totalPurchaseCostForSoldDollarsToday - $totalBankFeesToday;
+        
+
 
         $totalBankBalance = Bank::sum('balance');
 

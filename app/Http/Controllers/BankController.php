@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\Bank;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use App\Models\BankTransaction;
 use Illuminate\Support\Facades\Auth;
@@ -127,92 +128,87 @@ class BankController extends Controller
 
 
     public function show($id)
-{
-    $today = Carbon::today();
-    $thisMonth = Carbon::now()->month;
-    $thisYear = Carbon::now()->year;
+    {
+        $today = Carbon::today();
+        $thisMonth = Carbon::now()->month;
+        $thisYear = Carbon::now()->year;
 
-    // Retrieve the bank data
-    $bank = Bank::findOrFail($id);
+        // Retrieve the bank data
+        $bank = Bank::findOrFail($id);
 
-    // Get the sum of all-time credits (deposits)
-    $totalCreditsAllTime = $bank->transactions()
-        ->where('transaction_type', 'credit')
-        ->sum('amount');
+        // Get the sum of all-time credits (deposits)
+        $totalCreditsAllTime = $bank->transactions()
+            ->where('transaction_type', 'credit')
+            ->sum('amount');
 
-    // Get the sum of all-time debits (withdrawals)
-    $totalDebitsAllTime = $bank->transactions()
-        ->where('transaction_type', 'debit')
-        ->sum('amount');
+        // Get the sum of all-time debits (withdrawals)
+        $totalDebitsAllTime = $bank->transactions()
+            ->where('transaction_type', 'debit')
+            ->sum('amount');
 
-    // Calculate the net total balance (all-time credits - all-time debits)
-    $netTotalBalance = $totalCreditsAllTime - $totalDebitsAllTime;
+        // Calculate the net total balance (all-time credits - all-time debits)
+        $netTotalBalance = $totalCreditsAllTime - $totalDebitsAllTime;
 
-    // Get the sum of debits for the current month (debits where npsb is not 1 or npsb = 0)
-    $bankToBankMonth = $bank->transactions()
-        ->where('transaction_type', 'debit')
-        ->whereMonth('created_at', $thisMonth)
-        ->whereYear('created_at', $thisYear)
-        ->where('npsb', 0) // where npsb is 0 or not 1
-        ->sum('amount');
+        // Get the sum of debits for the current month (debits where npsb is not 1 or npsb = 0)
+        $bankToBankMonth = $bank->transactions()
+            ->where('transaction_type', 'debit')
+            ->whereMonth('created_at', $thisMonth)
+            ->whereYear('created_at', $thisYear)
+            ->where('npsb', 0) // where npsb is 0 or not 1
+            ->sum('amount');
 
-    // Get the sum of credits for the current month
-    $totalCreditsMonth = $bank->transactions()
-        ->where('transaction_type', 'credit')
-        ->whereMonth('created_at', $thisMonth)
-        ->whereYear('created_at', $thisYear)
-        ->sum('amount');
+        // Get the sum of credits for the current month
+        $totalCreditsMonth = $bank->transactions()
+            ->where('transaction_type', 'credit')
+            ->whereMonth('created_at', $thisMonth)
+            ->whereYear('created_at', $thisYear)
+            ->sum('amount');
 
-    // Get the sum of debits for the current month where npsb is 1
-    $npsbThisMonth = $bank->transactions()
-        ->where('transaction_type', 'debit')
-        ->whereMonth('created_at', $thisMonth)
-        ->whereYear('created_at', $thisYear)
-        ->where('npsb', 1) // npsb is 1
-        ->sum('amount');
+        // Get the sum of debits for the current month where npsb is 1
+        $npsbThisMonth = $bank->transactions()
+            ->where('transaction_type', 'debit')
+            ->whereMonth('created_at', $thisMonth)
+            ->whereYear('created_at', $thisYear)
+            ->where('npsb', 1) // npsb is 1
+            ->sum('amount');
 
-    // Get the sum of debits for today where npsb is not 1 or npsb = 0
-    $bankToBankToday = $bank->transactions()
-        ->where('transaction_type', 'debit')
-        ->whereDate('created_at', $today)
-        ->where('npsb', 0) // where npsb is 0 or not 1
-        ->sum('amount');
+        // Get the sum of debits for today where npsb is not 1 or npsb = 0
+        $bankToBankToday = $bank->transactions()
+            ->where('transaction_type', 'debit')
+            ->whereDate('created_at', $today)
+            ->where('npsb', 0) // where npsb is 0 or not 1
+            ->sum('amount');
 
-    // Get the sum of debits for today where npsb is 1
-    $npsbToday = $bank->transactions()
-        ->where('transaction_type', 'debit')
-        ->whereDate('created_at', $today)
-        ->where('npsb', 1) // npsb is 1
-        ->sum('amount');
+        // Get the sum of debits for today where npsb is 1
+        $npsbToday = $bank->transactions()
+            ->where('transaction_type', 'debit')
+            ->whereDate('created_at', $today)
+            ->where('npsb', 1) // npsb is 1
+            ->sum('amount');
 
-    // Get the sum of debits for today where npsb is 1 (This Month)
-    $npsbThisMonthTotal = $bank->transactions()
-        ->where('transaction_type', 'debit')
-        ->whereDate('created_at', $today)
-        ->where('npsb', 1) // npsb is 1
-        ->sum('amount');
+        // Get the sum of debits for today where npsb is 1 (This Month)
+        $npsbThisMonthTotal = $bank->transactions()
+            ->where('transaction_type', 'debit')
+            ->whereDate('created_at', $today)
+            ->where('npsb', 1) // npsb is 1
+            ->sum('amount');
 
-    // Retrieve all transactions for the bank (for display in the table)
-    $transactions = $bank->transactions()->latest()->paginate(10);
+        // Retrieve all transactions for the bank (for display in the table)
+        $transactions = $bank->transactions()->latest()->paginate(10);
 
-    // Return the view with the data
-    return view('banks.show', compact(
-        'bank',
-        'transactions',
-        'netTotalBalance',
-        'bankToBankMonth',
-        'npsbThisMonth',
-        'bankToBankToday',
-        'npsbToday',  // Added npsbToday
-        'npsbThisMonthTotal',
-        'totalCreditsMonth',
-    ));
-}
-
-
-
-
-
+        // Return the view with the data
+        return view('banks.show', compact(
+            'bank',
+            'transactions',
+            'netTotalBalance',
+            'bankToBankMonth',
+            'npsbThisMonth',
+            'bankToBankToday',
+            'npsbToday',  // Added npsbToday
+            'npsbThisMonthTotal',
+            'totalCreditsMonth',
+        ));
+    }
     public function destroy(Bank $bank)
     {
         // Check if there are any transactions related to this bank
@@ -239,35 +235,28 @@ class BankController extends Controller
         $request->validate([
             'amount' => 'required|numeric|min:0.01',
             'notes' => 'nullable|string|max:255',
-            'transaction_date' => 'nullable|date_format:d/m/Y|before_or_equal:today',  // Validate date format (DD/MM/YYYY)
+            'transaction_date' => 'nullable',  // Validate date format (DD/MM/YYYY)
         ]);
 
         $withdrawAmount = $request->amount;
-
-        // Get transaction date, default to current date if not provided
-        $transactionDate = $request->transaction_date
-            ? Carbon::createFromFormat('d/m/Y', $request->transaction_date)->format('Y-m-d')  // Convert to 'YYYY-MM-DD'
-            : now()->format('Y-m-d');  // Use current date if not provided
 
         // Check if the bank has sufficient balance
         if ($bank->balance < $withdrawAmount) {
             return redirect()->back()->withErrors(['amount' => 'Insufficient balance in the bank account.']);
         }
-
-
+        
         BankTransaction::create([
             'bank_id' => $bank->id,
             'transaction_type' => 'debit',
             'amount' => $withdrawAmount,
             'transaction_description' => $request->transaction_description ?? 'Bank Withdraw',
-            'transaction_date' => $transactionDate,  // Use the formatted date
+            'transaction_date' => $request->transaction_date,  // Use the formatted date
             'transaction_purpose' => 'withdraw',  // Use the formatted date
             'created_by_user_id' => Auth::id(),
         ]);
 
         return redirect()->route('banks.index')->with('success', 'Amount withdrawn successfully.');
     }
-
 
     public function depositForm($bankId)
     {
@@ -279,30 +268,25 @@ class BankController extends Controller
     {
         $request->validate([
             'amount' => 'required|numeric|min:0.01',
-            'transaction_date' => 'nullable|date_format:d/m/Y|before_or_equal:today',  // Validate date format (DD/MM/YYYY)
+            'transaction_date' => 'nullable',  // Validate date format (DD/MM/YYYY)
             'transaction_description' => 'nullable|string|max:255',  // Validate transaction description is optional and a string
         ]);
-
+    
         $bank = Bank::findOrFail($bankId);
         $depositAmount = $request->amount;
-
-        // Get transaction date, default to current date if not provided
-        $transactionDate = $request->transaction_date
-            ? Carbon::createFromFormat('d/m/Y', $request->transaction_date)->format('Y-m-d')  // Convert to 'YYYY-MM-DD'
-            : now()->format('Y-m-d');  // Use current date if not provided
-
+    
         // Record the transaction in BankTransaction model
         $bank->transactions()->create([
             'transaction_type' => 'credit', // Deposit is a credit transaction
             'amount' => $depositAmount,
             'transaction_description' => $request->transaction_description ?? 'Bank Deposit',
-            'transaction_date' => $transactionDate,  // Use the formatted date
-            'transaction_purpose' => 'deposit',  // Use the formatted date
+            'transaction_date' => $request->transaction_date,
+            'transaction_purpose' => 'deposit',
             'created_by_user_id' => auth()->id(),
         ]);
-
+    
         return redirect()->route('banks.index')->with('success', 'Deposit completed successfully.');
     }
-
-
+    
+    
 }

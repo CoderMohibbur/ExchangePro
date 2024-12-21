@@ -152,7 +152,6 @@
                                     <option value="canceled">Canceled</option>
                                 </select>
                             </div>
-
                         </div>
 
                         <!-- Submit Button -->
@@ -198,7 +197,8 @@
                     @csrf
                     <div class=" grid grid-cols-2 gap-4">
                         <!-- First Name -->
-                        <div class="col-span-2">
+                        {{-- <div class="col-span-2"> --}}
+                        <div>
                             <label for="first_name" class="block text-gray-700 dark:text-gray-300">Full Name:</label>
                             <input type="text" name="first_name" id="first_name"
                                 class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm"
@@ -258,26 +258,26 @@
                         </div>
 
                         <!-- Username -->
-                        <div>
+                        {{-- <div>
                             <label for="username" class="block text-gray-700 dark:text-gray-300">Username:</label>
                             <input type="text" name="username" id="username"
                                 class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm">
-                        </div>
+                        </div> --}}
 
                         <!-- Password -->
-                        <div>
+                        {{-- <div>
                             <label for="password" class="block text-gray-700 dark:text-gray-300">Password:</label>
                             <input type="password" name="password" id="password"
                                 class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm">
-                        </div>
+                        </div> --}}
 
                         <!-- Confirm Password -->
-                        <div>
+                        {{-- <div>
                             <label for="password_confirmation" class="block text-gray-700 dark:text-gray-300">Confirm
                                 Password:</label>
                             <input type="password" name="password_confirmation" id="password_confirmation"
                                 class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm">
-                        </div>
+                        </div> --}}
 
                         <!-- Active Status -->
                         <div>
@@ -328,7 +328,7 @@
                     if (data.success) {
                         // Close the modal
                         document.querySelector('[data-modal-toggle="createUserdefaultModal"]')
-                    .click(); // Manually trigger closing
+                            .click(); // Manually trigger closing
 
                         // Select the newly created user in the dropdown
                         // let userDropdown = document.getElementById('user_id');
@@ -338,11 +338,11 @@
                         // userDropdown.appendChild(option);
                         // userDropdown.value = data.data.id; // Select the newly created user
 
-                         // Set the first_name in the input field
-                    document.getElementById('user_search').value = data.data.first_name;
+                        // Set the first_name in the input field
+                        document.getElementById('user_search').value = data.data.first_name;
 
-                    // Set the user_id in the hidden field
-                    document.getElementById('user_id').value = data.data.id;
+                        // Set the user_id in the hidden field
+                        document.getElementById('user_id').value = data.data.id;
 
                         // Optionally, display a success message
                         alert('User created successfully');
@@ -479,16 +479,43 @@
             if (bankId) document.getElementById('bank_id').dispatchEvent(new Event('change'));
             if (currencyId) document.getElementById('currency_id').dispatchEvent(new Event('change'));
         });
-    </script>
-    {{-- <script>
-        // Listen for input changes in the "first_name" field and update "full_name" accordingly
-        document.getElementById('first_name').addEventListener('input', function() {
-            // Get the value of "first_name"
-            var firstName = this.value;
-    
-            // Set the value of "full_name" to the same as "first_name"
-            document.getElementById('full_name').value = firstName;
-        });
-    </script> --}}
 
+        document.getElementById('exchange_type').addEventListener('change', function () {
+    const exchangeType = this.value;
+    const bankTransactionFeeField = document.getElementById('bank_transaction_fee');
+
+    if (exchangeType === 'sell') {
+        bankTransactionFeeField.innerHTML = `
+            <option value="0" selected>No Fee</option>
+        `;
+        bankTransactionFeeField.value = 0;
+        bankTransactionFeeField.setAttribute('disabled', true); // Disable the field
+    } else {
+        bankTransactionFeeField.removeAttribute('disabled'); // Enable the field
+        const bankId = document.getElementById('bank_id').value; // Get selected bank
+        if (bankId) {
+            fetch(`/get-bank-fees/${bankId}`)
+                .then(response => response.json())
+                .then(data => {
+                    bankTransactionFeeField.innerHTML = `
+                        <option value="${data.npsb_fee}">NPSB Fee (${data.npsb_fee})</option>
+                        <option value="${data.eft_beftn_fee}">EFT/BEFTN Fee (${data.eft_beftn_fee})</option>
+                        <option value="0">No Fee</option>
+                    `;
+                    bankTransactionFeeField.value = data.npsb_fee; // Default to NPSB Fee
+                });
+        }
+    }
+});
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const exchangeType = document.getElementById('exchange_type').value;
+            const bankTransactionFeeField = document.getElementById('bank_transaction_fee');
+
+            if (exchangeType === 'sell') {
+                bankTransactionFeeField.value = 0;
+                bankTransactionFeeField.setAttribute('disabled', true);
+            }
+        });
+    </script>
 </x-app-layout>

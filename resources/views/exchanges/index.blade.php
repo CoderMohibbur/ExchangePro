@@ -121,9 +121,9 @@
                                                 class="px-4 py-1 text-sm font-semibold text-green-500 border border-green-500 rounded hover:bg-green-500 hover:text-white dark:hover:bg-green-700 dark:hover:border-green-700 dark:border-green-500 dark:text-green-400 transition duration-200">
                                                 <i class="las la-money-bill"></i> Pay
                                             </a>
-                                            {{-- <a href="{{ route('exchanges.edit', $exchange->id) }}" class="px-4 py-1 text-sm font-semibold text-yellow-500 border border-yellow-500 rounded hover:bg-yellow-500 hover:text-white dark:hover:bg-yellow-700 dark:hover:border-yellow-700 dark:border-yellow-500 dark:text-yellow-400 transition duration-200">
+                                            <a href="{{ route('exchanges.edit', $exchange->id) }}" class="px-4 py-1 text-sm font-semibold text-yellow-500 border border-yellow-500 rounded hover:bg-yellow-500 hover:text-white dark:hover:bg-yellow-700 dark:hover:border-yellow-700 dark:border-yellow-500 dark:text-yellow-400 transition duration-200">
                                                 <i class="las la-edit"></i> Edit
-                                            </a> --}}
+                                            </a>
                                             <form action="{{ route('exchanges.destroy', $exchange->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this exchange?');">
                                                 @csrf
                                                 @method('DELETE')

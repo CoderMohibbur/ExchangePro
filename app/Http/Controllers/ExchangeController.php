@@ -92,9 +92,10 @@ class ExchangeController extends Controller
             'fixed_currency_fee' => $validated['fixed_currency_fee'] ?? 0,
             'percent_currency_fee' => $validated['currency_transaction_fee'] ?? 0,
         ]);
-        if ($validated['bank_transaction_fee'] > 0 || $validated['npsb_fee'] > 0) {
-            $this->createFeeBankTransaction($exchange);
-        }
+            // Only create bank transaction if fees are greater than zero
+    if (($validated['bank_transaction_fee'] ?? 0) > 0 || ($validated['npsb_fee'] ?? 0) > 0) {
+        $this->createFeeBankTransaction($exchange);
+    }
 
         return redirect()->route('exchanges.index')->with('success', 'Exchange created successfully.');
     }

@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .active {
     @apply text-blue-500 ; /* Light mode active styling */
 }
