@@ -107,7 +107,7 @@
                                 @enderror
                             </div>
                             <!-- Transaction Description -->
-                            <div>
+                            <div class="mb-4">
                                 <label for="transaction_description" class="block text-gray-700 dark:text-gray-300">Transaction
                                     Description:</label>
                                 <textarea name="transaction_description" id="transaction_description" rows="3"
@@ -116,7 +116,6 @@
                                     <p class="text-red-600 mt-1">{{ $message }}</p>
                                 @enderror
                             </div>
-
                         </div>
                         <!-- Submit Button -->
                         <button type="submit"

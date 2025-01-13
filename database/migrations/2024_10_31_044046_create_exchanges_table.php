@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('seller_name')->nullable(); // Seller's name (for buy exchanges)
             $table->string('buyer_name')->nullable(); // Buyer's name (for sell exchanges)
             $table->foreignId('currency_id')->constrained()->onDelete('cascade'); // Reference to currencies table
+            $table->decimal('orginal_quantity', 15, 2); // Quantity in currency
             $table->decimal('quantity', 15, 2); // Quantity in currency
             $table->decimal('rate', 10, 2); // Rate per unit
             $table->decimal('total_amount', 15, 2); // Total calculated amount

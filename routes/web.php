@@ -47,6 +47,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/exchanges/{exchange}/payment', [ExchangeController::class, 'completePartialPayment'])->name('exchanges.completePartialPayment');
 
     Route::get('/exchanges/currencies', [ExchangeController::class, 'currencies'])->name('exchanges.currencies');
+    Route::get('/exchanges/buy', [ExchangeController::class, 'buyDollar'])->name('exchanges.buy');
+    Route::post('/exchanges/buy-dollar-store', [ExchangeController::class, 'buyDollarStore'])->name('exchanges.buyDollarStore');
+    Route::post('/exchanges/sell-dollar-store', [ExchangeController::class, 'sellDollarStore'])->name('exchanges.sellDollarStore');
+    Route::get('/exchanges/sell', [ExchangeController::class, 'sellDollar'])->name('exchanges.sell');
     Route::resource('exchanges', ExchangeController::class);
 
     Route::resource('companies', CompanyController::class);

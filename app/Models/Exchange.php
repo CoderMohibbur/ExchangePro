@@ -16,7 +16,8 @@ class Exchange extends Model
         'seller_name',
         'buyer_name',
         'currency_id',
-        'quantity',
+        'orginal_quantity', // Full buying or salling dollar
+        'quantity', // buying or salling dollar after currency fixed or percent fee 
         'rate',
         'total_amount',
         'paid_to_seller_bdt',
@@ -25,10 +26,10 @@ class Exchange extends Model
         'status',
         'user_id',
         'payment_status',
-        'npsb_fee',  // NPSB Fee
-        'eft_beftn_fee', // EFT/BEFTN Fee
-        'fixed_currency_fee', // Fixed Currency Fee
-        'percent_currency_fee', // Percentage Currency Fee
+        'npsb_fee',  // NPSB Fee for bank
+        'eft_beftn_fee', // EFT/BEFTN Fee for bank
+        'fixed_currency_fee', // Fixed Currency Fee for dollar
+        'percent_currency_fee', // Percentage Currency Fee for dollar
     ];
 
     /**
@@ -169,13 +170,13 @@ class Exchange extends Model
             BankTransaction::create([
                 'bank_id' => $this->bank_id,
                 'exchange_id' => $this->id,
-                'transaction_type' => 'debit', // or 'credit'
+                'transaction_type' => 'credit', // or 'credit'
                 'amount' => $this->paid_to_seller_bdt,
                 'buyer_or_seller_user_id' => $this->user_id,
                 'transaction_date' => now(),
-                'transaction_description' => 'Buy Exchange', // or 'Sell Exchange'
+                'transaction_description' => 'Sell Exchange', // or 'Sell Exchange'
                 'transaction_status' => 'completed',
-                'transaction_purpose' => 'dollar_buy', // or 'dollar_sale'
+                'transaction_purpose' => 'dollar_sale', // or 'dollar_sale'
                 'created_by_user_id' => auth()->id(),
                 'updated_by_user_id' => null,
                 'npsb' => $npsb,

@@ -8,31 +8,63 @@
 
     <div class="p-4 sm:ml-64">
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
-            <div class="container mx-auto px-4 py-4">
-                <div class="rounded-lg shadow-lg bg-white dark:bg-gray-800">
+            <div class="container mx-auto">
+                <div class="rounded-lg shadow-lg bg-white dark:bg-gray-900">
                     <x-toast-success />
                     <x-toast-danger />
                     <x-toast-warning />
-                    <div class="flex justify-between p-4">
+                    <div class="flex justify-between p-4 items-center">
                         <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Banks</h2>
                         <a href="{{ route('banks.create') }}"
                             class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 transition">
                             Add New Bank
                         </a>
                     </div>
-                    <div class="overflow-x-auto">
-                        <table
-                            class="w-full min-w-max table-auto bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200">
-                            <thead class="bg-gray-100 dark:bg-gray-700">
+                    <div class="sm:px-5 px-0">
+                        <table id="bank-table"
+                            class="w-full min-w-max table-auto bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-700 rounded-lg">
+                            <thead>
                                 <tr>
-                                    <th class="px-4 py-2 text-left font-semibold">Bank Name</th>
-                                    <th class="px-4 py-2 text-left font-semibold">Beneficiary Name</th>
-                                    <th class="px-4 py-2 text-left font-semibold">Account Number</th>
-                                    {{-- <th class="px-4 py-2 text-left font-semibold">Account Type</th>
-                                    <th class="px-4 py-2 text-left font-semibold">Routing</th>
-                                    <th class="px-4 py-2 text-left font-semibold">Bank Address</th> --}}
-                                    <th class="px-4 py-2 text-center font-semibold">Total Balance (BDT)</th>
-                                    <th class="px-4 py-2 text-center font-semibold">Actions</th>
+                                    <th>
+                                        <span class="flex items-center">
+                                             Bank Name
+                                             <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4"/>
+                                            </svg>
+                                        </span>
+                                    </th>
+                                    <th>
+                                        <span class="flex items-center">
+                                            Beneficiary Name
+                                             <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4"/>
+                                            </svg>
+                                        </span>
+                                    </th>
+                                    <th>
+                                        <span class="flex items-center">
+                                            Account Number
+                                             <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4"/>
+                                            </svg>
+                                        </span>
+                                    </th>
+                                    <th>
+                                        <span class="flex items-center">
+                                            Total Balance (BDT)
+                                             <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4"/>
+                                            </svg>
+                                        </span>
+                                    </th>
+                                    {{-- <th>Account Type</th>
+                                    <th>Routing</th>
+                                    <th>Bank Address</th> --}}
+                                    <th class=" text-center">
+                                        <span>
+                                            Actions
+                                        </span>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -103,6 +135,7 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.4"></script>
 
     <!-- JavaScript for Copying Info -->
     <script>
@@ -126,5 +159,13 @@
             // Alert the user
             alert('Bank information copied to clipboard!');
         }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const dataTable = new simpleDatatables.DataTable("#bank-table", {
+                searchable: true,
+                sortable: true
+            });
+        });
+
     </script>
 </x-app-layout>

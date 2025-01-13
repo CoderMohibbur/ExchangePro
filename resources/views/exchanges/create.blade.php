@@ -130,16 +130,21 @@
                             </div>
 
                             <!-- Currency Transaction Fees -->
+                            <!-- Currency Transaction Fees -->
                             <div id="currency_transaction_fees" class="">
-                                <label for="currency_transaction_fee"
+                                <label for="currency_transaction_fee_input"
                                     class="block text-gray-700 dark:text-gray-300">Currency Transaction Fee:</label>
-                                <select name="currency_transaction_fee" id="currency_transaction_fee"
-                                    class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm">
-                                    <option value="">Select Currency Transaction Fee</option>
-                                    <option value="fixed_currency_fee">Fixed Currency Fee</option>
-                                    <option value="percent_currency_fee">Percentage Currency Fee</option>
-                                </select>
+                                <input list="currency_transaction_fee_list" id="currency_transaction_fee_input"
+                                    name="currency_transaction_fee"
+                                    class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm"
+                                    placeholder="Select or type fee">
+                                <datalist id="currency_transaction_fee_list">
+                                    <option value="No Fee"></option>
+                                    <option value="Fixed Currency Fee"></option>
+                                    <option value="Percentage Currency Fee"></option>
+                                </datalist>
                             </div>
+
                             <!-- Exchange Status -->
                             <div>
                                 <label for="exchange_status" class="block text-gray-700 dark:text-gray-300">Exchange
@@ -219,10 +224,17 @@
                                 required>
                         </div> --}}
 
-                        <!-- Email -->
+                        {{-- <!-- Email -->
                         <div>
                             <label for="email" class="block text-gray-700 dark:text-gray-300">Email:</label>
                             <input type="email" name="email" id="email"
+                                class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm">
+                        </div> --}}
+
+                        <!-- Username -->
+                        <div>
+                            <label for="username" class="block text-gray-700 dark:text-gray-300">Username:</label>
+                            <input type="text" name="username" id="username"
                                 class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm">
                         </div>
 
@@ -233,6 +245,7 @@
                             <input type="text" name="phone_number" id="phone_number"
                                 class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm">
                         </div>
+
 
                         <!-- Role -->
                         <div>
@@ -257,12 +270,7 @@
                             </select>
                         </div>
 
-                        <!-- Username -->
-                        {{-- <div>
-                            <label for="username" class="block text-gray-700 dark:text-gray-300">Username:</label>
-                            <input type="text" name="username" id="username"
-                                class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm">
-                        </div> --}}
+
 
                         <!-- Password -->
                         {{-- <div>
@@ -280,7 +288,7 @@
                         </div> --}}
 
                         <!-- Active Status -->
-                        <div>
+                        <div class="mb-4">
                             <label for="active_status" class="block text-gray-700 dark:text-gray-300">Status:</label>
                             <select name="active_status" id="active_status"
                                 class="form-control w-full mt-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-md shadow-sm">
@@ -290,14 +298,14 @@
                         </div>
 
                         <!-- Allow Login Checkbox -->
-                        <div class="mb-4">
+                        {{-- <div class="mb-4">
                             <label for="allow_login"
                                 class="inline-flex items-center text-gray-700 dark:text-gray-300">
                                 <input type="checkbox" id="allow_login" name="allow_login"
                                     class="form-checkbox h-4 w-4 text-blue-500 dark:text-blue-400">
                                 <span class="ml-2">Allow User Login?</span>
                             </label>
-                        </div>
+                        </div> --}}
                     </div>
                     <!-- Submit Button -->
                     <button type="submit"
@@ -377,6 +385,7 @@
             const rate = parseFloat(document.getElementById('rate').value) || 0;
             const totalAmount = quantity * rate;
             document.getElementById('total_amount').value = totalAmount.toFixed(2);
+            document.getElementById('paid_to_seller_bdt').value = totalAmount.toFixed(2);
         }
 
         function updatePaymentStatus() {
@@ -462,15 +471,23 @@
                 fetch(`/get-currency-fees/${currencyId}`)
                     .then(response => response.json())
                     .then(data => {
-                        const currencyFeesDropdown = document.getElementById('currency_transaction_fee');
-                        currencyFeesDropdown.innerHTML = `
+                        const currencyFeesList = document.getElementById('currency_transaction_fee_list');
+                        const currencyFeesInput = document.getElementById('currency_transaction_fee_input');
+
+                        // Populate datalist options dynamically using the preferred structure
+                        currencyFeesList.innerHTML = `
                             <option value="0">No Fee</option>
                             <option value="${data.percent_charge_for_sell}">Percentage Currency Fee (${data.percent_charge_for_sell}%)</option>
                             <option value="${data.fixed_charge_for_sell}">Fixed Currency Fee (${data.fixed_charge_for_sell})</option>
                         `;
+
+                        // Set "No Fee" as the default value in the input field
+                        currencyFeesInput.value = "0";
                     });
             }
         });
+
+
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -480,33 +497,33 @@
             if (currencyId) document.getElementById('currency_id').dispatchEvent(new Event('change'));
         });
 
-        document.getElementById('exchange_type').addEventListener('change', function () {
-    const exchangeType = this.value;
-    const bankTransactionFeeField = document.getElementById('bank_transaction_fee');
+        document.getElementById('exchange_type').addEventListener('change', function() {
+            const exchangeType = this.value;
+            const bankTransactionFeeField = document.getElementById('bank_transaction_fee');
 
-    if (exchangeType === 'sell') {
-        bankTransactionFeeField.innerHTML = `
+            if (exchangeType === 'sell') {
+                bankTransactionFeeField.innerHTML = `
             <option value="0" selected>No Fee</option>
         `;
-        bankTransactionFeeField.value = 0;
-        bankTransactionFeeField.setAttribute('disabled', true); // Disable the field
-    } else {
-        bankTransactionFeeField.removeAttribute('disabled'); // Enable the field
-        const bankId = document.getElementById('bank_id').value; // Get selected bank
-        if (bankId) {
-            fetch(`/get-bank-fees/${bankId}`)
-                .then(response => response.json())
-                .then(data => {
-                    bankTransactionFeeField.innerHTML = `
+                bankTransactionFeeField.value = 0;
+                bankTransactionFeeField.setAttribute('disabled', true); // Disable the field
+            } else {
+                bankTransactionFeeField.removeAttribute('disabled'); // Enable the field
+                const bankId = document.getElementById('bank_id').value; // Get selected bank
+                if (bankId) {
+                    fetch(`/get-bank-fees/${bankId}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            bankTransactionFeeField.innerHTML = `
                         <option value="${data.npsb_fee}">NPSB Fee (${data.npsb_fee})</option>
                         <option value="${data.eft_beftn_fee}">EFT/BEFTN Fee (${data.eft_beftn_fee})</option>
                         <option value="0">No Fee</option>
                     `;
-                    bankTransactionFeeField.value = data.npsb_fee; // Default to NPSB Fee
-                });
-        }
-    }
-});
+                            bankTransactionFeeField.value = data.npsb_fee; // Default to NPSB Fee
+                        });
+                }
+            }
+        });
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', function() {
             const exchangeType = document.getElementById('exchange_type').value;

@@ -5,14 +5,14 @@
 
     <div class="p-4 sm:ml-64">
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
-            <div class="container mx-auto px-4 py-4">
-                <div class="rounded-lg shadow-lg bg-white dark:bg-gray-800">
+            <div class="container mx-auto">
+                <div class="rounded-lg shadow-lg bg-white dark:bg-gray-900">
                     <x-toast-success />
                     <x-toast-danger />
                     <x-toast-warning />
                     <!-- Search Form and Error Messages -->
-                    <div class="flex justify-between items-center p-4">
-                        <form action="{{ route('blocked-ips.index') }}" method="GET" class="flex space-x-2">
+                    <div class="flex justify-between p-4 items-center">
+                        {{-- <form action="{{ route('blocked-ips.index') }}" method="GET" class="flex space-x-2">
                             <input type="text" name="search" placeholder="Search by IP address"
                                 value="{{ request('search') }}"
                                 class="w-full px-4 py-2 border rounded-md dark:bg-gray-700 dark:text-white dark:border-gray-600" />
@@ -20,7 +20,8 @@
                                 class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 transition">
                                 Search
                             </button>
-                        </form>
+                        </form> --}}
+                        <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Transactions</h2>
                         <button id="defaultModalButton" data-modal-target="defaultModal"
                             data-modal-toggle="defaultModal"
                             class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 transition">
@@ -41,14 +42,28 @@
                     @endif
 
                     <!-- Blocked IPs Table -->
-                    <div class="overflow-x-auto">
-                        <table
-                            class="w-full min-w-max table-auto bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200">
-                            <thead class="bg-gray-100 dark:bg-gray-700">
+                    <div class="sm:px-5 px-0">
+                        <table id="ip-block"
+                            class="w-full min-w-max table-auto bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-700 rounded-lg">
+                            <thead >
                                 <tr>
-                                    <th class="px-4 py-2 text-left font-semibold">IP Address</th>
-                                    <th class="px-4 py-2 text-left font-semibold">Date Blocked</th>
-                                    <th class="px-4 py-2 text-left font-semibold">Actions</th>
+                                    <th>
+                                        <span class="flex items-center">
+                                            IP Address
+                                             <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4"/>
+                                            </svg>
+                                        </span>
+                                    </th>
+                                    <th>
+                                        <span class="flex items-center">
+                                            Date Blocked
+                                             <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4"/>
+                                            </svg>
+                                        </span>
+                                    </th>
+                                    <th class="px-4 py-2 text-center font-semibold">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -56,7 +71,7 @@
                                     <tr class="border-b border-gray-200 dark:border-gray-700">
                                         <td class="px-4 py-3">{{ $blockedIp->ip_address }}</td>
                                         <td class="px-4 py-3">{{ $blockedIp->created_at->format('Y-m-d H:i') }}</td>
-                                        <td class="px-4 py-3">
+                                        <td class="px-4 py-3 flex space-x-2 justify-center">
                                             <!-- Add any action buttons here, like delete -->
                                             <form action="{{ route('blocked-ips.destroy', $blockedIp) }}" method="POST"
                                                 class="inline">
@@ -77,8 +92,6 @@
             </div>
         </div>
     </div>
-
-
 
     <!-- Modal toggle -->
     <div id="defaultModal" tabindex="-1" aria-hidden="true"
@@ -127,4 +140,13 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.4"></script>
+    <script>
+            document.addEventListener("DOMContentLoaded", () => {
+            const dataTable = new simpleDatatables.DataTable("#ip-block", {
+                searchable: true,
+                sortable: true
+            });
+        });
+    </script>
 </x-app-layout>

@@ -15,21 +15,27 @@ class ExchangeController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Exchange::with(['currency', 'user']);
-
-        if ($request->filled('search')) {
-            $search = $request->input('search');
-            $query->whereHas('user', function ($q) use ($search) {
-                $q->where('full_name', 'like', "%{$search}%")
-                    ->orWhere('username', 'like', "%{$search}%");
-            })
-                ->orWhere('id', 'like', "%{$search}%");
-        }
-
-        $exchanges = $query->paginate(10);
+        $exchanges = Exchange::all();
 
         return view('exchanges.index', compact('exchanges'));
     }
+    // public function index(Request $request)
+    // {
+    //     $query = Exchange::with(['currency', 'user']);
+
+    //     if ($request->filled('search')) {
+    //         $search = $request->input('search');
+    //         $query->whereHas('user', function ($q) use ($search) {
+    //             $q->where('full_name', 'like', "%{$search}%")
+    //                 ->orWhere('username', 'like', "%{$search}%");
+    //         })
+    //             ->orWhere('id', 'like', "%{$search}%");
+    //     }
+
+    //     $exchanges = $query->paginate(20);
+
+    //     return view('exchanges.index', compact('exchanges'));
+    // }
 
     public function create()
     {
@@ -43,6 +49,7 @@ class ExchangeController extends Controller
     public function store(Request $request)
     {
         // Validate incoming request data
+       // Validate incoming request data
         $validated = $request->validate([
             'exchange_type' => 'required|in:buy,sell',
             'user_id' => 'required|exists:users,id',
@@ -58,8 +65,24 @@ class ExchangeController extends Controller
             'percent_currency_fee' => 'nullable|numeric|min:0', // Optional percentage currency fee
             'bank_transaction_fee' => 'nullable|numeric|min:0', // Optional percentage currency fee
             'currency_transaction_fee' => 'nullable|numeric|min:0', // Optional percentage currency fee
-
         ]);
+
+        // Apply fees to adjust the quantity
+        $fixedCurrencyFee = $validated['fixed_currency_fee'] ?? 0;
+        $percentCurrencyFee = ($validated['currency_transaction_fee'] ?? 0) / 100 * $validated['quantity'];
+
+        if ($validated['exchange_type'] === 'buy') {
+            // For Buy, subtract fees from quantity
+            $adjustedQuantity = $validated['quantity'] - ($fixedCurrencyFee + $percentCurrencyFee);
+            
+            // Ensure adjusted quantity is not negative
+            if ($adjustedQuantity < 0) {
+                throw new \Exception('Adjusted quantity cannot be less than zero due to fees.');
+            }
+        } else {
+            // For Sell, the adjusted quantity remains the same
+            $adjustedQuantity = $validated['quantity'];
+        }
 
         // Calculate total amount and due amount
         $totalAmount = $validated['quantity'] * $validated['rate'];
@@ -79,7 +102,8 @@ class ExchangeController extends Controller
             'exchange_type' => $validated['exchange_type'],
             'user_id' => $validated['user_id'],
             'currency_id' => $validated['currency_id'],
-            'quantity' => $validated['quantity'],
+            'orginal_quantity' => $validated['quantity'],
+            'quantity' => $adjustedQuantity, // Use adjusted quantity
             'rate' => $validated['rate'],
             'total_amount' => $totalAmount,
             'status' => $validated['exchange_status'],
@@ -89,13 +113,170 @@ class ExchangeController extends Controller
             'payment_status' => $paymentStatus,
             'npsb_fee' => $validated['bank_transaction_fee'] ?? 0,
             'eft_beftn_fee' => $validated['eft_beftn_fee'] ?? 0,
-            'fixed_currency_fee' => $validated['fixed_currency_fee'] ?? 0,
+            'fixed_currency_fee' => $fixedCurrencyFee,
             'percent_currency_fee' => $validated['currency_transaction_fee'] ?? 0,
         ]);
+
+
             // Only create bank transaction if fees are greater than zero
-    if (($validated['bank_transaction_fee'] ?? 0) > 0 || ($validated['npsb_fee'] ?? 0) > 0) {
-        $this->createFeeBankTransaction($exchange);
+        if (($validated['bank_transaction_fee'] ?? 0) > 0 || ($validated['npsb_fee'] ?? 0) > 0) {
+            $this->createFeeBankTransaction($exchange);
+        }
+
+        return redirect()->route('exchanges.index')->with('success', 'Exchange created successfully.');
     }
+
+    public function buyDollar()
+    {
+        $currencies = Currency::all();
+        $banks = Bank::all();
+        $userTypes = UserType::all();
+        $roles = Role::all();
+        return view('exchanges.buy', compact('currencies', 'banks', 'userTypes', 'roles'));
+    }
+
+    public function buyDollarStore(Request $request)
+    {
+       // Validate incoming request data
+        $validated = $request->validate([
+            'exchange_type' => 'required|in:buy,sell',
+            'user_id' => 'required|exists:users,id',
+            'currency_id' => 'required|exists:currencies,id',
+            'quantity' => 'required|numeric|min:0.01',
+            'rate' => 'required|numeric|min:0.01',
+            'exchange_status' => 'required|in:pending,approved,canceled',
+            'bank_id' => 'required|exists:banks,id', // Add validation for bank_id
+            'paid_to_seller_bdt' => 'nullable|numeric|min:0', // Optional field for initial payment
+            'npsb_fee' => 'nullable|numeric|min:0', // NPSB Fee
+            'eft_beftn_fee' => 'nullable|numeric|min:0', // EFT/BEFTN Fee
+            'fixed_currency_fee' => 'nullable|numeric|min:0', // Optional fixed currency fee
+            'percent_currency_fee' => 'nullable|numeric|min:0', // Optional percentage currency fee
+            'bank_transaction_fee' => 'nullable|numeric|min:0', // Optional percentage currency fee
+            'currency_transaction_fee' => 'nullable|numeric|min:0', // Optional percentage currency fee
+        ]);
+        $exchange_type = 'buy';
+
+        // Apply fees to adjust the quantity
+        $fixedCurrencyFee = $validated['fixed_currency_fee'] ?? 0;
+        $percentCurrencyFee = ($validated['currency_transaction_fee'] ?? 0) / 100 * $validated['quantity'];
+        $adjustedQuantity = $validated['quantity'] - ($fixedCurrencyFee + $percentCurrencyFee);
+     
+        // Calculate total amount and due amount
+        $totalAmount = $validated['quantity'] * $validated['rate'];
+        $paidAmount = $validated['paid_to_seller_bdt'] ?? 0;
+        $dueAmount = $totalAmount - $paidAmount;
+
+        // Determine payment status based on the paid amount
+        $paymentStatus = 'Due';
+        if ($paidAmount >= $totalAmount) {
+            $paymentStatus = 'Paid';
+        } elseif ($paidAmount > 0) {
+            $paymentStatus = 'Partial';
+        }
+
+        // Create the exchange with all required fields, including fees
+        $exchange = Exchange::create([
+            'exchange_type' => $exchange_type,
+            'user_id' => $validated['user_id'],
+            'currency_id' => $validated['currency_id'],
+            'orginal_quantity' => $validated['quantity'],
+            'quantity' => $adjustedQuantity, // Use adjusted quantity
+            'rate' => $validated['rate'],
+            'total_amount' => $totalAmount,
+            'status' => $validated['exchange_status'],
+            'bank_id' => $validated['bank_id'],
+            'paid_to_seller_bdt' => $paidAmount,
+            'due_amount' => $dueAmount,
+            'payment_status' => $paymentStatus,
+            'npsb_fee' => $validated['bank_transaction_fee'] ?? 0,
+            'eft_beftn_fee' => $validated['eft_beftn_fee'] ?? 0,
+            'fixed_currency_fee' => $fixedCurrencyFee,
+            'percent_currency_fee' => $validated['currency_transaction_fee'] ?? 0,
+        ]);
+
+            // Only create bank transaction if fees are greater than zero
+        if (($validated['bank_transaction_fee'] ?? 0) > 0 || ($validated['npsb_fee'] ?? 0) > 0) {
+            $this->createFeeBankTransaction($exchange);
+        }
+
+        return redirect()->route('exchanges.index')->with('success', 'Exchange created successfully.');
+    }
+
+    public function sellDollar()
+    {
+        $currencies = Currency::all();
+        $banks = Bank::all();
+        $userTypes = UserType::all();
+        $roles = Role::all();
+        return view('exchanges.sell', compact('currencies', 'banks', 'userTypes', 'roles'));
+    }
+
+    public function sellDollarStore(Request $request)
+    {
+       // Validate incoming request data
+        $validated = $request->validate([
+            'exchange_type' => 'required|in:buy,sell',
+            'user_id' => 'required|exists:users,id',
+            'currency_id' => 'required|exists:currencies,id',
+            'quantity' => 'required|numeric|min:0.01',
+            'rate' => 'required|numeric|min:0.01',
+            'exchange_status' => 'required|in:pending,approved,canceled',
+            'bank_id' => 'required|exists:banks,id', // Add validation for bank_id
+            'paid_to_seller_bdt' => 'nullable|numeric|min:0', // Optional field for initial payment
+            'npsb_fee' => 'nullable|numeric|min:0', // NPSB Fee
+            'eft_beftn_fee' => 'nullable|numeric|min:0', // EFT/BEFTN Fee
+            'fixed_currency_fee' => 'nullable|numeric|min:0', // Optional fixed currency fee
+            'percent_currency_fee' => 'nullable|numeric|min:0', // Optional percentage currency fee
+            'bank_transaction_fee' => 'nullable|numeric|min:0', // Optional percentage currency fee
+            'currency_transaction_fee' => 'nullable|numeric|min:0', // Optional percentage currency fee
+        ]);
+
+        $exchange_type = 'sell';
+        
+        // Apply fees to adjust the quantity
+        $fixedCurrencyFee = $validated['fixed_currency_fee'] ?? 0;
+        $percentCurrencyFee = ($validated['currency_transaction_fee'] ?? 0) / 100 * $validated['quantity'];
+
+        $adjustedQuantity = $validated['quantity'];
+
+        // Calculate total amount and due amount
+        $totalAmount = $validated['quantity'] * $validated['rate'];
+        $paidAmount = $validated['paid_to_seller_bdt'] ?? 0;
+        $dueAmount = $totalAmount - $paidAmount;
+
+        // Determine payment status based on the paid amount
+        $paymentStatus = 'Due';
+        if ($paidAmount >= $totalAmount) {
+            $paymentStatus = 'Paid';
+        } elseif ($paidAmount > 0) {
+            $paymentStatus = 'Partial';
+        }
+
+        // Create the exchange with all required fields, including fees
+        $exchange = Exchange::create([
+            'exchange_type' => $exchange_type,
+            'user_id' => $validated['user_id'],
+            'currency_id' => $validated['currency_id'],
+            'orginal_quantity' => $validated['quantity'],
+            'quantity' => $adjustedQuantity, // Use adjusted quantity
+            'rate' => $validated['rate'],
+            'total_amount' => $totalAmount,
+            'status' => $validated['exchange_status'],
+            'bank_id' => $validated['bank_id'],
+            'paid_to_seller_bdt' => $paidAmount,
+            'due_amount' => $dueAmount,
+            'payment_status' => $paymentStatus,
+            'npsb_fee' => $validated['bank_transaction_fee'] ?? 0,
+            'eft_beftn_fee' => $validated['eft_beftn_fee'] ?? 0,
+            'fixed_currency_fee' => $fixedCurrencyFee,
+            'percent_currency_fee' => $validated['currency_transaction_fee'] ?? 0,
+        ]);
+
+
+            // Only create bank transaction if fees are greater than zero
+        if (($validated['bank_transaction_fee'] ?? 0) > 0 || ($validated['npsb_fee'] ?? 0) > 0) {
+            $this->createFeeBankTransaction($exchange);
+        }
 
         return redirect()->route('exchanges.index')->with('success', 'Exchange created successfully.');
     }
@@ -238,11 +419,12 @@ class ExchangeController extends Controller
         } catch (\Exception $e) {
             dd($e->getMessage()); // Debugging any exceptions during BankTransaction creation
         }
+                    // Only create bank transaction if fees are greater than zero
+        if (($validated['bank_transaction_fee'] ?? 0) > 0 || ($validated['npsb_fee'] ?? 0) > 0) {
+            $this->createFeeBankTransaction($exchange);
+        }
 
         return redirect()->route('exchanges.index')->with('success', 'Additional payment recorded and bank transaction completed successfully.');
     }
-
-
-
 
 }

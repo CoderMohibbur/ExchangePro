@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use App\Models\Currency;
 
 class CurrencySeeder extends Seeder
@@ -60,11 +61,7 @@ class CurrencySeeder extends Seeder
             // Add more currencies as needed
         ];
 
-        foreach ($currencies as $currency) {
-            Currency::firstOrCreate(
-                ['code' => $currency['code']], // Prevent duplicates using unique field
-                $currency
-            );
-        }
+        DB::table('currencies')->insert($currencies);
+        
     }
 }

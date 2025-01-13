@@ -37,7 +37,9 @@ export default {
         },
     },
     plugins: [
-        forms, // Tailwind CSS forms plugin
-        flowbite, // Flowbite plugin
+        require('@tailwindcss/forms'), // Tailwind CSS forms plugin
+        require('flowbite/plugin')({
+            datatables: true, // Enable DataTables support
+        }),
     ],
 };
