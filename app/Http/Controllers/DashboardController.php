@@ -32,6 +32,7 @@ class DashboardController extends Controller
         $totalBankBalance = Bank::sum('balance');
 
         $banks = Bank::all();
+
         $currencies = Currency::all();
 
         return view('dashboard', compact(
@@ -106,48 +107,48 @@ class DashboardController extends Controller
         // $totalProfitTodayInBDT = ($totalQuantitySoldToday * $averageSellRate) - $totalPurchaseCostForSoldDollarsToday - $totalBankFeesToday;
 
 
-    //     // Today's date
-    //     $totalProfitTodayInBDT = DB::table('exchanges')
-    //         ->selectRaw("
-    //     ROUND(
-    //         (
-    //             SUM(CASE WHEN exchange_type = 'sell' THEN total_amount ELSE 0 END)
-    //             -
-    //             SUM(
-    //                 CASE 
-    //                     WHEN exchange_type = 'buy' THEN 
-    //                         ROUND(total_amount, 2) 
-    //                         + ROUND(npsb_fee, 2) 
-    //                         + ROUND(eft_beftn_fee, 2) 
-    //                         + ROUND(fixed_currency_fee, 2) 
-    //                     ELSE 0 
-    //                 END
-    //             )
-    //         ), 2
-    //     ) AS profit
-    // ")
-    //         ->whereDate('date_time', Carbon::today())
-    //         ->value('profit');
+        //     // Today's date
+        //     $totalProfitTodayInBDT = DB::table('exchanges')
+        //         ->selectRaw("
+        //     ROUND(
+        //         (
+        //             SUM(CASE WHEN exchange_type = 'sell' THEN total_amount ELSE 0 END)
+        //             -
+        //             SUM(
+        //                 CASE 
+        //                     WHEN exchange_type = 'buy' THEN 
+        //                         ROUND(total_amount, 2) 
+        //                         + ROUND(npsb_fee, 2) 
+        //                         + ROUND(eft_beftn_fee, 2) 
+        //                         + ROUND(fixed_currency_fee, 2) 
+        //                     ELSE 0 
+        //                 END
+        //             )
+        //         ), 2
+        //     ) AS profit
+        // ")
+        //         ->whereDate('date_time', Carbon::today())
+        //         ->value('profit');
 
-    // $totalProfitTodayInBDT = DB::table('exchanges')
-    // ->selectRaw("
-    //     ROUND(
-    //         SUM(CASE WHEN exchange_type = 'sell' THEN total_amount ELSE 0 END)
-    //         -
-    //         SUM(CASE WHEN exchange_type = 'buy' THEN 
-    //             (orginal_quantity * 
-    //             (ROUND(total_amount / orginal_quantity, 2) + 
-    //             ROUND(npsb_fee / orginal_quantity, 2) + 
-    //             ROUND(eft_beftn_fee / orginal_quantity, 2) + 
-    //             ROUND(fixed_currency_fee / orginal_quantity, 2))) 
-    //             ELSE 0 END)
-    //         , 2
-    //     ) AS profit
-    // ")
-    // ->whereDate('date_time', Carbon::today())
-    // ->value('profit');
+        // $totalProfitTodayInBDT = DB::table('exchanges')
+        // ->selectRaw("
+        //     ROUND(
+        //         SUM(CASE WHEN exchange_type = 'sell' THEN total_amount ELSE 0 END)
+        //         -
+        //         SUM(CASE WHEN exchange_type = 'buy' THEN 
+        //             (orginal_quantity * 
+        //             (ROUND(total_amount / orginal_quantity, 2) + 
+        //             ROUND(npsb_fee / orginal_quantity, 2) + 
+        //             ROUND(eft_beftn_fee / orginal_quantity, 2) + 
+        //             ROUND(fixed_currency_fee / orginal_quantity, 2))) 
+        //             ELSE 0 END)
+        //         , 2
+        //     ) AS profit
+        // ")
+        // ->whereDate('date_time', Carbon::today())
+        // ->value('profit');
 
-    // Calculate total profit from sold dollars based on matching purchases
+        // Calculate total profit from sold dollars based on matching purchases
 // $totalProfitTodayInBDT = DB::table('exchanges as sell')
 //     ->selectRaw("
 //         ROUND(
@@ -189,7 +190,7 @@ class DashboardController extends Controller
 //                         )
 //                     )
 
-//                     FROM exchanges as buy
+        //                     FROM exchanges as buy
 //                     CROSS JOIN (
 //                         SELECT SUM(orginal_quantity) as total_sold_quantity 
 //                         FROM exchanges 
@@ -206,68 +207,77 @@ class DashboardController extends Controller
 //     ->whereDate('sell.date_time', Carbon::today())
 //     ->value('profit');
 
-    //    // Define the start and end of today
-    // $todayStart = Carbon::today()->startOfDay();
-    // $todayEnd = Carbon::today()->endOfDay();
+        //    // Define the start and end of today
+        // $todayStart = Carbon::today()->startOfDay();
+        // $todayEnd = Carbon::today()->endOfDay();
 
-    // // Query to calculate today's total sell profit
-    // $totalSellProfit = DB::table('exchanges')
-    //     ->where('exchange_type', 'sell')
-    //     ->whereBetween('date_time', [$todayStart, $todayEnd])
-    //     ->selectRaw("
-    //         SUM((quantity * rate)) AS totalSellProfit
-    //     ")
-    //     ->value('totalSellProfit');
+        // // Query to calculate today's total sell profit
+        // $totalSellProfit = DB::table('exchanges')
+        //     ->where('exchange_type', 'sell')
+        //     ->whereBetween('date_time', [$todayStart, $todayEnd])
+        //     ->selectRaw("
+        //         SUM((quantity * rate)) AS totalSellProfit
+        //     ")
+        //     ->value('totalSellProfit');
 
-    // // Query to calculate today's total buy cost
-    // $totalBuyCost = DB::table('exchanges')
-    //     ->where('exchange_type', 'buy')
-    //     ->whereBetween('date_time', [$todayStart, $todayEnd])
-    //     ->selectRaw("
-    //         SUM((orginal_quantity * rate) + npsb_fee + eft_beftn_fee) AS totalBuyCost
-    //     ")
-    //     ->value('totalBuyCost');
+        // // Query to calculate today's total buy cost
+        // $totalBuyCost = DB::table('exchanges')
+        //     ->where('exchange_type', 'buy')
+        //     ->whereBetween('date_time', [$todayStart, $todayEnd])
+        //     ->selectRaw("
+        //         SUM((orginal_quantity * rate) + npsb_fee + eft_beftn_fee) AS totalBuyCost
+        //     ")
+        //     ->value('totalBuyCost');
 
-    // // Calculate total profit for today in BDT
-    // $totalProfitTodayInBDT = $totalSellProfit - $totalBuyCost;
+        // // Calculate total profit for today in BDT
+        // $totalProfitTodayInBDT = $totalSellProfit - $totalBuyCost;
 
-    // Define the start and end of today
-    $todayStart = Carbon::today()->startOfDay();
-    $todayEnd = Carbon::today()->endOfDay();
-    $todayDate = Carbon::today()->format('Y-m-d');
+        // Define the start and end of today
+        // $todayStart = Carbon::today()->startOfDay();
+        // $todayEnd = Carbon::today()->endOfDay();
+        // $todayDate = Carbon::today()->format('Y-m-d');
 
-    // Calculate total dollars sold today and revenue from sales
-    $sellData = DB::table('exchanges')
-        ->where('exchange_type', 'sell')
-        ->whereBetween('date_time', [$todayStart, $todayEnd])
-        ->selectRaw("SUM(quantity) AS totalSoldQuantity, SUM(quantity * rate) AS totalRevenue")
-        ->first();
+        // // Calculate total dollars sold today and revenue from sales
+        // $sellData = DB::table('exchanges')
+        //     ->where('exchange_type', 'sell')
+        //     ->whereBetween('date_time', [$todayStart, $todayEnd])
+        //     ->selectRaw("SUM(quantity) AS totalSoldQuantity, SUM(quantity * rate) AS totalRevenue")
+        //     ->first();
 
-    $totalSoldQuantity = $sellData->totalSoldQuantity ?? 0;
-    $totalRevenue = $sellData->totalRevenue ?? 0;
+        // $totalSoldQuantity = $sellData->totalSoldQuantity ?? 0;
+        // $totalRevenue = $sellData->totalRevenue ?? 0;
 
-    // Calculate total dollars bought and their costs, including percent_currency_fee
-    $buyData = DB::table('exchanges')
-        ->where('exchange_type', 'buy')
-        ->selectRaw("SUM(quantity) AS totalBoughtQuantity, 
-                    SUM((quantity * rate) + npsb_fee + eft_beftn_fee ) AS totalCost")
-        ->first();
+        // // Calculate total dollars bought and their costs, including percent_currency_fee
+        // $buyData = DB::table('exchanges')
+        //     ->where('exchange_type', 'buy')
+        //     ->selectRaw("SUM(quantity) AS totalBoughtQuantity, 
+        //                 SUM((quantity * rate) + npsb_fee + eft_beftn_fee ) AS totalCost")
+        //     ->first();
 
-    $totalBoughtQuantity = $buyData->totalBoughtQuantity ?? 0;
-    $totalCost = $buyData->totalCost ?? 0;
+        // $totalBoughtQuantity = $buyData->totalBoughtQuantity ?? 0;
+        // $totalCost = $buyData->totalCost ?? 0;
 
-    // Adjusted calculation of the proportional cost of sold dollars
-    $costOfSoldDollars = 0;
-    if ($totalBoughtQuantity > 0 && $totalSoldQuantity > 0) {
-        // Calculate the proportional cost based on the sold quantity
-        $costOfSoldDollars = ($totalSoldQuantity / $totalBoughtQuantity) * $totalCost;
-    }
+        // // Adjusted calculation of the proportional cost of sold dollars
+        // $costOfSoldDollars = 0;
+        // if ($totalBoughtQuantity > 0 && $totalSoldQuantity > 0) {
+        //     // Calculate the proportional cost based on the sold quantity
+        //     $costOfSoldDollars = ($totalSoldQuantity / $totalBoughtQuantity) * $totalCost;
+        // }
 
-    // Calculate the profit
-    $totalProfitTodayInBDT = $totalRevenue - $costOfSoldDollars;
-    $totalProfitTodayInBDTFormatted = number_format($totalProfitTodayInBDT, 2);
+        // // Calculate the profit
+        // $totalProfitTodayInBDT = $totalRevenue - $costOfSoldDollars;
+
+        // $totalProfitTodayInBDTFormatted = Exchange::whereDate('created_at', now())
+        //     ->selectRaw('SUM(total_amount - (quantity * cost_per_unit)) as daily_profit')
+        //     ->first();
+
+        $totalProfitTodayInBDTFormatted = Exchange::whereDate('created_at', now())
+        ->sum('profit');
+    
         
-    $totalBankBalance = Bank::sum('balance');
+        // $totalProfitTodayInBDTFormatted = number_format($dailyProfits, 2);
+
+        $totalBankBalance = Bank::sum('balance');
 
         $amountDueToSellersToday = Exchange::where('exchange_type', 'sell')
             ->whereDate('created_at', $today)

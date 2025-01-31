@@ -120,7 +120,7 @@
                             </div>
 
                             <!-- Bank Transaction Fees -->
-                            <div id="bank_transaction_fees" class="">
+                            <div id="bank_transaction_fees" class="hidden">
                                 <label for="bank_transaction_fee" class="block text-gray-700 dark:text-gray-300">Bank
                                     Transaction Fee:</label>
                                 <select name="bank_transaction_fee" id="bank_transaction_fee"
@@ -131,7 +131,6 @@
                                 </select>
                             </div>
 
-                            <!-- Currency Transaction Fees -->
                             <!-- Currency Transaction Fees -->
                             <div id="currency_transaction_fees" class="">
                                 <label for="currency_transaction_fee_input"
@@ -488,8 +487,6 @@
                     });
             }
         });
-
-
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {

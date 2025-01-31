@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Facades\Log;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -16,20 +17,24 @@ class Exchange extends Model
         'seller_name',
         'buyer_name',
         'currency_id',
-        'orginal_quantity', // Full buying or salling dollar
-        'quantity', // buying or salling dollar after currency fixed or percent fee 
+        'orginal_quantity', // Full buying or selling dollar
+        'quantity', // Original available buying or selling dollar after currency fixed or percent fee
         'rate',
         'total_amount',
         'paid_to_seller_bdt',
         'due_amount',
+        'profit', // Profit field for sell exchanges
         'bank_id',
         'status',
         'user_id',
         'payment_status',
-        'npsb_fee',  // NPSB Fee for bank
+        'npsb_fee', // NPSB Fee for bank
         'eft_beftn_fee', // EFT/BEFTN Fee for bank
         'fixed_currency_fee', // Fixed Currency Fee for dollar
         'percent_currency_fee', // Percentage Currency Fee for dollar
+        'cost_per_unit', // Cost of currency per unit for FIFO
+        'sell_price_per_unit', // Sell price per unit for FIFO
+        'sold_quantity', // Quantity sold in FIFO
     ];
 
     /**
@@ -44,41 +49,88 @@ class Exchange extends Model
             // Call the method to create bank transaction based on exchange type
             $exchange->createBankTransaction();
 
-                 // Calculate due amount and payment status based on paid_to_seller_bdt
+            // Calculate due amount and payment status based on paid_to_seller_bdt
             $exchange->updatePaymentStatus();
         });
         
         static::updating(function ($exchange) {
             if ($exchange->isDirty('paid_to_seller_bdt')) {
-                $exchange->updatePaymentStatus();
+                $exchange->updatePaymentStatus(); // Update attributes
+                // Save the model explicitly here
+                $exchange->saveQuietly(); // Prevent triggering the `updating` event again
             }
         });
 
         static::deleting(function ($exchange) {
-            // Call the methods to update currency reserve and bank balance after deletion
 
+            // Restore inventory quantities in reverse FIFO (LIFO) order
+            $remainingQuantity = $exchange->quantity;
+
+            // Fetch inventory records associated with this exchange's currency
+            $inventory = CurrencyInventory::where('currency_id', $exchange->currency_id)
+                ->orderBy('purchase_date', 'desc') // Reverse order to restore correctly
+                ->get();
+
+            foreach ($inventory as $stock) {
+                if ($remainingQuantity <= 0) break;
+            
+                $restoreQuantity = min($remainingQuantity, $stock->original_quantity - $stock->quantity);
+                
+                // Log::info("Stock ID: {$stock->id}, Original Quantity: {$stock->original_quantity}, Current Quantity: {$stock->quantity}, Restore Quantity: {$restoreQuantity}");
+            
+                if ($restoreQuantity > 0) {
+                    $stock->quantity += $restoreQuantity;
+                    $stock->save();
+                    $remainingQuantity -= $restoreQuantity;
+                }
+            }
+            if ($exchange->exchange_type === 'buy') {
+                $exchange->currencyInventories()->delete();
+            }
+            // Call the methods to update currency reserve and bank balance after deletion
+            $exchange->updateCurrencyReserve();
+            $exchange->updateBankBalance();
         });
     }
-    
     
     /**
      * Update due amount and payment status.
      */
+    // public function updatePaymentStatus()
+    // {
+    //     if ($this->paid_to_seller_bdt >= $this->total_amount) {
+    //         $this->due_amount = 0;
+    //         $this->payment_status = 'Paid';
+    //     } elseif ($this->paid_to_seller_bdt > 0) {
+    //         $this->due_amount = $this->total_amount - $this->paid_to_seller_bdt;
+    //         $this->payment_status = 'Partial';
+    //     } else {
+    //         $this->due_amount = $this->total_amount;
+    //         $this->payment_status = 'Due';
+    //     }
+
+    //     // Save the updated payment status and due amount
+    //     $this->save();
+    // }
+
     public function updatePaymentStatus()
     {
+        $this->due_amount = max(0, $this->total_amount - $this->paid_to_seller_bdt);
+
         if ($this->paid_to_seller_bdt >= $this->total_amount) {
-            $this->due_amount = 0;
             $this->payment_status = 'Paid';
         } elseif ($this->paid_to_seller_bdt > 0) {
-            $this->due_amount = $this->total_amount - $this->paid_to_seller_bdt;
             $this->payment_status = 'Partial';
         } else {
-            $this->due_amount = $this->total_amount;
             $this->payment_status = 'Due';
         }
+
+        // Do NOT call $this->save() here to avoid recursion
     }
 
-
+    /**
+     * Update the currency reserve based on transactions.
+     */
     public function updateCurrencyReserve()
     {
         // Fetch the currency associated with the transaction
@@ -106,6 +158,10 @@ class Exchange extends Model
             $currency->save();
         }
     }
+
+    /**
+     * Update the bank balance based on transactions.
+     */
     public function updateBankBalance()
     {
         // Fetch the bank associated with the transaction
@@ -134,7 +190,6 @@ class Exchange extends Model
         }
     }
 
-
     /**
      * Create a bank transaction.
      */
@@ -142,25 +197,27 @@ class Exchange extends Model
     {
         // Determine the total amount of the exchange
         $totalAmount = $this->quantity * $this->rate;
-         // Initialize npsb variable to 0
+
+        // Initialize NPSB variable to 0
         $npsb = 0;
 
-        // Check if either the bank transaction fee or npsb_fee is greater than 0
-        if ($this->npsb_fee > 0 || $this->bank_transaction_fee > 0) {
-            $npsb = 1; // Set npsb to 1 if any fee is greater than 0
+        // Check if either the bank transaction fee or NPSB fee is greater than 0
+        if ($this->npsb_fee > 0 || $this->eft_beftn_fee > 0) {
+            $npsb = 1; // Set NPSB to 1 if any fee is greater than 0
         }
+
         if ($this->exchange_type === 'buy') {
             // Create a Debit transaction if the exchange type is 'buy'
             BankTransaction::create([
                 'bank_id' => $this->bank_id,
                 'exchange_id' => $this->id,
-                'transaction_type' => 'debit', // or 'credit'
+                'transaction_type' => 'debit',
                 'amount' => $this->paid_to_seller_bdt,
                 'buyer_or_seller_user_id' => $this->user_id,
                 'transaction_date' => now(),
-                'transaction_description' => 'Buy Exchange', // or 'Sell Exchange'
+                'transaction_description' => 'Buy Exchange',
                 'transaction_status' => 'completed',
-                'transaction_purpose' => 'dollar_buy', // or 'dollar_sale'
+                'transaction_purpose' => 'dollar_buy',
                 'created_by_user_id' => auth()->id(),
                 'updated_by_user_id' => null,
                 'npsb' => $npsb,
@@ -170,13 +227,13 @@ class Exchange extends Model
             BankTransaction::create([
                 'bank_id' => $this->bank_id,
                 'exchange_id' => $this->id,
-                'transaction_type' => 'credit', // or 'credit'
+                'transaction_type' => 'credit',
                 'amount' => $this->paid_to_seller_bdt,
                 'buyer_or_seller_user_id' => $this->user_id,
                 'transaction_date' => now(),
-                'transaction_description' => 'Sell Exchange', // or 'Sell Exchange'
+                'transaction_description' => 'Sell Exchange',
                 'transaction_status' => 'completed',
-                'transaction_purpose' => 'dollar_sale', // or 'dollar_sale'
+                'transaction_purpose' => 'dollar_sale',
                 'created_by_user_id' => auth()->id(),
                 'updated_by_user_id' => null,
                 'npsb' => $npsb,
@@ -185,25 +242,22 @@ class Exchange extends Model
     }
 
     /**
-     * Update the reserve column in the currencies table.
+     * Create a currency transaction.
      */
     public function createCurrencyTransaction()
     {
-        // Determine the total amount of the exchange
-        $totalAmount = $this->quantity * $this->rate;
-
         if ($this->exchange_type === 'buy') {
             // Create a Credit currency transaction if the exchange type is 'buy'
             CurrencyTransaction::create([
                 'currency_id' => $this->currency_id,
                 'exchange_id' => $this->id,
                 'transaction_type' => 'credit',
-                'amount' => $this->quantity,  // The total amount of the exchange
-                'user_id' => $this->user_id,  // User who made the exchange
+                'amount' => $this->quantity,
+                'user_id' => $this->user_id,
                 'transaction_date' => now(),
                 'transaction_description' => 'Buy Exchange',
-                'transaction_status' => 'completed',  // Set the transaction status
-                'transaction_purpose' => 'dollar_buy',  // Can be adjusted according to the purpose
+                'transaction_status' => 'completed',
+                'transaction_purpose' => 'dollar_buy',
                 'created_by' => auth()->id(),
             ]);
         } elseif ($this->exchange_type === 'sell') {
@@ -212,12 +266,12 @@ class Exchange extends Model
                 'currency_id' => $this->currency_id,
                 'exchange_id' => $this->id,
                 'transaction_type' => 'debit',
-                'amount' => $this->quantity,  // The total amount of the exchange
-                'user_id' => $this->user_id,  // User who made the exchange
+                'amount' => $this->quantity,
+                'user_id' => $this->user_id,
                 'transaction_date' => now(),
                 'transaction_description' => 'Sell Exchange',
-                'transaction_status' => 'completed',  // Set the transaction status
-                'transaction_purpose' => 'dollar_sale',  // Can be adjusted according to the purpose
+                'transaction_status' => 'completed',
+                'transaction_purpose' => 'dollar_sale',
                 'created_by' => auth()->id(),
             ]);
         }
@@ -263,5 +317,10 @@ class Exchange extends Model
     public function bankTransactions()
     {
         return $this->hasMany(BankTransaction::class, 'exchange_id');
+    }
+
+    public function currencyInventories()
+    {
+        return $this->hasMany(CurrencyInventory::class, 'exchange_id');
     }
 }
