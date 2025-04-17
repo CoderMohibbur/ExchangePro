@@ -203,9 +203,11 @@ class ExchangeController extends Controller
 
     //     return redirect()->route('exchanges.index')->with('success', 'Exchange created successfully.');
     // }
+
+    
     public function buyDollarStore(Request $request)
     {
-        Log::info('buyDollarStore: Request received', $request->all());
+        // Log::info('buyDollarStore: Request received', $request->all());
         // Validate incoming request data
         $validated = $request->validate([
             'exchange_type' => 'required|in:buy,sell',
