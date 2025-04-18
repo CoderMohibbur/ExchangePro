@@ -248,11 +248,19 @@ class ExchangeController extends Controller
         }
 
         try {
+            $currencyId = $validated['currency_id'];
+            if (($validated['bank_transaction_fee'] ?? 0) > 0 || ($validated['npsb_fee'] ?? 0) > 0) {
+                $usdtCurrency = Currency::where('code', 'usdt')->first();
+                if ($usdtCurrency) {
+                    $currencyId = $usdtCurrency->id;
+                }
+            }
             // Create the exchange with all required fields, including fees
             $exchange = Exchange::create([
                 'exchange_type' => $exchange_type,
                 'user_id' => $validated['user_id'],
-                'currency_id' => $validated['currency_id'],
+                // 'currency_id' => $validated['currency_id'],
+                'currency_id' => $currencyId,
                 'orginal_quantity' => $validated['quantity'],
                 'quantity' => $adjustedQuantity, // Use adjusted quantity
                 'rate' => $validated['rate'],
@@ -275,7 +283,8 @@ class ExchangeController extends Controller
         // Record the purchase in the currency_inventories table (FIFO inventory tracking)
         if ($exchange_type === 'buy') {
             CurrencyInventory::create([
-                'currency_id' => $validated['currency_id'],
+                // 'currency_id' => $validated['currency_id'],
+                'currency_id' => $currencyId,
                 'exchange_id' => $exchange->id, // Reference the newly created exchange
                 'quantity' => $adjustedQuantity, // The original quantity
                 'original_quantity' => $adjustedQuantity, // Save original quantity
