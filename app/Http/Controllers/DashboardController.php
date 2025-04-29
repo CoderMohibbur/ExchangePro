@@ -20,10 +20,13 @@ class DashboardController extends Controller
         // 2. All Time USD Buy
         $totalUsdBought = Exchange::where('exchange_type', 'buy')->sum('quantity');
 
+        // // 3. All Time Profit in BDT
+        // $totalSellAmount = Exchange::where('exchange_type', 'sell')->sum('total_amount');
+        // $totalBuyAmount = Exchange::where('exchange_type', 'buy')->sum('total_amount');
+        // $totalProfitInBDT = $totalSellAmount - $totalBuyAmount;
+
         // 3. All Time Profit in BDT
-        $totalSellAmount = Exchange::where('exchange_type', 'sell')->sum('total_amount');
-        $totalBuyAmount = Exchange::where('exchange_type', 'buy')->sum('total_amount');
-        $totalProfitInBDT = $totalSellAmount - $totalBuyAmount;
+        $totalProfitInBDT = Exchange::sum('profit');
 
         // 4. Total Due to Sellers
         $totalDueToSellers = Exchange::where('payment_status', 'Due')->sum('due_amount');
